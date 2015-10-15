@@ -1,0 +1,9 @@
+grammar org.xtext.nordakademie.evaluation.Evaluation with org.eclipse.xtext.common.Terminals
+
+generate evaluation "http://www.xtext.org/nordakademie/evaluation/Evaluation"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';
