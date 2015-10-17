@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.xtext.nordakademie.evaluation/src-gen" editDirectory="/org.xtext.nordakademie.evaluation.edit/src"
+    editorDirectory="/org.xtext.nordakademie.evaluation.editor/src" modelPluginID="org.xtext.nordakademie.evaluation"
+    forceOverwrite="true" modelName="Evaluation" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="6.0" copyrightFields="false" editPluginID="org.xtext.nordakademie.evaluation.edit"
+    editorPluginID="org.xtext.nordakademie.evaluation.editor" runtimeVersion="2.11">
+  <genPackages prefix="Evaluation" basePackage="org.xtext.nordakademie.evaluation"
+      disposableProviderFactory="true" fileExtensions="evaluation" ecorePackage="Evaluation.ecore#/">
+    <genClasses ecoreClass="Evaluation.ecore#//Survey">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Survey/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Survey/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Survey/greeting"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Survey/duration"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Evaluation.ecore#//Survey/questions"/>
+    </genClasses>
+    <genClasses ecoreClass="Evaluation.ecore#//Question">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Question/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Question/text"/>
+    </genClasses>
+    <genClasses ecoreClass="Evaluation.ecore#//FreetextQuestion"/>
+    <genClasses ecoreClass="Evaluation.ecore#//Selection">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Evaluation.ecore#//Selection/choices"/>
+    </genClasses>
+    <genClasses ecoreClass="Evaluation.ecore#//Choice">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Choice/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Choice/text"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

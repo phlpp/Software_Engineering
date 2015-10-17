@@ -2,8 +2,29 @@ grammar org.xtext.nordakademie.evaluation.Evaluation with org.eclipse.xtext.comm
 
 generate evaluation "http://www.xtext.org/nordakademie/evaluation/Evaluation"
 
-Model:
-	greetings+=Greeting*;
+Survey:
+	'survey'
+	name=ID
+	title=STRING
+	(greeting=STRING)?
+	//total time estimated for survey: tbd
+	(duration=STRING)?
+	questions+=Question*;
 	
-Greeting:
-	'Hello' name=ID '!';
+Question:
+	FreetextQuestion | Selection 
+//	tbd | RatingQuestion | ChartQuestion 	
+;
+
+FreetextQuestion:
+	'text' name=ID text=STRING
+;
+
+Selection:
+	'select' name=ID text=STRING '(' choices+=Choice* ')'	
+;
+
+Choice:
+	name=ID text=STRING	
+;
+
