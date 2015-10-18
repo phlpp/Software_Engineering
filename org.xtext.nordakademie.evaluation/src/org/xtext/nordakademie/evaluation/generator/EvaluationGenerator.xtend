@@ -19,10 +19,15 @@ import org.xtext.nordakademie.evaluation.evaluation.Page
 class EvaluationGenerator implements IGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
-		fsa.generateFile(resource.simpleName + '.html', resource.contents.filter(Survey).head.toHtml)
+		//first element of ecore-tree (survey)
+		val survey = resource.contents.head as Survey
+		//multiple pages
+		for(page: survey.pages) {
+				fsa.generateFile(page.name + '.html', toHtml(survey, page))
+			}
 	}
 
-	def toHtml(Survey survey) '''
+	def toHtml(Survey survey, Page page) '''
 		
 		<html>
 			<head>
@@ -31,7 +36,7 @@ class EvaluationGenerator implements IGenerator {
 			<body>
 				<h1>«survey.title»</h1>
 				<p>«survey.greeting»</p>
-								«FOR question : survey.questions»
+								«FOR question : page.questions»
 									«select(question)»
 								«ENDFOR»	
 			</body>
@@ -59,8 +64,4 @@ class EvaluationGenerator implements IGenerator {
 			«ENDFOR»	
 		</p>		
 	'''
-	
-	def getSimpleName(Resource resource) {
-		resource.URI.trimFileExtension.lastSegment
-	}
 }
