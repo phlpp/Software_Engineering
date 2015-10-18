@@ -12,15 +12,16 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Question">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="question" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FreetextQuestion" eSuperTypes="#//Question"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Freetext" eSuperTypes="#//Question"/>
   <eClassifiers xsi:type="ecore:EClass" name="Selection" eSuperTypes="#//Question">
     <eStructuralFeatures xsi:type="ecore:EReference" name="choices" upperBound="-1"
         eType="#//Choice" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Choice">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="freetext" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bulletPoint" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

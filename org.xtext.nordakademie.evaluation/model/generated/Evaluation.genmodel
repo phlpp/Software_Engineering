@@ -16,15 +16,16 @@
     </genClasses>
     <genClasses ecoreClass="Evaluation.ecore#//Question">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Question/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Question/text"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Question/question"/>
     </genClasses>
-    <genClasses ecoreClass="Evaluation.ecore#//FreetextQuestion"/>
+    <genClasses ecoreClass="Evaluation.ecore#//Freetext"/>
     <genClasses ecoreClass="Evaluation.ecore#//Selection">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Evaluation.ecore#//Selection/choices"/>
     </genClasses>
     <genClasses ecoreClass="Evaluation.ecore#//Choice">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Choice/freetext"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Choice/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Choice/text"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Choice/bulletPoint"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

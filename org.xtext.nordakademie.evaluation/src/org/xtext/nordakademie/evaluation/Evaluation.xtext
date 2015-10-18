@@ -12,19 +12,19 @@ Survey:
 	questions+=Question*;
 	
 Question:
-	FreetextQuestion | Selection 
-//	tbd | RatingQuestion | ChartQuestion 	
+	Freetext | Selection 
+//	tbd | Rating | Chart | Calender	
 ;
 
-FreetextQuestion:
-	'text' name=ID text=STRING
+Freetext:
+	'freetext' name=ID question=STRING
 ;
 
 Selection:
-	'select' name=ID text=STRING '(' choices+=Choice* ')'	
+	'select' name=ID question=STRING '(' choices+=Choice* ')'	
 ;
 
 Choice:
-	name=ID text=STRING	
+	(freetext?='freetext')? name=ID bulletPoint=STRING	
 ;
 

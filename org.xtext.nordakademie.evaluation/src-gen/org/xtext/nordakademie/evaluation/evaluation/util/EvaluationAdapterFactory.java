@@ -85,9 +85,9 @@ public class EvaluationAdapterFactory extends AdapterFactoryImpl
         return createQuestionAdapter();
       }
       @Override
-      public Adapter caseFreetextQuestion(FreetextQuestion object)
+      public Adapter caseFreetext(Freetext object)
       {
-        return createFreetextQuestionAdapter();
+        return createFreetextAdapter();
       }
       @Override
       public Adapter caseSelection(Selection object)
@@ -152,16 +152,16 @@ public class EvaluationAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.nordakademie.evaluation.evaluation.FreetextQuestion <em>Freetext Question</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.nordakademie.evaluation.evaluation.Freetext <em>Freetext</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.nordakademie.evaluation.evaluation.FreetextQuestion
+   * @see org.xtext.nordakademie.evaluation.evaluation.Freetext
    * @generated
    */
-  public Adapter createFreetextQuestionAdapter()
+  public Adapter createFreetextAdapter()
   {
     return null;
   }

@@ -66,7 +66,7 @@ public class EvaluationFactoryImpl extends EFactoryImpl implements EvaluationFac
     {
       case EvaluationPackage.SURVEY: return createSurvey();
       case EvaluationPackage.QUESTION: return createQuestion();
-      case EvaluationPackage.FREETEXT_QUESTION: return createFreetextQuestion();
+      case EvaluationPackage.FREETEXT: return createFreetext();
       case EvaluationPackage.SELECTION: return createSelection();
       case EvaluationPackage.CHOICE: return createChoice();
       default:
@@ -101,10 +101,10 @@ public class EvaluationFactoryImpl extends EFactoryImpl implements EvaluationFac
    * <!-- end-user-doc -->
    * @generated
    */
-  public FreetextQuestion createFreetextQuestion()
+  public Freetext createFreetext()
   {
-    FreetextQuestionImpl freetextQuestion = new FreetextQuestionImpl();
-    return freetextQuestion;
+    FreetextImpl freetext = new FreetextImpl();
+    return freetext;
   }
 
   /**

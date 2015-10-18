@@ -5,23 +5,23 @@ package org.xtext.nordakademie.evaluation.evaluation.impl;
 import org.eclipse.emf.ecore.EClass;
 
 import org.xtext.nordakademie.evaluation.evaluation.EvaluationPackage;
-import org.xtext.nordakademie.evaluation.evaluation.FreetextQuestion;
+import org.xtext.nordakademie.evaluation.evaluation.Freetext;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Freetext Question</b></em>'.
+ * An implementation of the model object '<em><b>Freetext</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class FreetextQuestionImpl extends QuestionImpl implements FreetextQuestion
+public class FreetextImpl extends QuestionImpl implements Freetext
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected FreetextQuestionImpl()
+  protected FreetextImpl()
   {
     super();
   }
@@ -34,7 +34,7 @@ public class FreetextQuestionImpl extends QuestionImpl implements FreetextQuesti
   @Override
   protected EClass eStaticClass()
   {
-    return EvaluationPackage.Literals.FREETEXT_QUESTION;
+    return EvaluationPackage.Literals.FREETEXT;
   }
 
-} //FreetextQuestionImpl
+} //FreetextImpl

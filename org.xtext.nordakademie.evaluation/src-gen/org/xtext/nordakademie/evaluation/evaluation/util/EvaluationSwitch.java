@@ -86,11 +86,11 @@ public class EvaluationSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case EvaluationPackage.FREETEXT_QUESTION:
+      case EvaluationPackage.FREETEXT:
       {
-        FreetextQuestion freetextQuestion = (FreetextQuestion)theEObject;
-        T result = caseFreetextQuestion(freetextQuestion);
-        if (result == null) result = caseQuestion(freetextQuestion);
+        Freetext freetext = (Freetext)theEObject;
+        T result = caseFreetext(freetext);
+        if (result == null) result = caseQuestion(freetext);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -146,17 +146,17 @@ public class EvaluationSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Freetext Question</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Freetext</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Freetext Question</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Freetext</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseFreetextQuestion(FreetextQuestion object)
+  public T caseFreetext(Freetext object)
   {
     return null;
   }

@@ -7,8 +7,8 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.xtext.nordakademie.evaluation.evaluation.Survey
-import org.xtext.nordakademie.evaluation.evaluation.FreetextQuestion
 import org.xtext.nordakademie.evaluation.evaluation.Selection
+import org.xtext.nordakademie.evaluation.evaluation.Freetext
 
 /**
  * Generates code from your model files on save.
@@ -36,21 +36,27 @@ class EvaluationGenerator implements IGenerator {
 			</body>
 		</html>	
 	'''
-	//Dispatch methods make a set of overloaded methods polymorphic
-	def dispatch select(FreetextQuestion question) '''
-	<p>
-			<label>«question.text»</label><br>
-			<input type="text" name="«question.name»">
-			
-	</p>
+
+	// Dispatch methods make a set of overloaded methods polymorphic
+	def dispatch select(Freetext question) '''
+		<p>
+				<label>«question.question»</label><br>
+				<input type="text" name="«question.name»">
+				
+		</p>
 	'''
+
 	def dispatch select(Selection question) '''
-	<p>
-		<label>«question.text»</label><br>
-		«FOR choice: question.choices»
-		<input type="checkbox" name="«question.name»" value="«choice.name»"/>«choice.text»<br>
-		«ENDFOR»	
-	</p>		
+		<p>
+			<label>«question.question»</label><br>
+			«FOR choice : question.choices»
+				<input type="checkbox" name="«question.name»" value="«choice.name»"/>«choice.bulletPoint»
+				«IF choice.freetext»
+					&nbsp;<input type="text" name="«choice.name»">
+				«ENDIF»					
+				<br>
+			«ENDFOR»	
+		</p>		
 	'''
 	
 	def getSimpleName(Resource resource) {

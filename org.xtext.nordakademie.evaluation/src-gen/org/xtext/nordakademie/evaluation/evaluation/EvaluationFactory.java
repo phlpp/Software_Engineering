@@ -41,13 +41,13 @@ public interface EvaluationFactory extends EFactory
   Question createQuestion();
 
   /**
-   * Returns a new object of class '<em>Freetext Question</em>'.
+   * Returns a new object of class '<em>Freetext</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Freetext Question</em>'.
+   * @return a new object of class '<em>Freetext</em>'.
    * @generated
    */
-  FreetextQuestion createFreetextQuestion();
+  Freetext createFreetext();
 
   /**
    * Returns a new object of class '<em>Selection</em>'.

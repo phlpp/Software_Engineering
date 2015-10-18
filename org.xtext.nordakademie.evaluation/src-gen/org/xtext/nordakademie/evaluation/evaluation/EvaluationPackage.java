@@ -140,13 +140,13 @@ public interface EvaluationPackage extends EPackage
   int QUESTION__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Text</b></em>' attribute.
+   * The feature id for the '<em><b>Question</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int QUESTION__TEXT = 1;
+  int QUESTION__QUESTION = 1;
 
   /**
    * The number of structural features of the '<em>Question</em>' class.
@@ -158,14 +158,14 @@ public interface EvaluationPackage extends EPackage
   int QUESTION_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link org.xtext.nordakademie.evaluation.evaluation.impl.FreetextQuestionImpl <em>Freetext Question</em>}' class.
+   * The meta object id for the '{@link org.xtext.nordakademie.evaluation.evaluation.impl.FreetextImpl <em>Freetext</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.nordakademie.evaluation.evaluation.impl.FreetextQuestionImpl
-   * @see org.xtext.nordakademie.evaluation.evaluation.impl.EvaluationPackageImpl#getFreetextQuestion()
+   * @see org.xtext.nordakademie.evaluation.evaluation.impl.FreetextImpl
+   * @see org.xtext.nordakademie.evaluation.evaluation.impl.EvaluationPackageImpl#getFreetext()
    * @generated
    */
-  int FREETEXT_QUESTION = 2;
+  int FREETEXT = 2;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -174,25 +174,25 @@ public interface EvaluationPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FREETEXT_QUESTION__NAME = QUESTION__NAME;
+  int FREETEXT__NAME = QUESTION__NAME;
 
   /**
-   * The feature id for the '<em><b>Text</b></em>' attribute.
+   * The feature id for the '<em><b>Question</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FREETEXT_QUESTION__TEXT = QUESTION__TEXT;
+  int FREETEXT__QUESTION = QUESTION__QUESTION;
 
   /**
-   * The number of structural features of the '<em>Freetext Question</em>' class.
+   * The number of structural features of the '<em>Freetext</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FREETEXT_QUESTION_FEATURE_COUNT = QUESTION_FEATURE_COUNT + 0;
+  int FREETEXT_FEATURE_COUNT = QUESTION_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.xtext.nordakademie.evaluation.evaluation.impl.SelectionImpl <em>Selection</em>}' class.
@@ -214,13 +214,13 @@ public interface EvaluationPackage extends EPackage
   int SELECTION__NAME = QUESTION__NAME;
 
   /**
-   * The feature id for the '<em><b>Text</b></em>' attribute.
+   * The feature id for the '<em><b>Question</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SELECTION__TEXT = QUESTION__TEXT;
+  int SELECTION__QUESTION = QUESTION__QUESTION;
 
   /**
    * The feature id for the '<em><b>Choices</b></em>' containment reference list.
@@ -251,22 +251,31 @@ public interface EvaluationPackage extends EPackage
   int CHOICE = 4;
 
   /**
+   * The feature id for the '<em><b>Freetext</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHOICE__FREETEXT = 0;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CHOICE__NAME = 0;
+  int CHOICE__NAME = 1;
 
   /**
-   * The feature id for the '<em><b>Text</b></em>' attribute.
+   * The feature id for the '<em><b>Bullet Point</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CHOICE__TEXT = 1;
+  int CHOICE__BULLET_POINT = 2;
 
   /**
    * The number of structural features of the '<em>Choice</em>' class.
@@ -275,7 +284,7 @@ public interface EvaluationPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CHOICE_FEATURE_COUNT = 2;
+  int CHOICE_FEATURE_COUNT = 3;
 
 
   /**
@@ -365,25 +374,25 @@ public interface EvaluationPackage extends EPackage
   EAttribute getQuestion_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.nordakademie.evaluation.evaluation.Question#getText <em>Text</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.nordakademie.evaluation.evaluation.Question#getQuestion <em>Question</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Text</em>'.
-   * @see org.xtext.nordakademie.evaluation.evaluation.Question#getText()
+   * @return the meta object for the attribute '<em>Question</em>'.
+   * @see org.xtext.nordakademie.evaluation.evaluation.Question#getQuestion()
    * @see #getQuestion()
    * @generated
    */
-  EAttribute getQuestion_Text();
+  EAttribute getQuestion_Question();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.nordakademie.evaluation.evaluation.FreetextQuestion <em>Freetext Question</em>}'.
+   * Returns the meta object for class '{@link org.xtext.nordakademie.evaluation.evaluation.Freetext <em>Freetext</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Freetext Question</em>'.
-   * @see org.xtext.nordakademie.evaluation.evaluation.FreetextQuestion
+   * @return the meta object for class '<em>Freetext</em>'.
+   * @see org.xtext.nordakademie.evaluation.evaluation.Freetext
    * @generated
    */
-  EClass getFreetextQuestion();
+  EClass getFreetext();
 
   /**
    * Returns the meta object for class '{@link org.xtext.nordakademie.evaluation.evaluation.Selection <em>Selection</em>}'.
@@ -417,6 +426,17 @@ public interface EvaluationPackage extends EPackage
   EClass getChoice();
 
   /**
+   * Returns the meta object for the attribute '{@link org.xtext.nordakademie.evaluation.evaluation.Choice#isFreetext <em>Freetext</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Freetext</em>'.
+   * @see org.xtext.nordakademie.evaluation.evaluation.Choice#isFreetext()
+   * @see #getChoice()
+   * @generated
+   */
+  EAttribute getChoice_Freetext();
+
+  /**
    * Returns the meta object for the attribute '{@link org.xtext.nordakademie.evaluation.evaluation.Choice#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -428,15 +448,15 @@ public interface EvaluationPackage extends EPackage
   EAttribute getChoice_Name();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.nordakademie.evaluation.evaluation.Choice#getText <em>Text</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.nordakademie.evaluation.evaluation.Choice#getBulletPoint <em>Bullet Point</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Text</em>'.
-   * @see org.xtext.nordakademie.evaluation.evaluation.Choice#getText()
+   * @return the meta object for the attribute '<em>Bullet Point</em>'.
+   * @see org.xtext.nordakademie.evaluation.evaluation.Choice#getBulletPoint()
    * @see #getChoice()
    * @generated
    */
-  EAttribute getChoice_Text();
+  EAttribute getChoice_BulletPoint();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -530,22 +550,22 @@ public interface EvaluationPackage extends EPackage
     EAttribute QUESTION__NAME = eINSTANCE.getQuestion_Name();
 
     /**
-     * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Question</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute QUESTION__TEXT = eINSTANCE.getQuestion_Text();
+    EAttribute QUESTION__QUESTION = eINSTANCE.getQuestion_Question();
 
     /**
-     * The meta object literal for the '{@link org.xtext.nordakademie.evaluation.evaluation.impl.FreetextQuestionImpl <em>Freetext Question</em>}' class.
+     * The meta object literal for the '{@link org.xtext.nordakademie.evaluation.evaluation.impl.FreetextImpl <em>Freetext</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.nordakademie.evaluation.evaluation.impl.FreetextQuestionImpl
-     * @see org.xtext.nordakademie.evaluation.evaluation.impl.EvaluationPackageImpl#getFreetextQuestion()
+     * @see org.xtext.nordakademie.evaluation.evaluation.impl.FreetextImpl
+     * @see org.xtext.nordakademie.evaluation.evaluation.impl.EvaluationPackageImpl#getFreetext()
      * @generated
      */
-    EClass FREETEXT_QUESTION = eINSTANCE.getFreetextQuestion();
+    EClass FREETEXT = eINSTANCE.getFreetext();
 
     /**
      * The meta object literal for the '{@link org.xtext.nordakademie.evaluation.evaluation.impl.SelectionImpl <em>Selection</em>}' class.
@@ -576,6 +596,14 @@ public interface EvaluationPackage extends EPackage
     EClass CHOICE = eINSTANCE.getChoice();
 
     /**
+     * The meta object literal for the '<em><b>Freetext</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute CHOICE__FREETEXT = eINSTANCE.getChoice_Freetext();
+
+    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -584,12 +612,12 @@ public interface EvaluationPackage extends EPackage
     EAttribute CHOICE__NAME = eINSTANCE.getChoice_Name();
 
     /**
-     * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Bullet Point</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute CHOICE__TEXT = eINSTANCE.getChoice_Text();
+    EAttribute CHOICE__BULLET_POINT = eINSTANCE.getChoice_BulletPoint();
 
   }
 

@@ -21,7 +21,7 @@ import org.xtext.nordakademie.evaluation.evaluation.Question;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.impl.QuestionImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.impl.QuestionImpl#getText <em>Text</em>}</li>
+ *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.impl.QuestionImpl#getQuestion <em>Question</em>}</li>
  * </ul>
  *
  * @generated
@@ -49,24 +49,24 @@ public class QuestionImpl extends MinimalEObjectImpl.Container implements Questi
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getText() <em>Text</em>}' attribute.
+   * The default value of the '{@link #getQuestion() <em>Question</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getText()
+   * @see #getQuestion()
    * @generated
    * @ordered
    */
-  protected static final String TEXT_EDEFAULT = null;
+  protected static final String QUESTION_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getText() <em>Text</em>}' attribute.
+   * The cached value of the '{@link #getQuestion() <em>Question</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getText()
+   * @see #getQuestion()
    * @generated
    * @ordered
    */
-  protected String text = TEXT_EDEFAULT;
+  protected String question = QUESTION_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -117,9 +117,9 @@ public class QuestionImpl extends MinimalEObjectImpl.Container implements Questi
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getText()
+  public String getQuestion()
   {
-    return text;
+    return question;
   }
 
   /**
@@ -127,12 +127,12 @@ public class QuestionImpl extends MinimalEObjectImpl.Container implements Questi
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setText(String newText)
+  public void setQuestion(String newQuestion)
   {
-    String oldText = text;
-    text = newText;
+    String oldQuestion = question;
+    question = newQuestion;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EvaluationPackage.QUESTION__TEXT, oldText, text));
+      eNotify(new ENotificationImpl(this, Notification.SET, EvaluationPackage.QUESTION__QUESTION, oldQuestion, question));
   }
 
   /**
@@ -147,8 +147,8 @@ public class QuestionImpl extends MinimalEObjectImpl.Container implements Questi
     {
       case EvaluationPackage.QUESTION__NAME:
         return getName();
-      case EvaluationPackage.QUESTION__TEXT:
-        return getText();
+      case EvaluationPackage.QUESTION__QUESTION:
+        return getQuestion();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -166,8 +166,8 @@ public class QuestionImpl extends MinimalEObjectImpl.Container implements Questi
       case EvaluationPackage.QUESTION__NAME:
         setName((String)newValue);
         return;
-      case EvaluationPackage.QUESTION__TEXT:
-        setText((String)newValue);
+      case EvaluationPackage.QUESTION__QUESTION:
+        setQuestion((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -186,8 +186,8 @@ public class QuestionImpl extends MinimalEObjectImpl.Container implements Questi
       case EvaluationPackage.QUESTION__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case EvaluationPackage.QUESTION__TEXT:
-        setText(TEXT_EDEFAULT);
+      case EvaluationPackage.QUESTION__QUESTION:
+        setQuestion(QUESTION_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -205,8 +205,8 @@ public class QuestionImpl extends MinimalEObjectImpl.Container implements Questi
     {
       case EvaluationPackage.QUESTION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case EvaluationPackage.QUESTION__TEXT:
-        return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
+      case EvaluationPackage.QUESTION__QUESTION:
+        return QUESTION_EDEFAULT == null ? question != null : !QUESTION_EDEFAULT.equals(question);
     }
     return super.eIsSet(featureID);
   }
@@ -224,8 +224,8 @@ public class QuestionImpl extends MinimalEObjectImpl.Container implements Questi
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
-    result.append(", text: ");
-    result.append(text);
+    result.append(", question: ");
+    result.append(question);
     result.append(')');
     return result.toString();
   }

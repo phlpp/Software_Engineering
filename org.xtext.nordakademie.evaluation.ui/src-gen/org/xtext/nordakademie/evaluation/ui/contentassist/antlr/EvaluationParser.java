@@ -39,7 +39,7 @@ public class EvaluationParser extends AbstractContentAssistParser {
 				{
 					put(grammarAccess.getQuestionAccess().getAlternatives(), "rule__Question__Alternatives");
 					put(grammarAccess.getSurveyAccess().getGroup(), "rule__Survey__Group__0");
-					put(grammarAccess.getFreetextQuestionAccess().getGroup(), "rule__FreetextQuestion__Group__0");
+					put(grammarAccess.getFreetextAccess().getGroup(), "rule__Freetext__Group__0");
 					put(grammarAccess.getSelectionAccess().getGroup(), "rule__Selection__Group__0");
 					put(grammarAccess.getChoiceAccess().getGroup(), "rule__Choice__Group__0");
 					put(grammarAccess.getSurveyAccess().getNameAssignment_1(), "rule__Survey__NameAssignment_1");
@@ -47,13 +47,14 @@ public class EvaluationParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSurveyAccess().getGreetingAssignment_3(), "rule__Survey__GreetingAssignment_3");
 					put(grammarAccess.getSurveyAccess().getDurationAssignment_4(), "rule__Survey__DurationAssignment_4");
 					put(grammarAccess.getSurveyAccess().getQuestionsAssignment_5(), "rule__Survey__QuestionsAssignment_5");
-					put(grammarAccess.getFreetextQuestionAccess().getNameAssignment_1(), "rule__FreetextQuestion__NameAssignment_1");
-					put(grammarAccess.getFreetextQuestionAccess().getTextAssignment_2(), "rule__FreetextQuestion__TextAssignment_2");
+					put(grammarAccess.getFreetextAccess().getNameAssignment_1(), "rule__Freetext__NameAssignment_1");
+					put(grammarAccess.getFreetextAccess().getQuestionAssignment_2(), "rule__Freetext__QuestionAssignment_2");
 					put(grammarAccess.getSelectionAccess().getNameAssignment_1(), "rule__Selection__NameAssignment_1");
-					put(grammarAccess.getSelectionAccess().getTextAssignment_2(), "rule__Selection__TextAssignment_2");
+					put(grammarAccess.getSelectionAccess().getQuestionAssignment_2(), "rule__Selection__QuestionAssignment_2");
 					put(grammarAccess.getSelectionAccess().getChoicesAssignment_4(), "rule__Selection__ChoicesAssignment_4");
-					put(grammarAccess.getChoiceAccess().getNameAssignment_0(), "rule__Choice__NameAssignment_0");
-					put(grammarAccess.getChoiceAccess().getTextAssignment_1(), "rule__Choice__TextAssignment_1");
+					put(grammarAccess.getChoiceAccess().getFreetextAssignment_0(), "rule__Choice__FreetextAssignment_0");
+					put(grammarAccess.getChoiceAccess().getNameAssignment_1(), "rule__Choice__NameAssignment_1");
+					put(grammarAccess.getChoiceAccess().getBulletPointAssignment_2(), "rule__Choice__BulletPointAssignment_2");
 				}
 			};
 		}

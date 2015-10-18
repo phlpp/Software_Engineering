@@ -194,11 +194,11 @@ ruleQuestion returns [EObject current=null]
     @after { leaveRule(); }:
 (
     { 
-        newCompositeNode(grammarAccess.getQuestionAccess().getFreetextQuestionParserRuleCall_0()); 
+        newCompositeNode(grammarAccess.getQuestionAccess().getFreetextParserRuleCall_0()); 
     }
-    this_FreetextQuestion_0=ruleFreetextQuestion
+    this_Freetext_0=ruleFreetext
     { 
-        $current = $this_FreetextQuestion_0.current; 
+        $current = $this_Freetext_0.current; 
         afterParserOrEnumRuleCall();
     }
 
@@ -218,33 +218,33 @@ ruleQuestion returns [EObject current=null]
 
 
 
-// Entry rule entryRuleFreetextQuestion
-entryRuleFreetextQuestion returns [EObject current=null] 
+// Entry rule entryRuleFreetext
+entryRuleFreetext returns [EObject current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getFreetextQuestionRule()); }
-	 iv_ruleFreetextQuestion=ruleFreetextQuestion 
-	 { $current=$iv_ruleFreetextQuestion.current; } 
+	{ newCompositeNode(grammarAccess.getFreetextRule()); }
+	 iv_ruleFreetext=ruleFreetext 
+	 { $current=$iv_ruleFreetext.current; } 
 	 EOF 
 ;
 
-// Rule FreetextQuestion
-ruleFreetextQuestion returns [EObject current=null] 
+// Rule Freetext
+ruleFreetext returns [EObject current=null] 
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='text' 
+(	otherlv_0='freetext' 
     {
-    	newLeafNode(otherlv_0, grammarAccess.getFreetextQuestionAccess().getTextKeyword_0());
+    	newLeafNode(otherlv_0, grammarAccess.getFreetextAccess().getFreetextKeyword_0());
     }
 (
 (
 		lv_name_1_0=RULE_ID
 		{
-			newLeafNode(lv_name_1_0, grammarAccess.getFreetextQuestionAccess().getNameIDTerminalRuleCall_1_0()); 
+			newLeafNode(lv_name_1_0, grammarAccess.getFreetextAccess().getNameIDTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getFreetextQuestionRule());
+	            $current = createModelElement(grammarAccess.getFreetextRule());
 	        }
        		setWithLastConsumed(
        			$current, 
@@ -256,18 +256,18 @@ ruleFreetextQuestion returns [EObject current=null]
 )
 )(
 (
-		lv_text_2_0=RULE_STRING
+		lv_question_2_0=RULE_STRING
 		{
-			newLeafNode(lv_text_2_0, grammarAccess.getFreetextQuestionAccess().getTextSTRINGTerminalRuleCall_2_0()); 
+			newLeafNode(lv_question_2_0, grammarAccess.getFreetextAccess().getQuestionSTRINGTerminalRuleCall_2_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getFreetextQuestionRule());
+	            $current = createModelElement(grammarAccess.getFreetextRule());
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"text",
-        		lv_text_2_0, 
+       			"question",
+        		lv_question_2_0, 
         		"STRING");
 	    }
 
@@ -317,9 +317,9 @@ ruleSelection returns [EObject current=null]
 )
 )(
 (
-		lv_text_2_0=RULE_STRING
+		lv_question_2_0=RULE_STRING
 		{
-			newLeafNode(lv_text_2_0, grammarAccess.getSelectionAccess().getTextSTRINGTerminalRuleCall_2_0()); 
+			newLeafNode(lv_question_2_0, grammarAccess.getSelectionAccess().getQuestionSTRINGTerminalRuleCall_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -327,8 +327,8 @@ ruleSelection returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"text",
-        		lv_text_2_0, 
+       			"question",
+        		lv_question_2_0, 
         		"STRING");
 	    }
 
@@ -382,9 +382,24 @@ ruleChoice returns [EObject current=null]
     @after { leaveRule(); }:
 ((
 (
-		lv_name_0_0=RULE_ID
+		lv_freetext_0_0=	'freetext' 
+    {
+        newLeafNode(lv_freetext_0_0, grammarAccess.getChoiceAccess().getFreetextFreetextKeyword_0_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getChoiceRule());
+	        }
+       		setWithLastConsumed($current, "freetext", true, "freetext");
+	    }
+
+)
+)?(
+(
+		lv_name_1_0=RULE_ID
 		{
-			newLeafNode(lv_name_0_0, grammarAccess.getChoiceAccess().getNameIDTerminalRuleCall_0_0()); 
+			newLeafNode(lv_name_1_0, grammarAccess.getChoiceAccess().getNameIDTerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -393,16 +408,16 @@ ruleChoice returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"name",
-        		lv_name_0_0, 
+        		lv_name_1_0, 
         		"ID");
 	    }
 
 )
 )(
 (
-		lv_text_1_0=RULE_STRING
+		lv_bulletPoint_2_0=RULE_STRING
 		{
-			newLeafNode(lv_text_1_0, grammarAccess.getChoiceAccess().getTextSTRINGTerminalRuleCall_1_0()); 
+			newLeafNode(lv_bulletPoint_2_0, grammarAccess.getChoiceAccess().getBulletPointSTRINGTerminalRuleCall_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -410,8 +425,8 @@ ruleChoice returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"text",
-        		lv_text_1_0, 
+       			"bulletPoint",
+        		lv_bulletPoint_2_0, 
         		"STRING");
 	    }
 

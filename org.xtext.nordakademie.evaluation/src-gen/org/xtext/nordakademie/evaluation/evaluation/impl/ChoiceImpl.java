@@ -20,14 +20,35 @@ import org.xtext.nordakademie.evaluation.evaluation.EvaluationPackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.impl.ChoiceImpl#isFreetext <em>Freetext</em>}</li>
  *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.impl.ChoiceImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.impl.ChoiceImpl#getText <em>Text</em>}</li>
+ *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.impl.ChoiceImpl#getBulletPoint <em>Bullet Point</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ChoiceImpl extends MinimalEObjectImpl.Container implements Choice
 {
+  /**
+   * The default value of the '{@link #isFreetext() <em>Freetext</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isFreetext()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean FREETEXT_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isFreetext() <em>Freetext</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isFreetext()
+   * @generated
+   * @ordered
+   */
+  protected boolean freetext = FREETEXT_EDEFAULT;
+
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -49,24 +70,24 @@ public class ChoiceImpl extends MinimalEObjectImpl.Container implements Choice
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getText() <em>Text</em>}' attribute.
+   * The default value of the '{@link #getBulletPoint() <em>Bullet Point</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getText()
+   * @see #getBulletPoint()
    * @generated
    * @ordered
    */
-  protected static final String TEXT_EDEFAULT = null;
+  protected static final String BULLET_POINT_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getText() <em>Text</em>}' attribute.
+   * The cached value of the '{@link #getBulletPoint() <em>Bullet Point</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getText()
+   * @see #getBulletPoint()
    * @generated
    * @ordered
    */
-  protected String text = TEXT_EDEFAULT;
+  protected String bulletPoint = BULLET_POINT_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -87,6 +108,29 @@ public class ChoiceImpl extends MinimalEObjectImpl.Container implements Choice
   protected EClass eStaticClass()
   {
     return EvaluationPackage.Literals.CHOICE;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isFreetext()
+  {
+    return freetext;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setFreetext(boolean newFreetext)
+  {
+    boolean oldFreetext = freetext;
+    freetext = newFreetext;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EvaluationPackage.CHOICE__FREETEXT, oldFreetext, freetext));
   }
 
   /**
@@ -117,9 +161,9 @@ public class ChoiceImpl extends MinimalEObjectImpl.Container implements Choice
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getText()
+  public String getBulletPoint()
   {
-    return text;
+    return bulletPoint;
   }
 
   /**
@@ -127,12 +171,12 @@ public class ChoiceImpl extends MinimalEObjectImpl.Container implements Choice
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setText(String newText)
+  public void setBulletPoint(String newBulletPoint)
   {
-    String oldText = text;
-    text = newText;
+    String oldBulletPoint = bulletPoint;
+    bulletPoint = newBulletPoint;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EvaluationPackage.CHOICE__TEXT, oldText, text));
+      eNotify(new ENotificationImpl(this, Notification.SET, EvaluationPackage.CHOICE__BULLET_POINT, oldBulletPoint, bulletPoint));
   }
 
   /**
@@ -145,10 +189,12 @@ public class ChoiceImpl extends MinimalEObjectImpl.Container implements Choice
   {
     switch (featureID)
     {
+      case EvaluationPackage.CHOICE__FREETEXT:
+        return isFreetext();
       case EvaluationPackage.CHOICE__NAME:
         return getName();
-      case EvaluationPackage.CHOICE__TEXT:
-        return getText();
+      case EvaluationPackage.CHOICE__BULLET_POINT:
+        return getBulletPoint();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -163,11 +209,14 @@ public class ChoiceImpl extends MinimalEObjectImpl.Container implements Choice
   {
     switch (featureID)
     {
+      case EvaluationPackage.CHOICE__FREETEXT:
+        setFreetext((Boolean)newValue);
+        return;
       case EvaluationPackage.CHOICE__NAME:
         setName((String)newValue);
         return;
-      case EvaluationPackage.CHOICE__TEXT:
-        setText((String)newValue);
+      case EvaluationPackage.CHOICE__BULLET_POINT:
+        setBulletPoint((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -183,11 +232,14 @@ public class ChoiceImpl extends MinimalEObjectImpl.Container implements Choice
   {
     switch (featureID)
     {
+      case EvaluationPackage.CHOICE__FREETEXT:
+        setFreetext(FREETEXT_EDEFAULT);
+        return;
       case EvaluationPackage.CHOICE__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case EvaluationPackage.CHOICE__TEXT:
-        setText(TEXT_EDEFAULT);
+      case EvaluationPackage.CHOICE__BULLET_POINT:
+        setBulletPoint(BULLET_POINT_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -203,10 +255,12 @@ public class ChoiceImpl extends MinimalEObjectImpl.Container implements Choice
   {
     switch (featureID)
     {
+      case EvaluationPackage.CHOICE__FREETEXT:
+        return freetext != FREETEXT_EDEFAULT;
       case EvaluationPackage.CHOICE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case EvaluationPackage.CHOICE__TEXT:
-        return TEXT_EDEFAULT == null ? text != null : !TEXT_EDEFAULT.equals(text);
+      case EvaluationPackage.CHOICE__BULLET_POINT:
+        return BULLET_POINT_EDEFAULT == null ? bulletPoint != null : !BULLET_POINT_EDEFAULT.equals(bulletPoint);
     }
     return super.eIsSet(featureID);
   }
@@ -222,10 +276,12 @@ public class ChoiceImpl extends MinimalEObjectImpl.Container implements Choice
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
+    result.append(" (freetext: ");
+    result.append(freetext);
+    result.append(", name: ");
     result.append(name);
-    result.append(", text: ");
-    result.append(text);
+    result.append(", bulletPoint: ");
+    result.append(bulletPoint);
     result.append(')');
     return result.toString();
   }

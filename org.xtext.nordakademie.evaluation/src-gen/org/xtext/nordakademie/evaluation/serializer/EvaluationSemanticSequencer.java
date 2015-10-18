@@ -18,7 +18,7 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.xtext.nordakademie.evaluation.evaluation.Choice;
 import org.xtext.nordakademie.evaluation.evaluation.EvaluationPackage;
-import org.xtext.nordakademie.evaluation.evaluation.FreetextQuestion;
+import org.xtext.nordakademie.evaluation.evaluation.Freetext;
 import org.xtext.nordakademie.evaluation.evaluation.Selection;
 import org.xtext.nordakademie.evaluation.evaluation.Survey;
 import org.xtext.nordakademie.evaluation.services.EvaluationGrammarAccess;
@@ -35,8 +35,8 @@ public class EvaluationSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case EvaluationPackage.CHOICE:
 				sequence_Choice(context, (Choice) semanticObject); 
 				return; 
-			case EvaluationPackage.FREETEXT_QUESTION:
-				sequence_FreetextQuestion(context, (FreetextQuestion) semanticObject); 
+			case EvaluationPackage.FREETEXT:
+				sequence_Freetext(context, (Freetext) semanticObject); 
 				return; 
 			case EvaluationPackage.SELECTION:
 				sequence_Selection(context, (Selection) semanticObject); 
@@ -50,45 +50,35 @@ public class EvaluationSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (name=ID text=STRING)
+	 *     (freetext?='freetext'? name=ID bulletPoint=STRING)
 	 */
 	protected void sequence_Choice(EObject context, Choice semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, EvaluationPackage.Literals.CHOICE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EvaluationPackage.Literals.CHOICE__NAME));
-			if(transientValues.isValueTransient(semanticObject, EvaluationPackage.Literals.CHOICE__TEXT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EvaluationPackage.Literals.CHOICE__TEXT));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getChoiceAccess().getNameIDTerminalRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getChoiceAccess().getTextSTRINGTerminalRuleCall_1_0(), semanticObject.getText());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (name=ID text=STRING)
+	 *     (name=ID question=STRING)
 	 */
-	protected void sequence_FreetextQuestion(EObject context, FreetextQuestion semanticObject) {
+	protected void sequence_Freetext(EObject context, Freetext semanticObject) {
 		if(errorAcceptor != null) {
 			if(transientValues.isValueTransient(semanticObject, EvaluationPackage.Literals.QUESTION__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EvaluationPackage.Literals.QUESTION__NAME));
-			if(transientValues.isValueTransient(semanticObject, EvaluationPackage.Literals.QUESTION__TEXT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EvaluationPackage.Literals.QUESTION__TEXT));
+			if(transientValues.isValueTransient(semanticObject, EvaluationPackage.Literals.QUESTION__QUESTION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EvaluationPackage.Literals.QUESTION__QUESTION));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getFreetextQuestionAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getFreetextQuestionAccess().getTextSTRINGTerminalRuleCall_2_0(), semanticObject.getText());
+		feeder.accept(grammarAccess.getFreetextAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getFreetextAccess().getQuestionSTRINGTerminalRuleCall_2_0(), semanticObject.getQuestion());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (name=ID text=STRING choices+=Choice*)
+	 *     (name=ID question=STRING choices+=Choice*)
 	 */
 	protected void sequence_Selection(EObject context, Selection semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

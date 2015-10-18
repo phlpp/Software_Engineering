@@ -79,42 +79,42 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 	public class QuestionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Question");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cFreetextQuestionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cFreetextParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cSelectionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		////	tbd | RatingQuestion | ChartQuestion 	
+		////	tbd | Rating | Chart | Calender	
 		//Question:
-		//	FreetextQuestion | Selection;
+		//	Freetext | Selection;
 		@Override public ParserRule getRule() { return rule; }
 
-		//FreetextQuestion | Selection
+		//Freetext | Selection
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//FreetextQuestion
-		public RuleCall getFreetextQuestionParserRuleCall_0() { return cFreetextQuestionParserRuleCall_0; }
+		//Freetext
+		public RuleCall getFreetextParserRuleCall_0() { return cFreetextParserRuleCall_0; }
 
 		//Selection
 		public RuleCall getSelectionParserRuleCall_1() { return cSelectionParserRuleCall_1; }
 	}
 
-	public class FreetextQuestionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FreetextQuestion");
+	public class FreetextElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Freetext");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cTextKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cFreetextKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Assignment cTextAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cTextSTRINGTerminalRuleCall_2_0 = (RuleCall)cTextAssignment_2.eContents().get(0);
+		private final Assignment cQuestionAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cQuestionSTRINGTerminalRuleCall_2_0 = (RuleCall)cQuestionAssignment_2.eContents().get(0);
 		
-		//FreetextQuestion:
-		//	"text" name=ID text=STRING;
+		//Freetext:
+		//	"freetext" name=ID question=STRING;
 		@Override public ParserRule getRule() { return rule; }
 
-		//"text" name=ID text=STRING
+		//"freetext" name=ID question=STRING
 		public Group getGroup() { return cGroup; }
 
-		//"text"
-		public Keyword getTextKeyword_0() { return cTextKeyword_0; }
+		//"freetext"
+		public Keyword getFreetextKeyword_0() { return cFreetextKeyword_0; }
 
 		//name=ID
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
@@ -122,11 +122,11 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
-		//text=STRING
-		public Assignment getTextAssignment_2() { return cTextAssignment_2; }
+		//question=STRING
+		public Assignment getQuestionAssignment_2() { return cQuestionAssignment_2; }
 
 		//STRING
-		public RuleCall getTextSTRINGTerminalRuleCall_2_0() { return cTextSTRINGTerminalRuleCall_2_0; }
+		public RuleCall getQuestionSTRINGTerminalRuleCall_2_0() { return cQuestionSTRINGTerminalRuleCall_2_0; }
 	}
 
 	public class SelectionElements extends AbstractParserRuleElementFinder {
@@ -135,18 +135,18 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSelectKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Assignment cTextAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cTextSTRINGTerminalRuleCall_2_0 = (RuleCall)cTextAssignment_2.eContents().get(0);
+		private final Assignment cQuestionAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cQuestionSTRINGTerminalRuleCall_2_0 = (RuleCall)cQuestionAssignment_2.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Assignment cChoicesAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cChoicesChoiceParserRuleCall_4_0 = (RuleCall)cChoicesAssignment_4.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//Selection:
-		//	"select" name=ID text=STRING "(" choices+=Choice* ")";
+		//	"select" name=ID question=STRING "(" choices+=Choice* ")";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"select" name=ID text=STRING "(" choices+=Choice* ")"
+		//"select" name=ID question=STRING "(" choices+=Choice* ")"
 		public Group getGroup() { return cGroup; }
 
 		//"select"
@@ -158,11 +158,11 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
-		//text=STRING
-		public Assignment getTextAssignment_2() { return cTextAssignment_2; }
+		//question=STRING
+		public Assignment getQuestionAssignment_2() { return cQuestionAssignment_2; }
 
 		//STRING
-		public RuleCall getTextSTRINGTerminalRuleCall_2_0() { return cTextSTRINGTerminalRuleCall_2_0; }
+		public RuleCall getQuestionSTRINGTerminalRuleCall_2_0() { return cQuestionSTRINGTerminalRuleCall_2_0; }
 
 		//"("
 		public Keyword getLeftParenthesisKeyword_3() { return cLeftParenthesisKeyword_3; }
@@ -180,35 +180,43 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 	public class ChoiceElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Choice");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cNameIDTerminalRuleCall_0_0 = (RuleCall)cNameAssignment_0.eContents().get(0);
-		private final Assignment cTextAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cTextSTRINGTerminalRuleCall_1_0 = (RuleCall)cTextAssignment_1.eContents().get(0);
+		private final Assignment cFreetextAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cFreetextFreetextKeyword_0_0 = (Keyword)cFreetextAssignment_0.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cBulletPointAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cBulletPointSTRINGTerminalRuleCall_2_0 = (RuleCall)cBulletPointAssignment_2.eContents().get(0);
 		
 		//Choice:
-		//	name=ID text=STRING;
+		//	freetext?="freetext"? name=ID bulletPoint=STRING;
 		@Override public ParserRule getRule() { return rule; }
 
-		//name=ID text=STRING
+		//freetext?="freetext"? name=ID bulletPoint=STRING
 		public Group getGroup() { return cGroup; }
 
+		//freetext?="freetext"?
+		public Assignment getFreetextAssignment_0() { return cFreetextAssignment_0; }
+
+		//"freetext"
+		public Keyword getFreetextFreetextKeyword_0_0() { return cFreetextFreetextKeyword_0_0; }
+
 		//name=ID
-		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_0_0() { return cNameIDTerminalRuleCall_0_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 
-		//text=STRING
-		public Assignment getTextAssignment_1() { return cTextAssignment_1; }
+		//bulletPoint=STRING
+		public Assignment getBulletPointAssignment_2() { return cBulletPointAssignment_2; }
 
 		//STRING
-		public RuleCall getTextSTRINGTerminalRuleCall_1_0() { return cTextSTRINGTerminalRuleCall_1_0; }
+		public RuleCall getBulletPointSTRINGTerminalRuleCall_2_0() { return cBulletPointSTRINGTerminalRuleCall_2_0; }
 	}
 	
 	
 	private final SurveyElements pSurvey;
 	private final QuestionElements pQuestion;
-	private final FreetextQuestionElements pFreetextQuestion;
+	private final FreetextElements pFreetext;
 	private final SelectionElements pSelection;
 	private final ChoiceElements pChoice;
 	
@@ -223,7 +231,7 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		this.gaTerminals = gaTerminals;
 		this.pSurvey = new SurveyElements();
 		this.pQuestion = new QuestionElements();
-		this.pFreetextQuestion = new FreetextQuestionElements();
+		this.pFreetext = new FreetextElements();
 		this.pSelection = new SelectionElements();
 		this.pChoice = new ChoiceElements();
 	}
@@ -266,9 +274,9 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		return getSurveyAccess().getRule();
 	}
 
-	////	tbd | RatingQuestion | ChartQuestion 	
+	////	tbd | Rating | Chart | Calender	
 	//Question:
-	//	FreetextQuestion | Selection;
+	//	Freetext | Selection;
 	public QuestionElements getQuestionAccess() {
 		return pQuestion;
 	}
@@ -277,18 +285,18 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		return getQuestionAccess().getRule();
 	}
 
-	//FreetextQuestion:
-	//	"text" name=ID text=STRING;
-	public FreetextQuestionElements getFreetextQuestionAccess() {
-		return pFreetextQuestion;
+	//Freetext:
+	//	"freetext" name=ID question=STRING;
+	public FreetextElements getFreetextAccess() {
+		return pFreetext;
 	}
 	
-	public ParserRule getFreetextQuestionRule() {
-		return getFreetextQuestionAccess().getRule();
+	public ParserRule getFreetextRule() {
+		return getFreetextAccess().getRule();
 	}
 
 	//Selection:
-	//	"select" name=ID text=STRING "(" choices+=Choice* ")";
+	//	"select" name=ID question=STRING "(" choices+=Choice* ")";
 	public SelectionElements getSelectionAccess() {
 		return pSelection;
 	}
@@ -298,7 +306,7 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Choice:
-	//	name=ID text=STRING;
+	//	freetext?="freetext"? name=ID bulletPoint=STRING;
 	public ChoiceElements getChoiceAccess() {
 		return pChoice;
 	}

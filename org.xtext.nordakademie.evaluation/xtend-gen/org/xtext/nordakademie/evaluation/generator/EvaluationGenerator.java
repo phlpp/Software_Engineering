@@ -14,7 +14,7 @@ import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.generator.IGenerator;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.xtext.nordakademie.evaluation.evaluation.Choice;
-import org.xtext.nordakademie.evaluation.evaluation.FreetextQuestion;
+import org.xtext.nordakademie.evaluation.evaluation.Freetext;
 import org.xtext.nordakademie.evaluation.evaluation.Question;
 import org.xtext.nordakademie.evaluation.evaluation.Selection;
 import org.xtext.nordakademie.evaluation.evaluation.Survey;
@@ -86,14 +86,14 @@ public class EvaluationGenerator implements IGenerator {
     return _builder;
   }
   
-  protected CharSequence _select(final FreetextQuestion question) {
+  protected CharSequence _select(final Freetext question) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("<p>");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("<label>");
-    String _text = question.getText();
-    _builder.append(_text, "\t\t");
+    String _question = question.getQuestion();
+    _builder.append(_question, "\t\t");
     _builder.append("</label><br>");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
@@ -115,8 +115,8 @@ public class EvaluationGenerator implements IGenerator {
     _builder.newLine();
     _builder.append("\t");
     _builder.append("<label>");
-    String _text = question.getText();
-    _builder.append(_text, "\t");
+    String _question = question.getQuestion();
+    _builder.append(_question, "\t");
     _builder.append("</label><br>");
     _builder.newLineIfNotEmpty();
     {
@@ -130,10 +130,23 @@ public class EvaluationGenerator implements IGenerator {
         String _name_1 = choice.getName();
         _builder.append(_name_1, "\t");
         _builder.append("\"/>");
-        String _text_1 = choice.getText();
-        _builder.append(_text_1, "\t");
-        _builder.append("<br>");
+        String _bulletPoint = choice.getBulletPoint();
+        _builder.append(_bulletPoint, "\t");
         _builder.newLineIfNotEmpty();
+        {
+          boolean _isFreetext = choice.isFreetext();
+          if (_isFreetext) {
+            _builder.append("\t");
+            _builder.append("&nbsp;<input type=\"text\" name=\"");
+            String _name_2 = choice.getName();
+            _builder.append(_name_2, "\t");
+            _builder.append("\">");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        _builder.append("\t");
+        _builder.append("<br>");
+        _builder.newLine();
       }
     }
     _builder.append("</p>\t\t");
@@ -148,8 +161,8 @@ public class EvaluationGenerator implements IGenerator {
   }
   
   public CharSequence select(final Question question) {
-    if (question instanceof FreetextQuestion) {
-      return _select((FreetextQuestion)question);
+    if (question instanceof Freetext) {
+      return _select((Freetext)question);
     } else if (question instanceof Selection) {
       return _select((Selection)question);
     } else {
