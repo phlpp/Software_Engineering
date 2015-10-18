@@ -19,6 +19,7 @@ import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransi
 import org.xtext.nordakademie.evaluation.evaluation.Choice;
 import org.xtext.nordakademie.evaluation.evaluation.EvaluationPackage;
 import org.xtext.nordakademie.evaluation.evaluation.Freetext;
+import org.xtext.nordakademie.evaluation.evaluation.Page;
 import org.xtext.nordakademie.evaluation.evaluation.Selection;
 import org.xtext.nordakademie.evaluation.evaluation.Survey;
 import org.xtext.nordakademie.evaluation.services.EvaluationGrammarAccess;
@@ -37,6 +38,9 @@ public class EvaluationSemanticSequencer extends AbstractDelegatingSemanticSeque
 				return; 
 			case EvaluationPackage.FREETEXT:
 				sequence_Freetext(context, (Freetext) semanticObject); 
+				return; 
+			case EvaluationPackage.PAGE:
+				sequence_Page(context, (Page) semanticObject); 
 				return; 
 			case EvaluationPackage.SELECTION:
 				sequence_Selection(context, (Selection) semanticObject); 
@@ -78,6 +82,15 @@ public class EvaluationSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
+	 *     (name=ID questions+=Question*)
+	 */
+	protected void sequence_Page(EObject context, Page semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (name=ID question=STRING choices+=Choice*)
 	 */
 	protected void sequence_Selection(EObject context, Selection semanticObject) {
@@ -87,7 +100,7 @@ public class EvaluationSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (name=ID title=STRING greeting=STRING? duration=STRING? questions+=Question*)
+	 *     (name=ID title=STRING greeting=STRING? duration=STRING? pages+=Page*)
 	 */
 	protected void sequence_Survey(EObject context, Survey semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

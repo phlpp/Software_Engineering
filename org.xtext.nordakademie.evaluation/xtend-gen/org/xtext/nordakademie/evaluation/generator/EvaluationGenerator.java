@@ -38,52 +38,8 @@ public class EvaluationGenerator implements IGenerator {
   }
   
   public CharSequence toHtml(final Survey survey) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.newLine();
-    _builder.append("<html>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<head>");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("<title>");
-    String _title = survey.getTitle();
-    _builder.append(_title, "\t\t");
-    _builder.append("</title>");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.append("</head>");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<body>");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("<h1>");
-    String _title_1 = survey.getTitle();
-    _builder.append(_title_1, "\t\t");
-    _builder.append("</h1>");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t\t");
-    _builder.append("<p>");
-    String _greeting = survey.getGreeting();
-    _builder.append(_greeting, "\t\t");
-    _builder.append("</p>");
-    _builder.newLineIfNotEmpty();
-    {
-      EList<Question> _questions = survey.getQuestions();
-      for(final Question question : _questions) {
-        _builder.append("\t\t\t\t\t\t");
-        CharSequence _select = this.select(question);
-        _builder.append(_select, "\t\t\t\t\t\t");
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    _builder.append("\t");
-    _builder.append("</body>");
-    _builder.newLine();
-    _builder.append("</html>\t");
-    _builder.newLine();
-    return _builder;
+    throw new Error("Unresolved compilation problems:"
+      + "\nThe method questions is undefined for the type EvaluationGenerator");
   }
   
   protected CharSequence _select(final Freetext question) {

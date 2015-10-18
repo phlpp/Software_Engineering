@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.nordakademie.evaluation.evaluation.EvaluationPackage;
-import org.xtext.nordakademie.evaluation.evaluation.Question;
+import org.xtext.nordakademie.evaluation.evaluation.Page;
 import org.xtext.nordakademie.evaluation.evaluation.Survey;
 
 /**
@@ -34,7 +34,7 @@ import org.xtext.nordakademie.evaluation.evaluation.Survey;
  *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.impl.SurveyImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.impl.SurveyImpl#getGreeting <em>Greeting</em>}</li>
  *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.impl.SurveyImpl#getDuration <em>Duration</em>}</li>
- *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.impl.SurveyImpl#getQuestions <em>Questions</em>}</li>
+ *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.impl.SurveyImpl#getPages <em>Pages</em>}</li>
  * </ul>
  *
  * @generated
@@ -122,14 +122,14 @@ public class SurveyImpl extends MinimalEObjectImpl.Container implements Survey
   protected String duration = DURATION_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getQuestions() <em>Questions</em>}' containment reference list.
+   * The cached value of the '{@link #getPages() <em>Pages</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getQuestions()
+   * @see #getPages()
    * @generated
    * @ordered
    */
-  protected EList<Question> questions;
+  protected EList<Page> pages;
 
   /**
    * <!-- begin-user-doc -->
@@ -249,13 +249,13 @@ public class SurveyImpl extends MinimalEObjectImpl.Container implements Survey
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Question> getQuestions()
+  public EList<Page> getPages()
   {
-    if (questions == null)
+    if (pages == null)
     {
-      questions = new EObjectContainmentEList<Question>(Question.class, this, EvaluationPackage.SURVEY__QUESTIONS);
+      pages = new EObjectContainmentEList<Page>(Page.class, this, EvaluationPackage.SURVEY__PAGES);
     }
-    return questions;
+    return pages;
   }
 
   /**
@@ -268,8 +268,8 @@ public class SurveyImpl extends MinimalEObjectImpl.Container implements Survey
   {
     switch (featureID)
     {
-      case EvaluationPackage.SURVEY__QUESTIONS:
-        return ((InternalEList<?>)getQuestions()).basicRemove(otherEnd, msgs);
+      case EvaluationPackage.SURVEY__PAGES:
+        return ((InternalEList<?>)getPages()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -292,8 +292,8 @@ public class SurveyImpl extends MinimalEObjectImpl.Container implements Survey
         return getGreeting();
       case EvaluationPackage.SURVEY__DURATION:
         return getDuration();
-      case EvaluationPackage.SURVEY__QUESTIONS:
-        return getQuestions();
+      case EvaluationPackage.SURVEY__PAGES:
+        return getPages();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -321,9 +321,9 @@ public class SurveyImpl extends MinimalEObjectImpl.Container implements Survey
       case EvaluationPackage.SURVEY__DURATION:
         setDuration((String)newValue);
         return;
-      case EvaluationPackage.SURVEY__QUESTIONS:
-        getQuestions().clear();
-        getQuestions().addAll((Collection<? extends Question>)newValue);
+      case EvaluationPackage.SURVEY__PAGES:
+        getPages().clear();
+        getPages().addAll((Collection<? extends Page>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -351,8 +351,8 @@ public class SurveyImpl extends MinimalEObjectImpl.Container implements Survey
       case EvaluationPackage.SURVEY__DURATION:
         setDuration(DURATION_EDEFAULT);
         return;
-      case EvaluationPackage.SURVEY__QUESTIONS:
-        getQuestions().clear();
+      case EvaluationPackage.SURVEY__PAGES:
+        getPages().clear();
         return;
     }
     super.eUnset(featureID);
@@ -376,8 +376,8 @@ public class SurveyImpl extends MinimalEObjectImpl.Container implements Survey
         return GREETING_EDEFAULT == null ? greeting != null : !GREETING_EDEFAULT.equals(greeting);
       case EvaluationPackage.SURVEY__DURATION:
         return DURATION_EDEFAULT == null ? duration != null : !DURATION_EDEFAULT.equals(duration);
-      case EvaluationPackage.SURVEY__QUESTIONS:
-        return questions != null && !questions.isEmpty();
+      case EvaluationPackage.SURVEY__PAGES:
+        return pages != null && !pages.isEmpty();
     }
     return super.eIsSet(featureID);
   }

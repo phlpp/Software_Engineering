@@ -32,6 +32,15 @@ public interface EvaluationFactory extends EFactory
   Survey createSurvey();
 
   /**
+   * Returns a new object of class '<em>Page</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Page</em>'.
+   * @generated
+   */
+  Page createPage();
+
+  /**
    * Returns a new object of class '<em>Question</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

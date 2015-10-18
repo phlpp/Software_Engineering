@@ -30,16 +30,16 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cGreetingSTRINGTerminalRuleCall_3_0 = (RuleCall)cGreetingAssignment_3.eContents().get(0);
 		private final Assignment cDurationAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cDurationSTRINGTerminalRuleCall_4_0 = (RuleCall)cDurationAssignment_4.eContents().get(0);
-		private final Assignment cQuestionsAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cQuestionsQuestionParserRuleCall_5_0 = (RuleCall)cQuestionsAssignment_5.eContents().get(0);
+		private final Assignment cPagesAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cPagesPageParserRuleCall_5_0 = (RuleCall)cPagesAssignment_5.eContents().get(0);
 		
 		//Survey:
 		//	"survey" name=ID title=STRING greeting=STRING? //total time estimated for survey: tbd
-		//	duration=STRING? questions+=Question*;
+		//	duration=STRING? pages+=Page*;
 		@Override public ParserRule getRule() { return rule; }
 
 		//"survey" name=ID title=STRING greeting=STRING? //total time estimated for survey: tbd
-		//duration=STRING? questions+=Question*
+		//duration=STRING? pages+=Page*
 		public Group getGroup() { return cGroup; }
 
 		//"survey"
@@ -69,11 +69,51 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getDurationSTRINGTerminalRuleCall_4_0() { return cDurationSTRINGTerminalRuleCall_4_0; }
 
+		//pages+=Page*
+		public Assignment getPagesAssignment_5() { return cPagesAssignment_5; }
+
+		//Page
+		public RuleCall getPagesPageParserRuleCall_5_0() { return cPagesPageParserRuleCall_5_0; }
+	}
+
+	public class PageElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Page");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cPageKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cQuestionsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cQuestionsQuestionParserRuleCall_3_0 = (RuleCall)cQuestionsAssignment_3.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//Page:
+		//	"page" name=ID "(" questions+=Question* ")";
+		@Override public ParserRule getRule() { return rule; }
+
+		//"page" name=ID "(" questions+=Question* ")"
+		public Group getGroup() { return cGroup; }
+
+		//"page"
+		public Keyword getPageKeyword_0() { return cPageKeyword_0; }
+
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_2() { return cLeftParenthesisKeyword_2; }
+
 		//questions+=Question*
-		public Assignment getQuestionsAssignment_5() { return cQuestionsAssignment_5; }
+		public Assignment getQuestionsAssignment_3() { return cQuestionsAssignment_3; }
 
 		//Question
-		public RuleCall getQuestionsQuestionParserRuleCall_5_0() { return cQuestionsQuestionParserRuleCall_5_0; }
+		public RuleCall getQuestionsQuestionParserRuleCall_3_0() { return cQuestionsQuestionParserRuleCall_3_0; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
 	}
 
 	public class QuestionElements extends AbstractParserRuleElementFinder {
@@ -82,7 +122,7 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cFreetextParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cSelectionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		////	tbd | Rating | Chart | Calender	
+		////	tbd | Rating | Chart | Calender	| Star
 		//Question:
 		//	Freetext | Selection;
 		@Override public ParserRule getRule() { return rule; }
@@ -215,6 +255,7 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 	
 	
 	private final SurveyElements pSurvey;
+	private final PageElements pPage;
 	private final QuestionElements pQuestion;
 	private final FreetextElements pFreetext;
 	private final SelectionElements pSelection;
@@ -230,6 +271,7 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pSurvey = new SurveyElements();
+		this.pPage = new PageElements();
 		this.pQuestion = new QuestionElements();
 		this.pFreetext = new FreetextElements();
 		this.pSelection = new SelectionElements();
@@ -265,7 +307,7 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Survey:
 	//	"survey" name=ID title=STRING greeting=STRING? //total time estimated for survey: tbd
-	//	duration=STRING? questions+=Question*;
+	//	duration=STRING? pages+=Page*;
 	public SurveyElements getSurveyAccess() {
 		return pSurvey;
 	}
@@ -274,7 +316,17 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		return getSurveyAccess().getRule();
 	}
 
-	////	tbd | Rating | Chart | Calender	
+	//Page:
+	//	"page" name=ID "(" questions+=Question* ")";
+	public PageElements getPageAccess() {
+		return pPage;
+	}
+	
+	public ParserRule getPageRule() {
+		return getPageAccess().getRule();
+	}
+
+	////	tbd | Rating | Chart | Calender	| Star
 	//Question:
 	//	Freetext | Selection;
 	public QuestionElements getQuestionAccess() {

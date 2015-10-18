@@ -9,6 +9,7 @@ import org.eclipse.xtext.generator.IFileSystemAccess
 import org.xtext.nordakademie.evaluation.evaluation.Survey
 import org.xtext.nordakademie.evaluation.evaluation.Selection
 import org.xtext.nordakademie.evaluation.evaluation.Freetext
+import org.xtext.nordakademie.evaluation.evaluation.Page
 
 /**
  * Generates code from your model files on save.

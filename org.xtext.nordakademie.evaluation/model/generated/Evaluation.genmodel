@@ -12,7 +12,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Survey/title"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Survey/greeting"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Survey/duration"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Evaluation.ecore#//Survey/questions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Evaluation.ecore#//Survey/pages"/>
+    </genClasses>
+    <genClasses ecoreClass="Evaluation.ecore#//Page">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Page/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Evaluation.ecore#//Page/questions"/>
     </genClasses>
     <genClasses ecoreClass="Evaluation.ecore#//Question">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Question/name"/>

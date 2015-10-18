@@ -9,11 +9,16 @@ Survey:
 	(greeting=STRING)?
 	//total time estimated for survey: tbd
 	(duration=STRING)?
-	questions+=Question*;
+	pages+=Page*
+;
+
+Page:
+	'page' name=ID '('questions+=Question*')'
+;
 	
 Question:
 	Freetext | Selection 
-//	tbd | Rating | Chart | Calender	
+//	tbd | Rating | Chart | Calender	| Star
 ;
 
 Freetext:
@@ -27,4 +32,5 @@ Selection:
 Choice:
 	(freetext?='freetext')? name=ID bulletPoint=STRING	
 ;
+
 

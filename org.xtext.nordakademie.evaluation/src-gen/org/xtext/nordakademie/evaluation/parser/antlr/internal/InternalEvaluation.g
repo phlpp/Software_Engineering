@@ -156,22 +156,91 @@ ruleSurvey returns [EObject current=null]
 )?(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSurveyAccess().getQuestionsQuestionParserRuleCall_5_0()); 
+	        newCompositeNode(grammarAccess.getSurveyAccess().getPagesPageParserRuleCall_5_0()); 
 	    }
-		lv_questions_5_0=ruleQuestion		{
+		lv_pages_5_0=rulePage		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getSurveyRule());
 	        }
        		add(
        			$current, 
-       			"questions",
-        		lv_questions_5_0, 
-        		"Question");
+       			"pages",
+        		lv_pages_5_0, 
+        		"Page");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
 )*)
+;
+
+
+
+
+
+// Entry rule entryRulePage
+entryRulePage returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getPageRule()); }
+	 iv_rulePage=rulePage 
+	 { $current=$iv_rulePage.current; } 
+	 EOF 
+;
+
+// Rule Page
+rulePage returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='page' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getPageAccess().getPageKeyword_0());
+    }
+(
+(
+		lv_name_1_0=RULE_ID
+		{
+			newLeafNode(lv_name_1_0, grammarAccess.getPageAccess().getNameIDTerminalRuleCall_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getPageRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_1_0, 
+        		"ID");
+	    }
+
+)
+)	otherlv_2='(' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getPageAccess().getLeftParenthesisKeyword_2());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getPageAccess().getQuestionsQuestionParserRuleCall_3_0()); 
+	    }
+		lv_questions_3_0=ruleQuestion		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getPageRule());
+	        }
+       		add(
+       			$current, 
+       			"questions",
+        		lv_questions_3_0, 
+        		"Question");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)*	otherlv_4=')' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getPageAccess().getRightParenthesisKeyword_4());
+    }
+)
 ;
 
 

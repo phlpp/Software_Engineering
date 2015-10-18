@@ -103,13 +103,13 @@ public interface EvaluationPackage extends EPackage
   int SURVEY__DURATION = 3;
 
   /**
-   * The feature id for the '<em><b>Questions</b></em>' containment reference list.
+   * The feature id for the '<em><b>Pages</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SURVEY__QUESTIONS = 4;
+  int SURVEY__PAGES = 4;
 
   /**
    * The number of structural features of the '<em>Survey</em>' class.
@@ -121,6 +121,43 @@ public interface EvaluationPackage extends EPackage
   int SURVEY_FEATURE_COUNT = 5;
 
   /**
+   * The meta object id for the '{@link org.xtext.nordakademie.evaluation.evaluation.impl.PageImpl <em>Page</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.nordakademie.evaluation.evaluation.impl.PageImpl
+   * @see org.xtext.nordakademie.evaluation.evaluation.impl.EvaluationPackageImpl#getPage()
+   * @generated
+   */
+  int PAGE = 1;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PAGE__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Questions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PAGE__QUESTIONS = 1;
+
+  /**
+   * The number of structural features of the '<em>Page</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PAGE_FEATURE_COUNT = 2;
+
+  /**
    * The meta object id for the '{@link org.xtext.nordakademie.evaluation.evaluation.impl.QuestionImpl <em>Question</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -128,7 +165,7 @@ public interface EvaluationPackage extends EPackage
    * @see org.xtext.nordakademie.evaluation.evaluation.impl.EvaluationPackageImpl#getQuestion()
    * @generated
    */
-  int QUESTION = 1;
+  int QUESTION = 2;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -165,7 +202,7 @@ public interface EvaluationPackage extends EPackage
    * @see org.xtext.nordakademie.evaluation.evaluation.impl.EvaluationPackageImpl#getFreetext()
    * @generated
    */
-  int FREETEXT = 2;
+  int FREETEXT = 3;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -202,7 +239,7 @@ public interface EvaluationPackage extends EPackage
    * @see org.xtext.nordakademie.evaluation.evaluation.impl.EvaluationPackageImpl#getSelection()
    * @generated
    */
-  int SELECTION = 3;
+  int SELECTION = 4;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -248,7 +285,7 @@ public interface EvaluationPackage extends EPackage
    * @see org.xtext.nordakademie.evaluation.evaluation.impl.EvaluationPackageImpl#getChoice()
    * @generated
    */
-  int CHOICE = 4;
+  int CHOICE = 5;
 
   /**
    * The feature id for the '<em><b>Freetext</b></em>' attribute.
@@ -342,15 +379,47 @@ public interface EvaluationPackage extends EPackage
   EAttribute getSurvey_Duration();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.nordakademie.evaluation.evaluation.Survey#getQuestions <em>Questions</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.nordakademie.evaluation.evaluation.Survey#getPages <em>Pages</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Questions</em>'.
-   * @see org.xtext.nordakademie.evaluation.evaluation.Survey#getQuestions()
+   * @return the meta object for the containment reference list '<em>Pages</em>'.
+   * @see org.xtext.nordakademie.evaluation.evaluation.Survey#getPages()
    * @see #getSurvey()
    * @generated
    */
-  EReference getSurvey_Questions();
+  EReference getSurvey_Pages();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.nordakademie.evaluation.evaluation.Page <em>Page</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Page</em>'.
+   * @see org.xtext.nordakademie.evaluation.evaluation.Page
+   * @generated
+   */
+  EClass getPage();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.nordakademie.evaluation.evaluation.Page#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.nordakademie.evaluation.evaluation.Page#getName()
+   * @see #getPage()
+   * @generated
+   */
+  EAttribute getPage_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.nordakademie.evaluation.evaluation.Page#getQuestions <em>Questions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Questions</em>'.
+   * @see org.xtext.nordakademie.evaluation.evaluation.Page#getQuestions()
+   * @see #getPage()
+   * @generated
+   */
+  EReference getPage_Questions();
 
   /**
    * Returns the meta object for class '{@link org.xtext.nordakademie.evaluation.evaluation.Question <em>Question</em>}'.
@@ -524,12 +593,38 @@ public interface EvaluationPackage extends EPackage
     EAttribute SURVEY__DURATION = eINSTANCE.getSurvey_Duration();
 
     /**
+     * The meta object literal for the '<em><b>Pages</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SURVEY__PAGES = eINSTANCE.getSurvey_Pages();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.nordakademie.evaluation.evaluation.impl.PageImpl <em>Page</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.nordakademie.evaluation.evaluation.impl.PageImpl
+     * @see org.xtext.nordakademie.evaluation.evaluation.impl.EvaluationPackageImpl#getPage()
+     * @generated
+     */
+    EClass PAGE = eINSTANCE.getPage();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PAGE__NAME = eINSTANCE.getPage_Name();
+
+    /**
      * The meta object literal for the '<em><b>Questions</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference SURVEY__QUESTIONS = eINSTANCE.getSurvey_Questions();
+    EReference PAGE__QUESTIONS = eINSTANCE.getPage_Questions();
 
     /**
      * The meta object literal for the '{@link org.xtext.nordakademie.evaluation.evaluation.impl.QuestionImpl <em>Question</em>}' class.

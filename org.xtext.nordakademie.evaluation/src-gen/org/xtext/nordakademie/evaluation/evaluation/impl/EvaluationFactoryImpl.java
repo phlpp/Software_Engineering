@@ -65,6 +65,7 @@ public class EvaluationFactoryImpl extends EFactoryImpl implements EvaluationFac
     switch (eClass.getClassifierID())
     {
       case EvaluationPackage.SURVEY: return createSurvey();
+      case EvaluationPackage.PAGE: return createPage();
       case EvaluationPackage.QUESTION: return createQuestion();
       case EvaluationPackage.FREETEXT: return createFreetext();
       case EvaluationPackage.SELECTION: return createSelection();
@@ -83,6 +84,17 @@ public class EvaluationFactoryImpl extends EFactoryImpl implements EvaluationFac
   {
     SurveyImpl survey = new SurveyImpl();
     return survey;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Page createPage()
+  {
+    PageImpl page = new PageImpl();
+    return page;
   }
 
   /**

@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.Survey#getTitle <em>Title</em>}</li>
  *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.Survey#getGreeting <em>Greeting</em>}</li>
  *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.Survey#getDuration <em>Duration</em>}</li>
- *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.Survey#getQuestions <em>Questions</em>}</li>
+ *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.Survey#getPages <em>Pages</em>}</li>
  * </ul>
  *
  * @see org.xtext.nordakademie.evaluation.evaluation.EvaluationPackage#getSurvey()
@@ -133,19 +133,19 @@ public interface Survey extends EObject
   void setDuration(String value);
 
   /**
-   * Returns the value of the '<em><b>Questions</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.nordakademie.evaluation.evaluation.Question}.
+   * Returns the value of the '<em><b>Pages</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.nordakademie.evaluation.evaluation.Page}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Questions</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Pages</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Questions</em>' containment reference list.
-   * @see org.xtext.nordakademie.evaluation.evaluation.EvaluationPackage#getSurvey_Questions()
+   * @return the value of the '<em>Pages</em>' containment reference list.
+   * @see org.xtext.nordakademie.evaluation.evaluation.EvaluationPackage#getSurvey_Pages()
    * @model containment="true"
    * @generated
    */
-  EList<Question> getQuestions();
+  EList<Page> getPages();
 
 } // Survey
