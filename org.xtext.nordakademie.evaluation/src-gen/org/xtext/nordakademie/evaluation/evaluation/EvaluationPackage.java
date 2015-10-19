@@ -323,6 +323,98 @@ public interface EvaluationPackage extends EPackage
    */
   int CHOICE_FEATURE_COUNT = 3;
 
+  /**
+   * The meta object id for the '{@link org.xtext.nordakademie.evaluation.evaluation.impl.ChartImpl <em>Chart</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.nordakademie.evaluation.evaluation.impl.ChartImpl
+   * @see org.xtext.nordakademie.evaluation.evaluation.impl.EvaluationPackageImpl#getChart()
+   * @generated
+   */
+  int CHART = 6;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHART__NAME = QUESTION__NAME;
+
+  /**
+   * The feature id for the '<em><b>Question</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHART__QUESTION = QUESTION__QUESTION;
+
+  /**
+   * The feature id for the '<em><b>Choices</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHART__CHOICES = QUESTION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Graduations</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHART__GRADUATIONS = QUESTION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Chart</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CHART_FEATURE_COUNT = QUESTION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.xtext.nordakademie.evaluation.evaluation.impl.GraduationImpl <em>Graduation</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.nordakademie.evaluation.evaluation.impl.GraduationImpl
+   * @see org.xtext.nordakademie.evaluation.evaluation.impl.EvaluationPackageImpl#getGraduation()
+   * @generated
+   */
+  int GRADUATION = 7;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GRADUATION__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Statement</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GRADUATION__STATEMENT = 1;
+
+  /**
+   * The number of structural features of the '<em>Graduation</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GRADUATION_FEATURE_COUNT = 2;
+
 
   /**
    * Returns the meta object for class '{@link org.xtext.nordakademie.evaluation.evaluation.Survey <em>Survey</em>}'.
@@ -528,6 +620,70 @@ public interface EvaluationPackage extends EPackage
   EAttribute getChoice_BulletPoint();
 
   /**
+   * Returns the meta object for class '{@link org.xtext.nordakademie.evaluation.evaluation.Chart <em>Chart</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Chart</em>'.
+   * @see org.xtext.nordakademie.evaluation.evaluation.Chart
+   * @generated
+   */
+  EClass getChart();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.nordakademie.evaluation.evaluation.Chart#getChoices <em>Choices</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Choices</em>'.
+   * @see org.xtext.nordakademie.evaluation.evaluation.Chart#getChoices()
+   * @see #getChart()
+   * @generated
+   */
+  EReference getChart_Choices();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.xtext.nordakademie.evaluation.evaluation.Chart#getGraduations <em>Graduations</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Graduations</em>'.
+   * @see org.xtext.nordakademie.evaluation.evaluation.Chart#getGraduations()
+   * @see #getChart()
+   * @generated
+   */
+  EReference getChart_Graduations();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.nordakademie.evaluation.evaluation.Graduation <em>Graduation</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Graduation</em>'.
+   * @see org.xtext.nordakademie.evaluation.evaluation.Graduation
+   * @generated
+   */
+  EClass getGraduation();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.nordakademie.evaluation.evaluation.Graduation#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.xtext.nordakademie.evaluation.evaluation.Graduation#getName()
+   * @see #getGraduation()
+   * @generated
+   */
+  EAttribute getGraduation_Name();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.nordakademie.evaluation.evaluation.Graduation#getStatement <em>Statement</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Statement</em>'.
+   * @see org.xtext.nordakademie.evaluation.evaluation.Graduation#getStatement()
+   * @see #getGraduation()
+   * @generated
+   */
+  EAttribute getGraduation_Statement();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -713,6 +869,58 @@ public interface EvaluationPackage extends EPackage
      * @generated
      */
     EAttribute CHOICE__BULLET_POINT = eINSTANCE.getChoice_BulletPoint();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.nordakademie.evaluation.evaluation.impl.ChartImpl <em>Chart</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.nordakademie.evaluation.evaluation.impl.ChartImpl
+     * @see org.xtext.nordakademie.evaluation.evaluation.impl.EvaluationPackageImpl#getChart()
+     * @generated
+     */
+    EClass CHART = eINSTANCE.getChart();
+
+    /**
+     * The meta object literal for the '<em><b>Choices</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CHART__CHOICES = eINSTANCE.getChart_Choices();
+
+    /**
+     * The meta object literal for the '<em><b>Graduations</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CHART__GRADUATIONS = eINSTANCE.getChart_Graduations();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.nordakademie.evaluation.evaluation.impl.GraduationImpl <em>Graduation</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.nordakademie.evaluation.evaluation.impl.GraduationImpl
+     * @see org.xtext.nordakademie.evaluation.evaluation.impl.EvaluationPackageImpl#getGraduation()
+     * @generated
+     */
+    EClass GRADUATION = eINSTANCE.getGraduation();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute GRADUATION__NAME = eINSTANCE.getGraduation_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Statement</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute GRADUATION__STATEMENT = eINSTANCE.getGraduation_Statement();
 
   }
 

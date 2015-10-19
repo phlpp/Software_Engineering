@@ -16,9 +16,11 @@ import org.eclipse.xtext.serializer.sequencer.ISemanticNodeProvider.INodesForEOb
 import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
+import org.xtext.nordakademie.evaluation.evaluation.Chart;
 import org.xtext.nordakademie.evaluation.evaluation.Choice;
 import org.xtext.nordakademie.evaluation.evaluation.EvaluationPackage;
 import org.xtext.nordakademie.evaluation.evaluation.Freetext;
+import org.xtext.nordakademie.evaluation.evaluation.Graduation;
 import org.xtext.nordakademie.evaluation.evaluation.Page;
 import org.xtext.nordakademie.evaluation.evaluation.Selection;
 import org.xtext.nordakademie.evaluation.evaluation.Survey;
@@ -33,11 +35,17 @@ public class EvaluationSemanticSequencer extends AbstractDelegatingSemanticSeque
 	@Override
 	public void createSequence(EObject context, EObject semanticObject) {
 		if(semanticObject.eClass().getEPackage() == EvaluationPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+			case EvaluationPackage.CHART:
+				sequence_Chart(context, (Chart) semanticObject); 
+				return; 
 			case EvaluationPackage.CHOICE:
 				sequence_Choice(context, (Choice) semanticObject); 
 				return; 
 			case EvaluationPackage.FREETEXT:
 				sequence_Freetext(context, (Freetext) semanticObject); 
+				return; 
+			case EvaluationPackage.GRADUATION:
+				sequence_Graduation(context, (Graduation) semanticObject); 
 				return; 
 			case EvaluationPackage.PAGE:
 				sequence_Page(context, (Page) semanticObject); 
@@ -51,6 +59,15 @@ public class EvaluationSemanticSequencer extends AbstractDelegatingSemanticSeque
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Constraint:
+	 *     (name=ID question=STRING choices+=Choice* graduations+=Graduation*)
+	 */
+	protected void sequence_Chart(EObject context, Chart semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
 	
 	/**
 	 * Constraint:
@@ -77,6 +94,15 @@ public class EvaluationSemanticSequencer extends AbstractDelegatingSemanticSeque
 		feeder.accept(grammarAccess.getFreetextAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getFreetextAccess().getQuestionSTRINGTerminalRuleCall_2_0(), semanticObject.getQuestion());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID? statement=STRING)
+	 */
+	protected void sequence_Graduation(EObject context, Graduation semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

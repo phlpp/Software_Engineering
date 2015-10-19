@@ -10,6 +10,7 @@ import org.xtext.nordakademie.evaluation.evaluation.Survey
 import org.xtext.nordakademie.evaluation.evaluation.Selection
 import org.xtext.nordakademie.evaluation.evaluation.Freetext
 import org.xtext.nordakademie.evaluation.evaluation.Page
+import org.xtext.nordakademie.evaluation.evaluation.Chart
 
 /**
  * Generates code from your model files on save.
@@ -64,4 +65,34 @@ class EvaluationGenerator implements IGenerator {
 			«ENDFOR»	
 		</p>		
 	'''
+	def dispatch select(Chart question) '''
+		<p>
+			<label>«question.question»</label><br>
+			<style> table, td, th { border: 1px solid black; } </style>
+			
+			
+			<table> 
+«««				first row with graduation statements
+				<tr> 
+					<th>&nbsp;</th>
+				«FOR graduation : question.graduations»
+					<th>«graduation.statement»</th>
+				«ENDFOR»
+				</tr> 
+«««				rows with choices and radio buttons
+				«FOR choice : question.choices»
+					<tr>
+					<td>«choice.bulletPoint»</td>
+					 «FOR graduation : question.graduations»
+					 	<td><input type="radio" name="«question.name»" value=«choice.name»></td> 	
+					 «ENDFOR»
+					 </tr>
+				«ENDFOR»
+			</table> 			
+		
+		
+		
+		</p>	
+	'''
+	
 }

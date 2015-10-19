@@ -9,10 +9,12 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.xtext.nordakademie.evaluation.evaluation.Chart;
 import org.xtext.nordakademie.evaluation.evaluation.Choice;
 import org.xtext.nordakademie.evaluation.evaluation.EvaluationFactory;
 import org.xtext.nordakademie.evaluation.evaluation.EvaluationPackage;
 import org.xtext.nordakademie.evaluation.evaluation.Freetext;
+import org.xtext.nordakademie.evaluation.evaluation.Graduation;
 import org.xtext.nordakademie.evaluation.evaluation.Page;
 import org.xtext.nordakademie.evaluation.evaluation.Question;
 import org.xtext.nordakademie.evaluation.evaluation.Selection;
@@ -67,6 +69,20 @@ public class EvaluationPackageImpl extends EPackageImpl implements EvaluationPac
    * @generated
    */
   private EClass choiceEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass chartEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass graduationEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -326,6 +342,66 @@ public class EvaluationPackageImpl extends EPackageImpl implements EvaluationPac
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getChart()
+  {
+    return chartEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getChart_Choices()
+  {
+    return (EReference)chartEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getChart_Graduations()
+  {
+    return (EReference)chartEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getGraduation()
+  {
+    return graduationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getGraduation_Name()
+  {
+    return (EAttribute)graduationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getGraduation_Statement()
+  {
+    return (EAttribute)graduationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EvaluationFactory getEvaluationFactory()
   {
     return (EvaluationFactory)getEFactoryInstance();
@@ -375,6 +451,14 @@ public class EvaluationPackageImpl extends EPackageImpl implements EvaluationPac
     createEAttribute(choiceEClass, CHOICE__FREETEXT);
     createEAttribute(choiceEClass, CHOICE__NAME);
     createEAttribute(choiceEClass, CHOICE__BULLET_POINT);
+
+    chartEClass = createEClass(CHART);
+    createEReference(chartEClass, CHART__CHOICES);
+    createEReference(chartEClass, CHART__GRADUATIONS);
+
+    graduationEClass = createEClass(GRADUATION);
+    createEAttribute(graduationEClass, GRADUATION__NAME);
+    createEAttribute(graduationEClass, GRADUATION__STATEMENT);
   }
 
   /**
@@ -408,6 +492,7 @@ public class EvaluationPackageImpl extends EPackageImpl implements EvaluationPac
     // Add supertypes to classes
     freetextEClass.getESuperTypes().add(this.getQuestion());
     selectionEClass.getESuperTypes().add(this.getQuestion());
+    chartEClass.getESuperTypes().add(this.getQuestion());
 
     // Initialize classes and features; add operations and parameters
     initEClass(surveyEClass, Survey.class, "Survey", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -434,6 +519,14 @@ public class EvaluationPackageImpl extends EPackageImpl implements EvaluationPac
     initEAttribute(getChoice_Freetext(), ecorePackage.getEBoolean(), "freetext", null, 0, 1, Choice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getChoice_Name(), ecorePackage.getEString(), "name", null, 0, 1, Choice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getChoice_BulletPoint(), ecorePackage.getEString(), "bulletPoint", null, 0, 1, Choice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(chartEClass, Chart.class, "Chart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getChart_Choices(), this.getChoice(), null, "choices", null, 0, -1, Chart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getChart_Graduations(), this.getGraduation(), null, "graduations", null, 0, -1, Chart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(graduationEClass, Graduation.class, "Graduation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getGraduation_Name(), ecorePackage.getEString(), "name", null, 0, 1, Graduation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getGraduation_Statement(), ecorePackage.getEString(), "statement", null, 0, 1, Graduation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

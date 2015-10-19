@@ -11,8 +11,10 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.generator.IGenerator;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.xtext.nordakademie.evaluation.evaluation.Chart;
 import org.xtext.nordakademie.evaluation.evaluation.Choice;
 import org.xtext.nordakademie.evaluation.evaluation.Freetext;
+import org.xtext.nordakademie.evaluation.evaluation.Graduation;
 import org.xtext.nordakademie.evaluation.evaluation.Page;
 import org.xtext.nordakademie.evaluation.evaluation.Question;
 import org.xtext.nordakademie.evaluation.evaluation.Selection;
@@ -156,8 +158,94 @@ public class EvaluationGenerator implements IGenerator {
     return _builder;
   }
   
+  protected CharSequence _select(final Chart question) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<p>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<label>");
+    String _question = question.getQuestion();
+    _builder.append(_question, "\t");
+    _builder.append("</label><br>");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("<style> table, td, th { border: 1px solid black; } </style>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<table> ");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("<tr> ");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("<th>&nbsp;</th>");
+    _builder.newLine();
+    {
+      EList<Graduation> _graduations = question.getGraduations();
+      for(final Graduation graduation : _graduations) {
+        _builder.append("\t\t");
+        _builder.append("<th>");
+        String _statement = graduation.getStatement();
+        _builder.append(_statement, "\t\t");
+        _builder.append("</th>");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("\t\t");
+    _builder.append("</tr> ");
+    _builder.newLine();
+    {
+      EList<Choice> _choices = question.getChoices();
+      for(final Choice choice : _choices) {
+        _builder.append("\t\t");
+        _builder.append("<tr>");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("<td>");
+        String _bulletPoint = choice.getBulletPoint();
+        _builder.append(_bulletPoint, "\t\t");
+        _builder.append("</td>");
+        _builder.newLineIfNotEmpty();
+        {
+          EList<Graduation> _graduations_1 = question.getGraduations();
+          for(final Graduation graduation_1 : _graduations_1) {
+            _builder.append("\t\t");
+            _builder.append(" ");
+            _builder.append("<td><input type=\"radio\" name=\"");
+            String _name = question.getName();
+            _builder.append(_name, "\t\t ");
+            _builder.append("\" value=");
+            String _name_1 = choice.getName();
+            _builder.append(_name_1, "\t\t ");
+            _builder.append("></td> \t");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        _builder.append("\t\t");
+        _builder.append(" ");
+        _builder.append("</tr>");
+        _builder.newLine();
+      }
+    }
+    _builder.append("\t");
+    _builder.append("</table> \t\t\t");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("</p>\t");
+    _builder.newLine();
+    return _builder;
+  }
+  
   public CharSequence select(final Question question) {
-    if (question instanceof Freetext) {
+    if (question instanceof Chart) {
+      return _select((Chart)question);
+    } else if (question instanceof Freetext) {
       return _select((Freetext)question);
     } else if (question instanceof Selection) {
       return _select((Selection)question);

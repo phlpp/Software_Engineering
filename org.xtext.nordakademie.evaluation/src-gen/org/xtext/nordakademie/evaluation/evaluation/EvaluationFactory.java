@@ -77,6 +77,24 @@ public interface EvaluationFactory extends EFactory
   Choice createChoice();
 
   /**
+   * Returns a new object of class '<em>Chart</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Chart</em>'.
+   * @generated
+   */
+  Chart createChart();
+
+  /**
+   * Returns a new object of class '<em>Graduation</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Graduation</em>'.
+   * @generated
+   */
+  Graduation createGraduation();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

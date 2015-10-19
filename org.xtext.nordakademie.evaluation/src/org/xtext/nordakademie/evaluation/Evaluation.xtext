@@ -17,8 +17,8 @@ Page:
 ;
 	
 Question:
-	Freetext | Selection 
-//	tbd | Rating | Chart | Calender	| Star
+	Freetext | Selection | Chart 
+//	tbd | Rating | Chart | Calendar	| Star
 ;
 
 Freetext:
@@ -32,5 +32,20 @@ Selection:
 Choice:
 	(freetext?='freetext')? name=ID bulletPoint=STRING	
 ;
+
+Chart:
+	'chart' name=ID question=STRING '(' choices+=Choice* ')' 'x' '(' graduations+=Graduation* ')'
+;
+
+Graduation:
+	(name=ID)? statement=STRING
+;
+
+
+
+
+
+
+
 
 

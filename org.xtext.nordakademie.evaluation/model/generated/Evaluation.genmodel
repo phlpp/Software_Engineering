@@ -31,5 +31,13 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Choice/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Choice/bulletPoint"/>
     </genClasses>
+    <genClasses ecoreClass="Evaluation.ecore#//Chart">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Evaluation.ecore#//Chart/choices"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Evaluation.ecore#//Chart/graduations"/>
+    </genClasses>
+    <genClasses ecoreClass="Evaluation.ecore#//Graduation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Graduation/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Graduation/statement"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

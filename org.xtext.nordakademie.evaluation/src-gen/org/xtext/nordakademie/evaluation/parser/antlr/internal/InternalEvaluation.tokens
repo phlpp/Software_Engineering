@@ -1,9 +1,11 @@
 '('=13
 ')'=14
+'chart'=17
 'freetext'=15
 'page'=12
 'select'=16
 'survey'=11
+'x'=18
 RULE_ANY_OTHER=10
 RULE_ID=4
 RULE_INT=6
@@ -17,3 +19,5 @@ T__13=13
 T__14=14
 T__15=15
 T__16=16
+T__17=17
+T__18=18

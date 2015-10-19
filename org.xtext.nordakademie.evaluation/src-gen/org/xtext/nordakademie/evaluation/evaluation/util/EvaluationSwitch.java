@@ -116,6 +116,21 @@ public class EvaluationSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case EvaluationPackage.CHART:
+      {
+        Chart chart = (Chart)theEObject;
+        T result = caseChart(chart);
+        if (result == null) result = caseQuestion(chart);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EvaluationPackage.GRADUATION:
+      {
+        Graduation graduation = (Graduation)theEObject;
+        T result = caseGraduation(graduation);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -212,6 +227,38 @@ public class EvaluationSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseChoice(Choice object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Chart</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Chart</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseChart(Chart object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Graduation</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Graduation</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseGraduation(Graduation object)
   {
     return null;
   }
