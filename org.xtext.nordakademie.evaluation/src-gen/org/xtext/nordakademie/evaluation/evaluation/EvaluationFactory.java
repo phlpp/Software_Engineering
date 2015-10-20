@@ -95,6 +95,15 @@ public interface EvaluationFactory extends EFactory
   Graduation createGraduation();
 
   /**
+   * Returns a new object of class '<em>Rating</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Rating</em>'.
+   * @generated
+   */
+  Rating createRating();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

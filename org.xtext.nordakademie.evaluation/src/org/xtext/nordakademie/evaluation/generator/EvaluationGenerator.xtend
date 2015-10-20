@@ -11,6 +11,8 @@ import org.xtext.nordakademie.evaluation.evaluation.Selection
 import org.xtext.nordakademie.evaluation.evaluation.Freetext
 import org.xtext.nordakademie.evaluation.evaluation.Page
 import org.xtext.nordakademie.evaluation.evaluation.Chart
+import org.xtext.nordakademie.evaluation.evaluation.Rating
+import org.eclipse.emf.mwe.internal.core.ast.util.converter.IntegerConverter
 
 /**
  * Generates code from your model files on save.
@@ -20,12 +22,12 @@ import org.xtext.nordakademie.evaluation.evaluation.Chart
 class EvaluationGenerator implements IGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
-		//first element of ecore-tree (survey)
+		// first element of ecore-tree (survey)
 		val survey = resource.contents.head as Survey
-		//multiple pages
-		for(page: survey.pages) {
-				fsa.generateFile(page.name + '.html', toHtml(survey, page))
-			}
+		// multiple pages
+		for (page : survey.pages) {
+			fsa.generateFile(page.name + '.html', toHtml(survey, page))
+		}
 	}
 
 	def toHtml(Survey survey, Page page) '''
@@ -65,6 +67,7 @@ class EvaluationGenerator implements IGenerator {
 			«ENDFOR»	
 		</p>		
 	'''
+
 	def dispatch select(Chart question) '''
 		<p>
 			<label>«question.question»</label><br>
@@ -72,27 +75,35 @@ class EvaluationGenerator implements IGenerator {
 			
 			
 			<table> 
-«««				first row with graduation statements
+		«««				first ro with graduation statements
 				<tr> 
 					<th>&nbsp;</th>
 				«FOR graduation : question.graduations»
-					<th>«graduation.statement»</th>
-				«ENDFOR»
-				</tr> 
-«««				rows with choices and radio buttons
+		em	<th>«graduation.statement»</th>
+		em«ENDFOR»
+		em</tr> 
+		«««				rows with choices and radio buttons
 				«FOR choice : question.choices»
-					<tr>
-					<td>«choice.bulletPoint»</td>
-					 «FOR graduation : question.graduations»
-					 	<td><input type="radio" name="«question.name»" value=«choice.name»></td> 	
-					 «ENDFOR»
-					 </tr>
+			<tr>
+			<td>«choice.bulletPoint»</td>
+			 «FOR graduation : question.graduations»
+			 	<td><input type="radio" name="«question.name»" value=«choice.name»></td> 	
+			 «ENDFOR»
+			 </tr>
 				«ENDFOR»
 			</table> 			
-		
-		
-		
 		</p>	
 	'''
-	
+
+	def dispatch select(Rating question) '''
+	<p>
+		<label>«question.question»</label><br>
+		«val ratings = question.rating»
+		«var i =1»
+		«while (i<=ratings) »
+			<input type="radio" name="«question.name»"  value="«i»"  class="star"/>	
+			«i=i+1»
+	</p>
+	'''
+				
 }

@@ -17,6 +17,7 @@ import org.xtext.nordakademie.evaluation.evaluation.Freetext;
 import org.xtext.nordakademie.evaluation.evaluation.Graduation;
 import org.xtext.nordakademie.evaluation.evaluation.Page;
 import org.xtext.nordakademie.evaluation.evaluation.Question;
+import org.xtext.nordakademie.evaluation.evaluation.Rating;
 import org.xtext.nordakademie.evaluation.evaluation.Selection;
 import org.xtext.nordakademie.evaluation.evaluation.Survey;
 
@@ -178,7 +179,7 @@ public class EvaluationGenerator implements IGenerator {
     _builder.append("\t");
     _builder.append("<table> ");
     _builder.newLine();
-    _builder.append("\t\t");
+    _builder.append("\t\t\t\t");
     _builder.append("<tr> ");
     _builder.newLine();
     _builder.append("\t\t\t");
@@ -187,45 +188,41 @@ public class EvaluationGenerator implements IGenerator {
     {
       EList<Graduation> _graduations = question.getGraduations();
       for(final Graduation graduation : _graduations) {
-        _builder.append("\t\t");
-        _builder.append("<th>");
+        _builder.append("em\t<th>");
         String _statement = graduation.getStatement();
-        _builder.append(_statement, "\t\t");
+        _builder.append(_statement, "");
         _builder.append("</th>");
         _builder.newLineIfNotEmpty();
+        _builder.append("em");
       }
     }
-    _builder.append("\t\t");
-    _builder.append("</tr> ");
+    _builder.newLineIfNotEmpty();
+    _builder.append("em</tr> ");
     _builder.newLine();
     {
       EList<Choice> _choices = question.getChoices();
       for(final Choice choice : _choices) {
-        _builder.append("\t\t");
         _builder.append("<tr>");
         _builder.newLine();
-        _builder.append("\t\t");
         _builder.append("<td>");
         String _bulletPoint = choice.getBulletPoint();
-        _builder.append(_bulletPoint, "\t\t");
+        _builder.append(_bulletPoint, "");
         _builder.append("</td>");
         _builder.newLineIfNotEmpty();
         {
           EList<Graduation> _graduations_1 = question.getGraduations();
           for(final Graduation graduation_1 : _graduations_1) {
-            _builder.append("\t\t");
             _builder.append(" ");
             _builder.append("<td><input type=\"radio\" name=\"");
             String _name = question.getName();
-            _builder.append(_name, "\t\t ");
+            _builder.append(_name, " ");
             _builder.append("\" value=");
             String _name_1 = choice.getName();
-            _builder.append(_name_1, "\t\t ");
+            _builder.append(_name_1, " ");
             _builder.append("></td> \t");
             _builder.newLineIfNotEmpty();
           }
         }
-        _builder.append("\t\t");
         _builder.append(" ");
         _builder.append("</tr>");
         _builder.newLine();
@@ -234,12 +231,14 @@ public class EvaluationGenerator implements IGenerator {
     _builder.append("\t");
     _builder.append("</table> \t\t\t");
     _builder.newLine();
-    _builder.newLine();
-    _builder.newLine();
-    _builder.newLine();
     _builder.append("</p>\t");
     _builder.newLine();
     return _builder;
+  }
+  
+  protected CharSequence _select(final Rating question) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nno viable alternative at input \'»\\r\\n\\t\\t\\t<input type=\"radio\" name=\"«\'");
   }
   
   public CharSequence select(final Question question) {
@@ -247,6 +246,8 @@ public class EvaluationGenerator implements IGenerator {
       return _select((Chart)question);
     } else if (question instanceof Freetext) {
       return _select((Freetext)question);
+    } else if (question instanceof Rating) {
+      return _select((Rating)question);
     } else if (question instanceof Selection) {
       return _select((Selection)question);
     } else {

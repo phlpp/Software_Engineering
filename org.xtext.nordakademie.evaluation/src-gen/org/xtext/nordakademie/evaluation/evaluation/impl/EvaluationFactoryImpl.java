@@ -72,6 +72,7 @@ public class EvaluationFactoryImpl extends EFactoryImpl implements EvaluationFac
       case EvaluationPackage.CHOICE: return createChoice();
       case EvaluationPackage.CHART: return createChart();
       case EvaluationPackage.GRADUATION: return createGraduation();
+      case EvaluationPackage.RATING: return createRating();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -163,6 +164,17 @@ public class EvaluationFactoryImpl extends EFactoryImpl implements EvaluationFac
   {
     GraduationImpl graduation = new GraduationImpl();
     return graduation;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Rating createRating()
+  {
+    RatingImpl rating = new RatingImpl();
+    return rating;
   }
 
   /**

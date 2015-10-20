@@ -39,5 +39,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Graduation/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Graduation/statement"/>
     </genClasses>
+    <genClasses ecoreClass="Evaluation.ecore#//Rating">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Rating/rating"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

@@ -115,6 +115,11 @@ public class EvaluationAdapterFactory extends AdapterFactoryImpl
         return createGraduationAdapter();
       }
       @Override
+      public Adapter caseRating(Rating object)
+      {
+        return createRatingAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -252,6 +257,21 @@ public class EvaluationAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createGraduationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.xtext.nordakademie.evaluation.evaluation.Rating <em>Rating</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.nordakademie.evaluation.evaluation.Rating
+   * @generated
+   */
+  public Adapter createRatingAdapter()
   {
     return null;
   }

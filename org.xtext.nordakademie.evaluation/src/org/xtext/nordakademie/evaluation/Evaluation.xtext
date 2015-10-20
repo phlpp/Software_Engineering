@@ -17,7 +17,7 @@ Page:
 ;
 	
 Question:
-	Freetext | Selection | Chart 
+	Freetext | Selection | Chart | Rating
 //	tbd | Rating | Chart | Calendar	| Star
 ;
 
@@ -41,6 +41,9 @@ Graduation:
 	(name=ID)? statement=STRING
 ;
 
+Rating:
+	'chart' name=ID question=STRING rating=INT
+;
 
 
 

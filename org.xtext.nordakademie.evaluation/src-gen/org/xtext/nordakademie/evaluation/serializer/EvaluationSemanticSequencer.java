@@ -22,6 +22,7 @@ import org.xtext.nordakademie.evaluation.evaluation.EvaluationPackage;
 import org.xtext.nordakademie.evaluation.evaluation.Freetext;
 import org.xtext.nordakademie.evaluation.evaluation.Graduation;
 import org.xtext.nordakademie.evaluation.evaluation.Page;
+import org.xtext.nordakademie.evaluation.evaluation.Rating;
 import org.xtext.nordakademie.evaluation.evaluation.Selection;
 import org.xtext.nordakademie.evaluation.evaluation.Survey;
 import org.xtext.nordakademie.evaluation.services.EvaluationGrammarAccess;
@@ -49,6 +50,9 @@ public class EvaluationSemanticSequencer extends AbstractDelegatingSemanticSeque
 				return; 
 			case EvaluationPackage.PAGE:
 				sequence_Page(context, (Page) semanticObject); 
+				return; 
+			case EvaluationPackage.RATING:
+				sequence_Rating(context, (Rating) semanticObject); 
 				return; 
 			case EvaluationPackage.SELECTION:
 				sequence_Selection(context, (Selection) semanticObject); 
@@ -112,6 +116,28 @@ public class EvaluationSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_Page(EObject context, Page semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID question=STRING rating=INT)
+	 */
+	protected void sequence_Rating(EObject context, Rating semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, EvaluationPackage.Literals.QUESTION__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EvaluationPackage.Literals.QUESTION__NAME));
+			if(transientValues.isValueTransient(semanticObject, EvaluationPackage.Literals.QUESTION__QUESTION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EvaluationPackage.Literals.QUESTION__QUESTION));
+			if(transientValues.isValueTransient(semanticObject, EvaluationPackage.Literals.RATING__RATING) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EvaluationPackage.Literals.RATING__RATING));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getRatingAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getRatingAccess().getQuestionSTRINGTerminalRuleCall_2_0(), semanticObject.getQuestion());
+		feeder.accept(grammarAccess.getRatingAccess().getRatingINTTerminalRuleCall_3_0(), semanticObject.getRating());
+		feeder.finish();
 	}
 	
 	

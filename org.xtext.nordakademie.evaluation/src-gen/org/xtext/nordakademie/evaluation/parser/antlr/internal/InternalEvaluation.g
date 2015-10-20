@@ -290,6 +290,16 @@ ruleQuestion returns [EObject current=null]
         $current = $this_Chart_2.current; 
         afterParserOrEnumRuleCall();
     }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getQuestionAccess().getRatingParserRuleCall_3()); 
+    }
+    this_Rating_3=ruleRating
+    { 
+        $current = $this_Rating_3.current; 
+        afterParserOrEnumRuleCall();
+    }
 )
 ;
 
@@ -681,6 +691,85 @@ ruleGraduation returns [EObject current=null]
        			"statement",
         		lv_statement_1_0, 
         		"STRING");
+	    }
+
+)
+))
+;
+
+
+
+
+
+// Entry rule entryRuleRating
+entryRuleRating returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getRatingRule()); }
+	 iv_ruleRating=ruleRating 
+	 { $current=$iv_ruleRating.current; } 
+	 EOF 
+;
+
+// Rule Rating
+ruleRating returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='chart' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getRatingAccess().getChartKeyword_0());
+    }
+(
+(
+		lv_name_1_0=RULE_ID
+		{
+			newLeafNode(lv_name_1_0, grammarAccess.getRatingAccess().getNameIDTerminalRuleCall_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getRatingRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_1_0, 
+        		"ID");
+	    }
+
+)
+)(
+(
+		lv_question_2_0=RULE_STRING
+		{
+			newLeafNode(lv_question_2_0, grammarAccess.getRatingAccess().getQuestionSTRINGTerminalRuleCall_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getRatingRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"question",
+        		lv_question_2_0, 
+        		"STRING");
+	    }
+
+)
+)(
+(
+		lv_rating_3_0=RULE_INT
+		{
+			newLeafNode(lv_rating_3_0, grammarAccess.getRatingAccess().getRatingINTTerminalRuleCall_3_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getRatingRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"rating",
+        		lv_rating_3_0, 
+        		"INT");
 	    }
 
 )

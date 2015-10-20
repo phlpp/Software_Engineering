@@ -122,13 +122,14 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cFreetextParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cSelectionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cChartParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cRatingParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
 		////	tbd | Rating | Chart | Calendar	| Star
 		//Question:
-		//	Freetext | Selection | Chart;
+		//	Freetext | Selection | Chart | Rating;
 		@Override public ParserRule getRule() { return rule; }
 
-		//Freetext | Selection | Chart
+		//Freetext | Selection | Chart | Rating
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//Freetext
@@ -139,6 +140,9 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 
 		//Chart
 		public RuleCall getChartParserRuleCall_2() { return cChartParserRuleCall_2; }
+
+		//Rating
+		public RuleCall getRatingParserRuleCall_3() { return cRatingParserRuleCall_3; }
 	}
 
 	public class FreetextElements extends AbstractParserRuleElementFinder {
@@ -352,6 +356,46 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getStatementSTRINGTerminalRuleCall_1_0() { return cStatementSTRINGTerminalRuleCall_1_0; }
 	}
+
+	public class RatingElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Rating");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cChartKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cQuestionAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cQuestionSTRINGTerminalRuleCall_2_0 = (RuleCall)cQuestionAssignment_2.eContents().get(0);
+		private final Assignment cRatingAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cRatingINTTerminalRuleCall_3_0 = (RuleCall)cRatingAssignment_3.eContents().get(0);
+		
+		//Rating:
+		//	"chart" name=ID question=STRING rating=INT;
+		@Override public ParserRule getRule() { return rule; }
+
+		//"chart" name=ID question=STRING rating=INT
+		public Group getGroup() { return cGroup; }
+
+		//"chart"
+		public Keyword getChartKeyword_0() { return cChartKeyword_0; }
+
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+
+		//question=STRING
+		public Assignment getQuestionAssignment_2() { return cQuestionAssignment_2; }
+
+		//STRING
+		public RuleCall getQuestionSTRINGTerminalRuleCall_2_0() { return cQuestionSTRINGTerminalRuleCall_2_0; }
+
+		//rating=INT
+		public Assignment getRatingAssignment_3() { return cRatingAssignment_3; }
+
+		//INT
+		public RuleCall getRatingINTTerminalRuleCall_3_0() { return cRatingINTTerminalRuleCall_3_0; }
+	}
 	
 	
 	private final SurveyElements pSurvey;
@@ -362,6 +406,7 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 	private final ChoiceElements pChoice;
 	private final ChartElements pChart;
 	private final GraduationElements pGraduation;
+	private final RatingElements pRating;
 	
 	private final Grammar grammar;
 
@@ -380,6 +425,7 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		this.pChoice = new ChoiceElements();
 		this.pChart = new ChartElements();
 		this.pGraduation = new GraduationElements();
+		this.pRating = new RatingElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -432,7 +478,7 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 
 	////	tbd | Rating | Chart | Calendar	| Star
 	//Question:
-	//	Freetext | Selection | Chart;
+	//	Freetext | Selection | Chart | Rating;
 	public QuestionElements getQuestionAccess() {
 		return pQuestion;
 	}
@@ -489,6 +535,16 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getGraduationRule() {
 		return getGraduationAccess().getRule();
+	}
+
+	//Rating:
+	//	"chart" name=ID question=STRING rating=INT;
+	public RatingElements getRatingAccess() {
+		return pRating;
+	}
+	
+	public ParserRule getRatingRule() {
+		return getRatingAccess().getRule();
 	}
 
 	//terminal ID:

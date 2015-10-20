@@ -415,6 +415,52 @@ public interface EvaluationPackage extends EPackage
    */
   int GRADUATION_FEATURE_COUNT = 2;
 
+  /**
+   * The meta object id for the '{@link org.xtext.nordakademie.evaluation.evaluation.impl.RatingImpl <em>Rating</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.nordakademie.evaluation.evaluation.impl.RatingImpl
+   * @see org.xtext.nordakademie.evaluation.evaluation.impl.EvaluationPackageImpl#getRating()
+   * @generated
+   */
+  int RATING = 8;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RATING__NAME = QUESTION__NAME;
+
+  /**
+   * The feature id for the '<em><b>Question</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RATING__QUESTION = QUESTION__QUESTION;
+
+  /**
+   * The feature id for the '<em><b>Rating</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RATING__RATING = QUESTION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Rating</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RATING_FEATURE_COUNT = QUESTION_FEATURE_COUNT + 1;
+
 
   /**
    * Returns the meta object for class '{@link org.xtext.nordakademie.evaluation.evaluation.Survey <em>Survey</em>}'.
@@ -684,6 +730,27 @@ public interface EvaluationPackage extends EPackage
   EAttribute getGraduation_Statement();
 
   /**
+   * Returns the meta object for class '{@link org.xtext.nordakademie.evaluation.evaluation.Rating <em>Rating</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Rating</em>'.
+   * @see org.xtext.nordakademie.evaluation.evaluation.Rating
+   * @generated
+   */
+  EClass getRating();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.xtext.nordakademie.evaluation.evaluation.Rating#getRating <em>Rating</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Rating</em>'.
+   * @see org.xtext.nordakademie.evaluation.evaluation.Rating#getRating()
+   * @see #getRating()
+   * @generated
+   */
+  EAttribute getRating_Rating();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -921,6 +988,24 @@ public interface EvaluationPackage extends EPackage
      * @generated
      */
     EAttribute GRADUATION__STATEMENT = eINSTANCE.getGraduation_Statement();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.nordakademie.evaluation.evaluation.impl.RatingImpl <em>Rating</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.nordakademie.evaluation.evaluation.impl.RatingImpl
+     * @see org.xtext.nordakademie.evaluation.evaluation.impl.EvaluationPackageImpl#getRating()
+     * @generated
+     */
+    EClass RATING = eINSTANCE.getRating();
+
+    /**
+     * The meta object literal for the '<em><b>Rating</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute RATING__RATING = eINSTANCE.getRating_Rating();
 
   }
 
