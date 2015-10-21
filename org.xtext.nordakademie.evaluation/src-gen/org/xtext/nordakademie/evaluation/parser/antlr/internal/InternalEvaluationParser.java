@@ -21,24 +21,25 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalEvaluationParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'survey'", "'page'", "'('", "')'", "'freetext'", "'select'", "'chart'", "'x'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'survey'", "'page'", "'('", "')'", "'freetext'", "'select'", "'chart'", "'x'", "'rating'"
     };
-    public static final int RULE_ID=4;
-    public static final int RULE_WS=9;
     public static final int RULE_STRING=5;
-    public static final int RULE_ANY_OTHER=10;
     public static final int RULE_SL_COMMENT=8;
+    public static final int T__19=19;
     public static final int T__15=15;
     public static final int T__16=16;
     public static final int T__17=17;
-    public static final int RULE_INT=6;
     public static final int T__18=18;
     public static final int T__11=11;
-    public static final int RULE_ML_COMMENT=7;
     public static final int T__12=12;
     public static final int T__13=13;
     public static final int T__14=14;
     public static final int EOF=-1;
+    public static final int RULE_ID=4;
+    public static final int RULE_WS=9;
+    public static final int RULE_ANY_OTHER=10;
+    public static final int RULE_INT=6;
+    public static final int RULE_ML_COMMENT=7;
 
     // delegates
     // delegators
@@ -432,7 +433,7 @@ public class InternalEvaluationParser extends AbstractInternalAntlrParser {
                 int alt4=2;
                 int LA4_0 = input.LA(1);
 
-                if ( ((LA4_0>=15 && LA4_0<=17)) ) {
+                if ( ((LA4_0>=15 && LA4_0<=17)||LA4_0==19) ) {
                     alt4=1;
                 }
 
@@ -570,40 +571,12 @@ public class InternalEvaluationParser extends AbstractInternalAntlrParser {
                 break;
             case 17:
                 {
-                int LA5_3 = input.LA(2);
-
-                if ( (LA5_3==RULE_ID) ) {
-                    int LA5_4 = input.LA(3);
-
-                    if ( (LA5_4==RULE_STRING) ) {
-                        int LA5_5 = input.LA(4);
-
-                        if ( (LA5_5==13) ) {
-                            alt5=3;
-                        }
-                        else if ( (LA5_5==RULE_INT) ) {
-                            alt5=4;
-                        }
-                        else {
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 5, 5, input);
-
-                            throw nvae;
-                        }
-                    }
-                    else {
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 5, 4, input);
-
-                        throw nvae;
-                    }
+                alt5=3;
                 }
-                else {
-                    NoViableAltException nvae =
-                        new NoViableAltException("", 5, 3, input);
-
-                    throw nvae;
-                }
+                break;
+            case 19:
+                {
+                alt5=4;
                 }
                 break;
             default:
@@ -1616,7 +1589,7 @@ public class InternalEvaluationParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRating"
-    // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:714:1: ruleRating returns [EObject current=null] : (otherlv_0= 'chart' ( (lv_name_1_0= RULE_ID ) ) ( (lv_question_2_0= RULE_STRING ) ) ( (lv_rating_3_0= RULE_INT ) ) ) ;
+    // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:714:1: ruleRating returns [EObject current=null] : (otherlv_0= 'rating' ( (lv_name_1_0= RULE_ID ) ) ( (lv_question_2_0= RULE_STRING ) ) ( (lv_rating_3_0= RULE_INT ) ) ) ;
     public final EObject ruleRating() throws RecognitionException {
         EObject current = null;
 
@@ -1628,15 +1601,15 @@ public class InternalEvaluationParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:717:28: ( (otherlv_0= 'chart' ( (lv_name_1_0= RULE_ID ) ) ( (lv_question_2_0= RULE_STRING ) ) ( (lv_rating_3_0= RULE_INT ) ) ) )
-            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:718:1: (otherlv_0= 'chart' ( (lv_name_1_0= RULE_ID ) ) ( (lv_question_2_0= RULE_STRING ) ) ( (lv_rating_3_0= RULE_INT ) ) )
+            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:717:28: ( (otherlv_0= 'rating' ( (lv_name_1_0= RULE_ID ) ) ( (lv_question_2_0= RULE_STRING ) ) ( (lv_rating_3_0= RULE_INT ) ) ) )
+            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:718:1: (otherlv_0= 'rating' ( (lv_name_1_0= RULE_ID ) ) ( (lv_question_2_0= RULE_STRING ) ) ( (lv_rating_3_0= RULE_INT ) ) )
             {
-            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:718:1: (otherlv_0= 'chart' ( (lv_name_1_0= RULE_ID ) ) ( (lv_question_2_0= RULE_STRING ) ) ( (lv_rating_3_0= RULE_INT ) ) )
-            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:718:3: otherlv_0= 'chart' ( (lv_name_1_0= RULE_ID ) ) ( (lv_question_2_0= RULE_STRING ) ) ( (lv_rating_3_0= RULE_INT ) )
+            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:718:1: (otherlv_0= 'rating' ( (lv_name_1_0= RULE_ID ) ) ( (lv_question_2_0= RULE_STRING ) ) ( (lv_rating_3_0= RULE_INT ) ) )
+            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:718:3: otherlv_0= 'rating' ( (lv_name_1_0= RULE_ID ) ) ( (lv_question_2_0= RULE_STRING ) ) ( (lv_rating_3_0= RULE_INT ) )
             {
-            otherlv_0=(Token)match(input,17,FOLLOW_17_in_ruleRating1435); 
+            otherlv_0=(Token)match(input,19,FOLLOW_19_in_ruleRating1435); 
 
-                	newLeafNode(otherlv_0, grammarAccess.getRatingAccess().getChartKeyword_0());
+                	newLeafNode(otherlv_0, grammarAccess.getRatingAccess().getRatingKeyword_0());
                 
             // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:722:1: ( (lv_name_1_0= RULE_ID ) )
             // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:723:1: (lv_name_1_0= RULE_ID )
@@ -1752,8 +1725,8 @@ public class InternalEvaluationParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_EOF_in_entryRulePage280 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_12_in_rulePage317 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_rulePage334 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_rulePage351 = new BitSet(new long[]{0x000000000003C000L});
-    public static final BitSet FOLLOW_ruleQuestion_in_rulePage372 = new BitSet(new long[]{0x000000000003C000L});
+    public static final BitSet FOLLOW_13_in_rulePage351 = new BitSet(new long[]{0x00000000000BC000L});
+    public static final BitSet FOLLOW_ruleQuestion_in_rulePage372 = new BitSet(new long[]{0x00000000000BC000L});
     public static final BitSet FOLLOW_14_in_rulePage385 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleQuestion_in_entryRuleQuestion421 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleQuestion431 = new BitSet(new long[]{0x0000000000000002L});
@@ -1797,7 +1770,7 @@ public class InternalEvaluationParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_RULE_STRING_in_ruleGraduation1347 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleRating_in_entryRuleRating1388 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleRating1398 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_17_in_ruleRating1435 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_19_in_ruleRating1435 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleRating1452 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_RULE_STRING_in_ruleRating1474 = new BitSet(new long[]{0x0000000000000040L});
     public static final BitSet FOLLOW_RULE_INT_in_ruleRating1496 = new BitSet(new long[]{0x0000000000000002L});

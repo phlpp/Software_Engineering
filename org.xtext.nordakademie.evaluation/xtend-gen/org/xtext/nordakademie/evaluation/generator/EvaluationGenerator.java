@@ -237,8 +237,37 @@ public class EvaluationGenerator implements IGenerator {
   }
   
   protected CharSequence _select(final Rating question) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nno viable alternative at input \'»\\r\\n\\t\\t\\t<input type=\"radio\" name=\"«\'");
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<p>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<label>");
+    String _question = question.getQuestion();
+    _builder.append(_question, "\t");
+    _builder.append("</label><br>");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    final int ratings = question.getRating();
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    int i = 0;
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("while ((i=i+1)< ratings)");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<input type=\"radio\" name=\"");
+    String _name = question.getName();
+    _builder.append(_name, "\t");
+    _builder.append("\"  value=");
+    _builder.append(i, "\t");
+    _builder.append("  class=\"star\"/>\t");
+    _builder.newLineIfNotEmpty();
+    _builder.append("</p>");
+    _builder.newLine();
+    return _builder;
   }
   
   public CharSequence select(final Question question) {

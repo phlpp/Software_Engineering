@@ -17,8 +17,7 @@ Page:
 ;
 	
 Question:
-	Freetext | Selection | Chart | Rating
-//	tbd | Rating | Chart | Calendar	| Star
+	Freetext | Selection | Chart | Rating | Calendar
 ;
 
 Freetext:
@@ -42,10 +41,12 @@ Graduation:
 ;
 
 Rating:
-	'chart' name=ID question=STRING rating=INT
+	'rating' name=ID question=STRING rating=INT
 ;
 
-
+Calendar:
+	'calendar' name=ID question=STRING
+;
 
 
 

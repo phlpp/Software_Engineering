@@ -715,9 +715,9 @@ ruleRating returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='chart' 
+(	otherlv_0='rating' 
     {
-    	newLeafNode(otherlv_0, grammarAccess.getRatingAccess().getChartKeyword_0());
+    	newLeafNode(otherlv_0, grammarAccess.getRatingAccess().getRatingKeyword_0());
     }
 (
 (

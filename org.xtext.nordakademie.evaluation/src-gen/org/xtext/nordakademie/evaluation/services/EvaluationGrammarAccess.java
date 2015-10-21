@@ -360,7 +360,7 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 	public class RatingElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Rating");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cChartKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cRatingKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Assignment cQuestionAssignment_2 = (Assignment)cGroup.eContents().get(2);
@@ -369,14 +369,14 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cRatingINTTerminalRuleCall_3_0 = (RuleCall)cRatingAssignment_3.eContents().get(0);
 		
 		//Rating:
-		//	"chart" name=ID question=STRING rating=INT;
+		//	"rating" name=ID question=STRING rating=INT;
 		@Override public ParserRule getRule() { return rule; }
 
-		//"chart" name=ID question=STRING rating=INT
+		//"rating" name=ID question=STRING rating=INT
 		public Group getGroup() { return cGroup; }
 
-		//"chart"
-		public Keyword getChartKeyword_0() { return cChartKeyword_0; }
+		//"rating"
+		public Keyword getRatingKeyword_0() { return cRatingKeyword_0; }
 
 		//name=ID
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
@@ -538,7 +538,7 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Rating:
-	//	"chart" name=ID question=STRING rating=INT;
+	//	"rating" name=ID question=STRING rating=INT;
 	public RatingElements getRatingAccess() {
 		return pRating;
 	}

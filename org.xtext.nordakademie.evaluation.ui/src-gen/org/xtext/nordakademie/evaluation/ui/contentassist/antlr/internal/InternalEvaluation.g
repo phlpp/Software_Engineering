@@ -1469,11 +1469,11 @@ rule__Rating__Group__0__Impl
     }
 :
 (
-{ before(grammarAccess.getRatingAccess().getChartKeyword_0()); }
+{ before(grammarAccess.getRatingAccess().getRatingKeyword_0()); }
 
-	'chart' 
+	'rating' 
 
-{ after(grammarAccess.getRatingAccess().getChartKeyword_0()); }
+{ after(grammarAccess.getRatingAccess().getRatingKeyword_0()); }
 )
 
 ;

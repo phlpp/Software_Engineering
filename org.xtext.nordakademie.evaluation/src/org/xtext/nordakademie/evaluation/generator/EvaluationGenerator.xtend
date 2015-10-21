@@ -96,14 +96,16 @@ class EvaluationGenerator implements IGenerator {
 	'''
 
 	def dispatch select(Rating question) '''
-	<p>
-		<label>«question.question»</label><br>
-		«val ratings = question.rating»
-		«var i =1»
-		«while (i<=ratings) »
-			<input type="radio" name="«question.name»"  value="«i»"  class="star"/>	
-			«i=i+1»
-	</p>
+		<p>
+			<label>«question.question»</label><br>
+			«val  ratings = question.rating»
+			«var  i =0»
+			
+«««			not executable
+			while ((i=i+1)< ratings)
+			<input type="radio" name="«question.name»"  value=«i»  class="star"/>	
+		</p>
 	'''
+	
 				
 }

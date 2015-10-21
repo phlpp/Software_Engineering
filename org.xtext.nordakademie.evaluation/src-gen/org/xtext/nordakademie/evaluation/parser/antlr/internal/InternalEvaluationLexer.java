@@ -12,22 +12,23 @@ import java.util.ArrayList;
 
 @SuppressWarnings("all")
 public class InternalEvaluationLexer extends Lexer {
-    public static final int RULE_ID=4;
-    public static final int RULE_WS=9;
     public static final int RULE_STRING=5;
-    public static final int RULE_ANY_OTHER=10;
     public static final int RULE_SL_COMMENT=8;
+    public static final int T__19=19;
     public static final int T__15=15;
     public static final int T__16=16;
     public static final int T__17=17;
-    public static final int RULE_INT=6;
     public static final int T__18=18;
     public static final int T__11=11;
-    public static final int RULE_ML_COMMENT=7;
     public static final int T__12=12;
     public static final int T__13=13;
     public static final int T__14=14;
     public static final int EOF=-1;
+    public static final int RULE_ID=4;
+    public static final int RULE_WS=9;
+    public static final int RULE_ANY_OTHER=10;
+    public static final int RULE_INT=6;
+    public static final int RULE_ML_COMMENT=7;
 
     // delegates
     // delegators
@@ -206,6 +207,27 @@ public class InternalEvaluationLexer extends Lexer {
         }
     }
     // $ANTLR end "T__18"
+
+    // $ANTLR start "T__19"
+    public final void mT__19() throws RecognitionException {
+        try {
+            int _type = T__19;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:19:7: ( 'rating' )
+            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:19:9: 'rating'
+            {
+            match("rating"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__19"
 
     // $ANTLR start "RULE_ID"
     public final void mRULE_ID() throws RecognitionException {
@@ -706,8 +728,8 @@ public class InternalEvaluationLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:1:8: ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt12=15;
+        // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:1:8: ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt12=16;
         alt12 = dfa12.predict(input);
         switch (alt12) {
             case 1 :
@@ -767,49 +789,56 @@ public class InternalEvaluationLexer extends Lexer {
                 }
                 break;
             case 9 :
-                // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:1:58: RULE_ID
+                // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:1:58: T__19
+                {
+                mT__19(); 
+
+                }
+                break;
+            case 10 :
+                // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:1:64: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 10 :
-                // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:1:66: RULE_INT
+            case 11 :
+                // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:1:72: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 11 :
-                // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:1:75: RULE_STRING
+            case 12 :
+                // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:1:81: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 12 :
-                // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:1:87: RULE_ML_COMMENT
+            case 13 :
+                // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:1:93: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 13 :
-                // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:1:103: RULE_SL_COMMENT
+            case 14 :
+                // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:1:109: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 14 :
-                // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:1:119: RULE_WS
+            case 15 :
+                // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:1:125: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 15 :
-                // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:1:127: RULE_ANY_OTHER
+            case 16 :
+                // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:1:133: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -823,83 +852,94 @@ public class InternalEvaluationLexer extends Lexer {
 
     protected DFA12 dfa12 = new DFA12(this);
     static final String DFA12_eotS =
-        "\1\uffff\2\22\2\uffff\2\22\1\30\1\17\2\uffff\3\17\2\uffff\2\22"+
-        "\1\uffff\1\22\2\uffff\2\22\6\uffff\7\22\1\52\4\22\1\uffff\1\22\1"+
-        "\60\1\61\1\62\1\22\3\uffff\1\22\1\65\1\uffff";
+        "\1\uffff\2\23\2\uffff\2\23\1\31\1\23\1\20\2\uffff\3\20\2\uffff"+
+        "\2\23\1\uffff\1\23\2\uffff\2\23\1\uffff\1\23\5\uffff\10\23\1\56"+
+        "\5\23\1\uffff\1\23\1\65\1\23\1\67\1\70\1\23\1\uffff\1\72\2\uffff"+
+        "\1\23\1\uffff\1\74\1\uffff";
     static final String DFA12_eofS =
-        "\66\uffff";
+        "\75\uffff";
     static final String DFA12_minS =
-        "\1\0\1\145\1\141\2\uffff\1\162\1\150\1\60\1\101\2\uffff\2\0\1\52"+
-        "\2\uffff\1\162\1\154\1\uffff\1\147\2\uffff\1\145\1\141\6\uffff\1"+
-        "\166\3\145\1\162\1\145\1\143\1\60\2\164\1\171\1\164\1\uffff\1\145"+
-        "\3\60\1\170\3\uffff\1\164\1\60\1\uffff";
+        "\1\0\1\145\1\141\2\uffff\1\162\1\150\1\60\1\141\1\101\2\uffff\2"+
+        "\0\1\52\2\uffff\1\162\1\154\1\uffff\1\147\2\uffff\1\145\1\141\1"+
+        "\uffff\1\164\5\uffff\1\166\3\145\1\162\1\151\1\145\1\143\1\60\2"+
+        "\164\1\156\1\171\1\164\1\uffff\1\145\1\60\1\147\2\60\1\170\1\uffff"+
+        "\1\60\2\uffff\1\164\1\uffff\1\60\1\uffff";
     static final String DFA12_maxS =
-        "\1\uffff\1\165\1\141\2\uffff\1\162\1\150\2\172\2\uffff\2\uffff"+
-        "\1\57\2\uffff\1\162\1\154\1\uffff\1\147\2\uffff\1\145\1\141\6\uffff"+
-        "\1\166\3\145\1\162\1\145\1\143\1\172\2\164\1\171\1\164\1\uffff\1"+
-        "\145\3\172\1\170\3\uffff\1\164\1\172\1\uffff";
+        "\1\uffff\1\165\1\141\2\uffff\1\162\1\150\1\172\1\141\1\172\2\uffff"+
+        "\2\uffff\1\57\2\uffff\1\162\1\154\1\uffff\1\147\2\uffff\1\145\1"+
+        "\141\1\uffff\1\164\5\uffff\1\166\3\145\1\162\1\151\1\145\1\143\1"+
+        "\172\2\164\1\156\1\171\1\164\1\uffff\1\145\1\172\1\147\2\172\1\170"+
+        "\1\uffff\1\172\2\uffff\1\164\1\uffff\1\172\1\uffff";
     static final String DFA12_acceptS =
-        "\3\uffff\1\3\1\4\4\uffff\1\11\1\12\3\uffff\1\16\1\17\2\uffff\1"+
-        "\11\1\uffff\1\3\1\4\2\uffff\1\10\1\12\1\13\1\14\1\15\1\16\14\uffff"+
-        "\1\2\5\uffff\1\7\1\1\1\6\2\uffff\1\5";
+        "\3\uffff\1\3\1\4\5\uffff\1\12\1\13\3\uffff\1\17\1\20\2\uffff\1"+
+        "\12\1\uffff\1\3\1\4\2\uffff\1\10\1\uffff\1\13\1\14\1\15\1\16\1\17"+
+        "\16\uffff\1\2\6\uffff\1\7\1\uffff\1\1\1\6\1\uffff\1\11\1\uffff\1"+
+        "\5";
     static final String DFA12_specialS =
-        "\1\0\12\uffff\1\1\1\2\51\uffff}>";
+        "\1\0\13\uffff\1\1\1\2\57\uffff}>";
     static final String[] DFA12_transitionS = {
-            "\11\17\2\16\2\17\1\16\22\17\1\16\1\17\1\13\4\17\1\14\1\3\1"+
-            "\4\5\17\1\15\12\12\7\17\32\11\3\17\1\10\1\11\1\17\2\11\1\6\2"+
-            "\11\1\5\11\11\1\2\2\11\1\1\4\11\1\7\2\11\uff85\17",
-            "\1\21\17\uffff\1\20",
-            "\1\23",
+            "\11\20\2\17\2\20\1\17\22\20\1\17\1\20\1\14\4\20\1\15\1\3\1"+
+            "\4\5\20\1\16\12\13\7\20\32\12\3\20\1\11\1\12\1\20\2\12\1\6\2"+
+            "\12\1\5\11\12\1\2\1\12\1\10\1\1\4\12\1\7\2\12\uff85\20",
+            "\1\22\17\uffff\1\21",
+            "\1\24",
             "",
             "",
-            "\1\26",
             "\1\27",
-            "\12\22\7\uffff\32\22\4\uffff\1\22\1\uffff\32\22",
-            "\32\22\4\uffff\1\22\1\uffff\32\22",
+            "\1\30",
+            "\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\32\23",
+            "\1\32",
+            "\32\23\4\uffff\1\23\1\uffff\32\23",
             "",
             "",
-            "\0\32",
-            "\0\32",
-            "\1\33\4\uffff\1\34",
+            "\0\34",
+            "\0\34",
+            "\1\35\4\uffff\1\36",
             "",
-            "",
-            "\1\36",
-            "\1\37",
             "",
             "\1\40",
-            "",
-            "",
             "\1\41",
+            "",
             "\1\42",
-            "",
-            "",
-            "",
-            "",
             "",
             "",
             "\1\43",
             "\1\44",
+            "",
             "\1\45",
+            "",
+            "",
+            "",
+            "",
+            "",
             "\1\46",
             "\1\47",
             "\1\50",
             "\1\51",
-            "\12\22\7\uffff\32\22\4\uffff\1\22\1\uffff\32\22",
+            "\1\52",
             "\1\53",
             "\1\54",
             "\1\55",
-            "\1\56",
-            "",
+            "\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\32\23",
             "\1\57",
-            "\12\22\7\uffff\32\22\4\uffff\1\22\1\uffff\32\22",
-            "\12\22\7\uffff\32\22\4\uffff\1\22\1\uffff\32\22",
-            "\12\22\7\uffff\32\22\4\uffff\1\22\1\uffff\32\22",
+            "\1\60",
+            "\1\61",
+            "\1\62",
             "\1\63",
             "",
-            "",
-            "",
             "\1\64",
-            "\12\22\7\uffff\32\22\4\uffff\1\22\1\uffff\32\22",
+            "\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\32\23",
+            "\1\66",
+            "\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\32\23",
+            "\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\32\23",
+            "\1\71",
+            "",
+            "\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\32\23",
+            "",
+            "",
+            "\1\73",
+            "",
+            "\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\32\23",
             ""
     };
 
@@ -933,7 +973,7 @@ public class InternalEvaluationLexer extends Lexer {
             this.transition = DFA12_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
@@ -957,41 +997,43 @@ public class InternalEvaluationLexer extends Lexer {
 
                         else if ( (LA12_0=='x') ) {s = 7;}
 
-                        else if ( (LA12_0=='^') ) {s = 8;}
+                        else if ( (LA12_0=='r') ) {s = 8;}
 
-                        else if ( ((LA12_0>='A' && LA12_0<='Z')||LA12_0=='_'||(LA12_0>='a' && LA12_0<='b')||(LA12_0>='d' && LA12_0<='e')||(LA12_0>='g' && LA12_0<='o')||(LA12_0>='q' && LA12_0<='r')||(LA12_0>='t' && LA12_0<='w')||(LA12_0>='y' && LA12_0<='z')) ) {s = 9;}
+                        else if ( (LA12_0=='^') ) {s = 9;}
 
-                        else if ( ((LA12_0>='0' && LA12_0<='9')) ) {s = 10;}
+                        else if ( ((LA12_0>='A' && LA12_0<='Z')||LA12_0=='_'||(LA12_0>='a' && LA12_0<='b')||(LA12_0>='d' && LA12_0<='e')||(LA12_0>='g' && LA12_0<='o')||LA12_0=='q'||(LA12_0>='t' && LA12_0<='w')||(LA12_0>='y' && LA12_0<='z')) ) {s = 10;}
 
-                        else if ( (LA12_0=='\"') ) {s = 11;}
+                        else if ( ((LA12_0>='0' && LA12_0<='9')) ) {s = 11;}
 
-                        else if ( (LA12_0=='\'') ) {s = 12;}
+                        else if ( (LA12_0=='\"') ) {s = 12;}
 
-                        else if ( (LA12_0=='/') ) {s = 13;}
+                        else if ( (LA12_0=='\'') ) {s = 13;}
 
-                        else if ( ((LA12_0>='\t' && LA12_0<='\n')||LA12_0=='\r'||LA12_0==' ') ) {s = 14;}
+                        else if ( (LA12_0=='/') ) {s = 14;}
 
-                        else if ( ((LA12_0>='\u0000' && LA12_0<='\b')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\u001F')||LA12_0=='!'||(LA12_0>='#' && LA12_0<='&')||(LA12_0>='*' && LA12_0<='.')||(LA12_0>=':' && LA12_0<='@')||(LA12_0>='[' && LA12_0<=']')||LA12_0=='`'||(LA12_0>='{' && LA12_0<='\uFFFF')) ) {s = 15;}
+                        else if ( ((LA12_0>='\t' && LA12_0<='\n')||LA12_0=='\r'||LA12_0==' ') ) {s = 15;}
+
+                        else if ( ((LA12_0>='\u0000' && LA12_0<='\b')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\u001F')||LA12_0=='!'||(LA12_0>='#' && LA12_0<='&')||(LA12_0>='*' && LA12_0<='.')||(LA12_0>=':' && LA12_0<='@')||(LA12_0>='[' && LA12_0<=']')||LA12_0=='`'||(LA12_0>='{' && LA12_0<='\uFFFF')) ) {s = 16;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA12_11 = input.LA(1);
+                        int LA12_12 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA12_11>='\u0000' && LA12_11<='\uFFFF')) ) {s = 26;}
+                        if ( ((LA12_12>='\u0000' && LA12_12<='\uFFFF')) ) {s = 28;}
 
-                        else s = 15;
+                        else s = 16;
 
                         if ( s>=0 ) return s;
                         break;
                     case 2 : 
-                        int LA12_12 = input.LA(1);
+                        int LA12_13 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA12_12>='\u0000' && LA12_12<='\uFFFF')) ) {s = 26;}
+                        if ( ((LA12_13>='\u0000' && LA12_13<='\uFFFF')) ) {s = 28;}
 
-                        else s = 15;
+                        else s = 16;
 
                         if ( s>=0 ) return s;
                         break;

@@ -22,24 +22,25 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalEvaluationParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'survey'", "'page'", "'('", "')'", "'freetext'", "'select'", "'chart'", "'x'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'survey'", "'page'", "'('", "')'", "'freetext'", "'select'", "'chart'", "'x'", "'rating'"
     };
-    public static final int RULE_ID=4;
-    public static final int RULE_WS=9;
     public static final int RULE_STRING=5;
-    public static final int RULE_ANY_OTHER=10;
     public static final int RULE_SL_COMMENT=8;
+    public static final int T__19=19;
     public static final int T__15=15;
     public static final int T__16=16;
     public static final int T__17=17;
-    public static final int RULE_INT=6;
     public static final int T__18=18;
     public static final int T__11=11;
-    public static final int RULE_ML_COMMENT=7;
     public static final int T__12=12;
     public static final int T__13=13;
     public static final int T__14=14;
     public static final int EOF=-1;
+    public static final int RULE_ID=4;
+    public static final int RULE_WS=9;
+    public static final int RULE_ANY_OTHER=10;
+    public static final int RULE_INT=6;
+    public static final int RULE_ML_COMMENT=7;
 
     // delegates
     // delegators
@@ -793,40 +794,12 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
                 break;
             case 17:
                 {
-                int LA1_3 = input.LA(2);
-
-                if ( (LA1_3==RULE_ID) ) {
-                    int LA1_4 = input.LA(3);
-
-                    if ( (LA1_4==RULE_STRING) ) {
-                        int LA1_5 = input.LA(4);
-
-                        if ( (LA1_5==RULE_INT) ) {
-                            alt1=4;
-                        }
-                        else if ( (LA1_5==13) ) {
-                            alt1=3;
-                        }
-                        else {
-                            NoViableAltException nvae =
-                                new NoViableAltException("", 1, 5, input);
-
-                            throw nvae;
-                        }
-                    }
-                    else {
-                        NoViableAltException nvae =
-                            new NoViableAltException("", 1, 4, input);
-
-                        throw nvae;
-                    }
+                alt1=3;
                 }
-                else {
-                    NoViableAltException nvae =
-                        new NoViableAltException("", 1, 3, input);
-
-                    throw nvae;
-                }
+                break;
+            case 19:
+                {
+                alt1=4;
                 }
                 break;
             default:
@@ -1758,7 +1731,7 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
                 int alt5=2;
                 int LA5_0 = input.LA(1);
 
-                if ( ((LA5_0>=15 && LA5_0<=17)) ) {
+                if ( ((LA5_0>=15 && LA5_0<=17)||LA5_0==19) ) {
                     alt5=1;
                 }
 
@@ -3903,21 +3876,21 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Rating__Group__0__Impl"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1466:1: rule__Rating__Group__0__Impl : ( 'chart' ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1466:1: rule__Rating__Group__0__Impl : ( 'rating' ) ;
     public final void rule__Rating__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1470:1: ( ( 'chart' ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1471:1: ( 'chart' )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1470:1: ( ( 'rating' ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1471:1: ( 'rating' )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1471:1: ( 'chart' )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1472:1: 'chart'
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1471:1: ( 'rating' )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1472:1: 'rating'
             {
-             before(grammarAccess.getRatingAccess().getChartKeyword_0()); 
-            match(input,17,FOLLOW_17_in_rule__Rating__Group__0__Impl2908); 
-             after(grammarAccess.getRatingAccess().getChartKeyword_0()); 
+             before(grammarAccess.getRatingAccess().getRatingKeyword_0()); 
+            match(input,19,FOLLOW_19_in_rule__Rating__Group__0__Impl2908); 
+             after(grammarAccess.getRatingAccess().getRatingKeyword_0()); 
 
             }
 
@@ -5163,12 +5136,12 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_rule__Page__Group__1__Impl_in_rule__Page__Group__11127 = new BitSet(new long[]{0x0000000000002000L});
     public static final BitSet FOLLOW_rule__Page__Group__2_in_rule__Page__Group__11130 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Page__NameAssignment_1_in_rule__Page__Group__1__Impl1157 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Page__Group__2__Impl_in_rule__Page__Group__21187 = new BitSet(new long[]{0x000000000003C000L});
+    public static final BitSet FOLLOW_rule__Page__Group__2__Impl_in_rule__Page__Group__21187 = new BitSet(new long[]{0x00000000000BC000L});
     public static final BitSet FOLLOW_rule__Page__Group__3_in_rule__Page__Group__21190 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_13_in_rule__Page__Group__2__Impl1218 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Page__Group__3__Impl_in_rule__Page__Group__31249 = new BitSet(new long[]{0x000000000003C000L});
+    public static final BitSet FOLLOW_rule__Page__Group__3__Impl_in_rule__Page__Group__31249 = new BitSet(new long[]{0x00000000000BC000L});
     public static final BitSet FOLLOW_rule__Page__Group__4_in_rule__Page__Group__31252 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Page__QuestionsAssignment_3_in_rule__Page__Group__3__Impl1279 = new BitSet(new long[]{0x0000000000038002L});
+    public static final BitSet FOLLOW_rule__Page__QuestionsAssignment_3_in_rule__Page__Group__3__Impl1279 = new BitSet(new long[]{0x00000000000B8002L});
     public static final BitSet FOLLOW_rule__Page__Group__4__Impl_in_rule__Page__Group__41310 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_14_in_rule__Page__Group__4__Impl1338 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Freetext__Group__0__Impl_in_rule__Freetext__Group__01379 = new BitSet(new long[]{0x0000000000000010L});
@@ -5240,7 +5213,7 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_rule__Graduation__StatementAssignment_1_in_rule__Graduation__Group__1__Impl2843 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Rating__Group__0__Impl_in_rule__Rating__Group__02877 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_rule__Rating__Group__1_in_rule__Rating__Group__02880 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_17_in_rule__Rating__Group__0__Impl2908 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_rule__Rating__Group__0__Impl2908 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Rating__Group__1__Impl_in_rule__Rating__Group__12939 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_rule__Rating__Group__2_in_rule__Rating__Group__12942 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Rating__NameAssignment_1_in_rule__Rating__Group__1__Impl2969 = new BitSet(new long[]{0x0000000000000002L});
