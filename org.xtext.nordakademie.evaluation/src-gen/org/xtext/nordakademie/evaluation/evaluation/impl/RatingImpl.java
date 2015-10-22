@@ -19,7 +19,7 @@ import org.xtext.nordakademie.evaluation.evaluation.Rating;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.impl.RatingImpl#getRating <em>Rating</em>}</li>
+ *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.impl.RatingImpl#getRatingQuantity <em>Rating Quantity</em>}</li>
  * </ul>
  *
  * @generated
@@ -27,24 +27,24 @@ import org.xtext.nordakademie.evaluation.evaluation.Rating;
 public class RatingImpl extends QuestionImpl implements Rating
 {
   /**
-   * The default value of the '{@link #getRating() <em>Rating</em>}' attribute.
+   * The default value of the '{@link #getRatingQuantity() <em>Rating Quantity</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRating()
+   * @see #getRatingQuantity()
    * @generated
    * @ordered
    */
-  protected static final int RATING_EDEFAULT = 0;
+  protected static final int RATING_QUANTITY_EDEFAULT = 0;
 
   /**
-   * The cached value of the '{@link #getRating() <em>Rating</em>}' attribute.
+   * The cached value of the '{@link #getRatingQuantity() <em>Rating Quantity</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRating()
+   * @see #getRatingQuantity()
    * @generated
    * @ordered
    */
-  protected int rating = RATING_EDEFAULT;
+  protected int ratingQuantity = RATING_QUANTITY_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -72,9 +72,9 @@ public class RatingImpl extends QuestionImpl implements Rating
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getRating()
+  public int getRatingQuantity()
   {
-    return rating;
+    return ratingQuantity;
   }
 
   /**
@@ -82,12 +82,12 @@ public class RatingImpl extends QuestionImpl implements Rating
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRating(int newRating)
+  public void setRatingQuantity(int newRatingQuantity)
   {
-    int oldRating = rating;
-    rating = newRating;
+    int oldRatingQuantity = ratingQuantity;
+    ratingQuantity = newRatingQuantity;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EvaluationPackage.RATING__RATING, oldRating, rating));
+      eNotify(new ENotificationImpl(this, Notification.SET, EvaluationPackage.RATING__RATING_QUANTITY, oldRatingQuantity, ratingQuantity));
   }
 
   /**
@@ -100,8 +100,8 @@ public class RatingImpl extends QuestionImpl implements Rating
   {
     switch (featureID)
     {
-      case EvaluationPackage.RATING__RATING:
-        return getRating();
+      case EvaluationPackage.RATING__RATING_QUANTITY:
+        return getRatingQuantity();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -116,8 +116,8 @@ public class RatingImpl extends QuestionImpl implements Rating
   {
     switch (featureID)
     {
-      case EvaluationPackage.RATING__RATING:
-        setRating((Integer)newValue);
+      case EvaluationPackage.RATING__RATING_QUANTITY:
+        setRatingQuantity((Integer)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -133,8 +133,8 @@ public class RatingImpl extends QuestionImpl implements Rating
   {
     switch (featureID)
     {
-      case EvaluationPackage.RATING__RATING:
-        setRating(RATING_EDEFAULT);
+      case EvaluationPackage.RATING__RATING_QUANTITY:
+        setRatingQuantity(RATING_QUANTITY_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -150,8 +150,8 @@ public class RatingImpl extends QuestionImpl implements Rating
   {
     switch (featureID)
     {
-      case EvaluationPackage.RATING__RATING:
-        return rating != RATING_EDEFAULT;
+      case EvaluationPackage.RATING__RATING_QUANTITY:
+        return ratingQuantity != RATING_QUANTITY_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -167,8 +167,8 @@ public class RatingImpl extends QuestionImpl implements Rating
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (rating: ");
-    result.append(rating);
+    result.append(" (ratingQuantity: ");
+    result.append(ratingQuantity);
     result.append(')');
     return result.toString();
   }

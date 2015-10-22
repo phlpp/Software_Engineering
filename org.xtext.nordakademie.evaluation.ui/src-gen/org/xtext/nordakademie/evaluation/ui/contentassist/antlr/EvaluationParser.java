@@ -46,6 +46,7 @@ public class EvaluationParser extends AbstractContentAssistParser {
 					put(grammarAccess.getChartAccess().getGroup(), "rule__Chart__Group__0");
 					put(grammarAccess.getGraduationAccess().getGroup(), "rule__Graduation__Group__0");
 					put(grammarAccess.getRatingAccess().getGroup(), "rule__Rating__Group__0");
+					put(grammarAccess.getCalendarAccess().getGroup(), "rule__Calendar__Group__0");
 					put(grammarAccess.getSurveyAccess().getNameAssignment_1(), "rule__Survey__NameAssignment_1");
 					put(grammarAccess.getSurveyAccess().getTitleAssignment_2(), "rule__Survey__TitleAssignment_2");
 					put(grammarAccess.getSurveyAccess().getGreetingAssignment_3(), "rule__Survey__GreetingAssignment_3");
@@ -69,7 +70,9 @@ public class EvaluationParser extends AbstractContentAssistParser {
 					put(grammarAccess.getGraduationAccess().getStatementAssignment_1(), "rule__Graduation__StatementAssignment_1");
 					put(grammarAccess.getRatingAccess().getNameAssignment_1(), "rule__Rating__NameAssignment_1");
 					put(grammarAccess.getRatingAccess().getQuestionAssignment_2(), "rule__Rating__QuestionAssignment_2");
-					put(grammarAccess.getRatingAccess().getRatingAssignment_3(), "rule__Rating__RatingAssignment_3");
+					put(grammarAccess.getRatingAccess().getRatingQuantityAssignment_3(), "rule__Rating__RatingQuantityAssignment_3");
+					put(grammarAccess.getCalendarAccess().getNameAssignment_1(), "rule__Calendar__NameAssignment_1");
+					put(grammarAccess.getCalendarAccess().getQuestionAssignment_2(), "rule__Calendar__QuestionAssignment_2");
 				}
 			};
 		}

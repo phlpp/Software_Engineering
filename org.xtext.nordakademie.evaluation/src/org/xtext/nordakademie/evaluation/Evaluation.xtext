@@ -41,7 +41,7 @@ Graduation:
 ;
 
 Rating:
-	'rating' name=ID question=STRING rating=INT
+	'rating' name=ID question=STRING ratingQuantity=INT
 ;
 
 Calendar:

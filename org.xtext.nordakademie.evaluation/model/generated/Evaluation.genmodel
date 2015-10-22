@@ -40,7 +40,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Graduation/statement"/>
     </genClasses>
     <genClasses ecoreClass="Evaluation.ecore#//Rating">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Rating/rating"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Rating/ratingQuantity"/>
     </genClasses>
+    <genClasses ecoreClass="Evaluation.ecore#//Calendar"/>
   </genPackages>
 </genmodel:GenModel>

@@ -444,13 +444,13 @@ public interface EvaluationPackage extends EPackage
   int RATING__QUESTION = QUESTION__QUESTION;
 
   /**
-   * The feature id for the '<em><b>Rating</b></em>' attribute.
+   * The feature id for the '<em><b>Rating Quantity</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RATING__RATING = QUESTION_FEATURE_COUNT + 0;
+  int RATING__RATING_QUANTITY = QUESTION_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Rating</em>' class.
@@ -460,6 +460,43 @@ public interface EvaluationPackage extends EPackage
    * @ordered
    */
   int RATING_FEATURE_COUNT = QUESTION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.xtext.nordakademie.evaluation.evaluation.impl.CalendarImpl <em>Calendar</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.nordakademie.evaluation.evaluation.impl.CalendarImpl
+   * @see org.xtext.nordakademie.evaluation.evaluation.impl.EvaluationPackageImpl#getCalendar()
+   * @generated
+   */
+  int CALENDAR = 9;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CALENDAR__NAME = QUESTION__NAME;
+
+  /**
+   * The feature id for the '<em><b>Question</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CALENDAR__QUESTION = QUESTION__QUESTION;
+
+  /**
+   * The number of structural features of the '<em>Calendar</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CALENDAR_FEATURE_COUNT = QUESTION_FEATURE_COUNT + 0;
 
 
   /**
@@ -740,15 +777,25 @@ public interface EvaluationPackage extends EPackage
   EClass getRating();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.nordakademie.evaluation.evaluation.Rating#getRating <em>Rating</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.nordakademie.evaluation.evaluation.Rating#getRatingQuantity <em>Rating Quantity</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Rating</em>'.
-   * @see org.xtext.nordakademie.evaluation.evaluation.Rating#getRating()
+   * @return the meta object for the attribute '<em>Rating Quantity</em>'.
+   * @see org.xtext.nordakademie.evaluation.evaluation.Rating#getRatingQuantity()
    * @see #getRating()
    * @generated
    */
-  EAttribute getRating_Rating();
+  EAttribute getRating_RatingQuantity();
+
+  /**
+   * Returns the meta object for class '{@link org.xtext.nordakademie.evaluation.evaluation.Calendar <em>Calendar</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Calendar</em>'.
+   * @see org.xtext.nordakademie.evaluation.evaluation.Calendar
+   * @generated
+   */
+  EClass getCalendar();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -1000,12 +1047,22 @@ public interface EvaluationPackage extends EPackage
     EClass RATING = eINSTANCE.getRating();
 
     /**
-     * The meta object literal for the '<em><b>Rating</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Rating Quantity</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute RATING__RATING = eINSTANCE.getRating_Rating();
+    EAttribute RATING__RATING_QUANTITY = eINSTANCE.getRating_RatingQuantity();
+
+    /**
+     * The meta object literal for the '{@link org.xtext.nordakademie.evaluation.evaluation.impl.CalendarImpl <em>Calendar</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.xtext.nordakademie.evaluation.evaluation.impl.CalendarImpl
+     * @see org.xtext.nordakademie.evaluation.evaluation.impl.EvaluationPackageImpl#getCalendar()
+     * @generated
+     */
+    EClass CALENDAR = eINSTANCE.getCalendar();
 
   }
 

@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.xtext.nordakademie.evaluation.evaluation.Calendar;
 import org.xtext.nordakademie.evaluation.evaluation.Chart;
 import org.xtext.nordakademie.evaluation.evaluation.Choice;
 import org.xtext.nordakademie.evaluation.evaluation.EvaluationFactory;
@@ -91,6 +92,13 @@ public class EvaluationPackageImpl extends EPackageImpl implements EvaluationPac
    * @generated
    */
   private EClass ratingEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass calendarEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -420,9 +428,19 @@ public class EvaluationPackageImpl extends EPackageImpl implements EvaluationPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getRating_Rating()
+  public EAttribute getRating_RatingQuantity()
   {
     return (EAttribute)ratingEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getCalendar()
+  {
+    return calendarEClass;
   }
 
   /**
@@ -489,7 +507,9 @@ public class EvaluationPackageImpl extends EPackageImpl implements EvaluationPac
     createEAttribute(graduationEClass, GRADUATION__STATEMENT);
 
     ratingEClass = createEClass(RATING);
-    createEAttribute(ratingEClass, RATING__RATING);
+    createEAttribute(ratingEClass, RATING__RATING_QUANTITY);
+
+    calendarEClass = createEClass(CALENDAR);
   }
 
   /**
@@ -525,6 +545,7 @@ public class EvaluationPackageImpl extends EPackageImpl implements EvaluationPac
     selectionEClass.getESuperTypes().add(this.getQuestion());
     chartEClass.getESuperTypes().add(this.getQuestion());
     ratingEClass.getESuperTypes().add(this.getQuestion());
+    calendarEClass.getESuperTypes().add(this.getQuestion());
 
     // Initialize classes and features; add operations and parameters
     initEClass(surveyEClass, Survey.class, "Survey", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -561,7 +582,9 @@ public class EvaluationPackageImpl extends EPackageImpl implements EvaluationPac
     initEAttribute(getGraduation_Statement(), ecorePackage.getEString(), "statement", null, 0, 1, Graduation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(ratingEClass, Rating.class, "Rating", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getRating_Rating(), ecorePackage.getEInt(), "rating", null, 0, 1, Rating.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getRating_RatingQuantity(), ecorePackage.getEInt(), "ratingQuantity", null, 0, 1, Rating.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(calendarEClass, Calendar.class, "Calendar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     // Create resource
     createResource(eNS_URI);

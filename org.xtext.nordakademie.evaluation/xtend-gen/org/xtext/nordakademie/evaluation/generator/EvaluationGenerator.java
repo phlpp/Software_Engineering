@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.generator.IGenerator;
+import org.eclipse.xtext.xbase.lib.IntegerRange;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.xtext.nordakademie.evaluation.evaluation.Chart;
 import org.xtext.nordakademie.evaluation.evaluation.Choice;
@@ -188,16 +189,14 @@ public class EvaluationGenerator implements IGenerator {
     {
       EList<Graduation> _graduations = question.getGraduations();
       for(final Graduation graduation : _graduations) {
-        _builder.append("em\t<th>");
+        _builder.append("<th>");
         String _statement = graduation.getStatement();
         _builder.append(_statement, "");
         _builder.append("</th>");
         _builder.newLineIfNotEmpty();
-        _builder.append("em");
       }
     }
-    _builder.newLineIfNotEmpty();
-    _builder.append("em</tr> ");
+    _builder.append("</tr> ");
     _builder.newLine();
     {
       EList<Choice> _choices = question.getChoices();
@@ -246,25 +245,20 @@ public class EvaluationGenerator implements IGenerator {
     _builder.append(_question, "\t");
     _builder.append("</label><br>");
     _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    final int ratings = question.getRating();
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    int i = 0;
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("while ((i=i+1)< ratings)");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("<input type=\"radio\" name=\"");
-    String _name = question.getName();
-    _builder.append(_name, "\t");
-    _builder.append("\"  value=");
-    _builder.append(i, "\t");
-    _builder.append("  class=\"star\"/>\t");
-    _builder.newLineIfNotEmpty();
+    {
+      int _ratingQuantity = question.getRatingQuantity();
+      IntegerRange _upTo = new IntegerRange(1, _ratingQuantity);
+      for(final Integer ratingValue : _upTo) {
+        _builder.append("\t");
+        _builder.append("<input type=\"radio\" name=\"");
+        String _name = question.getName();
+        _builder.append(_name, "\t");
+        _builder.append("\"  value=");
+        _builder.append(ratingValue, "\t");
+        _builder.append("  class=\"star\"/>");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     _builder.append("</p>");
     _builder.newLine();
     return _builder;

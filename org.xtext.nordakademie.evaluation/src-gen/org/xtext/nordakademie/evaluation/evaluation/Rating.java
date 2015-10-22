@@ -12,7 +12,7 @@ package org.xtext.nordakademie.evaluation.evaluation;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.Rating#getRating <em>Rating</em>}</li>
+ *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.Rating#getRatingQuantity <em>Rating Quantity</em>}</li>
  * </ul>
  *
  * @see org.xtext.nordakademie.evaluation.evaluation.EvaluationPackage#getRating()
@@ -22,29 +22,29 @@ package org.xtext.nordakademie.evaluation.evaluation;
 public interface Rating extends Question
 {
   /**
-   * Returns the value of the '<em><b>Rating</b></em>' attribute.
+   * Returns the value of the '<em><b>Rating Quantity</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Rating</em>' attribute isn't clear,
+   * If the meaning of the '<em>Rating Quantity</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Rating</em>' attribute.
-   * @see #setRating(int)
-   * @see org.xtext.nordakademie.evaluation.evaluation.EvaluationPackage#getRating_Rating()
+   * @return the value of the '<em>Rating Quantity</em>' attribute.
+   * @see #setRatingQuantity(int)
+   * @see org.xtext.nordakademie.evaluation.evaluation.EvaluationPackage#getRating_RatingQuantity()
    * @model
    * @generated
    */
-  int getRating();
+  int getRatingQuantity();
 
   /**
-   * Sets the value of the '{@link org.xtext.nordakademie.evaluation.evaluation.Rating#getRating <em>Rating</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.nordakademie.evaluation.evaluation.Rating#getRatingQuantity <em>Rating Quantity</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Rating</em>' attribute.
-   * @see #getRating()
+   * @param value the new value of the '<em>Rating Quantity</em>' attribute.
+   * @see #getRatingQuantity()
    * @generated
    */
-  void setRating(int value);
+  void setRatingQuantity(int value);
 
 } // Rating

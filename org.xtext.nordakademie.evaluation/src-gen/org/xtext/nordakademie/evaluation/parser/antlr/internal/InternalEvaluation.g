@@ -300,6 +300,16 @@ ruleQuestion returns [EObject current=null]
         $current = $this_Rating_3.current; 
         afterParserOrEnumRuleCall();
     }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getQuestionAccess().getCalendarParserRuleCall_4()); 
+    }
+    this_Calendar_4=ruleCalendar
+    { 
+        $current = $this_Calendar_4.current; 
+        afterParserOrEnumRuleCall();
+    }
 )
 ;
 
@@ -757,9 +767,9 @@ ruleRating returns [EObject current=null]
 )
 )(
 (
-		lv_rating_3_0=RULE_INT
+		lv_ratingQuantity_3_0=RULE_INT
 		{
-			newLeafNode(lv_rating_3_0, grammarAccess.getRatingAccess().getRatingINTTerminalRuleCall_3_0()); 
+			newLeafNode(lv_ratingQuantity_3_0, grammarAccess.getRatingAccess().getRatingQuantityINTTerminalRuleCall_3_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -767,9 +777,70 @@ ruleRating returns [EObject current=null]
 	        }
        		setWithLastConsumed(
        			$current, 
-       			"rating",
-        		lv_rating_3_0, 
+       			"ratingQuantity",
+        		lv_ratingQuantity_3_0, 
         		"INT");
+	    }
+
+)
+))
+;
+
+
+
+
+
+// Entry rule entryRuleCalendar
+entryRuleCalendar returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getCalendarRule()); }
+	 iv_ruleCalendar=ruleCalendar 
+	 { $current=$iv_ruleCalendar.current; } 
+	 EOF 
+;
+
+// Rule Calendar
+ruleCalendar returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='calendar' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getCalendarAccess().getCalendarKeyword_0());
+    }
+(
+(
+		lv_name_1_0=RULE_ID
+		{
+			newLeafNode(lv_name_1_0, grammarAccess.getCalendarAccess().getNameIDTerminalRuleCall_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getCalendarRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"name",
+        		lv_name_1_0, 
+        		"ID");
+	    }
+
+)
+)(
+(
+		lv_question_2_0=RULE_STRING
+		{
+			newLeafNode(lv_question_2_0, grammarAccess.getCalendarAccess().getQuestionSTRINGTerminalRuleCall_2_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getCalendarRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"question",
+        		lv_question_2_0, 
+        		"STRING");
 	    }
 
 )

@@ -123,13 +123,13 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSelectionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cChartParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cRatingParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cCalendarParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
-		////	tbd | Rating | Chart | Calendar	| Star
 		//Question:
-		//	Freetext | Selection | Chart | Rating;
+		//	Freetext | Selection | Chart | Rating | Calendar;
 		@Override public ParserRule getRule() { return rule; }
 
-		//Freetext | Selection | Chart | Rating
+		//Freetext | Selection | Chart | Rating | Calendar
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//Freetext
@@ -143,6 +143,9 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 
 		//Rating
 		public RuleCall getRatingParserRuleCall_3() { return cRatingParserRuleCall_3; }
+
+		//Calendar
+		public RuleCall getCalendarParserRuleCall_4() { return cCalendarParserRuleCall_4; }
 	}
 
 	public class FreetextElements extends AbstractParserRuleElementFinder {
@@ -365,14 +368,14 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Assignment cQuestionAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cQuestionSTRINGTerminalRuleCall_2_0 = (RuleCall)cQuestionAssignment_2.eContents().get(0);
-		private final Assignment cRatingAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cRatingINTTerminalRuleCall_3_0 = (RuleCall)cRatingAssignment_3.eContents().get(0);
+		private final Assignment cRatingQuantityAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cRatingQuantityINTTerminalRuleCall_3_0 = (RuleCall)cRatingQuantityAssignment_3.eContents().get(0);
 		
 		//Rating:
-		//	"rating" name=ID question=STRING rating=INT;
+		//	"rating" name=ID question=STRING ratingQuantity=INT;
 		@Override public ParserRule getRule() { return rule; }
 
-		//"rating" name=ID question=STRING rating=INT
+		//"rating" name=ID question=STRING ratingQuantity=INT
 		public Group getGroup() { return cGroup; }
 
 		//"rating"
@@ -390,11 +393,43 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getQuestionSTRINGTerminalRuleCall_2_0() { return cQuestionSTRINGTerminalRuleCall_2_0; }
 
-		//rating=INT
-		public Assignment getRatingAssignment_3() { return cRatingAssignment_3; }
+		//ratingQuantity=INT
+		public Assignment getRatingQuantityAssignment_3() { return cRatingQuantityAssignment_3; }
 
 		//INT
-		public RuleCall getRatingINTTerminalRuleCall_3_0() { return cRatingINTTerminalRuleCall_3_0; }
+		public RuleCall getRatingQuantityINTTerminalRuleCall_3_0() { return cRatingQuantityINTTerminalRuleCall_3_0; }
+	}
+
+	public class CalendarElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Calendar");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cCalendarKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cQuestionAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cQuestionSTRINGTerminalRuleCall_2_0 = (RuleCall)cQuestionAssignment_2.eContents().get(0);
+		
+		//Calendar:
+		//	"calendar" name=ID question=STRING;
+		@Override public ParserRule getRule() { return rule; }
+
+		//"calendar" name=ID question=STRING
+		public Group getGroup() { return cGroup; }
+
+		//"calendar"
+		public Keyword getCalendarKeyword_0() { return cCalendarKeyword_0; }
+
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+
+		//question=STRING
+		public Assignment getQuestionAssignment_2() { return cQuestionAssignment_2; }
+
+		//STRING
+		public RuleCall getQuestionSTRINGTerminalRuleCall_2_0() { return cQuestionSTRINGTerminalRuleCall_2_0; }
 	}
 	
 	
@@ -407,6 +442,7 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 	private final ChartElements pChart;
 	private final GraduationElements pGraduation;
 	private final RatingElements pRating;
+	private final CalendarElements pCalendar;
 	
 	private final Grammar grammar;
 
@@ -426,6 +462,7 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		this.pChart = new ChartElements();
 		this.pGraduation = new GraduationElements();
 		this.pRating = new RatingElements();
+		this.pCalendar = new CalendarElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -476,9 +513,8 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		return getPageAccess().getRule();
 	}
 
-	////	tbd | Rating | Chart | Calendar	| Star
 	//Question:
-	//	Freetext | Selection | Chart | Rating;
+	//	Freetext | Selection | Chart | Rating | Calendar;
 	public QuestionElements getQuestionAccess() {
 		return pQuestion;
 	}
@@ -538,13 +574,23 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Rating:
-	//	"rating" name=ID question=STRING rating=INT;
+	//	"rating" name=ID question=STRING ratingQuantity=INT;
 	public RatingElements getRatingAccess() {
 		return pRating;
 	}
 	
 	public ParserRule getRatingRule() {
 		return getRatingAccess().getRule();
+	}
+
+	//Calendar:
+	//	"calendar" name=ID question=STRING;
+	public CalendarElements getCalendarAccess() {
+		return pCalendar;
+	}
+	
+	public ParserRule getCalendarRule() {
+		return getCalendarAccess().getRule();
 	}
 
 	//terminal ID:

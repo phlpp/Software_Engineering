@@ -12,7 +12,6 @@ import org.xtext.nordakademie.evaluation.evaluation.Freetext
 import org.xtext.nordakademie.evaluation.evaluation.Page
 import org.xtext.nordakademie.evaluation.evaluation.Chart
 import org.xtext.nordakademie.evaluation.evaluation.Rating
-import org.eclipse.emf.mwe.internal.core.ast.util.converter.IntegerConverter
 
 /**
  * Generates code from your model files on save.
@@ -75,13 +74,13 @@ class EvaluationGenerator implements IGenerator {
 			
 			
 			<table> 
-		«««				first ro with graduation statements
+		«««				first row with graduation statements
 				<tr> 
 					<th>&nbsp;</th>
-				«FOR graduation : question.graduations»
-		em	<th>«graduation.statement»</th>
-		em«ENDFOR»
-		em</tr> 
+		«FOR graduation : question.graduations»
+		<th>«graduation.statement»</th>
+		«ENDFOR»
+		</tr> 
 		«««				rows with choices and radio buttons
 				«FOR choice : question.choices»
 			<tr>
@@ -98,14 +97,10 @@ class EvaluationGenerator implements IGenerator {
 	def dispatch select(Rating question) '''
 		<p>
 			<label>«question.question»</label><br>
-			«val  ratings = question.rating»
-			«var  i =0»
-			
-«««			not executable
-			while ((i=i+1)< ratings)
-			<input type="radio" name="«question.name»"  value=«i»  class="star"/>	
+«««			loop for quantity of possible ratings
+			«FOR ratingValue: 1..question.ratingQuantity»
+			<input type="radio" name="«question.name»"  value=«ratingValue»  class="star"/>
+			«ENDFOR»
 		</p>
-	'''
-	
-				
+	'''		
 }

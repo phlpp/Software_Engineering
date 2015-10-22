@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalEvaluationParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'survey'", "'page'", "'('", "')'", "'freetext'", "'select'", "'chart'", "'x'", "'rating'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'survey'", "'page'", "'('", "')'", "'freetext'", "'select'", "'chart'", "'x'", "'rating'", "'calendar'"
     };
     public static final int RULE_STRING=5;
     public static final int RULE_SL_COMMENT=8;
@@ -41,6 +41,7 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
     public static final int RULE_ANY_OTHER=10;
     public static final int RULE_INT=6;
     public static final int RULE_ML_COMMENT=7;
+    public static final int T__20=20;
 
     // delegates
     // delegators
@@ -772,15 +773,92 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
     // $ANTLR end "ruleRating"
 
 
+    // $ANTLR start "entryRuleCalendar"
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:312:1: entryRuleCalendar : ruleCalendar EOF ;
+    public final void entryRuleCalendar() throws RecognitionException {
+        try {
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:313:1: ( ruleCalendar EOF )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:314:1: ruleCalendar EOF
+            {
+             before(grammarAccess.getCalendarRule()); 
+            pushFollow(FOLLOW_ruleCalendar_in_entryRuleCalendar601);
+            ruleCalendar();
+
+            state._fsp--;
+
+             after(grammarAccess.getCalendarRule()); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleCalendar608); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleCalendar"
+
+
+    // $ANTLR start "ruleCalendar"
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:321:1: ruleCalendar : ( ( rule__Calendar__Group__0 ) ) ;
+    public final void ruleCalendar() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:325:2: ( ( ( rule__Calendar__Group__0 ) ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:326:1: ( ( rule__Calendar__Group__0 ) )
+            {
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:326:1: ( ( rule__Calendar__Group__0 ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:327:1: ( rule__Calendar__Group__0 )
+            {
+             before(grammarAccess.getCalendarAccess().getGroup()); 
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:328:1: ( rule__Calendar__Group__0 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:328:2: rule__Calendar__Group__0
+            {
+            pushFollow(FOLLOW_rule__Calendar__Group__0_in_ruleCalendar634);
+            rule__Calendar__Group__0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getCalendarAccess().getGroup()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleCalendar"
+
+
     // $ANTLR start "rule__Question__Alternatives"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:312:1: rule__Question__Alternatives : ( ( ruleFreetext ) | ( ruleSelection ) | ( ruleChart ) | ( ruleRating ) );
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:340:1: rule__Question__Alternatives : ( ( ruleFreetext ) | ( ruleSelection ) | ( ruleChart ) | ( ruleRating ) | ( ruleCalendar ) );
     public final void rule__Question__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:316:1: ( ( ruleFreetext ) | ( ruleSelection ) | ( ruleChart ) | ( ruleRating ) )
-            int alt1=4;
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:344:1: ( ( ruleFreetext ) | ( ruleSelection ) | ( ruleChart ) | ( ruleRating ) | ( ruleCalendar ) )
+            int alt1=5;
             switch ( input.LA(1) ) {
             case 15:
                 {
@@ -802,6 +880,11 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
                 alt1=4;
                 }
                 break;
+            case 20:
+                {
+                alt1=5;
+                }
+                break;
             default:
                 NoViableAltException nvae =
                     new NoViableAltException("", 1, 0, input);
@@ -811,13 +894,13 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
             switch (alt1) {
                 case 1 :
-                    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:317:1: ( ruleFreetext )
+                    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:345:1: ( ruleFreetext )
                     {
-                    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:317:1: ( ruleFreetext )
-                    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:318:1: ruleFreetext
+                    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:345:1: ( ruleFreetext )
+                    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:346:1: ruleFreetext
                     {
                      before(grammarAccess.getQuestionAccess().getFreetextParserRuleCall_0()); 
-                    pushFollow(FOLLOW_ruleFreetext_in_rule__Question__Alternatives610);
+                    pushFollow(FOLLOW_ruleFreetext_in_rule__Question__Alternatives670);
                     ruleFreetext();
 
                     state._fsp--;
@@ -830,13 +913,13 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 2 :
-                    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:323:6: ( ruleSelection )
+                    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:351:6: ( ruleSelection )
                     {
-                    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:323:6: ( ruleSelection )
-                    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:324:1: ruleSelection
+                    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:351:6: ( ruleSelection )
+                    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:352:1: ruleSelection
                     {
                      before(grammarAccess.getQuestionAccess().getSelectionParserRuleCall_1()); 
-                    pushFollow(FOLLOW_ruleSelection_in_rule__Question__Alternatives627);
+                    pushFollow(FOLLOW_ruleSelection_in_rule__Question__Alternatives687);
                     ruleSelection();
 
                     state._fsp--;
@@ -849,13 +932,13 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 3 :
-                    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:329:6: ( ruleChart )
+                    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:357:6: ( ruleChart )
                     {
-                    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:329:6: ( ruleChart )
-                    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:330:1: ruleChart
+                    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:357:6: ( ruleChart )
+                    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:358:1: ruleChart
                     {
                      before(grammarAccess.getQuestionAccess().getChartParserRuleCall_2()); 
-                    pushFollow(FOLLOW_ruleChart_in_rule__Question__Alternatives644);
+                    pushFollow(FOLLOW_ruleChart_in_rule__Question__Alternatives704);
                     ruleChart();
 
                     state._fsp--;
@@ -868,18 +951,37 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
                     }
                     break;
                 case 4 :
-                    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:335:6: ( ruleRating )
+                    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:363:6: ( ruleRating )
                     {
-                    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:335:6: ( ruleRating )
-                    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:336:1: ruleRating
+                    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:363:6: ( ruleRating )
+                    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:364:1: ruleRating
                     {
                      before(grammarAccess.getQuestionAccess().getRatingParserRuleCall_3()); 
-                    pushFollow(FOLLOW_ruleRating_in_rule__Question__Alternatives661);
+                    pushFollow(FOLLOW_ruleRating_in_rule__Question__Alternatives721);
                     ruleRating();
 
                     state._fsp--;
 
                      after(grammarAccess.getQuestionAccess().getRatingParserRuleCall_3()); 
+
+                    }
+
+
+                    }
+                    break;
+                case 5 :
+                    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:369:6: ( ruleCalendar )
+                    {
+                    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:369:6: ( ruleCalendar )
+                    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:370:1: ruleCalendar
+                    {
+                     before(grammarAccess.getQuestionAccess().getCalendarParserRuleCall_4()); 
+                    pushFollow(FOLLOW_ruleCalendar_in_rule__Question__Alternatives738);
+                    ruleCalendar();
+
+                    state._fsp--;
+
+                     after(grammarAccess.getQuestionAccess().getCalendarParserRuleCall_4()); 
 
                     }
 
@@ -904,21 +1006,21 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Survey__Group__0"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:348:1: rule__Survey__Group__0 : rule__Survey__Group__0__Impl rule__Survey__Group__1 ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:382:1: rule__Survey__Group__0 : rule__Survey__Group__0__Impl rule__Survey__Group__1 ;
     public final void rule__Survey__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:352:1: ( rule__Survey__Group__0__Impl rule__Survey__Group__1 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:353:2: rule__Survey__Group__0__Impl rule__Survey__Group__1
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:386:1: ( rule__Survey__Group__0__Impl rule__Survey__Group__1 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:387:2: rule__Survey__Group__0__Impl rule__Survey__Group__1
             {
-            pushFollow(FOLLOW_rule__Survey__Group__0__Impl_in_rule__Survey__Group__0691);
+            pushFollow(FOLLOW_rule__Survey__Group__0__Impl_in_rule__Survey__Group__0768);
             rule__Survey__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Survey__Group__1_in_rule__Survey__Group__0694);
+            pushFollow(FOLLOW_rule__Survey__Group__1_in_rule__Survey__Group__0771);
             rule__Survey__Group__1();
 
             state._fsp--;
@@ -942,20 +1044,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Survey__Group__0__Impl"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:360:1: rule__Survey__Group__0__Impl : ( 'survey' ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:394:1: rule__Survey__Group__0__Impl : ( 'survey' ) ;
     public final void rule__Survey__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:364:1: ( ( 'survey' ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:365:1: ( 'survey' )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:398:1: ( ( 'survey' ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:399:1: ( 'survey' )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:365:1: ( 'survey' )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:366:1: 'survey'
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:399:1: ( 'survey' )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:400:1: 'survey'
             {
              before(grammarAccess.getSurveyAccess().getSurveyKeyword_0()); 
-            match(input,11,FOLLOW_11_in_rule__Survey__Group__0__Impl722); 
+            match(input,11,FOLLOW_11_in_rule__Survey__Group__0__Impl799); 
              after(grammarAccess.getSurveyAccess().getSurveyKeyword_0()); 
 
             }
@@ -979,21 +1081,21 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Survey__Group__1"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:379:1: rule__Survey__Group__1 : rule__Survey__Group__1__Impl rule__Survey__Group__2 ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:413:1: rule__Survey__Group__1 : rule__Survey__Group__1__Impl rule__Survey__Group__2 ;
     public final void rule__Survey__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:383:1: ( rule__Survey__Group__1__Impl rule__Survey__Group__2 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:384:2: rule__Survey__Group__1__Impl rule__Survey__Group__2
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:417:1: ( rule__Survey__Group__1__Impl rule__Survey__Group__2 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:418:2: rule__Survey__Group__1__Impl rule__Survey__Group__2
             {
-            pushFollow(FOLLOW_rule__Survey__Group__1__Impl_in_rule__Survey__Group__1753);
+            pushFollow(FOLLOW_rule__Survey__Group__1__Impl_in_rule__Survey__Group__1830);
             rule__Survey__Group__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Survey__Group__2_in_rule__Survey__Group__1756);
+            pushFollow(FOLLOW_rule__Survey__Group__2_in_rule__Survey__Group__1833);
             rule__Survey__Group__2();
 
             state._fsp--;
@@ -1017,23 +1119,23 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Survey__Group__1__Impl"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:391:1: rule__Survey__Group__1__Impl : ( ( rule__Survey__NameAssignment_1 ) ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:425:1: rule__Survey__Group__1__Impl : ( ( rule__Survey__NameAssignment_1 ) ) ;
     public final void rule__Survey__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:395:1: ( ( ( rule__Survey__NameAssignment_1 ) ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:396:1: ( ( rule__Survey__NameAssignment_1 ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:429:1: ( ( ( rule__Survey__NameAssignment_1 ) ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:430:1: ( ( rule__Survey__NameAssignment_1 ) )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:396:1: ( ( rule__Survey__NameAssignment_1 ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:397:1: ( rule__Survey__NameAssignment_1 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:430:1: ( ( rule__Survey__NameAssignment_1 ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:431:1: ( rule__Survey__NameAssignment_1 )
             {
              before(grammarAccess.getSurveyAccess().getNameAssignment_1()); 
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:398:1: ( rule__Survey__NameAssignment_1 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:398:2: rule__Survey__NameAssignment_1
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:432:1: ( rule__Survey__NameAssignment_1 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:432:2: rule__Survey__NameAssignment_1
             {
-            pushFollow(FOLLOW_rule__Survey__NameAssignment_1_in_rule__Survey__Group__1__Impl783);
+            pushFollow(FOLLOW_rule__Survey__NameAssignment_1_in_rule__Survey__Group__1__Impl860);
             rule__Survey__NameAssignment_1();
 
             state._fsp--;
@@ -1064,21 +1166,21 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Survey__Group__2"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:408:1: rule__Survey__Group__2 : rule__Survey__Group__2__Impl rule__Survey__Group__3 ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:442:1: rule__Survey__Group__2 : rule__Survey__Group__2__Impl rule__Survey__Group__3 ;
     public final void rule__Survey__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:412:1: ( rule__Survey__Group__2__Impl rule__Survey__Group__3 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:413:2: rule__Survey__Group__2__Impl rule__Survey__Group__3
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:446:1: ( rule__Survey__Group__2__Impl rule__Survey__Group__3 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:447:2: rule__Survey__Group__2__Impl rule__Survey__Group__3
             {
-            pushFollow(FOLLOW_rule__Survey__Group__2__Impl_in_rule__Survey__Group__2813);
+            pushFollow(FOLLOW_rule__Survey__Group__2__Impl_in_rule__Survey__Group__2890);
             rule__Survey__Group__2__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Survey__Group__3_in_rule__Survey__Group__2816);
+            pushFollow(FOLLOW_rule__Survey__Group__3_in_rule__Survey__Group__2893);
             rule__Survey__Group__3();
 
             state._fsp--;
@@ -1102,23 +1204,23 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Survey__Group__2__Impl"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:420:1: rule__Survey__Group__2__Impl : ( ( rule__Survey__TitleAssignment_2 ) ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:454:1: rule__Survey__Group__2__Impl : ( ( rule__Survey__TitleAssignment_2 ) ) ;
     public final void rule__Survey__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:424:1: ( ( ( rule__Survey__TitleAssignment_2 ) ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:425:1: ( ( rule__Survey__TitleAssignment_2 ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:458:1: ( ( ( rule__Survey__TitleAssignment_2 ) ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:459:1: ( ( rule__Survey__TitleAssignment_2 ) )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:425:1: ( ( rule__Survey__TitleAssignment_2 ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:426:1: ( rule__Survey__TitleAssignment_2 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:459:1: ( ( rule__Survey__TitleAssignment_2 ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:460:1: ( rule__Survey__TitleAssignment_2 )
             {
              before(grammarAccess.getSurveyAccess().getTitleAssignment_2()); 
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:427:1: ( rule__Survey__TitleAssignment_2 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:427:2: rule__Survey__TitleAssignment_2
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:461:1: ( rule__Survey__TitleAssignment_2 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:461:2: rule__Survey__TitleAssignment_2
             {
-            pushFollow(FOLLOW_rule__Survey__TitleAssignment_2_in_rule__Survey__Group__2__Impl843);
+            pushFollow(FOLLOW_rule__Survey__TitleAssignment_2_in_rule__Survey__Group__2__Impl920);
             rule__Survey__TitleAssignment_2();
 
             state._fsp--;
@@ -1149,21 +1251,21 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Survey__Group__3"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:437:1: rule__Survey__Group__3 : rule__Survey__Group__3__Impl rule__Survey__Group__4 ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:471:1: rule__Survey__Group__3 : rule__Survey__Group__3__Impl rule__Survey__Group__4 ;
     public final void rule__Survey__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:441:1: ( rule__Survey__Group__3__Impl rule__Survey__Group__4 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:442:2: rule__Survey__Group__3__Impl rule__Survey__Group__4
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:475:1: ( rule__Survey__Group__3__Impl rule__Survey__Group__4 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:476:2: rule__Survey__Group__3__Impl rule__Survey__Group__4
             {
-            pushFollow(FOLLOW_rule__Survey__Group__3__Impl_in_rule__Survey__Group__3873);
+            pushFollow(FOLLOW_rule__Survey__Group__3__Impl_in_rule__Survey__Group__3950);
             rule__Survey__Group__3__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Survey__Group__4_in_rule__Survey__Group__3876);
+            pushFollow(FOLLOW_rule__Survey__Group__4_in_rule__Survey__Group__3953);
             rule__Survey__Group__4();
 
             state._fsp--;
@@ -1187,20 +1289,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Survey__Group__3__Impl"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:449:1: rule__Survey__Group__3__Impl : ( ( rule__Survey__GreetingAssignment_3 )? ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:483:1: rule__Survey__Group__3__Impl : ( ( rule__Survey__GreetingAssignment_3 )? ) ;
     public final void rule__Survey__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:453:1: ( ( ( rule__Survey__GreetingAssignment_3 )? ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:454:1: ( ( rule__Survey__GreetingAssignment_3 )? )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:487:1: ( ( ( rule__Survey__GreetingAssignment_3 )? ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:488:1: ( ( rule__Survey__GreetingAssignment_3 )? )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:454:1: ( ( rule__Survey__GreetingAssignment_3 )? )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:455:1: ( rule__Survey__GreetingAssignment_3 )?
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:488:1: ( ( rule__Survey__GreetingAssignment_3 )? )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:489:1: ( rule__Survey__GreetingAssignment_3 )?
             {
              before(grammarAccess.getSurveyAccess().getGreetingAssignment_3()); 
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:456:1: ( rule__Survey__GreetingAssignment_3 )?
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:490:1: ( rule__Survey__GreetingAssignment_3 )?
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -1209,9 +1311,9 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
             }
             switch (alt2) {
                 case 1 :
-                    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:456:2: rule__Survey__GreetingAssignment_3
+                    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:490:2: rule__Survey__GreetingAssignment_3
                     {
-                    pushFollow(FOLLOW_rule__Survey__GreetingAssignment_3_in_rule__Survey__Group__3__Impl903);
+                    pushFollow(FOLLOW_rule__Survey__GreetingAssignment_3_in_rule__Survey__Group__3__Impl980);
                     rule__Survey__GreetingAssignment_3();
 
                     state._fsp--;
@@ -1245,21 +1347,21 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Survey__Group__4"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:466:1: rule__Survey__Group__4 : rule__Survey__Group__4__Impl rule__Survey__Group__5 ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:500:1: rule__Survey__Group__4 : rule__Survey__Group__4__Impl rule__Survey__Group__5 ;
     public final void rule__Survey__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:470:1: ( rule__Survey__Group__4__Impl rule__Survey__Group__5 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:471:2: rule__Survey__Group__4__Impl rule__Survey__Group__5
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:504:1: ( rule__Survey__Group__4__Impl rule__Survey__Group__5 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:505:2: rule__Survey__Group__4__Impl rule__Survey__Group__5
             {
-            pushFollow(FOLLOW_rule__Survey__Group__4__Impl_in_rule__Survey__Group__4934);
+            pushFollow(FOLLOW_rule__Survey__Group__4__Impl_in_rule__Survey__Group__41011);
             rule__Survey__Group__4__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Survey__Group__5_in_rule__Survey__Group__4937);
+            pushFollow(FOLLOW_rule__Survey__Group__5_in_rule__Survey__Group__41014);
             rule__Survey__Group__5();
 
             state._fsp--;
@@ -1283,20 +1385,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Survey__Group__4__Impl"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:478:1: rule__Survey__Group__4__Impl : ( ( rule__Survey__DurationAssignment_4 )? ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:512:1: rule__Survey__Group__4__Impl : ( ( rule__Survey__DurationAssignment_4 )? ) ;
     public final void rule__Survey__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:482:1: ( ( ( rule__Survey__DurationAssignment_4 )? ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:483:1: ( ( rule__Survey__DurationAssignment_4 )? )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:516:1: ( ( ( rule__Survey__DurationAssignment_4 )? ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:517:1: ( ( rule__Survey__DurationAssignment_4 )? )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:483:1: ( ( rule__Survey__DurationAssignment_4 )? )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:484:1: ( rule__Survey__DurationAssignment_4 )?
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:517:1: ( ( rule__Survey__DurationAssignment_4 )? )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:518:1: ( rule__Survey__DurationAssignment_4 )?
             {
              before(grammarAccess.getSurveyAccess().getDurationAssignment_4()); 
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:485:1: ( rule__Survey__DurationAssignment_4 )?
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:519:1: ( rule__Survey__DurationAssignment_4 )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -1305,9 +1407,9 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
             }
             switch (alt3) {
                 case 1 :
-                    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:485:2: rule__Survey__DurationAssignment_4
+                    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:519:2: rule__Survey__DurationAssignment_4
                     {
-                    pushFollow(FOLLOW_rule__Survey__DurationAssignment_4_in_rule__Survey__Group__4__Impl964);
+                    pushFollow(FOLLOW_rule__Survey__DurationAssignment_4_in_rule__Survey__Group__4__Impl1041);
                     rule__Survey__DurationAssignment_4();
 
                     state._fsp--;
@@ -1341,16 +1443,16 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Survey__Group__5"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:495:1: rule__Survey__Group__5 : rule__Survey__Group__5__Impl ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:529:1: rule__Survey__Group__5 : rule__Survey__Group__5__Impl ;
     public final void rule__Survey__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:499:1: ( rule__Survey__Group__5__Impl )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:500:2: rule__Survey__Group__5__Impl
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:533:1: ( rule__Survey__Group__5__Impl )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:534:2: rule__Survey__Group__5__Impl
             {
-            pushFollow(FOLLOW_rule__Survey__Group__5__Impl_in_rule__Survey__Group__5995);
+            pushFollow(FOLLOW_rule__Survey__Group__5__Impl_in_rule__Survey__Group__51072);
             rule__Survey__Group__5__Impl();
 
             state._fsp--;
@@ -1374,20 +1476,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Survey__Group__5__Impl"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:506:1: rule__Survey__Group__5__Impl : ( ( rule__Survey__PagesAssignment_5 )* ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:540:1: rule__Survey__Group__5__Impl : ( ( rule__Survey__PagesAssignment_5 )* ) ;
     public final void rule__Survey__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:510:1: ( ( ( rule__Survey__PagesAssignment_5 )* ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:511:1: ( ( rule__Survey__PagesAssignment_5 )* )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:544:1: ( ( ( rule__Survey__PagesAssignment_5 )* ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:545:1: ( ( rule__Survey__PagesAssignment_5 )* )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:511:1: ( ( rule__Survey__PagesAssignment_5 )* )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:512:1: ( rule__Survey__PagesAssignment_5 )*
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:545:1: ( ( rule__Survey__PagesAssignment_5 )* )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:546:1: ( rule__Survey__PagesAssignment_5 )*
             {
              before(grammarAccess.getSurveyAccess().getPagesAssignment_5()); 
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:513:1: ( rule__Survey__PagesAssignment_5 )*
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:547:1: ( rule__Survey__PagesAssignment_5 )*
             loop4:
             do {
                 int alt4=2;
@@ -1400,9 +1502,9 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
                 switch (alt4) {
             	case 1 :
-            	    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:513:2: rule__Survey__PagesAssignment_5
+            	    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:547:2: rule__Survey__PagesAssignment_5
             	    {
-            	    pushFollow(FOLLOW_rule__Survey__PagesAssignment_5_in_rule__Survey__Group__5__Impl1022);
+            	    pushFollow(FOLLOW_rule__Survey__PagesAssignment_5_in_rule__Survey__Group__5__Impl1099);
             	    rule__Survey__PagesAssignment_5();
 
             	    state._fsp--;
@@ -1439,21 +1541,21 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Page__Group__0"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:535:1: rule__Page__Group__0 : rule__Page__Group__0__Impl rule__Page__Group__1 ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:569:1: rule__Page__Group__0 : rule__Page__Group__0__Impl rule__Page__Group__1 ;
     public final void rule__Page__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:539:1: ( rule__Page__Group__0__Impl rule__Page__Group__1 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:540:2: rule__Page__Group__0__Impl rule__Page__Group__1
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:573:1: ( rule__Page__Group__0__Impl rule__Page__Group__1 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:574:2: rule__Page__Group__0__Impl rule__Page__Group__1
             {
-            pushFollow(FOLLOW_rule__Page__Group__0__Impl_in_rule__Page__Group__01065);
+            pushFollow(FOLLOW_rule__Page__Group__0__Impl_in_rule__Page__Group__01142);
             rule__Page__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Page__Group__1_in_rule__Page__Group__01068);
+            pushFollow(FOLLOW_rule__Page__Group__1_in_rule__Page__Group__01145);
             rule__Page__Group__1();
 
             state._fsp--;
@@ -1477,20 +1579,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Page__Group__0__Impl"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:547:1: rule__Page__Group__0__Impl : ( 'page' ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:581:1: rule__Page__Group__0__Impl : ( 'page' ) ;
     public final void rule__Page__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:551:1: ( ( 'page' ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:552:1: ( 'page' )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:585:1: ( ( 'page' ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:586:1: ( 'page' )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:552:1: ( 'page' )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:553:1: 'page'
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:586:1: ( 'page' )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:587:1: 'page'
             {
              before(grammarAccess.getPageAccess().getPageKeyword_0()); 
-            match(input,12,FOLLOW_12_in_rule__Page__Group__0__Impl1096); 
+            match(input,12,FOLLOW_12_in_rule__Page__Group__0__Impl1173); 
              after(grammarAccess.getPageAccess().getPageKeyword_0()); 
 
             }
@@ -1514,21 +1616,21 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Page__Group__1"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:566:1: rule__Page__Group__1 : rule__Page__Group__1__Impl rule__Page__Group__2 ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:600:1: rule__Page__Group__1 : rule__Page__Group__1__Impl rule__Page__Group__2 ;
     public final void rule__Page__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:570:1: ( rule__Page__Group__1__Impl rule__Page__Group__2 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:571:2: rule__Page__Group__1__Impl rule__Page__Group__2
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:604:1: ( rule__Page__Group__1__Impl rule__Page__Group__2 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:605:2: rule__Page__Group__1__Impl rule__Page__Group__2
             {
-            pushFollow(FOLLOW_rule__Page__Group__1__Impl_in_rule__Page__Group__11127);
+            pushFollow(FOLLOW_rule__Page__Group__1__Impl_in_rule__Page__Group__11204);
             rule__Page__Group__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Page__Group__2_in_rule__Page__Group__11130);
+            pushFollow(FOLLOW_rule__Page__Group__2_in_rule__Page__Group__11207);
             rule__Page__Group__2();
 
             state._fsp--;
@@ -1552,23 +1654,23 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Page__Group__1__Impl"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:578:1: rule__Page__Group__1__Impl : ( ( rule__Page__NameAssignment_1 ) ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:612:1: rule__Page__Group__1__Impl : ( ( rule__Page__NameAssignment_1 ) ) ;
     public final void rule__Page__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:582:1: ( ( ( rule__Page__NameAssignment_1 ) ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:583:1: ( ( rule__Page__NameAssignment_1 ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:616:1: ( ( ( rule__Page__NameAssignment_1 ) ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:617:1: ( ( rule__Page__NameAssignment_1 ) )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:583:1: ( ( rule__Page__NameAssignment_1 ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:584:1: ( rule__Page__NameAssignment_1 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:617:1: ( ( rule__Page__NameAssignment_1 ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:618:1: ( rule__Page__NameAssignment_1 )
             {
              before(grammarAccess.getPageAccess().getNameAssignment_1()); 
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:585:1: ( rule__Page__NameAssignment_1 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:585:2: rule__Page__NameAssignment_1
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:619:1: ( rule__Page__NameAssignment_1 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:619:2: rule__Page__NameAssignment_1
             {
-            pushFollow(FOLLOW_rule__Page__NameAssignment_1_in_rule__Page__Group__1__Impl1157);
+            pushFollow(FOLLOW_rule__Page__NameAssignment_1_in_rule__Page__Group__1__Impl1234);
             rule__Page__NameAssignment_1();
 
             state._fsp--;
@@ -1599,21 +1701,21 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Page__Group__2"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:595:1: rule__Page__Group__2 : rule__Page__Group__2__Impl rule__Page__Group__3 ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:629:1: rule__Page__Group__2 : rule__Page__Group__2__Impl rule__Page__Group__3 ;
     public final void rule__Page__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:599:1: ( rule__Page__Group__2__Impl rule__Page__Group__3 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:600:2: rule__Page__Group__2__Impl rule__Page__Group__3
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:633:1: ( rule__Page__Group__2__Impl rule__Page__Group__3 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:634:2: rule__Page__Group__2__Impl rule__Page__Group__3
             {
-            pushFollow(FOLLOW_rule__Page__Group__2__Impl_in_rule__Page__Group__21187);
+            pushFollow(FOLLOW_rule__Page__Group__2__Impl_in_rule__Page__Group__21264);
             rule__Page__Group__2__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Page__Group__3_in_rule__Page__Group__21190);
+            pushFollow(FOLLOW_rule__Page__Group__3_in_rule__Page__Group__21267);
             rule__Page__Group__3();
 
             state._fsp--;
@@ -1637,20 +1739,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Page__Group__2__Impl"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:607:1: rule__Page__Group__2__Impl : ( '(' ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:641:1: rule__Page__Group__2__Impl : ( '(' ) ;
     public final void rule__Page__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:611:1: ( ( '(' ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:612:1: ( '(' )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:645:1: ( ( '(' ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:646:1: ( '(' )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:612:1: ( '(' )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:613:1: '('
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:646:1: ( '(' )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:647:1: '('
             {
              before(grammarAccess.getPageAccess().getLeftParenthesisKeyword_2()); 
-            match(input,13,FOLLOW_13_in_rule__Page__Group__2__Impl1218); 
+            match(input,13,FOLLOW_13_in_rule__Page__Group__2__Impl1295); 
              after(grammarAccess.getPageAccess().getLeftParenthesisKeyword_2()); 
 
             }
@@ -1674,21 +1776,21 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Page__Group__3"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:626:1: rule__Page__Group__3 : rule__Page__Group__3__Impl rule__Page__Group__4 ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:660:1: rule__Page__Group__3 : rule__Page__Group__3__Impl rule__Page__Group__4 ;
     public final void rule__Page__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:630:1: ( rule__Page__Group__3__Impl rule__Page__Group__4 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:631:2: rule__Page__Group__3__Impl rule__Page__Group__4
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:664:1: ( rule__Page__Group__3__Impl rule__Page__Group__4 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:665:2: rule__Page__Group__3__Impl rule__Page__Group__4
             {
-            pushFollow(FOLLOW_rule__Page__Group__3__Impl_in_rule__Page__Group__31249);
+            pushFollow(FOLLOW_rule__Page__Group__3__Impl_in_rule__Page__Group__31326);
             rule__Page__Group__3__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Page__Group__4_in_rule__Page__Group__31252);
+            pushFollow(FOLLOW_rule__Page__Group__4_in_rule__Page__Group__31329);
             rule__Page__Group__4();
 
             state._fsp--;
@@ -1712,35 +1814,35 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Page__Group__3__Impl"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:638:1: rule__Page__Group__3__Impl : ( ( rule__Page__QuestionsAssignment_3 )* ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:672:1: rule__Page__Group__3__Impl : ( ( rule__Page__QuestionsAssignment_3 )* ) ;
     public final void rule__Page__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:642:1: ( ( ( rule__Page__QuestionsAssignment_3 )* ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:643:1: ( ( rule__Page__QuestionsAssignment_3 )* )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:676:1: ( ( ( rule__Page__QuestionsAssignment_3 )* ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:677:1: ( ( rule__Page__QuestionsAssignment_3 )* )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:643:1: ( ( rule__Page__QuestionsAssignment_3 )* )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:644:1: ( rule__Page__QuestionsAssignment_3 )*
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:677:1: ( ( rule__Page__QuestionsAssignment_3 )* )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:678:1: ( rule__Page__QuestionsAssignment_3 )*
             {
              before(grammarAccess.getPageAccess().getQuestionsAssignment_3()); 
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:645:1: ( rule__Page__QuestionsAssignment_3 )*
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:679:1: ( rule__Page__QuestionsAssignment_3 )*
             loop5:
             do {
                 int alt5=2;
                 int LA5_0 = input.LA(1);
 
-                if ( ((LA5_0>=15 && LA5_0<=17)||LA5_0==19) ) {
+                if ( ((LA5_0>=15 && LA5_0<=17)||(LA5_0>=19 && LA5_0<=20)) ) {
                     alt5=1;
                 }
 
 
                 switch (alt5) {
             	case 1 :
-            	    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:645:2: rule__Page__QuestionsAssignment_3
+            	    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:679:2: rule__Page__QuestionsAssignment_3
             	    {
-            	    pushFollow(FOLLOW_rule__Page__QuestionsAssignment_3_in_rule__Page__Group__3__Impl1279);
+            	    pushFollow(FOLLOW_rule__Page__QuestionsAssignment_3_in_rule__Page__Group__3__Impl1356);
             	    rule__Page__QuestionsAssignment_3();
 
             	    state._fsp--;
@@ -1777,16 +1879,16 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Page__Group__4"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:655:1: rule__Page__Group__4 : rule__Page__Group__4__Impl ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:689:1: rule__Page__Group__4 : rule__Page__Group__4__Impl ;
     public final void rule__Page__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:659:1: ( rule__Page__Group__4__Impl )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:660:2: rule__Page__Group__4__Impl
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:693:1: ( rule__Page__Group__4__Impl )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:694:2: rule__Page__Group__4__Impl
             {
-            pushFollow(FOLLOW_rule__Page__Group__4__Impl_in_rule__Page__Group__41310);
+            pushFollow(FOLLOW_rule__Page__Group__4__Impl_in_rule__Page__Group__41387);
             rule__Page__Group__4__Impl();
 
             state._fsp--;
@@ -1810,20 +1912,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Page__Group__4__Impl"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:666:1: rule__Page__Group__4__Impl : ( ')' ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:700:1: rule__Page__Group__4__Impl : ( ')' ) ;
     public final void rule__Page__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:670:1: ( ( ')' ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:671:1: ( ')' )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:704:1: ( ( ')' ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:705:1: ( ')' )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:671:1: ( ')' )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:672:1: ')'
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:705:1: ( ')' )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:706:1: ')'
             {
              before(grammarAccess.getPageAccess().getRightParenthesisKeyword_4()); 
-            match(input,14,FOLLOW_14_in_rule__Page__Group__4__Impl1338); 
+            match(input,14,FOLLOW_14_in_rule__Page__Group__4__Impl1415); 
              after(grammarAccess.getPageAccess().getRightParenthesisKeyword_4()); 
 
             }
@@ -1847,21 +1949,21 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Freetext__Group__0"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:695:1: rule__Freetext__Group__0 : rule__Freetext__Group__0__Impl rule__Freetext__Group__1 ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:729:1: rule__Freetext__Group__0 : rule__Freetext__Group__0__Impl rule__Freetext__Group__1 ;
     public final void rule__Freetext__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:699:1: ( rule__Freetext__Group__0__Impl rule__Freetext__Group__1 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:700:2: rule__Freetext__Group__0__Impl rule__Freetext__Group__1
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:733:1: ( rule__Freetext__Group__0__Impl rule__Freetext__Group__1 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:734:2: rule__Freetext__Group__0__Impl rule__Freetext__Group__1
             {
-            pushFollow(FOLLOW_rule__Freetext__Group__0__Impl_in_rule__Freetext__Group__01379);
+            pushFollow(FOLLOW_rule__Freetext__Group__0__Impl_in_rule__Freetext__Group__01456);
             rule__Freetext__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Freetext__Group__1_in_rule__Freetext__Group__01382);
+            pushFollow(FOLLOW_rule__Freetext__Group__1_in_rule__Freetext__Group__01459);
             rule__Freetext__Group__1();
 
             state._fsp--;
@@ -1885,20 +1987,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Freetext__Group__0__Impl"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:707:1: rule__Freetext__Group__0__Impl : ( 'freetext' ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:741:1: rule__Freetext__Group__0__Impl : ( 'freetext' ) ;
     public final void rule__Freetext__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:711:1: ( ( 'freetext' ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:712:1: ( 'freetext' )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:745:1: ( ( 'freetext' ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:746:1: ( 'freetext' )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:712:1: ( 'freetext' )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:713:1: 'freetext'
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:746:1: ( 'freetext' )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:747:1: 'freetext'
             {
              before(grammarAccess.getFreetextAccess().getFreetextKeyword_0()); 
-            match(input,15,FOLLOW_15_in_rule__Freetext__Group__0__Impl1410); 
+            match(input,15,FOLLOW_15_in_rule__Freetext__Group__0__Impl1487); 
              after(grammarAccess.getFreetextAccess().getFreetextKeyword_0()); 
 
             }
@@ -1922,21 +2024,21 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Freetext__Group__1"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:726:1: rule__Freetext__Group__1 : rule__Freetext__Group__1__Impl rule__Freetext__Group__2 ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:760:1: rule__Freetext__Group__1 : rule__Freetext__Group__1__Impl rule__Freetext__Group__2 ;
     public final void rule__Freetext__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:730:1: ( rule__Freetext__Group__1__Impl rule__Freetext__Group__2 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:731:2: rule__Freetext__Group__1__Impl rule__Freetext__Group__2
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:764:1: ( rule__Freetext__Group__1__Impl rule__Freetext__Group__2 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:765:2: rule__Freetext__Group__1__Impl rule__Freetext__Group__2
             {
-            pushFollow(FOLLOW_rule__Freetext__Group__1__Impl_in_rule__Freetext__Group__11441);
+            pushFollow(FOLLOW_rule__Freetext__Group__1__Impl_in_rule__Freetext__Group__11518);
             rule__Freetext__Group__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Freetext__Group__2_in_rule__Freetext__Group__11444);
+            pushFollow(FOLLOW_rule__Freetext__Group__2_in_rule__Freetext__Group__11521);
             rule__Freetext__Group__2();
 
             state._fsp--;
@@ -1960,23 +2062,23 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Freetext__Group__1__Impl"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:738:1: rule__Freetext__Group__1__Impl : ( ( rule__Freetext__NameAssignment_1 ) ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:772:1: rule__Freetext__Group__1__Impl : ( ( rule__Freetext__NameAssignment_1 ) ) ;
     public final void rule__Freetext__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:742:1: ( ( ( rule__Freetext__NameAssignment_1 ) ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:743:1: ( ( rule__Freetext__NameAssignment_1 ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:776:1: ( ( ( rule__Freetext__NameAssignment_1 ) ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:777:1: ( ( rule__Freetext__NameAssignment_1 ) )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:743:1: ( ( rule__Freetext__NameAssignment_1 ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:744:1: ( rule__Freetext__NameAssignment_1 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:777:1: ( ( rule__Freetext__NameAssignment_1 ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:778:1: ( rule__Freetext__NameAssignment_1 )
             {
              before(grammarAccess.getFreetextAccess().getNameAssignment_1()); 
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:745:1: ( rule__Freetext__NameAssignment_1 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:745:2: rule__Freetext__NameAssignment_1
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:779:1: ( rule__Freetext__NameAssignment_1 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:779:2: rule__Freetext__NameAssignment_1
             {
-            pushFollow(FOLLOW_rule__Freetext__NameAssignment_1_in_rule__Freetext__Group__1__Impl1471);
+            pushFollow(FOLLOW_rule__Freetext__NameAssignment_1_in_rule__Freetext__Group__1__Impl1548);
             rule__Freetext__NameAssignment_1();
 
             state._fsp--;
@@ -2007,16 +2109,16 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Freetext__Group__2"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:755:1: rule__Freetext__Group__2 : rule__Freetext__Group__2__Impl ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:789:1: rule__Freetext__Group__2 : rule__Freetext__Group__2__Impl ;
     public final void rule__Freetext__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:759:1: ( rule__Freetext__Group__2__Impl )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:760:2: rule__Freetext__Group__2__Impl
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:793:1: ( rule__Freetext__Group__2__Impl )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:794:2: rule__Freetext__Group__2__Impl
             {
-            pushFollow(FOLLOW_rule__Freetext__Group__2__Impl_in_rule__Freetext__Group__21501);
+            pushFollow(FOLLOW_rule__Freetext__Group__2__Impl_in_rule__Freetext__Group__21578);
             rule__Freetext__Group__2__Impl();
 
             state._fsp--;
@@ -2040,23 +2142,23 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Freetext__Group__2__Impl"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:766:1: rule__Freetext__Group__2__Impl : ( ( rule__Freetext__QuestionAssignment_2 ) ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:800:1: rule__Freetext__Group__2__Impl : ( ( rule__Freetext__QuestionAssignment_2 ) ) ;
     public final void rule__Freetext__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:770:1: ( ( ( rule__Freetext__QuestionAssignment_2 ) ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:771:1: ( ( rule__Freetext__QuestionAssignment_2 ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:804:1: ( ( ( rule__Freetext__QuestionAssignment_2 ) ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:805:1: ( ( rule__Freetext__QuestionAssignment_2 ) )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:771:1: ( ( rule__Freetext__QuestionAssignment_2 ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:772:1: ( rule__Freetext__QuestionAssignment_2 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:805:1: ( ( rule__Freetext__QuestionAssignment_2 ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:806:1: ( rule__Freetext__QuestionAssignment_2 )
             {
              before(grammarAccess.getFreetextAccess().getQuestionAssignment_2()); 
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:773:1: ( rule__Freetext__QuestionAssignment_2 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:773:2: rule__Freetext__QuestionAssignment_2
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:807:1: ( rule__Freetext__QuestionAssignment_2 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:807:2: rule__Freetext__QuestionAssignment_2
             {
-            pushFollow(FOLLOW_rule__Freetext__QuestionAssignment_2_in_rule__Freetext__Group__2__Impl1528);
+            pushFollow(FOLLOW_rule__Freetext__QuestionAssignment_2_in_rule__Freetext__Group__2__Impl1605);
             rule__Freetext__QuestionAssignment_2();
 
             state._fsp--;
@@ -2087,21 +2189,21 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Selection__Group__0"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:789:1: rule__Selection__Group__0 : rule__Selection__Group__0__Impl rule__Selection__Group__1 ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:823:1: rule__Selection__Group__0 : rule__Selection__Group__0__Impl rule__Selection__Group__1 ;
     public final void rule__Selection__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:793:1: ( rule__Selection__Group__0__Impl rule__Selection__Group__1 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:794:2: rule__Selection__Group__0__Impl rule__Selection__Group__1
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:827:1: ( rule__Selection__Group__0__Impl rule__Selection__Group__1 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:828:2: rule__Selection__Group__0__Impl rule__Selection__Group__1
             {
-            pushFollow(FOLLOW_rule__Selection__Group__0__Impl_in_rule__Selection__Group__01564);
+            pushFollow(FOLLOW_rule__Selection__Group__0__Impl_in_rule__Selection__Group__01641);
             rule__Selection__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Selection__Group__1_in_rule__Selection__Group__01567);
+            pushFollow(FOLLOW_rule__Selection__Group__1_in_rule__Selection__Group__01644);
             rule__Selection__Group__1();
 
             state._fsp--;
@@ -2125,20 +2227,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Selection__Group__0__Impl"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:801:1: rule__Selection__Group__0__Impl : ( 'select' ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:835:1: rule__Selection__Group__0__Impl : ( 'select' ) ;
     public final void rule__Selection__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:805:1: ( ( 'select' ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:806:1: ( 'select' )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:839:1: ( ( 'select' ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:840:1: ( 'select' )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:806:1: ( 'select' )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:807:1: 'select'
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:840:1: ( 'select' )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:841:1: 'select'
             {
              before(grammarAccess.getSelectionAccess().getSelectKeyword_0()); 
-            match(input,16,FOLLOW_16_in_rule__Selection__Group__0__Impl1595); 
+            match(input,16,FOLLOW_16_in_rule__Selection__Group__0__Impl1672); 
              after(grammarAccess.getSelectionAccess().getSelectKeyword_0()); 
 
             }
@@ -2162,21 +2264,21 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Selection__Group__1"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:820:1: rule__Selection__Group__1 : rule__Selection__Group__1__Impl rule__Selection__Group__2 ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:854:1: rule__Selection__Group__1 : rule__Selection__Group__1__Impl rule__Selection__Group__2 ;
     public final void rule__Selection__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:824:1: ( rule__Selection__Group__1__Impl rule__Selection__Group__2 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:825:2: rule__Selection__Group__1__Impl rule__Selection__Group__2
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:858:1: ( rule__Selection__Group__1__Impl rule__Selection__Group__2 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:859:2: rule__Selection__Group__1__Impl rule__Selection__Group__2
             {
-            pushFollow(FOLLOW_rule__Selection__Group__1__Impl_in_rule__Selection__Group__11626);
+            pushFollow(FOLLOW_rule__Selection__Group__1__Impl_in_rule__Selection__Group__11703);
             rule__Selection__Group__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Selection__Group__2_in_rule__Selection__Group__11629);
+            pushFollow(FOLLOW_rule__Selection__Group__2_in_rule__Selection__Group__11706);
             rule__Selection__Group__2();
 
             state._fsp--;
@@ -2200,23 +2302,23 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Selection__Group__1__Impl"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:832:1: rule__Selection__Group__1__Impl : ( ( rule__Selection__NameAssignment_1 ) ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:866:1: rule__Selection__Group__1__Impl : ( ( rule__Selection__NameAssignment_1 ) ) ;
     public final void rule__Selection__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:836:1: ( ( ( rule__Selection__NameAssignment_1 ) ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:837:1: ( ( rule__Selection__NameAssignment_1 ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:870:1: ( ( ( rule__Selection__NameAssignment_1 ) ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:871:1: ( ( rule__Selection__NameAssignment_1 ) )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:837:1: ( ( rule__Selection__NameAssignment_1 ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:838:1: ( rule__Selection__NameAssignment_1 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:871:1: ( ( rule__Selection__NameAssignment_1 ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:872:1: ( rule__Selection__NameAssignment_1 )
             {
              before(grammarAccess.getSelectionAccess().getNameAssignment_1()); 
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:839:1: ( rule__Selection__NameAssignment_1 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:839:2: rule__Selection__NameAssignment_1
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:873:1: ( rule__Selection__NameAssignment_1 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:873:2: rule__Selection__NameAssignment_1
             {
-            pushFollow(FOLLOW_rule__Selection__NameAssignment_1_in_rule__Selection__Group__1__Impl1656);
+            pushFollow(FOLLOW_rule__Selection__NameAssignment_1_in_rule__Selection__Group__1__Impl1733);
             rule__Selection__NameAssignment_1();
 
             state._fsp--;
@@ -2247,21 +2349,21 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Selection__Group__2"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:849:1: rule__Selection__Group__2 : rule__Selection__Group__2__Impl rule__Selection__Group__3 ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:883:1: rule__Selection__Group__2 : rule__Selection__Group__2__Impl rule__Selection__Group__3 ;
     public final void rule__Selection__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:853:1: ( rule__Selection__Group__2__Impl rule__Selection__Group__3 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:854:2: rule__Selection__Group__2__Impl rule__Selection__Group__3
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:887:1: ( rule__Selection__Group__2__Impl rule__Selection__Group__3 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:888:2: rule__Selection__Group__2__Impl rule__Selection__Group__3
             {
-            pushFollow(FOLLOW_rule__Selection__Group__2__Impl_in_rule__Selection__Group__21686);
+            pushFollow(FOLLOW_rule__Selection__Group__2__Impl_in_rule__Selection__Group__21763);
             rule__Selection__Group__2__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Selection__Group__3_in_rule__Selection__Group__21689);
+            pushFollow(FOLLOW_rule__Selection__Group__3_in_rule__Selection__Group__21766);
             rule__Selection__Group__3();
 
             state._fsp--;
@@ -2285,23 +2387,23 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Selection__Group__2__Impl"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:861:1: rule__Selection__Group__2__Impl : ( ( rule__Selection__QuestionAssignment_2 ) ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:895:1: rule__Selection__Group__2__Impl : ( ( rule__Selection__QuestionAssignment_2 ) ) ;
     public final void rule__Selection__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:865:1: ( ( ( rule__Selection__QuestionAssignment_2 ) ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:866:1: ( ( rule__Selection__QuestionAssignment_2 ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:899:1: ( ( ( rule__Selection__QuestionAssignment_2 ) ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:900:1: ( ( rule__Selection__QuestionAssignment_2 ) )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:866:1: ( ( rule__Selection__QuestionAssignment_2 ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:867:1: ( rule__Selection__QuestionAssignment_2 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:900:1: ( ( rule__Selection__QuestionAssignment_2 ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:901:1: ( rule__Selection__QuestionAssignment_2 )
             {
              before(grammarAccess.getSelectionAccess().getQuestionAssignment_2()); 
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:868:1: ( rule__Selection__QuestionAssignment_2 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:868:2: rule__Selection__QuestionAssignment_2
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:902:1: ( rule__Selection__QuestionAssignment_2 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:902:2: rule__Selection__QuestionAssignment_2
             {
-            pushFollow(FOLLOW_rule__Selection__QuestionAssignment_2_in_rule__Selection__Group__2__Impl1716);
+            pushFollow(FOLLOW_rule__Selection__QuestionAssignment_2_in_rule__Selection__Group__2__Impl1793);
             rule__Selection__QuestionAssignment_2();
 
             state._fsp--;
@@ -2332,21 +2434,21 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Selection__Group__3"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:878:1: rule__Selection__Group__3 : rule__Selection__Group__3__Impl rule__Selection__Group__4 ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:912:1: rule__Selection__Group__3 : rule__Selection__Group__3__Impl rule__Selection__Group__4 ;
     public final void rule__Selection__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:882:1: ( rule__Selection__Group__3__Impl rule__Selection__Group__4 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:883:2: rule__Selection__Group__3__Impl rule__Selection__Group__4
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:916:1: ( rule__Selection__Group__3__Impl rule__Selection__Group__4 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:917:2: rule__Selection__Group__3__Impl rule__Selection__Group__4
             {
-            pushFollow(FOLLOW_rule__Selection__Group__3__Impl_in_rule__Selection__Group__31746);
+            pushFollow(FOLLOW_rule__Selection__Group__3__Impl_in_rule__Selection__Group__31823);
             rule__Selection__Group__3__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Selection__Group__4_in_rule__Selection__Group__31749);
+            pushFollow(FOLLOW_rule__Selection__Group__4_in_rule__Selection__Group__31826);
             rule__Selection__Group__4();
 
             state._fsp--;
@@ -2370,20 +2472,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Selection__Group__3__Impl"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:890:1: rule__Selection__Group__3__Impl : ( '(' ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:924:1: rule__Selection__Group__3__Impl : ( '(' ) ;
     public final void rule__Selection__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:894:1: ( ( '(' ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:895:1: ( '(' )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:928:1: ( ( '(' ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:929:1: ( '(' )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:895:1: ( '(' )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:896:1: '('
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:929:1: ( '(' )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:930:1: '('
             {
              before(grammarAccess.getSelectionAccess().getLeftParenthesisKeyword_3()); 
-            match(input,13,FOLLOW_13_in_rule__Selection__Group__3__Impl1777); 
+            match(input,13,FOLLOW_13_in_rule__Selection__Group__3__Impl1854); 
              after(grammarAccess.getSelectionAccess().getLeftParenthesisKeyword_3()); 
 
             }
@@ -2407,21 +2509,21 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Selection__Group__4"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:909:1: rule__Selection__Group__4 : rule__Selection__Group__4__Impl rule__Selection__Group__5 ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:943:1: rule__Selection__Group__4 : rule__Selection__Group__4__Impl rule__Selection__Group__5 ;
     public final void rule__Selection__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:913:1: ( rule__Selection__Group__4__Impl rule__Selection__Group__5 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:914:2: rule__Selection__Group__4__Impl rule__Selection__Group__5
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:947:1: ( rule__Selection__Group__4__Impl rule__Selection__Group__5 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:948:2: rule__Selection__Group__4__Impl rule__Selection__Group__5
             {
-            pushFollow(FOLLOW_rule__Selection__Group__4__Impl_in_rule__Selection__Group__41808);
+            pushFollow(FOLLOW_rule__Selection__Group__4__Impl_in_rule__Selection__Group__41885);
             rule__Selection__Group__4__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Selection__Group__5_in_rule__Selection__Group__41811);
+            pushFollow(FOLLOW_rule__Selection__Group__5_in_rule__Selection__Group__41888);
             rule__Selection__Group__5();
 
             state._fsp--;
@@ -2445,20 +2547,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Selection__Group__4__Impl"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:921:1: rule__Selection__Group__4__Impl : ( ( rule__Selection__ChoicesAssignment_4 )* ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:955:1: rule__Selection__Group__4__Impl : ( ( rule__Selection__ChoicesAssignment_4 )* ) ;
     public final void rule__Selection__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:925:1: ( ( ( rule__Selection__ChoicesAssignment_4 )* ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:926:1: ( ( rule__Selection__ChoicesAssignment_4 )* )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:959:1: ( ( ( rule__Selection__ChoicesAssignment_4 )* ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:960:1: ( ( rule__Selection__ChoicesAssignment_4 )* )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:926:1: ( ( rule__Selection__ChoicesAssignment_4 )* )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:927:1: ( rule__Selection__ChoicesAssignment_4 )*
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:960:1: ( ( rule__Selection__ChoicesAssignment_4 )* )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:961:1: ( rule__Selection__ChoicesAssignment_4 )*
             {
              before(grammarAccess.getSelectionAccess().getChoicesAssignment_4()); 
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:928:1: ( rule__Selection__ChoicesAssignment_4 )*
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:962:1: ( rule__Selection__ChoicesAssignment_4 )*
             loop6:
             do {
                 int alt6=2;
@@ -2471,9 +2573,9 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
                 switch (alt6) {
             	case 1 :
-            	    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:928:2: rule__Selection__ChoicesAssignment_4
+            	    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:962:2: rule__Selection__ChoicesAssignment_4
             	    {
-            	    pushFollow(FOLLOW_rule__Selection__ChoicesAssignment_4_in_rule__Selection__Group__4__Impl1838);
+            	    pushFollow(FOLLOW_rule__Selection__ChoicesAssignment_4_in_rule__Selection__Group__4__Impl1915);
             	    rule__Selection__ChoicesAssignment_4();
 
             	    state._fsp--;
@@ -2510,16 +2612,16 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Selection__Group__5"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:938:1: rule__Selection__Group__5 : rule__Selection__Group__5__Impl ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:972:1: rule__Selection__Group__5 : rule__Selection__Group__5__Impl ;
     public final void rule__Selection__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:942:1: ( rule__Selection__Group__5__Impl )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:943:2: rule__Selection__Group__5__Impl
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:976:1: ( rule__Selection__Group__5__Impl )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:977:2: rule__Selection__Group__5__Impl
             {
-            pushFollow(FOLLOW_rule__Selection__Group__5__Impl_in_rule__Selection__Group__51869);
+            pushFollow(FOLLOW_rule__Selection__Group__5__Impl_in_rule__Selection__Group__51946);
             rule__Selection__Group__5__Impl();
 
             state._fsp--;
@@ -2543,20 +2645,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Selection__Group__5__Impl"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:949:1: rule__Selection__Group__5__Impl : ( ')' ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:983:1: rule__Selection__Group__5__Impl : ( ')' ) ;
     public final void rule__Selection__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:953:1: ( ( ')' ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:954:1: ( ')' )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:987:1: ( ( ')' ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:988:1: ( ')' )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:954:1: ( ')' )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:955:1: ')'
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:988:1: ( ')' )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:989:1: ')'
             {
              before(grammarAccess.getSelectionAccess().getRightParenthesisKeyword_5()); 
-            match(input,14,FOLLOW_14_in_rule__Selection__Group__5__Impl1897); 
+            match(input,14,FOLLOW_14_in_rule__Selection__Group__5__Impl1974); 
              after(grammarAccess.getSelectionAccess().getRightParenthesisKeyword_5()); 
 
             }
@@ -2580,21 +2682,21 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Choice__Group__0"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:980:1: rule__Choice__Group__0 : rule__Choice__Group__0__Impl rule__Choice__Group__1 ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1014:1: rule__Choice__Group__0 : rule__Choice__Group__0__Impl rule__Choice__Group__1 ;
     public final void rule__Choice__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:984:1: ( rule__Choice__Group__0__Impl rule__Choice__Group__1 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:985:2: rule__Choice__Group__0__Impl rule__Choice__Group__1
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1018:1: ( rule__Choice__Group__0__Impl rule__Choice__Group__1 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1019:2: rule__Choice__Group__0__Impl rule__Choice__Group__1
             {
-            pushFollow(FOLLOW_rule__Choice__Group__0__Impl_in_rule__Choice__Group__01940);
+            pushFollow(FOLLOW_rule__Choice__Group__0__Impl_in_rule__Choice__Group__02017);
             rule__Choice__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Choice__Group__1_in_rule__Choice__Group__01943);
+            pushFollow(FOLLOW_rule__Choice__Group__1_in_rule__Choice__Group__02020);
             rule__Choice__Group__1();
 
             state._fsp--;
@@ -2618,20 +2720,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Choice__Group__0__Impl"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:992:1: rule__Choice__Group__0__Impl : ( ( rule__Choice__FreetextAssignment_0 )? ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1026:1: rule__Choice__Group__0__Impl : ( ( rule__Choice__FreetextAssignment_0 )? ) ;
     public final void rule__Choice__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:996:1: ( ( ( rule__Choice__FreetextAssignment_0 )? ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:997:1: ( ( rule__Choice__FreetextAssignment_0 )? )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1030:1: ( ( ( rule__Choice__FreetextAssignment_0 )? ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1031:1: ( ( rule__Choice__FreetextAssignment_0 )? )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:997:1: ( ( rule__Choice__FreetextAssignment_0 )? )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:998:1: ( rule__Choice__FreetextAssignment_0 )?
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1031:1: ( ( rule__Choice__FreetextAssignment_0 )? )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1032:1: ( rule__Choice__FreetextAssignment_0 )?
             {
              before(grammarAccess.getChoiceAccess().getFreetextAssignment_0()); 
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:999:1: ( rule__Choice__FreetextAssignment_0 )?
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1033:1: ( rule__Choice__FreetextAssignment_0 )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -2640,9 +2742,9 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
             }
             switch (alt7) {
                 case 1 :
-                    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:999:2: rule__Choice__FreetextAssignment_0
+                    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1033:2: rule__Choice__FreetextAssignment_0
                     {
-                    pushFollow(FOLLOW_rule__Choice__FreetextAssignment_0_in_rule__Choice__Group__0__Impl1970);
+                    pushFollow(FOLLOW_rule__Choice__FreetextAssignment_0_in_rule__Choice__Group__0__Impl2047);
                     rule__Choice__FreetextAssignment_0();
 
                     state._fsp--;
@@ -2676,21 +2778,21 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Choice__Group__1"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1009:1: rule__Choice__Group__1 : rule__Choice__Group__1__Impl rule__Choice__Group__2 ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1043:1: rule__Choice__Group__1 : rule__Choice__Group__1__Impl rule__Choice__Group__2 ;
     public final void rule__Choice__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1013:1: ( rule__Choice__Group__1__Impl rule__Choice__Group__2 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1014:2: rule__Choice__Group__1__Impl rule__Choice__Group__2
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1047:1: ( rule__Choice__Group__1__Impl rule__Choice__Group__2 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1048:2: rule__Choice__Group__1__Impl rule__Choice__Group__2
             {
-            pushFollow(FOLLOW_rule__Choice__Group__1__Impl_in_rule__Choice__Group__12001);
+            pushFollow(FOLLOW_rule__Choice__Group__1__Impl_in_rule__Choice__Group__12078);
             rule__Choice__Group__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Choice__Group__2_in_rule__Choice__Group__12004);
+            pushFollow(FOLLOW_rule__Choice__Group__2_in_rule__Choice__Group__12081);
             rule__Choice__Group__2();
 
             state._fsp--;
@@ -2714,23 +2816,23 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Choice__Group__1__Impl"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1021:1: rule__Choice__Group__1__Impl : ( ( rule__Choice__NameAssignment_1 ) ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1055:1: rule__Choice__Group__1__Impl : ( ( rule__Choice__NameAssignment_1 ) ) ;
     public final void rule__Choice__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1025:1: ( ( ( rule__Choice__NameAssignment_1 ) ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1026:1: ( ( rule__Choice__NameAssignment_1 ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1059:1: ( ( ( rule__Choice__NameAssignment_1 ) ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1060:1: ( ( rule__Choice__NameAssignment_1 ) )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1026:1: ( ( rule__Choice__NameAssignment_1 ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1027:1: ( rule__Choice__NameAssignment_1 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1060:1: ( ( rule__Choice__NameAssignment_1 ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1061:1: ( rule__Choice__NameAssignment_1 )
             {
              before(grammarAccess.getChoiceAccess().getNameAssignment_1()); 
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1028:1: ( rule__Choice__NameAssignment_1 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1028:2: rule__Choice__NameAssignment_1
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1062:1: ( rule__Choice__NameAssignment_1 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1062:2: rule__Choice__NameAssignment_1
             {
-            pushFollow(FOLLOW_rule__Choice__NameAssignment_1_in_rule__Choice__Group__1__Impl2031);
+            pushFollow(FOLLOW_rule__Choice__NameAssignment_1_in_rule__Choice__Group__1__Impl2108);
             rule__Choice__NameAssignment_1();
 
             state._fsp--;
@@ -2761,16 +2863,16 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Choice__Group__2"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1038:1: rule__Choice__Group__2 : rule__Choice__Group__2__Impl ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1072:1: rule__Choice__Group__2 : rule__Choice__Group__2__Impl ;
     public final void rule__Choice__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1042:1: ( rule__Choice__Group__2__Impl )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1043:2: rule__Choice__Group__2__Impl
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1076:1: ( rule__Choice__Group__2__Impl )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1077:2: rule__Choice__Group__2__Impl
             {
-            pushFollow(FOLLOW_rule__Choice__Group__2__Impl_in_rule__Choice__Group__22061);
+            pushFollow(FOLLOW_rule__Choice__Group__2__Impl_in_rule__Choice__Group__22138);
             rule__Choice__Group__2__Impl();
 
             state._fsp--;
@@ -2794,23 +2896,23 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Choice__Group__2__Impl"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1049:1: rule__Choice__Group__2__Impl : ( ( rule__Choice__BulletPointAssignment_2 ) ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1083:1: rule__Choice__Group__2__Impl : ( ( rule__Choice__BulletPointAssignment_2 ) ) ;
     public final void rule__Choice__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1053:1: ( ( ( rule__Choice__BulletPointAssignment_2 ) ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1054:1: ( ( rule__Choice__BulletPointAssignment_2 ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1087:1: ( ( ( rule__Choice__BulletPointAssignment_2 ) ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1088:1: ( ( rule__Choice__BulletPointAssignment_2 ) )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1054:1: ( ( rule__Choice__BulletPointAssignment_2 ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1055:1: ( rule__Choice__BulletPointAssignment_2 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1088:1: ( ( rule__Choice__BulletPointAssignment_2 ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1089:1: ( rule__Choice__BulletPointAssignment_2 )
             {
              before(grammarAccess.getChoiceAccess().getBulletPointAssignment_2()); 
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1056:1: ( rule__Choice__BulletPointAssignment_2 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1056:2: rule__Choice__BulletPointAssignment_2
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1090:1: ( rule__Choice__BulletPointAssignment_2 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1090:2: rule__Choice__BulletPointAssignment_2
             {
-            pushFollow(FOLLOW_rule__Choice__BulletPointAssignment_2_in_rule__Choice__Group__2__Impl2088);
+            pushFollow(FOLLOW_rule__Choice__BulletPointAssignment_2_in_rule__Choice__Group__2__Impl2165);
             rule__Choice__BulletPointAssignment_2();
 
             state._fsp--;
@@ -2841,21 +2943,21 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Chart__Group__0"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1072:1: rule__Chart__Group__0 : rule__Chart__Group__0__Impl rule__Chart__Group__1 ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1106:1: rule__Chart__Group__0 : rule__Chart__Group__0__Impl rule__Chart__Group__1 ;
     public final void rule__Chart__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1076:1: ( rule__Chart__Group__0__Impl rule__Chart__Group__1 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1077:2: rule__Chart__Group__0__Impl rule__Chart__Group__1
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1110:1: ( rule__Chart__Group__0__Impl rule__Chart__Group__1 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1111:2: rule__Chart__Group__0__Impl rule__Chart__Group__1
             {
-            pushFollow(FOLLOW_rule__Chart__Group__0__Impl_in_rule__Chart__Group__02124);
+            pushFollow(FOLLOW_rule__Chart__Group__0__Impl_in_rule__Chart__Group__02201);
             rule__Chart__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Chart__Group__1_in_rule__Chart__Group__02127);
+            pushFollow(FOLLOW_rule__Chart__Group__1_in_rule__Chart__Group__02204);
             rule__Chart__Group__1();
 
             state._fsp--;
@@ -2879,20 +2981,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Chart__Group__0__Impl"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1084:1: rule__Chart__Group__0__Impl : ( 'chart' ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1118:1: rule__Chart__Group__0__Impl : ( 'chart' ) ;
     public final void rule__Chart__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1088:1: ( ( 'chart' ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1089:1: ( 'chart' )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1122:1: ( ( 'chart' ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1123:1: ( 'chart' )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1089:1: ( 'chart' )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1090:1: 'chart'
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1123:1: ( 'chart' )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1124:1: 'chart'
             {
              before(grammarAccess.getChartAccess().getChartKeyword_0()); 
-            match(input,17,FOLLOW_17_in_rule__Chart__Group__0__Impl2155); 
+            match(input,17,FOLLOW_17_in_rule__Chart__Group__0__Impl2232); 
              after(grammarAccess.getChartAccess().getChartKeyword_0()); 
 
             }
@@ -2916,21 +3018,21 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Chart__Group__1"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1103:1: rule__Chart__Group__1 : rule__Chart__Group__1__Impl rule__Chart__Group__2 ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1137:1: rule__Chart__Group__1 : rule__Chart__Group__1__Impl rule__Chart__Group__2 ;
     public final void rule__Chart__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1107:1: ( rule__Chart__Group__1__Impl rule__Chart__Group__2 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1108:2: rule__Chart__Group__1__Impl rule__Chart__Group__2
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1141:1: ( rule__Chart__Group__1__Impl rule__Chart__Group__2 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1142:2: rule__Chart__Group__1__Impl rule__Chart__Group__2
             {
-            pushFollow(FOLLOW_rule__Chart__Group__1__Impl_in_rule__Chart__Group__12186);
+            pushFollow(FOLLOW_rule__Chart__Group__1__Impl_in_rule__Chart__Group__12263);
             rule__Chart__Group__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Chart__Group__2_in_rule__Chart__Group__12189);
+            pushFollow(FOLLOW_rule__Chart__Group__2_in_rule__Chart__Group__12266);
             rule__Chart__Group__2();
 
             state._fsp--;
@@ -2954,23 +3056,23 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Chart__Group__1__Impl"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1115:1: rule__Chart__Group__1__Impl : ( ( rule__Chart__NameAssignment_1 ) ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1149:1: rule__Chart__Group__1__Impl : ( ( rule__Chart__NameAssignment_1 ) ) ;
     public final void rule__Chart__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1119:1: ( ( ( rule__Chart__NameAssignment_1 ) ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1120:1: ( ( rule__Chart__NameAssignment_1 ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1153:1: ( ( ( rule__Chart__NameAssignment_1 ) ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1154:1: ( ( rule__Chart__NameAssignment_1 ) )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1120:1: ( ( rule__Chart__NameAssignment_1 ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1121:1: ( rule__Chart__NameAssignment_1 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1154:1: ( ( rule__Chart__NameAssignment_1 ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1155:1: ( rule__Chart__NameAssignment_1 )
             {
              before(grammarAccess.getChartAccess().getNameAssignment_1()); 
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1122:1: ( rule__Chart__NameAssignment_1 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1122:2: rule__Chart__NameAssignment_1
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1156:1: ( rule__Chart__NameAssignment_1 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1156:2: rule__Chart__NameAssignment_1
             {
-            pushFollow(FOLLOW_rule__Chart__NameAssignment_1_in_rule__Chart__Group__1__Impl2216);
+            pushFollow(FOLLOW_rule__Chart__NameAssignment_1_in_rule__Chart__Group__1__Impl2293);
             rule__Chart__NameAssignment_1();
 
             state._fsp--;
@@ -3001,21 +3103,21 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Chart__Group__2"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1132:1: rule__Chart__Group__2 : rule__Chart__Group__2__Impl rule__Chart__Group__3 ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1166:1: rule__Chart__Group__2 : rule__Chart__Group__2__Impl rule__Chart__Group__3 ;
     public final void rule__Chart__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1136:1: ( rule__Chart__Group__2__Impl rule__Chart__Group__3 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1137:2: rule__Chart__Group__2__Impl rule__Chart__Group__3
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1170:1: ( rule__Chart__Group__2__Impl rule__Chart__Group__3 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1171:2: rule__Chart__Group__2__Impl rule__Chart__Group__3
             {
-            pushFollow(FOLLOW_rule__Chart__Group__2__Impl_in_rule__Chart__Group__22246);
+            pushFollow(FOLLOW_rule__Chart__Group__2__Impl_in_rule__Chart__Group__22323);
             rule__Chart__Group__2__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Chart__Group__3_in_rule__Chart__Group__22249);
+            pushFollow(FOLLOW_rule__Chart__Group__3_in_rule__Chart__Group__22326);
             rule__Chart__Group__3();
 
             state._fsp--;
@@ -3039,23 +3141,23 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Chart__Group__2__Impl"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1144:1: rule__Chart__Group__2__Impl : ( ( rule__Chart__QuestionAssignment_2 ) ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1178:1: rule__Chart__Group__2__Impl : ( ( rule__Chart__QuestionAssignment_2 ) ) ;
     public final void rule__Chart__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1148:1: ( ( ( rule__Chart__QuestionAssignment_2 ) ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1149:1: ( ( rule__Chart__QuestionAssignment_2 ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1182:1: ( ( ( rule__Chart__QuestionAssignment_2 ) ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1183:1: ( ( rule__Chart__QuestionAssignment_2 ) )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1149:1: ( ( rule__Chart__QuestionAssignment_2 ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1150:1: ( rule__Chart__QuestionAssignment_2 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1183:1: ( ( rule__Chart__QuestionAssignment_2 ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1184:1: ( rule__Chart__QuestionAssignment_2 )
             {
              before(grammarAccess.getChartAccess().getQuestionAssignment_2()); 
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1151:1: ( rule__Chart__QuestionAssignment_2 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1151:2: rule__Chart__QuestionAssignment_2
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1185:1: ( rule__Chart__QuestionAssignment_2 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1185:2: rule__Chart__QuestionAssignment_2
             {
-            pushFollow(FOLLOW_rule__Chart__QuestionAssignment_2_in_rule__Chart__Group__2__Impl2276);
+            pushFollow(FOLLOW_rule__Chart__QuestionAssignment_2_in_rule__Chart__Group__2__Impl2353);
             rule__Chart__QuestionAssignment_2();
 
             state._fsp--;
@@ -3086,21 +3188,21 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Chart__Group__3"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1161:1: rule__Chart__Group__3 : rule__Chart__Group__3__Impl rule__Chart__Group__4 ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1195:1: rule__Chart__Group__3 : rule__Chart__Group__3__Impl rule__Chart__Group__4 ;
     public final void rule__Chart__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1165:1: ( rule__Chart__Group__3__Impl rule__Chart__Group__4 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1166:2: rule__Chart__Group__3__Impl rule__Chart__Group__4
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1199:1: ( rule__Chart__Group__3__Impl rule__Chart__Group__4 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1200:2: rule__Chart__Group__3__Impl rule__Chart__Group__4
             {
-            pushFollow(FOLLOW_rule__Chart__Group__3__Impl_in_rule__Chart__Group__32306);
+            pushFollow(FOLLOW_rule__Chart__Group__3__Impl_in_rule__Chart__Group__32383);
             rule__Chart__Group__3__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Chart__Group__4_in_rule__Chart__Group__32309);
+            pushFollow(FOLLOW_rule__Chart__Group__4_in_rule__Chart__Group__32386);
             rule__Chart__Group__4();
 
             state._fsp--;
@@ -3124,20 +3226,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Chart__Group__3__Impl"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1173:1: rule__Chart__Group__3__Impl : ( '(' ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1207:1: rule__Chart__Group__3__Impl : ( '(' ) ;
     public final void rule__Chart__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1177:1: ( ( '(' ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1178:1: ( '(' )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1211:1: ( ( '(' ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1212:1: ( '(' )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1178:1: ( '(' )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1179:1: '('
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1212:1: ( '(' )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1213:1: '('
             {
              before(grammarAccess.getChartAccess().getLeftParenthesisKeyword_3()); 
-            match(input,13,FOLLOW_13_in_rule__Chart__Group__3__Impl2337); 
+            match(input,13,FOLLOW_13_in_rule__Chart__Group__3__Impl2414); 
              after(grammarAccess.getChartAccess().getLeftParenthesisKeyword_3()); 
 
             }
@@ -3161,21 +3263,21 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Chart__Group__4"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1192:1: rule__Chart__Group__4 : rule__Chart__Group__4__Impl rule__Chart__Group__5 ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1226:1: rule__Chart__Group__4 : rule__Chart__Group__4__Impl rule__Chart__Group__5 ;
     public final void rule__Chart__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1196:1: ( rule__Chart__Group__4__Impl rule__Chart__Group__5 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1197:2: rule__Chart__Group__4__Impl rule__Chart__Group__5
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1230:1: ( rule__Chart__Group__4__Impl rule__Chart__Group__5 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1231:2: rule__Chart__Group__4__Impl rule__Chart__Group__5
             {
-            pushFollow(FOLLOW_rule__Chart__Group__4__Impl_in_rule__Chart__Group__42368);
+            pushFollow(FOLLOW_rule__Chart__Group__4__Impl_in_rule__Chart__Group__42445);
             rule__Chart__Group__4__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Chart__Group__5_in_rule__Chart__Group__42371);
+            pushFollow(FOLLOW_rule__Chart__Group__5_in_rule__Chart__Group__42448);
             rule__Chart__Group__5();
 
             state._fsp--;
@@ -3199,20 +3301,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Chart__Group__4__Impl"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1204:1: rule__Chart__Group__4__Impl : ( ( rule__Chart__ChoicesAssignment_4 )* ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1238:1: rule__Chart__Group__4__Impl : ( ( rule__Chart__ChoicesAssignment_4 )* ) ;
     public final void rule__Chart__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1208:1: ( ( ( rule__Chart__ChoicesAssignment_4 )* ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1209:1: ( ( rule__Chart__ChoicesAssignment_4 )* )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1242:1: ( ( ( rule__Chart__ChoicesAssignment_4 )* ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1243:1: ( ( rule__Chart__ChoicesAssignment_4 )* )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1209:1: ( ( rule__Chart__ChoicesAssignment_4 )* )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1210:1: ( rule__Chart__ChoicesAssignment_4 )*
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1243:1: ( ( rule__Chart__ChoicesAssignment_4 )* )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1244:1: ( rule__Chart__ChoicesAssignment_4 )*
             {
              before(grammarAccess.getChartAccess().getChoicesAssignment_4()); 
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1211:1: ( rule__Chart__ChoicesAssignment_4 )*
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1245:1: ( rule__Chart__ChoicesAssignment_4 )*
             loop8:
             do {
                 int alt8=2;
@@ -3225,9 +3327,9 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
                 switch (alt8) {
             	case 1 :
-            	    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1211:2: rule__Chart__ChoicesAssignment_4
+            	    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1245:2: rule__Chart__ChoicesAssignment_4
             	    {
-            	    pushFollow(FOLLOW_rule__Chart__ChoicesAssignment_4_in_rule__Chart__Group__4__Impl2398);
+            	    pushFollow(FOLLOW_rule__Chart__ChoicesAssignment_4_in_rule__Chart__Group__4__Impl2475);
             	    rule__Chart__ChoicesAssignment_4();
 
             	    state._fsp--;
@@ -3264,21 +3366,21 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Chart__Group__5"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1221:1: rule__Chart__Group__5 : rule__Chart__Group__5__Impl rule__Chart__Group__6 ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1255:1: rule__Chart__Group__5 : rule__Chart__Group__5__Impl rule__Chart__Group__6 ;
     public final void rule__Chart__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1225:1: ( rule__Chart__Group__5__Impl rule__Chart__Group__6 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1226:2: rule__Chart__Group__5__Impl rule__Chart__Group__6
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1259:1: ( rule__Chart__Group__5__Impl rule__Chart__Group__6 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1260:2: rule__Chart__Group__5__Impl rule__Chart__Group__6
             {
-            pushFollow(FOLLOW_rule__Chart__Group__5__Impl_in_rule__Chart__Group__52429);
+            pushFollow(FOLLOW_rule__Chart__Group__5__Impl_in_rule__Chart__Group__52506);
             rule__Chart__Group__5__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Chart__Group__6_in_rule__Chart__Group__52432);
+            pushFollow(FOLLOW_rule__Chart__Group__6_in_rule__Chart__Group__52509);
             rule__Chart__Group__6();
 
             state._fsp--;
@@ -3302,20 +3404,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Chart__Group__5__Impl"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1233:1: rule__Chart__Group__5__Impl : ( ')' ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1267:1: rule__Chart__Group__5__Impl : ( ')' ) ;
     public final void rule__Chart__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1237:1: ( ( ')' ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1238:1: ( ')' )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1271:1: ( ( ')' ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1272:1: ( ')' )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1238:1: ( ')' )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1239:1: ')'
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1272:1: ( ')' )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1273:1: ')'
             {
              before(grammarAccess.getChartAccess().getRightParenthesisKeyword_5()); 
-            match(input,14,FOLLOW_14_in_rule__Chart__Group__5__Impl2460); 
+            match(input,14,FOLLOW_14_in_rule__Chart__Group__5__Impl2537); 
              after(grammarAccess.getChartAccess().getRightParenthesisKeyword_5()); 
 
             }
@@ -3339,21 +3441,21 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Chart__Group__6"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1252:1: rule__Chart__Group__6 : rule__Chart__Group__6__Impl rule__Chart__Group__7 ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1286:1: rule__Chart__Group__6 : rule__Chart__Group__6__Impl rule__Chart__Group__7 ;
     public final void rule__Chart__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1256:1: ( rule__Chart__Group__6__Impl rule__Chart__Group__7 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1257:2: rule__Chart__Group__6__Impl rule__Chart__Group__7
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1290:1: ( rule__Chart__Group__6__Impl rule__Chart__Group__7 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1291:2: rule__Chart__Group__6__Impl rule__Chart__Group__7
             {
-            pushFollow(FOLLOW_rule__Chart__Group__6__Impl_in_rule__Chart__Group__62491);
+            pushFollow(FOLLOW_rule__Chart__Group__6__Impl_in_rule__Chart__Group__62568);
             rule__Chart__Group__6__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Chart__Group__7_in_rule__Chart__Group__62494);
+            pushFollow(FOLLOW_rule__Chart__Group__7_in_rule__Chart__Group__62571);
             rule__Chart__Group__7();
 
             state._fsp--;
@@ -3377,20 +3479,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Chart__Group__6__Impl"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1264:1: rule__Chart__Group__6__Impl : ( 'x' ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1298:1: rule__Chart__Group__6__Impl : ( 'x' ) ;
     public final void rule__Chart__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1268:1: ( ( 'x' ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1269:1: ( 'x' )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1302:1: ( ( 'x' ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1303:1: ( 'x' )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1269:1: ( 'x' )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1270:1: 'x'
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1303:1: ( 'x' )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1304:1: 'x'
             {
              before(grammarAccess.getChartAccess().getXKeyword_6()); 
-            match(input,18,FOLLOW_18_in_rule__Chart__Group__6__Impl2522); 
+            match(input,18,FOLLOW_18_in_rule__Chart__Group__6__Impl2599); 
              after(grammarAccess.getChartAccess().getXKeyword_6()); 
 
             }
@@ -3414,21 +3516,21 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Chart__Group__7"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1283:1: rule__Chart__Group__7 : rule__Chart__Group__7__Impl rule__Chart__Group__8 ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1317:1: rule__Chart__Group__7 : rule__Chart__Group__7__Impl rule__Chart__Group__8 ;
     public final void rule__Chart__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1287:1: ( rule__Chart__Group__7__Impl rule__Chart__Group__8 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1288:2: rule__Chart__Group__7__Impl rule__Chart__Group__8
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1321:1: ( rule__Chart__Group__7__Impl rule__Chart__Group__8 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1322:2: rule__Chart__Group__7__Impl rule__Chart__Group__8
             {
-            pushFollow(FOLLOW_rule__Chart__Group__7__Impl_in_rule__Chart__Group__72553);
+            pushFollow(FOLLOW_rule__Chart__Group__7__Impl_in_rule__Chart__Group__72630);
             rule__Chart__Group__7__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Chart__Group__8_in_rule__Chart__Group__72556);
+            pushFollow(FOLLOW_rule__Chart__Group__8_in_rule__Chart__Group__72633);
             rule__Chart__Group__8();
 
             state._fsp--;
@@ -3452,20 +3554,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Chart__Group__7__Impl"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1295:1: rule__Chart__Group__7__Impl : ( '(' ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1329:1: rule__Chart__Group__7__Impl : ( '(' ) ;
     public final void rule__Chart__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1299:1: ( ( '(' ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1300:1: ( '(' )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1333:1: ( ( '(' ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1334:1: ( '(' )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1300:1: ( '(' )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1301:1: '('
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1334:1: ( '(' )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1335:1: '('
             {
              before(grammarAccess.getChartAccess().getLeftParenthesisKeyword_7()); 
-            match(input,13,FOLLOW_13_in_rule__Chart__Group__7__Impl2584); 
+            match(input,13,FOLLOW_13_in_rule__Chart__Group__7__Impl2661); 
              after(grammarAccess.getChartAccess().getLeftParenthesisKeyword_7()); 
 
             }
@@ -3489,21 +3591,21 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Chart__Group__8"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1314:1: rule__Chart__Group__8 : rule__Chart__Group__8__Impl rule__Chart__Group__9 ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1348:1: rule__Chart__Group__8 : rule__Chart__Group__8__Impl rule__Chart__Group__9 ;
     public final void rule__Chart__Group__8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1318:1: ( rule__Chart__Group__8__Impl rule__Chart__Group__9 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1319:2: rule__Chart__Group__8__Impl rule__Chart__Group__9
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1352:1: ( rule__Chart__Group__8__Impl rule__Chart__Group__9 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1353:2: rule__Chart__Group__8__Impl rule__Chart__Group__9
             {
-            pushFollow(FOLLOW_rule__Chart__Group__8__Impl_in_rule__Chart__Group__82615);
+            pushFollow(FOLLOW_rule__Chart__Group__8__Impl_in_rule__Chart__Group__82692);
             rule__Chart__Group__8__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Chart__Group__9_in_rule__Chart__Group__82618);
+            pushFollow(FOLLOW_rule__Chart__Group__9_in_rule__Chart__Group__82695);
             rule__Chart__Group__9();
 
             state._fsp--;
@@ -3527,20 +3629,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Chart__Group__8__Impl"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1326:1: rule__Chart__Group__8__Impl : ( ( rule__Chart__GraduationsAssignment_8 )* ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1360:1: rule__Chart__Group__8__Impl : ( ( rule__Chart__GraduationsAssignment_8 )* ) ;
     public final void rule__Chart__Group__8__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1330:1: ( ( ( rule__Chart__GraduationsAssignment_8 )* ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1331:1: ( ( rule__Chart__GraduationsAssignment_8 )* )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1364:1: ( ( ( rule__Chart__GraduationsAssignment_8 )* ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1365:1: ( ( rule__Chart__GraduationsAssignment_8 )* )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1331:1: ( ( rule__Chart__GraduationsAssignment_8 )* )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1332:1: ( rule__Chart__GraduationsAssignment_8 )*
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1365:1: ( ( rule__Chart__GraduationsAssignment_8 )* )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1366:1: ( rule__Chart__GraduationsAssignment_8 )*
             {
              before(grammarAccess.getChartAccess().getGraduationsAssignment_8()); 
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1333:1: ( rule__Chart__GraduationsAssignment_8 )*
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1367:1: ( rule__Chart__GraduationsAssignment_8 )*
             loop9:
             do {
                 int alt9=2;
@@ -3553,9 +3655,9 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
                 switch (alt9) {
             	case 1 :
-            	    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1333:2: rule__Chart__GraduationsAssignment_8
+            	    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1367:2: rule__Chart__GraduationsAssignment_8
             	    {
-            	    pushFollow(FOLLOW_rule__Chart__GraduationsAssignment_8_in_rule__Chart__Group__8__Impl2645);
+            	    pushFollow(FOLLOW_rule__Chart__GraduationsAssignment_8_in_rule__Chart__Group__8__Impl2722);
             	    rule__Chart__GraduationsAssignment_8();
 
             	    state._fsp--;
@@ -3592,16 +3694,16 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Chart__Group__9"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1343:1: rule__Chart__Group__9 : rule__Chart__Group__9__Impl ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1377:1: rule__Chart__Group__9 : rule__Chart__Group__9__Impl ;
     public final void rule__Chart__Group__9() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1347:1: ( rule__Chart__Group__9__Impl )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1348:2: rule__Chart__Group__9__Impl
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1381:1: ( rule__Chart__Group__9__Impl )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1382:2: rule__Chart__Group__9__Impl
             {
-            pushFollow(FOLLOW_rule__Chart__Group__9__Impl_in_rule__Chart__Group__92676);
+            pushFollow(FOLLOW_rule__Chart__Group__9__Impl_in_rule__Chart__Group__92753);
             rule__Chart__Group__9__Impl();
 
             state._fsp--;
@@ -3625,20 +3727,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Chart__Group__9__Impl"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1354:1: rule__Chart__Group__9__Impl : ( ')' ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1388:1: rule__Chart__Group__9__Impl : ( ')' ) ;
     public final void rule__Chart__Group__9__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1358:1: ( ( ')' ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1359:1: ( ')' )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1392:1: ( ( ')' ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1393:1: ( ')' )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1359:1: ( ')' )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1360:1: ')'
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1393:1: ( ')' )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1394:1: ')'
             {
              before(grammarAccess.getChartAccess().getRightParenthesisKeyword_9()); 
-            match(input,14,FOLLOW_14_in_rule__Chart__Group__9__Impl2704); 
+            match(input,14,FOLLOW_14_in_rule__Chart__Group__9__Impl2781); 
              after(grammarAccess.getChartAccess().getRightParenthesisKeyword_9()); 
 
             }
@@ -3662,21 +3764,21 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Graduation__Group__0"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1393:1: rule__Graduation__Group__0 : rule__Graduation__Group__0__Impl rule__Graduation__Group__1 ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1427:1: rule__Graduation__Group__0 : rule__Graduation__Group__0__Impl rule__Graduation__Group__1 ;
     public final void rule__Graduation__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1397:1: ( rule__Graduation__Group__0__Impl rule__Graduation__Group__1 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1398:2: rule__Graduation__Group__0__Impl rule__Graduation__Group__1
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1431:1: ( rule__Graduation__Group__0__Impl rule__Graduation__Group__1 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1432:2: rule__Graduation__Group__0__Impl rule__Graduation__Group__1
             {
-            pushFollow(FOLLOW_rule__Graduation__Group__0__Impl_in_rule__Graduation__Group__02755);
+            pushFollow(FOLLOW_rule__Graduation__Group__0__Impl_in_rule__Graduation__Group__02832);
             rule__Graduation__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Graduation__Group__1_in_rule__Graduation__Group__02758);
+            pushFollow(FOLLOW_rule__Graduation__Group__1_in_rule__Graduation__Group__02835);
             rule__Graduation__Group__1();
 
             state._fsp--;
@@ -3700,20 +3802,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Graduation__Group__0__Impl"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1405:1: rule__Graduation__Group__0__Impl : ( ( rule__Graduation__NameAssignment_0 )? ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1439:1: rule__Graduation__Group__0__Impl : ( ( rule__Graduation__NameAssignment_0 )? ) ;
     public final void rule__Graduation__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1409:1: ( ( ( rule__Graduation__NameAssignment_0 )? ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1410:1: ( ( rule__Graduation__NameAssignment_0 )? )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1443:1: ( ( ( rule__Graduation__NameAssignment_0 )? ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1444:1: ( ( rule__Graduation__NameAssignment_0 )? )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1410:1: ( ( rule__Graduation__NameAssignment_0 )? )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1411:1: ( rule__Graduation__NameAssignment_0 )?
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1444:1: ( ( rule__Graduation__NameAssignment_0 )? )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1445:1: ( rule__Graduation__NameAssignment_0 )?
             {
              before(grammarAccess.getGraduationAccess().getNameAssignment_0()); 
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1412:1: ( rule__Graduation__NameAssignment_0 )?
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1446:1: ( rule__Graduation__NameAssignment_0 )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -3722,9 +3824,9 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
             }
             switch (alt10) {
                 case 1 :
-                    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1412:2: rule__Graduation__NameAssignment_0
+                    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1446:2: rule__Graduation__NameAssignment_0
                     {
-                    pushFollow(FOLLOW_rule__Graduation__NameAssignment_0_in_rule__Graduation__Group__0__Impl2785);
+                    pushFollow(FOLLOW_rule__Graduation__NameAssignment_0_in_rule__Graduation__Group__0__Impl2862);
                     rule__Graduation__NameAssignment_0();
 
                     state._fsp--;
@@ -3758,16 +3860,16 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Graduation__Group__1"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1422:1: rule__Graduation__Group__1 : rule__Graduation__Group__1__Impl ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1456:1: rule__Graduation__Group__1 : rule__Graduation__Group__1__Impl ;
     public final void rule__Graduation__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1426:1: ( rule__Graduation__Group__1__Impl )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1427:2: rule__Graduation__Group__1__Impl
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1460:1: ( rule__Graduation__Group__1__Impl )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1461:2: rule__Graduation__Group__1__Impl
             {
-            pushFollow(FOLLOW_rule__Graduation__Group__1__Impl_in_rule__Graduation__Group__12816);
+            pushFollow(FOLLOW_rule__Graduation__Group__1__Impl_in_rule__Graduation__Group__12893);
             rule__Graduation__Group__1__Impl();
 
             state._fsp--;
@@ -3791,23 +3893,23 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Graduation__Group__1__Impl"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1433:1: rule__Graduation__Group__1__Impl : ( ( rule__Graduation__StatementAssignment_1 ) ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1467:1: rule__Graduation__Group__1__Impl : ( ( rule__Graduation__StatementAssignment_1 ) ) ;
     public final void rule__Graduation__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1437:1: ( ( ( rule__Graduation__StatementAssignment_1 ) ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1438:1: ( ( rule__Graduation__StatementAssignment_1 ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1471:1: ( ( ( rule__Graduation__StatementAssignment_1 ) ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1472:1: ( ( rule__Graduation__StatementAssignment_1 ) )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1438:1: ( ( rule__Graduation__StatementAssignment_1 ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1439:1: ( rule__Graduation__StatementAssignment_1 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1472:1: ( ( rule__Graduation__StatementAssignment_1 ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1473:1: ( rule__Graduation__StatementAssignment_1 )
             {
              before(grammarAccess.getGraduationAccess().getStatementAssignment_1()); 
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1440:1: ( rule__Graduation__StatementAssignment_1 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1440:2: rule__Graduation__StatementAssignment_1
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1474:1: ( rule__Graduation__StatementAssignment_1 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1474:2: rule__Graduation__StatementAssignment_1
             {
-            pushFollow(FOLLOW_rule__Graduation__StatementAssignment_1_in_rule__Graduation__Group__1__Impl2843);
+            pushFollow(FOLLOW_rule__Graduation__StatementAssignment_1_in_rule__Graduation__Group__1__Impl2920);
             rule__Graduation__StatementAssignment_1();
 
             state._fsp--;
@@ -3838,21 +3940,21 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Rating__Group__0"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1454:1: rule__Rating__Group__0 : rule__Rating__Group__0__Impl rule__Rating__Group__1 ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1488:1: rule__Rating__Group__0 : rule__Rating__Group__0__Impl rule__Rating__Group__1 ;
     public final void rule__Rating__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1458:1: ( rule__Rating__Group__0__Impl rule__Rating__Group__1 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1459:2: rule__Rating__Group__0__Impl rule__Rating__Group__1
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1492:1: ( rule__Rating__Group__0__Impl rule__Rating__Group__1 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1493:2: rule__Rating__Group__0__Impl rule__Rating__Group__1
             {
-            pushFollow(FOLLOW_rule__Rating__Group__0__Impl_in_rule__Rating__Group__02877);
+            pushFollow(FOLLOW_rule__Rating__Group__0__Impl_in_rule__Rating__Group__02954);
             rule__Rating__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Rating__Group__1_in_rule__Rating__Group__02880);
+            pushFollow(FOLLOW_rule__Rating__Group__1_in_rule__Rating__Group__02957);
             rule__Rating__Group__1();
 
             state._fsp--;
@@ -3876,20 +3978,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Rating__Group__0__Impl"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1466:1: rule__Rating__Group__0__Impl : ( 'rating' ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1500:1: rule__Rating__Group__0__Impl : ( 'rating' ) ;
     public final void rule__Rating__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1470:1: ( ( 'rating' ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1471:1: ( 'rating' )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1504:1: ( ( 'rating' ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1505:1: ( 'rating' )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1471:1: ( 'rating' )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1472:1: 'rating'
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1505:1: ( 'rating' )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1506:1: 'rating'
             {
              before(grammarAccess.getRatingAccess().getRatingKeyword_0()); 
-            match(input,19,FOLLOW_19_in_rule__Rating__Group__0__Impl2908); 
+            match(input,19,FOLLOW_19_in_rule__Rating__Group__0__Impl2985); 
              after(grammarAccess.getRatingAccess().getRatingKeyword_0()); 
 
             }
@@ -3913,21 +4015,21 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Rating__Group__1"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1485:1: rule__Rating__Group__1 : rule__Rating__Group__1__Impl rule__Rating__Group__2 ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1519:1: rule__Rating__Group__1 : rule__Rating__Group__1__Impl rule__Rating__Group__2 ;
     public final void rule__Rating__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1489:1: ( rule__Rating__Group__1__Impl rule__Rating__Group__2 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1490:2: rule__Rating__Group__1__Impl rule__Rating__Group__2
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1523:1: ( rule__Rating__Group__1__Impl rule__Rating__Group__2 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1524:2: rule__Rating__Group__1__Impl rule__Rating__Group__2
             {
-            pushFollow(FOLLOW_rule__Rating__Group__1__Impl_in_rule__Rating__Group__12939);
+            pushFollow(FOLLOW_rule__Rating__Group__1__Impl_in_rule__Rating__Group__13016);
             rule__Rating__Group__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Rating__Group__2_in_rule__Rating__Group__12942);
+            pushFollow(FOLLOW_rule__Rating__Group__2_in_rule__Rating__Group__13019);
             rule__Rating__Group__2();
 
             state._fsp--;
@@ -3951,23 +4053,23 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Rating__Group__1__Impl"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1497:1: rule__Rating__Group__1__Impl : ( ( rule__Rating__NameAssignment_1 ) ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1531:1: rule__Rating__Group__1__Impl : ( ( rule__Rating__NameAssignment_1 ) ) ;
     public final void rule__Rating__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1501:1: ( ( ( rule__Rating__NameAssignment_1 ) ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1502:1: ( ( rule__Rating__NameAssignment_1 ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1535:1: ( ( ( rule__Rating__NameAssignment_1 ) ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1536:1: ( ( rule__Rating__NameAssignment_1 ) )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1502:1: ( ( rule__Rating__NameAssignment_1 ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1503:1: ( rule__Rating__NameAssignment_1 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1536:1: ( ( rule__Rating__NameAssignment_1 ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1537:1: ( rule__Rating__NameAssignment_1 )
             {
              before(grammarAccess.getRatingAccess().getNameAssignment_1()); 
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1504:1: ( rule__Rating__NameAssignment_1 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1504:2: rule__Rating__NameAssignment_1
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1538:1: ( rule__Rating__NameAssignment_1 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1538:2: rule__Rating__NameAssignment_1
             {
-            pushFollow(FOLLOW_rule__Rating__NameAssignment_1_in_rule__Rating__Group__1__Impl2969);
+            pushFollow(FOLLOW_rule__Rating__NameAssignment_1_in_rule__Rating__Group__1__Impl3046);
             rule__Rating__NameAssignment_1();
 
             state._fsp--;
@@ -3998,21 +4100,21 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Rating__Group__2"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1514:1: rule__Rating__Group__2 : rule__Rating__Group__2__Impl rule__Rating__Group__3 ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1548:1: rule__Rating__Group__2 : rule__Rating__Group__2__Impl rule__Rating__Group__3 ;
     public final void rule__Rating__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1518:1: ( rule__Rating__Group__2__Impl rule__Rating__Group__3 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1519:2: rule__Rating__Group__2__Impl rule__Rating__Group__3
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1552:1: ( rule__Rating__Group__2__Impl rule__Rating__Group__3 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1553:2: rule__Rating__Group__2__Impl rule__Rating__Group__3
             {
-            pushFollow(FOLLOW_rule__Rating__Group__2__Impl_in_rule__Rating__Group__22999);
+            pushFollow(FOLLOW_rule__Rating__Group__2__Impl_in_rule__Rating__Group__23076);
             rule__Rating__Group__2__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Rating__Group__3_in_rule__Rating__Group__23002);
+            pushFollow(FOLLOW_rule__Rating__Group__3_in_rule__Rating__Group__23079);
             rule__Rating__Group__3();
 
             state._fsp--;
@@ -4036,23 +4138,23 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Rating__Group__2__Impl"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1526:1: rule__Rating__Group__2__Impl : ( ( rule__Rating__QuestionAssignment_2 ) ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1560:1: rule__Rating__Group__2__Impl : ( ( rule__Rating__QuestionAssignment_2 ) ) ;
     public final void rule__Rating__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1530:1: ( ( ( rule__Rating__QuestionAssignment_2 ) ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1531:1: ( ( rule__Rating__QuestionAssignment_2 ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1564:1: ( ( ( rule__Rating__QuestionAssignment_2 ) ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1565:1: ( ( rule__Rating__QuestionAssignment_2 ) )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1531:1: ( ( rule__Rating__QuestionAssignment_2 ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1532:1: ( rule__Rating__QuestionAssignment_2 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1565:1: ( ( rule__Rating__QuestionAssignment_2 ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1566:1: ( rule__Rating__QuestionAssignment_2 )
             {
              before(grammarAccess.getRatingAccess().getQuestionAssignment_2()); 
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1533:1: ( rule__Rating__QuestionAssignment_2 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1533:2: rule__Rating__QuestionAssignment_2
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1567:1: ( rule__Rating__QuestionAssignment_2 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1567:2: rule__Rating__QuestionAssignment_2
             {
-            pushFollow(FOLLOW_rule__Rating__QuestionAssignment_2_in_rule__Rating__Group__2__Impl3029);
+            pushFollow(FOLLOW_rule__Rating__QuestionAssignment_2_in_rule__Rating__Group__2__Impl3106);
             rule__Rating__QuestionAssignment_2();
 
             state._fsp--;
@@ -4083,16 +4185,16 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Rating__Group__3"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1543:1: rule__Rating__Group__3 : rule__Rating__Group__3__Impl ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1577:1: rule__Rating__Group__3 : rule__Rating__Group__3__Impl ;
     public final void rule__Rating__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1547:1: ( rule__Rating__Group__3__Impl )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1548:2: rule__Rating__Group__3__Impl
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1581:1: ( rule__Rating__Group__3__Impl )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1582:2: rule__Rating__Group__3__Impl
             {
-            pushFollow(FOLLOW_rule__Rating__Group__3__Impl_in_rule__Rating__Group__33059);
+            pushFollow(FOLLOW_rule__Rating__Group__3__Impl_in_rule__Rating__Group__33136);
             rule__Rating__Group__3__Impl();
 
             state._fsp--;
@@ -4116,31 +4218,31 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Rating__Group__3__Impl"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1554:1: rule__Rating__Group__3__Impl : ( ( rule__Rating__RatingAssignment_3 ) ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1588:1: rule__Rating__Group__3__Impl : ( ( rule__Rating__RatingQuantityAssignment_3 ) ) ;
     public final void rule__Rating__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1558:1: ( ( ( rule__Rating__RatingAssignment_3 ) ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1559:1: ( ( rule__Rating__RatingAssignment_3 ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1592:1: ( ( ( rule__Rating__RatingQuantityAssignment_3 ) ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1593:1: ( ( rule__Rating__RatingQuantityAssignment_3 ) )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1559:1: ( ( rule__Rating__RatingAssignment_3 ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1560:1: ( rule__Rating__RatingAssignment_3 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1593:1: ( ( rule__Rating__RatingQuantityAssignment_3 ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1594:1: ( rule__Rating__RatingQuantityAssignment_3 )
             {
-             before(grammarAccess.getRatingAccess().getRatingAssignment_3()); 
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1561:1: ( rule__Rating__RatingAssignment_3 )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1561:2: rule__Rating__RatingAssignment_3
+             before(grammarAccess.getRatingAccess().getRatingQuantityAssignment_3()); 
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1595:1: ( rule__Rating__RatingQuantityAssignment_3 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1595:2: rule__Rating__RatingQuantityAssignment_3
             {
-            pushFollow(FOLLOW_rule__Rating__RatingAssignment_3_in_rule__Rating__Group__3__Impl3086);
-            rule__Rating__RatingAssignment_3();
+            pushFollow(FOLLOW_rule__Rating__RatingQuantityAssignment_3_in_rule__Rating__Group__3__Impl3163);
+            rule__Rating__RatingQuantityAssignment_3();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getRatingAccess().getRatingAssignment_3()); 
+             after(grammarAccess.getRatingAccess().getRatingQuantityAssignment_3()); 
 
             }
 
@@ -4162,21 +4264,261 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__Rating__Group__3__Impl"
 
 
+    // $ANTLR start "rule__Calendar__Group__0"
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1613:1: rule__Calendar__Group__0 : rule__Calendar__Group__0__Impl rule__Calendar__Group__1 ;
+    public final void rule__Calendar__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1617:1: ( rule__Calendar__Group__0__Impl rule__Calendar__Group__1 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1618:2: rule__Calendar__Group__0__Impl rule__Calendar__Group__1
+            {
+            pushFollow(FOLLOW_rule__Calendar__Group__0__Impl_in_rule__Calendar__Group__03201);
+            rule__Calendar__Group__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_rule__Calendar__Group__1_in_rule__Calendar__Group__03204);
+            rule__Calendar__Group__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Calendar__Group__0"
+
+
+    // $ANTLR start "rule__Calendar__Group__0__Impl"
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1625:1: rule__Calendar__Group__0__Impl : ( 'calendar' ) ;
+    public final void rule__Calendar__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1629:1: ( ( 'calendar' ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1630:1: ( 'calendar' )
+            {
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1630:1: ( 'calendar' )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1631:1: 'calendar'
+            {
+             before(grammarAccess.getCalendarAccess().getCalendarKeyword_0()); 
+            match(input,20,FOLLOW_20_in_rule__Calendar__Group__0__Impl3232); 
+             after(grammarAccess.getCalendarAccess().getCalendarKeyword_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Calendar__Group__0__Impl"
+
+
+    // $ANTLR start "rule__Calendar__Group__1"
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1644:1: rule__Calendar__Group__1 : rule__Calendar__Group__1__Impl rule__Calendar__Group__2 ;
+    public final void rule__Calendar__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1648:1: ( rule__Calendar__Group__1__Impl rule__Calendar__Group__2 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1649:2: rule__Calendar__Group__1__Impl rule__Calendar__Group__2
+            {
+            pushFollow(FOLLOW_rule__Calendar__Group__1__Impl_in_rule__Calendar__Group__13263);
+            rule__Calendar__Group__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_rule__Calendar__Group__2_in_rule__Calendar__Group__13266);
+            rule__Calendar__Group__2();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Calendar__Group__1"
+
+
+    // $ANTLR start "rule__Calendar__Group__1__Impl"
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1656:1: rule__Calendar__Group__1__Impl : ( ( rule__Calendar__NameAssignment_1 ) ) ;
+    public final void rule__Calendar__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1660:1: ( ( ( rule__Calendar__NameAssignment_1 ) ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1661:1: ( ( rule__Calendar__NameAssignment_1 ) )
+            {
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1661:1: ( ( rule__Calendar__NameAssignment_1 ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1662:1: ( rule__Calendar__NameAssignment_1 )
+            {
+             before(grammarAccess.getCalendarAccess().getNameAssignment_1()); 
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1663:1: ( rule__Calendar__NameAssignment_1 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1663:2: rule__Calendar__NameAssignment_1
+            {
+            pushFollow(FOLLOW_rule__Calendar__NameAssignment_1_in_rule__Calendar__Group__1__Impl3293);
+            rule__Calendar__NameAssignment_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getCalendarAccess().getNameAssignment_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Calendar__Group__1__Impl"
+
+
+    // $ANTLR start "rule__Calendar__Group__2"
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1673:1: rule__Calendar__Group__2 : rule__Calendar__Group__2__Impl ;
+    public final void rule__Calendar__Group__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1677:1: ( rule__Calendar__Group__2__Impl )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1678:2: rule__Calendar__Group__2__Impl
+            {
+            pushFollow(FOLLOW_rule__Calendar__Group__2__Impl_in_rule__Calendar__Group__23323);
+            rule__Calendar__Group__2__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Calendar__Group__2"
+
+
+    // $ANTLR start "rule__Calendar__Group__2__Impl"
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1684:1: rule__Calendar__Group__2__Impl : ( ( rule__Calendar__QuestionAssignment_2 ) ) ;
+    public final void rule__Calendar__Group__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1688:1: ( ( ( rule__Calendar__QuestionAssignment_2 ) ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1689:1: ( ( rule__Calendar__QuestionAssignment_2 ) )
+            {
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1689:1: ( ( rule__Calendar__QuestionAssignment_2 ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1690:1: ( rule__Calendar__QuestionAssignment_2 )
+            {
+             before(grammarAccess.getCalendarAccess().getQuestionAssignment_2()); 
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1691:1: ( rule__Calendar__QuestionAssignment_2 )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1691:2: rule__Calendar__QuestionAssignment_2
+            {
+            pushFollow(FOLLOW_rule__Calendar__QuestionAssignment_2_in_rule__Calendar__Group__2__Impl3350);
+            rule__Calendar__QuestionAssignment_2();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getCalendarAccess().getQuestionAssignment_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Calendar__Group__2__Impl"
+
+
     // $ANTLR start "rule__Survey__NameAssignment_1"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1580:1: rule__Survey__NameAssignment_1 : ( RULE_ID ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1708:1: rule__Survey__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Survey__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1584:1: ( ( RULE_ID ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1585:1: ( RULE_ID )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1712:1: ( ( RULE_ID ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1713:1: ( RULE_ID )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1585:1: ( RULE_ID )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1586:1: RULE_ID
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1713:1: ( RULE_ID )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1714:1: RULE_ID
             {
              before(grammarAccess.getSurveyAccess().getNameIDTerminalRuleCall_1_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Survey__NameAssignment_13129); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Survey__NameAssignment_13391); 
              after(grammarAccess.getSurveyAccess().getNameIDTerminalRuleCall_1_0()); 
 
             }
@@ -4200,20 +4542,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Survey__TitleAssignment_2"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1595:1: rule__Survey__TitleAssignment_2 : ( RULE_STRING ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1723:1: rule__Survey__TitleAssignment_2 : ( RULE_STRING ) ;
     public final void rule__Survey__TitleAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1599:1: ( ( RULE_STRING ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1600:1: ( RULE_STRING )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1727:1: ( ( RULE_STRING ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1728:1: ( RULE_STRING )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1600:1: ( RULE_STRING )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1601:1: RULE_STRING
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1728:1: ( RULE_STRING )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1729:1: RULE_STRING
             {
              before(grammarAccess.getSurveyAccess().getTitleSTRINGTerminalRuleCall_2_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Survey__TitleAssignment_23160); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Survey__TitleAssignment_23422); 
              after(grammarAccess.getSurveyAccess().getTitleSTRINGTerminalRuleCall_2_0()); 
 
             }
@@ -4237,20 +4579,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Survey__GreetingAssignment_3"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1610:1: rule__Survey__GreetingAssignment_3 : ( RULE_STRING ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1738:1: rule__Survey__GreetingAssignment_3 : ( RULE_STRING ) ;
     public final void rule__Survey__GreetingAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1614:1: ( ( RULE_STRING ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1615:1: ( RULE_STRING )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1742:1: ( ( RULE_STRING ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1743:1: ( RULE_STRING )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1615:1: ( RULE_STRING )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1616:1: RULE_STRING
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1743:1: ( RULE_STRING )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1744:1: RULE_STRING
             {
              before(grammarAccess.getSurveyAccess().getGreetingSTRINGTerminalRuleCall_3_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Survey__GreetingAssignment_33191); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Survey__GreetingAssignment_33453); 
              after(grammarAccess.getSurveyAccess().getGreetingSTRINGTerminalRuleCall_3_0()); 
 
             }
@@ -4274,20 +4616,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Survey__DurationAssignment_4"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1625:1: rule__Survey__DurationAssignment_4 : ( RULE_STRING ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1753:1: rule__Survey__DurationAssignment_4 : ( RULE_STRING ) ;
     public final void rule__Survey__DurationAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1629:1: ( ( RULE_STRING ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1630:1: ( RULE_STRING )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1757:1: ( ( RULE_STRING ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1758:1: ( RULE_STRING )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1630:1: ( RULE_STRING )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1631:1: RULE_STRING
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1758:1: ( RULE_STRING )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1759:1: RULE_STRING
             {
              before(grammarAccess.getSurveyAccess().getDurationSTRINGTerminalRuleCall_4_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Survey__DurationAssignment_43222); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Survey__DurationAssignment_43484); 
              after(grammarAccess.getSurveyAccess().getDurationSTRINGTerminalRuleCall_4_0()); 
 
             }
@@ -4311,20 +4653,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Survey__PagesAssignment_5"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1640:1: rule__Survey__PagesAssignment_5 : ( rulePage ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1768:1: rule__Survey__PagesAssignment_5 : ( rulePage ) ;
     public final void rule__Survey__PagesAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1644:1: ( ( rulePage ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1645:1: ( rulePage )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1772:1: ( ( rulePage ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1773:1: ( rulePage )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1645:1: ( rulePage )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1646:1: rulePage
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1773:1: ( rulePage )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1774:1: rulePage
             {
              before(grammarAccess.getSurveyAccess().getPagesPageParserRuleCall_5_0()); 
-            pushFollow(FOLLOW_rulePage_in_rule__Survey__PagesAssignment_53253);
+            pushFollow(FOLLOW_rulePage_in_rule__Survey__PagesAssignment_53515);
             rulePage();
 
             state._fsp--;
@@ -4352,20 +4694,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Page__NameAssignment_1"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1655:1: rule__Page__NameAssignment_1 : ( RULE_ID ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1783:1: rule__Page__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Page__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1659:1: ( ( RULE_ID ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1660:1: ( RULE_ID )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1787:1: ( ( RULE_ID ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1788:1: ( RULE_ID )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1660:1: ( RULE_ID )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1661:1: RULE_ID
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1788:1: ( RULE_ID )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1789:1: RULE_ID
             {
              before(grammarAccess.getPageAccess().getNameIDTerminalRuleCall_1_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Page__NameAssignment_13284); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Page__NameAssignment_13546); 
              after(grammarAccess.getPageAccess().getNameIDTerminalRuleCall_1_0()); 
 
             }
@@ -4389,20 +4731,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Page__QuestionsAssignment_3"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1670:1: rule__Page__QuestionsAssignment_3 : ( ruleQuestion ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1798:1: rule__Page__QuestionsAssignment_3 : ( ruleQuestion ) ;
     public final void rule__Page__QuestionsAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1674:1: ( ( ruleQuestion ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1675:1: ( ruleQuestion )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1802:1: ( ( ruleQuestion ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1803:1: ( ruleQuestion )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1675:1: ( ruleQuestion )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1676:1: ruleQuestion
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1803:1: ( ruleQuestion )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1804:1: ruleQuestion
             {
              before(grammarAccess.getPageAccess().getQuestionsQuestionParserRuleCall_3_0()); 
-            pushFollow(FOLLOW_ruleQuestion_in_rule__Page__QuestionsAssignment_33315);
+            pushFollow(FOLLOW_ruleQuestion_in_rule__Page__QuestionsAssignment_33577);
             ruleQuestion();
 
             state._fsp--;
@@ -4430,20 +4772,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Freetext__NameAssignment_1"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1685:1: rule__Freetext__NameAssignment_1 : ( RULE_ID ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1813:1: rule__Freetext__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Freetext__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1689:1: ( ( RULE_ID ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1690:1: ( RULE_ID )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1817:1: ( ( RULE_ID ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1818:1: ( RULE_ID )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1690:1: ( RULE_ID )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1691:1: RULE_ID
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1818:1: ( RULE_ID )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1819:1: RULE_ID
             {
              before(grammarAccess.getFreetextAccess().getNameIDTerminalRuleCall_1_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Freetext__NameAssignment_13346); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Freetext__NameAssignment_13608); 
              after(grammarAccess.getFreetextAccess().getNameIDTerminalRuleCall_1_0()); 
 
             }
@@ -4467,20 +4809,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Freetext__QuestionAssignment_2"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1700:1: rule__Freetext__QuestionAssignment_2 : ( RULE_STRING ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1828:1: rule__Freetext__QuestionAssignment_2 : ( RULE_STRING ) ;
     public final void rule__Freetext__QuestionAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1704:1: ( ( RULE_STRING ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1705:1: ( RULE_STRING )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1832:1: ( ( RULE_STRING ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1833:1: ( RULE_STRING )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1705:1: ( RULE_STRING )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1706:1: RULE_STRING
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1833:1: ( RULE_STRING )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1834:1: RULE_STRING
             {
              before(grammarAccess.getFreetextAccess().getQuestionSTRINGTerminalRuleCall_2_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Freetext__QuestionAssignment_23377); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Freetext__QuestionAssignment_23639); 
              after(grammarAccess.getFreetextAccess().getQuestionSTRINGTerminalRuleCall_2_0()); 
 
             }
@@ -4504,20 +4846,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Selection__NameAssignment_1"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1715:1: rule__Selection__NameAssignment_1 : ( RULE_ID ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1843:1: rule__Selection__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Selection__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1719:1: ( ( RULE_ID ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1720:1: ( RULE_ID )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1847:1: ( ( RULE_ID ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1848:1: ( RULE_ID )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1720:1: ( RULE_ID )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1721:1: RULE_ID
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1848:1: ( RULE_ID )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1849:1: RULE_ID
             {
              before(grammarAccess.getSelectionAccess().getNameIDTerminalRuleCall_1_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Selection__NameAssignment_13408); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Selection__NameAssignment_13670); 
              after(grammarAccess.getSelectionAccess().getNameIDTerminalRuleCall_1_0()); 
 
             }
@@ -4541,20 +4883,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Selection__QuestionAssignment_2"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1730:1: rule__Selection__QuestionAssignment_2 : ( RULE_STRING ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1858:1: rule__Selection__QuestionAssignment_2 : ( RULE_STRING ) ;
     public final void rule__Selection__QuestionAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1734:1: ( ( RULE_STRING ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1735:1: ( RULE_STRING )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1862:1: ( ( RULE_STRING ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1863:1: ( RULE_STRING )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1735:1: ( RULE_STRING )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1736:1: RULE_STRING
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1863:1: ( RULE_STRING )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1864:1: RULE_STRING
             {
              before(grammarAccess.getSelectionAccess().getQuestionSTRINGTerminalRuleCall_2_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Selection__QuestionAssignment_23439); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Selection__QuestionAssignment_23701); 
              after(grammarAccess.getSelectionAccess().getQuestionSTRINGTerminalRuleCall_2_0()); 
 
             }
@@ -4578,20 +4920,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Selection__ChoicesAssignment_4"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1745:1: rule__Selection__ChoicesAssignment_4 : ( ruleChoice ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1873:1: rule__Selection__ChoicesAssignment_4 : ( ruleChoice ) ;
     public final void rule__Selection__ChoicesAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1749:1: ( ( ruleChoice ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1750:1: ( ruleChoice )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1877:1: ( ( ruleChoice ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1878:1: ( ruleChoice )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1750:1: ( ruleChoice )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1751:1: ruleChoice
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1878:1: ( ruleChoice )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1879:1: ruleChoice
             {
              before(grammarAccess.getSelectionAccess().getChoicesChoiceParserRuleCall_4_0()); 
-            pushFollow(FOLLOW_ruleChoice_in_rule__Selection__ChoicesAssignment_43470);
+            pushFollow(FOLLOW_ruleChoice_in_rule__Selection__ChoicesAssignment_43732);
             ruleChoice();
 
             state._fsp--;
@@ -4619,24 +4961,24 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Choice__FreetextAssignment_0"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1760:1: rule__Choice__FreetextAssignment_0 : ( ( 'freetext' ) ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1888:1: rule__Choice__FreetextAssignment_0 : ( ( 'freetext' ) ) ;
     public final void rule__Choice__FreetextAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1764:1: ( ( ( 'freetext' ) ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1765:1: ( ( 'freetext' ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1892:1: ( ( ( 'freetext' ) ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1893:1: ( ( 'freetext' ) )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1765:1: ( ( 'freetext' ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1766:1: ( 'freetext' )
-            {
-             before(grammarAccess.getChoiceAccess().getFreetextFreetextKeyword_0_0()); 
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1767:1: ( 'freetext' )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1768:1: 'freetext'
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1893:1: ( ( 'freetext' ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1894:1: ( 'freetext' )
             {
              before(grammarAccess.getChoiceAccess().getFreetextFreetextKeyword_0_0()); 
-            match(input,15,FOLLOW_15_in_rule__Choice__FreetextAssignment_03506); 
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1895:1: ( 'freetext' )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1896:1: 'freetext'
+            {
+             before(grammarAccess.getChoiceAccess().getFreetextFreetextKeyword_0_0()); 
+            match(input,15,FOLLOW_15_in_rule__Choice__FreetextAssignment_03768); 
              after(grammarAccess.getChoiceAccess().getFreetextFreetextKeyword_0_0()); 
 
             }
@@ -4664,20 +5006,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Choice__NameAssignment_1"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1783:1: rule__Choice__NameAssignment_1 : ( RULE_ID ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1911:1: rule__Choice__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Choice__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1787:1: ( ( RULE_ID ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1788:1: ( RULE_ID )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1915:1: ( ( RULE_ID ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1916:1: ( RULE_ID )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1788:1: ( RULE_ID )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1789:1: RULE_ID
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1916:1: ( RULE_ID )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1917:1: RULE_ID
             {
              before(grammarAccess.getChoiceAccess().getNameIDTerminalRuleCall_1_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Choice__NameAssignment_13545); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Choice__NameAssignment_13807); 
              after(grammarAccess.getChoiceAccess().getNameIDTerminalRuleCall_1_0()); 
 
             }
@@ -4701,20 +5043,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Choice__BulletPointAssignment_2"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1798:1: rule__Choice__BulletPointAssignment_2 : ( RULE_STRING ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1926:1: rule__Choice__BulletPointAssignment_2 : ( RULE_STRING ) ;
     public final void rule__Choice__BulletPointAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1802:1: ( ( RULE_STRING ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1803:1: ( RULE_STRING )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1930:1: ( ( RULE_STRING ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1931:1: ( RULE_STRING )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1803:1: ( RULE_STRING )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1804:1: RULE_STRING
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1931:1: ( RULE_STRING )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1932:1: RULE_STRING
             {
              before(grammarAccess.getChoiceAccess().getBulletPointSTRINGTerminalRuleCall_2_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Choice__BulletPointAssignment_23576); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Choice__BulletPointAssignment_23838); 
              after(grammarAccess.getChoiceAccess().getBulletPointSTRINGTerminalRuleCall_2_0()); 
 
             }
@@ -4738,20 +5080,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Chart__NameAssignment_1"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1813:1: rule__Chart__NameAssignment_1 : ( RULE_ID ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1941:1: rule__Chart__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Chart__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1817:1: ( ( RULE_ID ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1818:1: ( RULE_ID )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1945:1: ( ( RULE_ID ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1946:1: ( RULE_ID )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1818:1: ( RULE_ID )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1819:1: RULE_ID
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1946:1: ( RULE_ID )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1947:1: RULE_ID
             {
              before(grammarAccess.getChartAccess().getNameIDTerminalRuleCall_1_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Chart__NameAssignment_13607); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Chart__NameAssignment_13869); 
              after(grammarAccess.getChartAccess().getNameIDTerminalRuleCall_1_0()); 
 
             }
@@ -4775,20 +5117,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Chart__QuestionAssignment_2"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1828:1: rule__Chart__QuestionAssignment_2 : ( RULE_STRING ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1956:1: rule__Chart__QuestionAssignment_2 : ( RULE_STRING ) ;
     public final void rule__Chart__QuestionAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1832:1: ( ( RULE_STRING ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1833:1: ( RULE_STRING )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1960:1: ( ( RULE_STRING ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1961:1: ( RULE_STRING )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1833:1: ( RULE_STRING )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1834:1: RULE_STRING
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1961:1: ( RULE_STRING )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1962:1: RULE_STRING
             {
              before(grammarAccess.getChartAccess().getQuestionSTRINGTerminalRuleCall_2_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Chart__QuestionAssignment_23638); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Chart__QuestionAssignment_23900); 
              after(grammarAccess.getChartAccess().getQuestionSTRINGTerminalRuleCall_2_0()); 
 
             }
@@ -4812,20 +5154,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Chart__ChoicesAssignment_4"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1843:1: rule__Chart__ChoicesAssignment_4 : ( ruleChoice ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1971:1: rule__Chart__ChoicesAssignment_4 : ( ruleChoice ) ;
     public final void rule__Chart__ChoicesAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1847:1: ( ( ruleChoice ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1848:1: ( ruleChoice )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1975:1: ( ( ruleChoice ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1976:1: ( ruleChoice )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1848:1: ( ruleChoice )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1849:1: ruleChoice
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1976:1: ( ruleChoice )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1977:1: ruleChoice
             {
              before(grammarAccess.getChartAccess().getChoicesChoiceParserRuleCall_4_0()); 
-            pushFollow(FOLLOW_ruleChoice_in_rule__Chart__ChoicesAssignment_43669);
+            pushFollow(FOLLOW_ruleChoice_in_rule__Chart__ChoicesAssignment_43931);
             ruleChoice();
 
             state._fsp--;
@@ -4853,20 +5195,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Chart__GraduationsAssignment_8"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1858:1: rule__Chart__GraduationsAssignment_8 : ( ruleGraduation ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1986:1: rule__Chart__GraduationsAssignment_8 : ( ruleGraduation ) ;
     public final void rule__Chart__GraduationsAssignment_8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1862:1: ( ( ruleGraduation ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1863:1: ( ruleGraduation )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1990:1: ( ( ruleGraduation ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1991:1: ( ruleGraduation )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1863:1: ( ruleGraduation )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1864:1: ruleGraduation
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1991:1: ( ruleGraduation )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1992:1: ruleGraduation
             {
              before(grammarAccess.getChartAccess().getGraduationsGraduationParserRuleCall_8_0()); 
-            pushFollow(FOLLOW_ruleGraduation_in_rule__Chart__GraduationsAssignment_83700);
+            pushFollow(FOLLOW_ruleGraduation_in_rule__Chart__GraduationsAssignment_83962);
             ruleGraduation();
 
             state._fsp--;
@@ -4894,20 +5236,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Graduation__NameAssignment_0"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1873:1: rule__Graduation__NameAssignment_0 : ( RULE_ID ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:2001:1: rule__Graduation__NameAssignment_0 : ( RULE_ID ) ;
     public final void rule__Graduation__NameAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1877:1: ( ( RULE_ID ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1878:1: ( RULE_ID )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:2005:1: ( ( RULE_ID ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:2006:1: ( RULE_ID )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1878:1: ( RULE_ID )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1879:1: RULE_ID
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:2006:1: ( RULE_ID )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:2007:1: RULE_ID
             {
              before(grammarAccess.getGraduationAccess().getNameIDTerminalRuleCall_0_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Graduation__NameAssignment_03731); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Graduation__NameAssignment_03993); 
              after(grammarAccess.getGraduationAccess().getNameIDTerminalRuleCall_0_0()); 
 
             }
@@ -4931,20 +5273,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Graduation__StatementAssignment_1"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1888:1: rule__Graduation__StatementAssignment_1 : ( RULE_STRING ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:2016:1: rule__Graduation__StatementAssignment_1 : ( RULE_STRING ) ;
     public final void rule__Graduation__StatementAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1892:1: ( ( RULE_STRING ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1893:1: ( RULE_STRING )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:2020:1: ( ( RULE_STRING ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:2021:1: ( RULE_STRING )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1893:1: ( RULE_STRING )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1894:1: RULE_STRING
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:2021:1: ( RULE_STRING )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:2022:1: RULE_STRING
             {
              before(grammarAccess.getGraduationAccess().getStatementSTRINGTerminalRuleCall_1_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Graduation__StatementAssignment_13762); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Graduation__StatementAssignment_14024); 
              after(grammarAccess.getGraduationAccess().getStatementSTRINGTerminalRuleCall_1_0()); 
 
             }
@@ -4968,20 +5310,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Rating__NameAssignment_1"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1903:1: rule__Rating__NameAssignment_1 : ( RULE_ID ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:2031:1: rule__Rating__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Rating__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1907:1: ( ( RULE_ID ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1908:1: ( RULE_ID )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:2035:1: ( ( RULE_ID ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:2036:1: ( RULE_ID )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1908:1: ( RULE_ID )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1909:1: RULE_ID
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:2036:1: ( RULE_ID )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:2037:1: RULE_ID
             {
              before(grammarAccess.getRatingAccess().getNameIDTerminalRuleCall_1_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Rating__NameAssignment_13793); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Rating__NameAssignment_14055); 
              after(grammarAccess.getRatingAccess().getNameIDTerminalRuleCall_1_0()); 
 
             }
@@ -5005,20 +5347,20 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Rating__QuestionAssignment_2"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1918:1: rule__Rating__QuestionAssignment_2 : ( RULE_STRING ) ;
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:2046:1: rule__Rating__QuestionAssignment_2 : ( RULE_STRING ) ;
     public final void rule__Rating__QuestionAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1922:1: ( ( RULE_STRING ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1923:1: ( RULE_STRING )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:2050:1: ( ( RULE_STRING ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:2051:1: ( RULE_STRING )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1923:1: ( RULE_STRING )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1924:1: RULE_STRING
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:2051:1: ( RULE_STRING )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:2052:1: RULE_STRING
             {
              before(grammarAccess.getRatingAccess().getQuestionSTRINGTerminalRuleCall_2_0()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Rating__QuestionAssignment_23824); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Rating__QuestionAssignment_24086); 
              after(grammarAccess.getRatingAccess().getQuestionSTRINGTerminalRuleCall_2_0()); 
 
             }
@@ -5041,22 +5383,22 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__Rating__QuestionAssignment_2"
 
 
-    // $ANTLR start "rule__Rating__RatingAssignment_3"
-    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1933:1: rule__Rating__RatingAssignment_3 : ( RULE_INT ) ;
-    public final void rule__Rating__RatingAssignment_3() throws RecognitionException {
+    // $ANTLR start "rule__Rating__RatingQuantityAssignment_3"
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:2061:1: rule__Rating__RatingQuantityAssignment_3 : ( RULE_INT ) ;
+    public final void rule__Rating__RatingQuantityAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1937:1: ( ( RULE_INT ) )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1938:1: ( RULE_INT )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:2065:1: ( ( RULE_INT ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:2066:1: ( RULE_INT )
             {
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1938:1: ( RULE_INT )
-            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:1939:1: RULE_INT
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:2066:1: ( RULE_INT )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:2067:1: RULE_INT
             {
-             before(grammarAccess.getRatingAccess().getRatingINTTerminalRuleCall_3_0()); 
-            match(input,RULE_INT,FOLLOW_RULE_INT_in_rule__Rating__RatingAssignment_33855); 
-             after(grammarAccess.getRatingAccess().getRatingINTTerminalRuleCall_3_0()); 
+             before(grammarAccess.getRatingAccess().getRatingQuantityINTTerminalRuleCall_3_0()); 
+            match(input,RULE_INT,FOLLOW_RULE_INT_in_rule__Rating__RatingQuantityAssignment_34117); 
+             after(grammarAccess.getRatingAccess().getRatingQuantityINTTerminalRuleCall_3_0()); 
 
             }
 
@@ -5075,7 +5417,81 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__Rating__RatingAssignment_3"
+    // $ANTLR end "rule__Rating__RatingQuantityAssignment_3"
+
+
+    // $ANTLR start "rule__Calendar__NameAssignment_1"
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:2076:1: rule__Calendar__NameAssignment_1 : ( RULE_ID ) ;
+    public final void rule__Calendar__NameAssignment_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:2080:1: ( ( RULE_ID ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:2081:1: ( RULE_ID )
+            {
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:2081:1: ( RULE_ID )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:2082:1: RULE_ID
+            {
+             before(grammarAccess.getCalendarAccess().getNameIDTerminalRuleCall_1_0()); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Calendar__NameAssignment_14148); 
+             after(grammarAccess.getCalendarAccess().getNameIDTerminalRuleCall_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Calendar__NameAssignment_1"
+
+
+    // $ANTLR start "rule__Calendar__QuestionAssignment_2"
+    // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:2091:1: rule__Calendar__QuestionAssignment_2 : ( RULE_STRING ) ;
+    public final void rule__Calendar__QuestionAssignment_2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:2095:1: ( ( RULE_STRING ) )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:2096:1: ( RULE_STRING )
+            {
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:2096:1: ( RULE_STRING )
+            // ../org.xtext.nordakademie.evaluation.ui/src-gen/org/xtext/nordakademie/evaluation/ui/contentassist/antlr/internal/InternalEvaluation.g:2097:1: RULE_STRING
+            {
+             before(grammarAccess.getCalendarAccess().getQuestionSTRINGTerminalRuleCall_2_0()); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Calendar__QuestionAssignment_24179); 
+             after(grammarAccess.getCalendarAccess().getQuestionSTRINGTerminalRuleCall_2_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Calendar__QuestionAssignment_2"
 
     // Delegated rules
 
@@ -5109,142 +5525,156 @@ public class InternalEvaluationParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_ruleRating_in_entryRuleRating541 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleRating548 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Rating__Group__0_in_ruleRating574 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFreetext_in_rule__Question__Alternatives610 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSelection_in_rule__Question__Alternatives627 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleChart_in_rule__Question__Alternatives644 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRating_in_rule__Question__Alternatives661 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Survey__Group__0__Impl_in_rule__Survey__Group__0691 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__Survey__Group__1_in_rule__Survey__Group__0694 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_11_in_rule__Survey__Group__0__Impl722 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Survey__Group__1__Impl_in_rule__Survey__Group__1753 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__Survey__Group__2_in_rule__Survey__Group__1756 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Survey__NameAssignment_1_in_rule__Survey__Group__1__Impl783 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Survey__Group__2__Impl_in_rule__Survey__Group__2813 = new BitSet(new long[]{0x0000000000001020L});
-    public static final BitSet FOLLOW_rule__Survey__Group__3_in_rule__Survey__Group__2816 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Survey__TitleAssignment_2_in_rule__Survey__Group__2__Impl843 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Survey__Group__3__Impl_in_rule__Survey__Group__3873 = new BitSet(new long[]{0x0000000000001020L});
-    public static final BitSet FOLLOW_rule__Survey__Group__4_in_rule__Survey__Group__3876 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Survey__GreetingAssignment_3_in_rule__Survey__Group__3__Impl903 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Survey__Group__4__Impl_in_rule__Survey__Group__4934 = new BitSet(new long[]{0x0000000000001020L});
-    public static final BitSet FOLLOW_rule__Survey__Group__5_in_rule__Survey__Group__4937 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Survey__DurationAssignment_4_in_rule__Survey__Group__4__Impl964 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Survey__Group__5__Impl_in_rule__Survey__Group__5995 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Survey__PagesAssignment_5_in_rule__Survey__Group__5__Impl1022 = new BitSet(new long[]{0x0000000000001002L});
-    public static final BitSet FOLLOW_rule__Page__Group__0__Impl_in_rule__Page__Group__01065 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__Page__Group__1_in_rule__Page__Group__01068 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_12_in_rule__Page__Group__0__Impl1096 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Page__Group__1__Impl_in_rule__Page__Group__11127 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_rule__Page__Group__2_in_rule__Page__Group__11130 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Page__NameAssignment_1_in_rule__Page__Group__1__Impl1157 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Page__Group__2__Impl_in_rule__Page__Group__21187 = new BitSet(new long[]{0x00000000000BC000L});
-    public static final BitSet FOLLOW_rule__Page__Group__3_in_rule__Page__Group__21190 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_13_in_rule__Page__Group__2__Impl1218 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Page__Group__3__Impl_in_rule__Page__Group__31249 = new BitSet(new long[]{0x00000000000BC000L});
-    public static final BitSet FOLLOW_rule__Page__Group__4_in_rule__Page__Group__31252 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Page__QuestionsAssignment_3_in_rule__Page__Group__3__Impl1279 = new BitSet(new long[]{0x00000000000B8002L});
-    public static final BitSet FOLLOW_rule__Page__Group__4__Impl_in_rule__Page__Group__41310 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_14_in_rule__Page__Group__4__Impl1338 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Freetext__Group__0__Impl_in_rule__Freetext__Group__01379 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__Freetext__Group__1_in_rule__Freetext__Group__01382 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_15_in_rule__Freetext__Group__0__Impl1410 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Freetext__Group__1__Impl_in_rule__Freetext__Group__11441 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__Freetext__Group__2_in_rule__Freetext__Group__11444 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Freetext__NameAssignment_1_in_rule__Freetext__Group__1__Impl1471 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Freetext__Group__2__Impl_in_rule__Freetext__Group__21501 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Freetext__QuestionAssignment_2_in_rule__Freetext__Group__2__Impl1528 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Selection__Group__0__Impl_in_rule__Selection__Group__01564 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__Selection__Group__1_in_rule__Selection__Group__01567 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_16_in_rule__Selection__Group__0__Impl1595 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Selection__Group__1__Impl_in_rule__Selection__Group__11626 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__Selection__Group__2_in_rule__Selection__Group__11629 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Selection__NameAssignment_1_in_rule__Selection__Group__1__Impl1656 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Selection__Group__2__Impl_in_rule__Selection__Group__21686 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_rule__Selection__Group__3_in_rule__Selection__Group__21689 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Selection__QuestionAssignment_2_in_rule__Selection__Group__2__Impl1716 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Selection__Group__3__Impl_in_rule__Selection__Group__31746 = new BitSet(new long[]{0x000000000000C010L});
-    public static final BitSet FOLLOW_rule__Selection__Group__4_in_rule__Selection__Group__31749 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_13_in_rule__Selection__Group__3__Impl1777 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Selection__Group__4__Impl_in_rule__Selection__Group__41808 = new BitSet(new long[]{0x000000000000C010L});
-    public static final BitSet FOLLOW_rule__Selection__Group__5_in_rule__Selection__Group__41811 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Selection__ChoicesAssignment_4_in_rule__Selection__Group__4__Impl1838 = new BitSet(new long[]{0x0000000000008012L});
-    public static final BitSet FOLLOW_rule__Selection__Group__5__Impl_in_rule__Selection__Group__51869 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_14_in_rule__Selection__Group__5__Impl1897 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Choice__Group__0__Impl_in_rule__Choice__Group__01940 = new BitSet(new long[]{0x0000000000008010L});
-    public static final BitSet FOLLOW_rule__Choice__Group__1_in_rule__Choice__Group__01943 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Choice__FreetextAssignment_0_in_rule__Choice__Group__0__Impl1970 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Choice__Group__1__Impl_in_rule__Choice__Group__12001 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__Choice__Group__2_in_rule__Choice__Group__12004 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Choice__NameAssignment_1_in_rule__Choice__Group__1__Impl2031 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Choice__Group__2__Impl_in_rule__Choice__Group__22061 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Choice__BulletPointAssignment_2_in_rule__Choice__Group__2__Impl2088 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Chart__Group__0__Impl_in_rule__Chart__Group__02124 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__Chart__Group__1_in_rule__Chart__Group__02127 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_17_in_rule__Chart__Group__0__Impl2155 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Chart__Group__1__Impl_in_rule__Chart__Group__12186 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__Chart__Group__2_in_rule__Chart__Group__12189 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Chart__NameAssignment_1_in_rule__Chart__Group__1__Impl2216 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Chart__Group__2__Impl_in_rule__Chart__Group__22246 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_rule__Chart__Group__3_in_rule__Chart__Group__22249 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Chart__QuestionAssignment_2_in_rule__Chart__Group__2__Impl2276 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Chart__Group__3__Impl_in_rule__Chart__Group__32306 = new BitSet(new long[]{0x000000000000C010L});
-    public static final BitSet FOLLOW_rule__Chart__Group__4_in_rule__Chart__Group__32309 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_13_in_rule__Chart__Group__3__Impl2337 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Chart__Group__4__Impl_in_rule__Chart__Group__42368 = new BitSet(new long[]{0x000000000000C010L});
-    public static final BitSet FOLLOW_rule__Chart__Group__5_in_rule__Chart__Group__42371 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Chart__ChoicesAssignment_4_in_rule__Chart__Group__4__Impl2398 = new BitSet(new long[]{0x0000000000008012L});
-    public static final BitSet FOLLOW_rule__Chart__Group__5__Impl_in_rule__Chart__Group__52429 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_rule__Chart__Group__6_in_rule__Chart__Group__52432 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_14_in_rule__Chart__Group__5__Impl2460 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Chart__Group__6__Impl_in_rule__Chart__Group__62491 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_rule__Chart__Group__7_in_rule__Chart__Group__62494 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_rule__Chart__Group__6__Impl2522 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Chart__Group__7__Impl_in_rule__Chart__Group__72553 = new BitSet(new long[]{0x0000000000004030L});
-    public static final BitSet FOLLOW_rule__Chart__Group__8_in_rule__Chart__Group__72556 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_13_in_rule__Chart__Group__7__Impl2584 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Chart__Group__8__Impl_in_rule__Chart__Group__82615 = new BitSet(new long[]{0x0000000000004030L});
-    public static final BitSet FOLLOW_rule__Chart__Group__9_in_rule__Chart__Group__82618 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Chart__GraduationsAssignment_8_in_rule__Chart__Group__8__Impl2645 = new BitSet(new long[]{0x0000000000000032L});
-    public static final BitSet FOLLOW_rule__Chart__Group__9__Impl_in_rule__Chart__Group__92676 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_14_in_rule__Chart__Group__9__Impl2704 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Graduation__Group__0__Impl_in_rule__Graduation__Group__02755 = new BitSet(new long[]{0x0000000000000030L});
-    public static final BitSet FOLLOW_rule__Graduation__Group__1_in_rule__Graduation__Group__02758 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Graduation__NameAssignment_0_in_rule__Graduation__Group__0__Impl2785 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Graduation__Group__1__Impl_in_rule__Graduation__Group__12816 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Graduation__StatementAssignment_1_in_rule__Graduation__Group__1__Impl2843 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Rating__Group__0__Impl_in_rule__Rating__Group__02877 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__Rating__Group__1_in_rule__Rating__Group__02880 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_19_in_rule__Rating__Group__0__Impl2908 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Rating__Group__1__Impl_in_rule__Rating__Group__12939 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__Rating__Group__2_in_rule__Rating__Group__12942 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Rating__NameAssignment_1_in_rule__Rating__Group__1__Impl2969 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Rating__Group__2__Impl_in_rule__Rating__Group__22999 = new BitSet(new long[]{0x0000000000000040L});
-    public static final BitSet FOLLOW_rule__Rating__Group__3_in_rule__Rating__Group__23002 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Rating__QuestionAssignment_2_in_rule__Rating__Group__2__Impl3029 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Rating__Group__3__Impl_in_rule__Rating__Group__33059 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Rating__RatingAssignment_3_in_rule__Rating__Group__3__Impl3086 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Survey__NameAssignment_13129 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__Survey__TitleAssignment_23160 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__Survey__GreetingAssignment_33191 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__Survey__DurationAssignment_43222 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePage_in_rule__Survey__PagesAssignment_53253 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Page__NameAssignment_13284 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleQuestion_in_rule__Page__QuestionsAssignment_33315 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Freetext__NameAssignment_13346 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__Freetext__QuestionAssignment_23377 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Selection__NameAssignment_13408 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__Selection__QuestionAssignment_23439 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleChoice_in_rule__Selection__ChoicesAssignment_43470 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_15_in_rule__Choice__FreetextAssignment_03506 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Choice__NameAssignment_13545 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__Choice__BulletPointAssignment_23576 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Chart__NameAssignment_13607 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__Chart__QuestionAssignment_23638 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleChoice_in_rule__Chart__ChoicesAssignment_43669 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleGraduation_in_rule__Chart__GraduationsAssignment_83700 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Graduation__NameAssignment_03731 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__Graduation__StatementAssignment_13762 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Rating__NameAssignment_13793 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__Rating__QuestionAssignment_23824 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_INT_in_rule__Rating__RatingAssignment_33855 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCalendar_in_entryRuleCalendar601 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleCalendar608 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Calendar__Group__0_in_ruleCalendar634 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFreetext_in_rule__Question__Alternatives670 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSelection_in_rule__Question__Alternatives687 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleChart_in_rule__Question__Alternatives704 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRating_in_rule__Question__Alternatives721 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCalendar_in_rule__Question__Alternatives738 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Survey__Group__0__Impl_in_rule__Survey__Group__0768 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__Survey__Group__1_in_rule__Survey__Group__0771 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_11_in_rule__Survey__Group__0__Impl799 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Survey__Group__1__Impl_in_rule__Survey__Group__1830 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__Survey__Group__2_in_rule__Survey__Group__1833 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Survey__NameAssignment_1_in_rule__Survey__Group__1__Impl860 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Survey__Group__2__Impl_in_rule__Survey__Group__2890 = new BitSet(new long[]{0x0000000000001020L});
+    public static final BitSet FOLLOW_rule__Survey__Group__3_in_rule__Survey__Group__2893 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Survey__TitleAssignment_2_in_rule__Survey__Group__2__Impl920 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Survey__Group__3__Impl_in_rule__Survey__Group__3950 = new BitSet(new long[]{0x0000000000001020L});
+    public static final BitSet FOLLOW_rule__Survey__Group__4_in_rule__Survey__Group__3953 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Survey__GreetingAssignment_3_in_rule__Survey__Group__3__Impl980 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Survey__Group__4__Impl_in_rule__Survey__Group__41011 = new BitSet(new long[]{0x0000000000001020L});
+    public static final BitSet FOLLOW_rule__Survey__Group__5_in_rule__Survey__Group__41014 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Survey__DurationAssignment_4_in_rule__Survey__Group__4__Impl1041 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Survey__Group__5__Impl_in_rule__Survey__Group__51072 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Survey__PagesAssignment_5_in_rule__Survey__Group__5__Impl1099 = new BitSet(new long[]{0x0000000000001002L});
+    public static final BitSet FOLLOW_rule__Page__Group__0__Impl_in_rule__Page__Group__01142 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__Page__Group__1_in_rule__Page__Group__01145 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_12_in_rule__Page__Group__0__Impl1173 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Page__Group__1__Impl_in_rule__Page__Group__11204 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_rule__Page__Group__2_in_rule__Page__Group__11207 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Page__NameAssignment_1_in_rule__Page__Group__1__Impl1234 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Page__Group__2__Impl_in_rule__Page__Group__21264 = new BitSet(new long[]{0x00000000001BC000L});
+    public static final BitSet FOLLOW_rule__Page__Group__3_in_rule__Page__Group__21267 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_13_in_rule__Page__Group__2__Impl1295 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Page__Group__3__Impl_in_rule__Page__Group__31326 = new BitSet(new long[]{0x00000000001BC000L});
+    public static final BitSet FOLLOW_rule__Page__Group__4_in_rule__Page__Group__31329 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Page__QuestionsAssignment_3_in_rule__Page__Group__3__Impl1356 = new BitSet(new long[]{0x00000000001B8002L});
+    public static final BitSet FOLLOW_rule__Page__Group__4__Impl_in_rule__Page__Group__41387 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_14_in_rule__Page__Group__4__Impl1415 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Freetext__Group__0__Impl_in_rule__Freetext__Group__01456 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__Freetext__Group__1_in_rule__Freetext__Group__01459 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_15_in_rule__Freetext__Group__0__Impl1487 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Freetext__Group__1__Impl_in_rule__Freetext__Group__11518 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__Freetext__Group__2_in_rule__Freetext__Group__11521 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Freetext__NameAssignment_1_in_rule__Freetext__Group__1__Impl1548 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Freetext__Group__2__Impl_in_rule__Freetext__Group__21578 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Freetext__QuestionAssignment_2_in_rule__Freetext__Group__2__Impl1605 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Selection__Group__0__Impl_in_rule__Selection__Group__01641 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__Selection__Group__1_in_rule__Selection__Group__01644 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_16_in_rule__Selection__Group__0__Impl1672 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Selection__Group__1__Impl_in_rule__Selection__Group__11703 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__Selection__Group__2_in_rule__Selection__Group__11706 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Selection__NameAssignment_1_in_rule__Selection__Group__1__Impl1733 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Selection__Group__2__Impl_in_rule__Selection__Group__21763 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_rule__Selection__Group__3_in_rule__Selection__Group__21766 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Selection__QuestionAssignment_2_in_rule__Selection__Group__2__Impl1793 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Selection__Group__3__Impl_in_rule__Selection__Group__31823 = new BitSet(new long[]{0x000000000000C010L});
+    public static final BitSet FOLLOW_rule__Selection__Group__4_in_rule__Selection__Group__31826 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_13_in_rule__Selection__Group__3__Impl1854 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Selection__Group__4__Impl_in_rule__Selection__Group__41885 = new BitSet(new long[]{0x000000000000C010L});
+    public static final BitSet FOLLOW_rule__Selection__Group__5_in_rule__Selection__Group__41888 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Selection__ChoicesAssignment_4_in_rule__Selection__Group__4__Impl1915 = new BitSet(new long[]{0x0000000000008012L});
+    public static final BitSet FOLLOW_rule__Selection__Group__5__Impl_in_rule__Selection__Group__51946 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_14_in_rule__Selection__Group__5__Impl1974 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Choice__Group__0__Impl_in_rule__Choice__Group__02017 = new BitSet(new long[]{0x0000000000008010L});
+    public static final BitSet FOLLOW_rule__Choice__Group__1_in_rule__Choice__Group__02020 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Choice__FreetextAssignment_0_in_rule__Choice__Group__0__Impl2047 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Choice__Group__1__Impl_in_rule__Choice__Group__12078 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__Choice__Group__2_in_rule__Choice__Group__12081 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Choice__NameAssignment_1_in_rule__Choice__Group__1__Impl2108 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Choice__Group__2__Impl_in_rule__Choice__Group__22138 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Choice__BulletPointAssignment_2_in_rule__Choice__Group__2__Impl2165 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Chart__Group__0__Impl_in_rule__Chart__Group__02201 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__Chart__Group__1_in_rule__Chart__Group__02204 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_rule__Chart__Group__0__Impl2232 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Chart__Group__1__Impl_in_rule__Chart__Group__12263 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__Chart__Group__2_in_rule__Chart__Group__12266 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Chart__NameAssignment_1_in_rule__Chart__Group__1__Impl2293 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Chart__Group__2__Impl_in_rule__Chart__Group__22323 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_rule__Chart__Group__3_in_rule__Chart__Group__22326 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Chart__QuestionAssignment_2_in_rule__Chart__Group__2__Impl2353 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Chart__Group__3__Impl_in_rule__Chart__Group__32383 = new BitSet(new long[]{0x000000000000C010L});
+    public static final BitSet FOLLOW_rule__Chart__Group__4_in_rule__Chart__Group__32386 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_13_in_rule__Chart__Group__3__Impl2414 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Chart__Group__4__Impl_in_rule__Chart__Group__42445 = new BitSet(new long[]{0x000000000000C010L});
+    public static final BitSet FOLLOW_rule__Chart__Group__5_in_rule__Chart__Group__42448 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Chart__ChoicesAssignment_4_in_rule__Chart__Group__4__Impl2475 = new BitSet(new long[]{0x0000000000008012L});
+    public static final BitSet FOLLOW_rule__Chart__Group__5__Impl_in_rule__Chart__Group__52506 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_rule__Chart__Group__6_in_rule__Chart__Group__52509 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_14_in_rule__Chart__Group__5__Impl2537 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Chart__Group__6__Impl_in_rule__Chart__Group__62568 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_rule__Chart__Group__7_in_rule__Chart__Group__62571 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_18_in_rule__Chart__Group__6__Impl2599 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Chart__Group__7__Impl_in_rule__Chart__Group__72630 = new BitSet(new long[]{0x0000000000004030L});
+    public static final BitSet FOLLOW_rule__Chart__Group__8_in_rule__Chart__Group__72633 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_13_in_rule__Chart__Group__7__Impl2661 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Chart__Group__8__Impl_in_rule__Chart__Group__82692 = new BitSet(new long[]{0x0000000000004030L});
+    public static final BitSet FOLLOW_rule__Chart__Group__9_in_rule__Chart__Group__82695 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Chart__GraduationsAssignment_8_in_rule__Chart__Group__8__Impl2722 = new BitSet(new long[]{0x0000000000000032L});
+    public static final BitSet FOLLOW_rule__Chart__Group__9__Impl_in_rule__Chart__Group__92753 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_14_in_rule__Chart__Group__9__Impl2781 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Graduation__Group__0__Impl_in_rule__Graduation__Group__02832 = new BitSet(new long[]{0x0000000000000030L});
+    public static final BitSet FOLLOW_rule__Graduation__Group__1_in_rule__Graduation__Group__02835 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Graduation__NameAssignment_0_in_rule__Graduation__Group__0__Impl2862 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Graduation__Group__1__Impl_in_rule__Graduation__Group__12893 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Graduation__StatementAssignment_1_in_rule__Graduation__Group__1__Impl2920 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Rating__Group__0__Impl_in_rule__Rating__Group__02954 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__Rating__Group__1_in_rule__Rating__Group__02957 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_rule__Rating__Group__0__Impl2985 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Rating__Group__1__Impl_in_rule__Rating__Group__13016 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__Rating__Group__2_in_rule__Rating__Group__13019 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Rating__NameAssignment_1_in_rule__Rating__Group__1__Impl3046 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Rating__Group__2__Impl_in_rule__Rating__Group__23076 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_rule__Rating__Group__3_in_rule__Rating__Group__23079 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Rating__QuestionAssignment_2_in_rule__Rating__Group__2__Impl3106 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Rating__Group__3__Impl_in_rule__Rating__Group__33136 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Rating__RatingQuantityAssignment_3_in_rule__Rating__Group__3__Impl3163 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Calendar__Group__0__Impl_in_rule__Calendar__Group__03201 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__Calendar__Group__1_in_rule__Calendar__Group__03204 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_20_in_rule__Calendar__Group__0__Impl3232 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Calendar__Group__1__Impl_in_rule__Calendar__Group__13263 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__Calendar__Group__2_in_rule__Calendar__Group__13266 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Calendar__NameAssignment_1_in_rule__Calendar__Group__1__Impl3293 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Calendar__Group__2__Impl_in_rule__Calendar__Group__23323 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Calendar__QuestionAssignment_2_in_rule__Calendar__Group__2__Impl3350 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Survey__NameAssignment_13391 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__Survey__TitleAssignment_23422 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__Survey__GreetingAssignment_33453 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__Survey__DurationAssignment_43484 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePage_in_rule__Survey__PagesAssignment_53515 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Page__NameAssignment_13546 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQuestion_in_rule__Page__QuestionsAssignment_33577 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Freetext__NameAssignment_13608 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__Freetext__QuestionAssignment_23639 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Selection__NameAssignment_13670 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__Selection__QuestionAssignment_23701 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleChoice_in_rule__Selection__ChoicesAssignment_43732 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_15_in_rule__Choice__FreetextAssignment_03768 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Choice__NameAssignment_13807 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__Choice__BulletPointAssignment_23838 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Chart__NameAssignment_13869 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__Chart__QuestionAssignment_23900 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleChoice_in_rule__Chart__ChoicesAssignment_43931 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleGraduation_in_rule__Chart__GraduationsAssignment_83962 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Graduation__NameAssignment_03993 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__Graduation__StatementAssignment_14024 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Rating__NameAssignment_14055 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__Rating__QuestionAssignment_24086 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_INT_in_rule__Rating__RatingQuantityAssignment_34117 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Calendar__NameAssignment_14148 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__Calendar__QuestionAssignment_24179 = new BitSet(new long[]{0x0000000000000002L});
 
 }
