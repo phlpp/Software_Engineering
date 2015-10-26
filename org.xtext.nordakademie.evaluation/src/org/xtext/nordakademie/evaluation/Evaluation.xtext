@@ -13,11 +13,16 @@ Survey:
 ;
 
 Page:
-	'page' name=ID '('questions+=Question*')'
+	'page' name=ID '('
+	question=Question
+	//referred page
+	('-next->' next=[Page|ID])?	
+	')'
 ;
 	
 Question:
-	Freetext | Selection | Chart | Rating | Calendar
+	Freetext | Selection | Chart | Rating 
+//	| Calendar
 ;
 
 Freetext:
@@ -33,6 +38,7 @@ Choice:
 ;
 
 Chart:
+	//chart with choices and graduations for each
 	'chart' name=ID question=STRING '(' choices+=Choice* ')' 'x' '(' graduations+=Graduation* ')'
 ;
 
@@ -44,9 +50,9 @@ Rating:
 	'rating' name=ID question=STRING ratingQuantity=INT
 ;
 
-Calendar:
-	'calendar' name=ID question=STRING
-;
+//Calendar:
+//	'calendar' name=ID question=STRING
+//;
 
 
 

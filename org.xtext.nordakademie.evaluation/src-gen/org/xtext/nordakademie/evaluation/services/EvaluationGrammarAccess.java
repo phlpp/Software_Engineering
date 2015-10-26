@@ -83,15 +83,22 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cQuestionsAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cQuestionsQuestionParserRuleCall_3_0 = (RuleCall)cQuestionsAssignment_3.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cQuestionAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cQuestionQuestionParserRuleCall_3_0 = (RuleCall)cQuestionAssignment_3.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cNextKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cNextAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final CrossReference cNextPageCrossReference_4_1_0 = (CrossReference)cNextAssignment_4_1.eContents().get(0);
+		private final RuleCall cNextPageIDTerminalRuleCall_4_1_0_1 = (RuleCall)cNextPageCrossReference_4_1_0.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//Page:
-		//	"page" name=ID "(" questions+=Question* ")";
+		//	"page" name=ID "(" question=Question //referred page
+		//	("-next->" next=[Page])? ")";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"page" name=ID "(" questions+=Question* ")"
+		//"page" name=ID "(" question=Question //referred page
+		//("-next->" next=[Page])? ")"
 		public Group getGroup() { return cGroup; }
 
 		//"page"
@@ -106,14 +113,29 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		//"("
 		public Keyword getLeftParenthesisKeyword_2() { return cLeftParenthesisKeyword_2; }
 
-		//questions+=Question*
-		public Assignment getQuestionsAssignment_3() { return cQuestionsAssignment_3; }
+		//question=Question
+		public Assignment getQuestionAssignment_3() { return cQuestionAssignment_3; }
 
 		//Question
-		public RuleCall getQuestionsQuestionParserRuleCall_3_0() { return cQuestionsQuestionParserRuleCall_3_0; }
+		public RuleCall getQuestionQuestionParserRuleCall_3_0() { return cQuestionQuestionParserRuleCall_3_0; }
+
+		//("-next->" next=[Page])?
+		public Group getGroup_4() { return cGroup_4; }
+
+		//"-next->"
+		public Keyword getNextKeyword_4_0() { return cNextKeyword_4_0; }
+
+		//next=[Page]
+		public Assignment getNextAssignment_4_1() { return cNextAssignment_4_1; }
+
+		//[Page]
+		public CrossReference getNextPageCrossReference_4_1_0() { return cNextPageCrossReference_4_1_0; }
+
+		//ID
+		public RuleCall getNextPageIDTerminalRuleCall_4_1_0_1() { return cNextPageIDTerminalRuleCall_4_1_0_1; }
 
 		//")"
-		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
+		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
 	}
 
 	public class QuestionElements extends AbstractParserRuleElementFinder {
@@ -123,13 +145,13 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSelectionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cChartParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cRatingParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cCalendarParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
+		////	| Calendar
 		//Question:
-		//	Freetext | Selection | Chart | Rating | Calendar;
+		//	Freetext | Selection | Chart | Rating;
 		@Override public ParserRule getRule() { return rule; }
 
-		//Freetext | Selection | Chart | Rating | Calendar
+		//Freetext | Selection | Chart | Rating
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//Freetext
@@ -143,9 +165,6 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 
 		//Rating
 		public RuleCall getRatingParserRuleCall_3() { return cRatingParserRuleCall_3; }
-
-		//Calendar
-		public RuleCall getCalendarParserRuleCall_4() { return cCalendarParserRuleCall_4; }
 	}
 
 	public class FreetextElements extends AbstractParserRuleElementFinder {
@@ -282,13 +301,15 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cGraduationsGraduationParserRuleCall_8_0 = (RuleCall)cGraduationsAssignment_8.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
-		//Chart:
+		//Chart: //chart with choices and graduations for each
 		//	"chart" name=ID question=STRING "(" choices+=Choice* ")" "x" "(" graduations+=Graduation* ")";
 		@Override public ParserRule getRule() { return rule; }
 
+		////chart with choices and graduations for each
 		//"chart" name=ID question=STRING "(" choices+=Choice* ")" "x" "(" graduations+=Graduation* ")"
 		public Group getGroup() { return cGroup; }
 
+		////chart with choices and graduations for each
 		//"chart"
 		public Keyword getChartKeyword_0() { return cChartKeyword_0; }
 
@@ -371,6 +392,9 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRatingQuantityAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cRatingQuantityINTTerminalRuleCall_3_0 = (RuleCall)cRatingQuantityAssignment_3.eContents().get(0);
 		
+		////Calendar:
+		////	'calendar' name=ID question=STRING
+		////;
 		//Rating:
 		//	"rating" name=ID question=STRING ratingQuantity=INT;
 		@Override public ParserRule getRule() { return rule; }
@@ -399,38 +423,6 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		//INT
 		public RuleCall getRatingQuantityINTTerminalRuleCall_3_0() { return cRatingQuantityINTTerminalRuleCall_3_0; }
 	}
-
-	public class CalendarElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Calendar");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cCalendarKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Assignment cQuestionAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cQuestionSTRINGTerminalRuleCall_2_0 = (RuleCall)cQuestionAssignment_2.eContents().get(0);
-		
-		//Calendar:
-		//	"calendar" name=ID question=STRING;
-		@Override public ParserRule getRule() { return rule; }
-
-		//"calendar" name=ID question=STRING
-		public Group getGroup() { return cGroup; }
-
-		//"calendar"
-		public Keyword getCalendarKeyword_0() { return cCalendarKeyword_0; }
-
-		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
-
-		//question=STRING
-		public Assignment getQuestionAssignment_2() { return cQuestionAssignment_2; }
-
-		//STRING
-		public RuleCall getQuestionSTRINGTerminalRuleCall_2_0() { return cQuestionSTRINGTerminalRuleCall_2_0; }
-	}
 	
 	
 	private final SurveyElements pSurvey;
@@ -442,7 +434,6 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 	private final ChartElements pChart;
 	private final GraduationElements pGraduation;
 	private final RatingElements pRating;
-	private final CalendarElements pCalendar;
 	
 	private final Grammar grammar;
 
@@ -462,7 +453,6 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		this.pChart = new ChartElements();
 		this.pGraduation = new GraduationElements();
 		this.pRating = new RatingElements();
-		this.pCalendar = new CalendarElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -504,7 +494,8 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Page:
-	//	"page" name=ID "(" questions+=Question* ")";
+	//	"page" name=ID "(" question=Question //referred page
+	//	("-next->" next=[Page])? ")";
 	public PageElements getPageAccess() {
 		return pPage;
 	}
@@ -513,8 +504,9 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		return getPageAccess().getRule();
 	}
 
+	////	| Calendar
 	//Question:
-	//	Freetext | Selection | Chart | Rating | Calendar;
+	//	Freetext | Selection | Chart | Rating;
 	public QuestionElements getQuestionAccess() {
 		return pQuestion;
 	}
@@ -553,7 +545,7 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		return getChoiceAccess().getRule();
 	}
 
-	//Chart:
+	//Chart: //chart with choices and graduations for each
 	//	"chart" name=ID question=STRING "(" choices+=Choice* ")" "x" "(" graduations+=Graduation* ")";
 	public ChartElements getChartAccess() {
 		return pChart;
@@ -573,6 +565,9 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		return getGraduationAccess().getRule();
 	}
 
+	////Calendar:
+	////	'calendar' name=ID question=STRING
+	////;
 	//Rating:
 	//	"rating" name=ID question=STRING ratingQuantity=INT;
 	public RatingElements getRatingAccess() {
@@ -581,16 +576,6 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getRatingRule() {
 		return getRatingAccess().getRule();
-	}
-
-	//Calendar:
-	//	"calendar" name=ID question=STRING;
-	public CalendarElements getCalendarAccess() {
-		return pCalendar;
-	}
-	
-	public ParserRule getCalendarRule() {
-		return getCalendarAccess().getRule();
 	}
 
 	//terminal ID:

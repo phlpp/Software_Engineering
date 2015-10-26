@@ -16,7 +16,6 @@ import org.eclipse.xtext.serializer.sequencer.ISemanticNodeProvider.INodesForEOb
 import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
-import org.xtext.nordakademie.evaluation.evaluation.Calendar;
 import org.xtext.nordakademie.evaluation.evaluation.Chart;
 import org.xtext.nordakademie.evaluation.evaluation.Choice;
 import org.xtext.nordakademie.evaluation.evaluation.EvaluationPackage;
@@ -37,9 +36,6 @@ public class EvaluationSemanticSequencer extends AbstractDelegatingSemanticSeque
 	@Override
 	public void createSequence(EObject context, EObject semanticObject) {
 		if(semanticObject.eClass().getEPackage() == EvaluationPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
-			case EvaluationPackage.CALENDAR:
-				sequence_Calendar(context, (Calendar) semanticObject); 
-				return; 
 			case EvaluationPackage.CHART:
 				sequence_Chart(context, (Chart) semanticObject); 
 				return; 
@@ -67,25 +63,6 @@ public class EvaluationSemanticSequencer extends AbstractDelegatingSemanticSeque
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
-	
-	/**
-	 * Constraint:
-	 *     (name=ID question=STRING)
-	 */
-	protected void sequence_Calendar(EObject context, Calendar semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, EvaluationPackage.Literals.QUESTION__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EvaluationPackage.Literals.QUESTION__NAME));
-			if(transientValues.isValueTransient(semanticObject, EvaluationPackage.Literals.QUESTION__QUESTION) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, EvaluationPackage.Literals.QUESTION__QUESTION));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getCalendarAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getCalendarAccess().getQuestionSTRINGTerminalRuleCall_2_0(), semanticObject.getQuestion());
-		feeder.finish();
-	}
-	
 	
 	/**
 	 * Constraint:
@@ -135,7 +112,7 @@ public class EvaluationSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (name=ID questions+=Question*)
+	 *     (name=ID question=Question next=[Page|ID]?)
 	 */
 	protected void sequence_Page(EObject context, Page semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

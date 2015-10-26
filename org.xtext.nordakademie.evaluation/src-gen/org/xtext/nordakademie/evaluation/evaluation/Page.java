@@ -2,8 +2,6 @@
  */
 package org.xtext.nordakademie.evaluation.evaluation;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -16,7 +14,8 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.Page#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.Page#getQuestions <em>Questions</em>}</li>
+ *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.Page#getQuestion <em>Question</em>}</li>
+ *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.Page#getNext <em>Next</em>}</li>
  * </ul>
  *
  * @see org.xtext.nordakademie.evaluation.evaluation.EvaluationPackage#getPage()
@@ -52,19 +51,55 @@ public interface Page extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Questions</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.nordakademie.evaluation.evaluation.Question}.
+   * Returns the value of the '<em><b>Question</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Questions</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Question</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Questions</em>' containment reference list.
-   * @see org.xtext.nordakademie.evaluation.evaluation.EvaluationPackage#getPage_Questions()
+   * @return the value of the '<em>Question</em>' containment reference.
+   * @see #setQuestion(Question)
+   * @see org.xtext.nordakademie.evaluation.evaluation.EvaluationPackage#getPage_Question()
    * @model containment="true"
    * @generated
    */
-  EList<Question> getQuestions();
+  Question getQuestion();
+
+  /**
+   * Sets the value of the '{@link org.xtext.nordakademie.evaluation.evaluation.Page#getQuestion <em>Question</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Question</em>' containment reference.
+   * @see #getQuestion()
+   * @generated
+   */
+  void setQuestion(Question value);
+
+  /**
+   * Returns the value of the '<em><b>Next</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Next</em>' reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Next</em>' reference.
+   * @see #setNext(Page)
+   * @see org.xtext.nordakademie.evaluation.evaluation.EvaluationPackage#getPage_Next()
+   * @model
+   * @generated
+   */
+  Page getNext();
+
+  /**
+   * Sets the value of the '{@link org.xtext.nordakademie.evaluation.evaluation.Page#getNext <em>Next</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Next</em>' reference.
+   * @see #getNext()
+   * @generated
+   */
+  void setNext(Page value);
 
 } // Page

@@ -221,24 +221,41 @@ rulePage returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getPageAccess().getQuestionsQuestionParserRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getPageAccess().getQuestionQuestionParserRuleCall_3_0()); 
 	    }
-		lv_questions_3_0=ruleQuestion		{
+		lv_question_3_0=ruleQuestion		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getPageRule());
 	        }
-       		add(
+       		set(
        			$current, 
-       			"questions",
-        		lv_questions_3_0, 
+       			"question",
+        		lv_question_3_0, 
         		"Question");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)*	otherlv_4=')' 
+)(	otherlv_4='-next->' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getPageAccess().getRightParenthesisKeyword_4());
+    	newLeafNode(otherlv_4, grammarAccess.getPageAccess().getNextKeyword_4_0());
+    }
+(
+(
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getPageRule());
+	        }
+        }
+	otherlv_5=RULE_ID
+	{
+		newLeafNode(otherlv_5, grammarAccess.getPageAccess().getNextPageCrossReference_4_1_0()); 
+	}
+
+)
+))?	otherlv_6=')' 
+    {
+    	newLeafNode(otherlv_6, grammarAccess.getPageAccess().getRightParenthesisKeyword_5());
     }
 )
 ;
@@ -298,16 +315,6 @@ ruleQuestion returns [EObject current=null]
     this_Rating_3=ruleRating
     { 
         $current = $this_Rating_3.current; 
-        afterParserOrEnumRuleCall();
-    }
-
-    |
-    { 
-        newCompositeNode(grammarAccess.getQuestionAccess().getCalendarParserRuleCall_4()); 
-    }
-    this_Calendar_4=ruleCalendar
-    { 
-        $current = $this_Calendar_4.current; 
         afterParserOrEnumRuleCall();
     }
 )
@@ -780,67 +787,6 @@ ruleRating returns [EObject current=null]
        			"ratingQuantity",
         		lv_ratingQuantity_3_0, 
         		"INT");
-	    }
-
-)
-))
-;
-
-
-
-
-
-// Entry rule entryRuleCalendar
-entryRuleCalendar returns [EObject current=null] 
-	:
-	{ newCompositeNode(grammarAccess.getCalendarRule()); }
-	 iv_ruleCalendar=ruleCalendar 
-	 { $current=$iv_ruleCalendar.current; } 
-	 EOF 
-;
-
-// Rule Calendar
-ruleCalendar returns [EObject current=null] 
-    @init { enterRule(); 
-    }
-    @after { leaveRule(); }:
-(	otherlv_0='calendar' 
-    {
-    	newLeafNode(otherlv_0, grammarAccess.getCalendarAccess().getCalendarKeyword_0());
-    }
-(
-(
-		lv_name_1_0=RULE_ID
-		{
-			newLeafNode(lv_name_1_0, grammarAccess.getCalendarAccess().getNameIDTerminalRuleCall_1_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getCalendarRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"name",
-        		lv_name_1_0, 
-        		"ID");
-	    }
-
-)
-)(
-(
-		lv_question_2_0=RULE_STRING
-		{
-			newLeafNode(lv_question_2_0, grammarAccess.getCalendarAccess().getQuestionSTRINGTerminalRuleCall_2_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getCalendarRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"question",
-        		lv_question_2_0, 
-        		"STRING");
 	    }
 
 )

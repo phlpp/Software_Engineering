@@ -9,7 +9,6 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import org.xtext.nordakademie.evaluation.evaluation.Calendar;
 import org.xtext.nordakademie.evaluation.evaluation.Chart;
 import org.xtext.nordakademie.evaluation.evaluation.Choice;
 import org.xtext.nordakademie.evaluation.evaluation.EvaluationFactory;
@@ -92,13 +91,6 @@ public class EvaluationPackageImpl extends EPackageImpl implements EvaluationPac
    * @generated
    */
   private EClass ratingEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass calendarEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -248,9 +240,19 @@ public class EvaluationPackageImpl extends EPackageImpl implements EvaluationPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPage_Questions()
+  public EReference getPage_Question()
   {
     return (EReference)pageEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPage_Next()
+  {
+    return (EReference)pageEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -438,16 +440,6 @@ public class EvaluationPackageImpl extends EPackageImpl implements EvaluationPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getCalendar()
-  {
-    return calendarEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EvaluationFactory getEvaluationFactory()
   {
     return (EvaluationFactory)getEFactoryInstance();
@@ -482,7 +474,8 @@ public class EvaluationPackageImpl extends EPackageImpl implements EvaluationPac
 
     pageEClass = createEClass(PAGE);
     createEAttribute(pageEClass, PAGE__NAME);
-    createEReference(pageEClass, PAGE__QUESTIONS);
+    createEReference(pageEClass, PAGE__QUESTION);
+    createEReference(pageEClass, PAGE__NEXT);
 
     questionEClass = createEClass(QUESTION);
     createEAttribute(questionEClass, QUESTION__NAME);
@@ -508,8 +501,6 @@ public class EvaluationPackageImpl extends EPackageImpl implements EvaluationPac
 
     ratingEClass = createEClass(RATING);
     createEAttribute(ratingEClass, RATING__RATING_QUANTITY);
-
-    calendarEClass = createEClass(CALENDAR);
   }
 
   /**
@@ -545,7 +536,6 @@ public class EvaluationPackageImpl extends EPackageImpl implements EvaluationPac
     selectionEClass.getESuperTypes().add(this.getQuestion());
     chartEClass.getESuperTypes().add(this.getQuestion());
     ratingEClass.getESuperTypes().add(this.getQuestion());
-    calendarEClass.getESuperTypes().add(this.getQuestion());
 
     // Initialize classes and features; add operations and parameters
     initEClass(surveyEClass, Survey.class, "Survey", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -557,7 +547,8 @@ public class EvaluationPackageImpl extends EPackageImpl implements EvaluationPac
 
     initEClass(pageEClass, Page.class, "Page", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPage_Name(), ecorePackage.getEString(), "name", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPage_Questions(), this.getQuestion(), null, "questions", null, 0, -1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPage_Question(), this.getQuestion(), null, "question", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPage_Next(), this.getPage(), null, "next", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(questionEClass, Question.class, "Question", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getQuestion_Name(), ecorePackage.getEString(), "name", null, 0, 1, Question.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -583,8 +574,6 @@ public class EvaluationPackageImpl extends EPackageImpl implements EvaluationPac
 
     initEClass(ratingEClass, Rating.class, "Rating", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRating_RatingQuantity(), ecorePackage.getEInt(), "ratingQuantity", null, 0, 1, Rating.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(calendarEClass, Calendar.class, "Calendar", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     // Create resource
     createResource(eNS_URI);

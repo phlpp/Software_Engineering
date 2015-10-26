@@ -140,13 +140,22 @@ public interface EvaluationPackage extends EPackage
   int PAGE__NAME = 0;
 
   /**
-   * The feature id for the '<em><b>Questions</b></em>' containment reference list.
+   * The feature id for the '<em><b>Question</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PAGE__QUESTIONS = 1;
+  int PAGE__QUESTION = 1;
+
+  /**
+   * The feature id for the '<em><b>Next</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PAGE__NEXT = 2;
 
   /**
    * The number of structural features of the '<em>Page</em>' class.
@@ -155,7 +164,7 @@ public interface EvaluationPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PAGE_FEATURE_COUNT = 2;
+  int PAGE_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.xtext.nordakademie.evaluation.evaluation.impl.QuestionImpl <em>Question</em>}' class.
@@ -461,43 +470,6 @@ public interface EvaluationPackage extends EPackage
    */
   int RATING_FEATURE_COUNT = QUESTION_FEATURE_COUNT + 1;
 
-  /**
-   * The meta object id for the '{@link org.xtext.nordakademie.evaluation.evaluation.impl.CalendarImpl <em>Calendar</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.nordakademie.evaluation.evaluation.impl.CalendarImpl
-   * @see org.xtext.nordakademie.evaluation.evaluation.impl.EvaluationPackageImpl#getCalendar()
-   * @generated
-   */
-  int CALENDAR = 9;
-
-  /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CALENDAR__NAME = QUESTION__NAME;
-
-  /**
-   * The feature id for the '<em><b>Question</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CALENDAR__QUESTION = QUESTION__QUESTION;
-
-  /**
-   * The number of structural features of the '<em>Calendar</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CALENDAR_FEATURE_COUNT = QUESTION_FEATURE_COUNT + 0;
-
 
   /**
    * Returns the meta object for class '{@link org.xtext.nordakademie.evaluation.evaluation.Survey <em>Survey</em>}'.
@@ -586,15 +558,26 @@ public interface EvaluationPackage extends EPackage
   EAttribute getPage_Name();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.nordakademie.evaluation.evaluation.Page#getQuestions <em>Questions</em>}'.
+   * Returns the meta object for the containment reference '{@link org.xtext.nordakademie.evaluation.evaluation.Page#getQuestion <em>Question</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Questions</em>'.
-   * @see org.xtext.nordakademie.evaluation.evaluation.Page#getQuestions()
+   * @return the meta object for the containment reference '<em>Question</em>'.
+   * @see org.xtext.nordakademie.evaluation.evaluation.Page#getQuestion()
    * @see #getPage()
    * @generated
    */
-  EReference getPage_Questions();
+  EReference getPage_Question();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.nordakademie.evaluation.evaluation.Page#getNext <em>Next</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Next</em>'.
+   * @see org.xtext.nordakademie.evaluation.evaluation.Page#getNext()
+   * @see #getPage()
+   * @generated
+   */
+  EReference getPage_Next();
 
   /**
    * Returns the meta object for class '{@link org.xtext.nordakademie.evaluation.evaluation.Question <em>Question</em>}'.
@@ -788,16 +771,6 @@ public interface EvaluationPackage extends EPackage
   EAttribute getRating_RatingQuantity();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.nordakademie.evaluation.evaluation.Calendar <em>Calendar</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Calendar</em>'.
-   * @see org.xtext.nordakademie.evaluation.evaluation.Calendar
-   * @generated
-   */
-  EClass getCalendar();
-
-  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -889,12 +862,20 @@ public interface EvaluationPackage extends EPackage
     EAttribute PAGE__NAME = eINSTANCE.getPage_Name();
 
     /**
-     * The meta object literal for the '<em><b>Questions</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Question</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PAGE__QUESTIONS = eINSTANCE.getPage_Questions();
+    EReference PAGE__QUESTION = eINSTANCE.getPage_Question();
+
+    /**
+     * The meta object literal for the '<em><b>Next</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PAGE__NEXT = eINSTANCE.getPage_Next();
 
     /**
      * The meta object literal for the '{@link org.xtext.nordakademie.evaluation.evaluation.impl.QuestionImpl <em>Question</em>}' class.
@@ -1053,16 +1034,6 @@ public interface EvaluationPackage extends EPackage
      * @generated
      */
     EAttribute RATING__RATING_QUANTITY = eINSTANCE.getRating_RatingQuantity();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.nordakademie.evaluation.evaluation.impl.CalendarImpl <em>Calendar</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.nordakademie.evaluation.evaluation.impl.CalendarImpl
-     * @see org.xtext.nordakademie.evaluation.evaluation.impl.EvaluationPackageImpl#getCalendar()
-     * @generated
-     */
-    EClass CALENDAR = eINSTANCE.getCalendar();
 
   }
 

@@ -12,6 +12,7 @@ import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.generator.IGenerator;
 import org.eclipse.xtext.xbase.lib.IntegerRange;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.StringExtensions;
 import org.xtext.nordakademie.evaluation.evaluation.Chart;
 import org.xtext.nordakademie.evaluation.evaluation.Choice;
 import org.xtext.nordakademie.evaluation.evaluation.Freetext;
@@ -76,14 +77,66 @@ public class EvaluationGenerator implements IGenerator {
     _builder.append("</p>");
     _builder.newLineIfNotEmpty();
     {
-      EList<Question> _questions = page.getQuestions();
-      for(final Question question : _questions) {
-        _builder.append("\t\t\t\t\t\t");
-        CharSequence _select = this.select(question);
-        _builder.append(_select, "\t\t\t\t\t\t");
+      Page _next = page.getNext();
+      String _name = _next.getName();
+      boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_name);
+      if (_isNullOrEmpty) {
+        _builder.append("\t\t");
+        _builder.append("<form action=\"");
+        String _name_1 = page.getName();
+        String _plus = (_name_1 + ".html");
+        _builder.append(_plus, "\t\t");
+        _builder.append("\" method=\"post\">");
         _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.append("\t");
+        Question _question = page.getQuestion();
+        CharSequence _select = this.select(_question);
+        _builder.append(_select, "\t\t\t");
+        _builder.append("\t\t");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t   \t\t\t\t");
+        _builder.append("<button type=\"submit\" value=\"submit\">submit</button>");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("\t");
+        _builder.append("<button type=\"reset\" value=\"reset\">reset</button>");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("</form>\t\t\t\t\t");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("\t ");
+        _builder.newLine();
+      } else {
+        _builder.append("\t\t");
+        _builder.append("<form action=\"");
+        Page _next_1 = page.getNext();
+        String _name_2 = _next_1.getName();
+        String _plus_1 = (_name_2 + ".html");
+        _builder.append(_plus_1, "\t\t");
+        _builder.append("\" method=\"post\">");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t\t");
+        _builder.append("\t");
+        Question _question_1 = page.getQuestion();
+        CharSequence _select_1 = this.select(_question_1);
+        _builder.append(_select_1, "\t\t\t");
+        _builder.append("\t\t");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t   \t\t\t\t");
+        _builder.append("<button type=\"submit\" value=\"submit\">submit</button>");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("\t");
+        _builder.append("<button type=\"reset\" value=\"reset\">reset</button>");
+        _builder.newLine();
+        _builder.append("\t\t");
+        _builder.append("</form>\t\t\t\t\t\t\t\t");
+        _builder.newLine();
       }
     }
+    _builder.newLine();
     _builder.append("\t");
     _builder.append("</body>");
     _builder.newLine();
@@ -213,11 +266,11 @@ public class EvaluationGenerator implements IGenerator {
           for(final Graduation graduation_1 : _graduations_1) {
             _builder.append(" ");
             _builder.append("<td><input type=\"radio\" name=\"");
-            String _name = question.getName();
-            _builder.append(_name, " ");
+            String _bulletPoint_1 = choice.getBulletPoint();
+            _builder.append(_bulletPoint_1, " ");
             _builder.append("\" value=");
-            String _name_1 = choice.getName();
-            _builder.append(_name_1, " ");
+            String _statement_1 = graduation_1.getStatement();
+            _builder.append(_statement_1, " ");
             _builder.append("></td> \t");
             _builder.newLineIfNotEmpty();
           }
