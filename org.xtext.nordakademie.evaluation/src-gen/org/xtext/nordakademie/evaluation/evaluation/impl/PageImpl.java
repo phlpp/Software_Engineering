@@ -25,7 +25,8 @@ import org.xtext.nordakademie.evaluation.evaluation.Question;
  * <ul>
  *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.impl.PageImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.impl.PageImpl#getQuestion <em>Question</em>}</li>
- *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.impl.PageImpl#getNext <em>Next</em>}</li>
+ *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.impl.PageImpl#isForwarding <em>Forwarding</em>}</li>
+ *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.impl.PageImpl#getFollowingPage <em>Following Page</em>}</li>
  * </ul>
  *
  * @generated
@@ -63,14 +64,34 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page
   protected Question question;
 
   /**
-   * The cached value of the '{@link #getNext() <em>Next</em>}' reference.
+   * The default value of the '{@link #isForwarding() <em>Forwarding</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getNext()
+   * @see #isForwarding()
    * @generated
    * @ordered
    */
-  protected Page next;
+  protected static final boolean FORWARDING_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isForwarding() <em>Forwarding</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isForwarding()
+   * @generated
+   * @ordered
+   */
+  protected boolean forwarding = FORWARDING_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getFollowingPage() <em>Following Page</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFollowingPage()
+   * @generated
+   * @ordered
+   */
+  protected Page followingPage;
 
   /**
    * <!-- begin-user-doc -->
@@ -169,19 +190,42 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page
    * <!-- end-user-doc -->
    * @generated
    */
-  public Page getNext()
+  public boolean isForwarding()
   {
-    if (next != null && next.eIsProxy())
+    return forwarding;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setForwarding(boolean newForwarding)
+  {
+    boolean oldForwarding = forwarding;
+    forwarding = newForwarding;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EvaluationPackage.PAGE__FORWARDING, oldForwarding, forwarding));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Page getFollowingPage()
+  {
+    if (followingPage != null && followingPage.eIsProxy())
     {
-      InternalEObject oldNext = (InternalEObject)next;
-      next = (Page)eResolveProxy(oldNext);
-      if (next != oldNext)
+      InternalEObject oldFollowingPage = (InternalEObject)followingPage;
+      followingPage = (Page)eResolveProxy(oldFollowingPage);
+      if (followingPage != oldFollowingPage)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, EvaluationPackage.PAGE__NEXT, oldNext, next));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, EvaluationPackage.PAGE__FOLLOWING_PAGE, oldFollowingPage, followingPage));
       }
     }
-    return next;
+    return followingPage;
   }
 
   /**
@@ -189,9 +233,9 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page
    * <!-- end-user-doc -->
    * @generated
    */
-  public Page basicGetNext()
+  public Page basicGetFollowingPage()
   {
-    return next;
+    return followingPage;
   }
 
   /**
@@ -199,12 +243,12 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setNext(Page newNext)
+  public void setFollowingPage(Page newFollowingPage)
   {
-    Page oldNext = next;
-    next = newNext;
+    Page oldFollowingPage = followingPage;
+    followingPage = newFollowingPage;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EvaluationPackage.PAGE__NEXT, oldNext, next));
+      eNotify(new ENotificationImpl(this, Notification.SET, EvaluationPackage.PAGE__FOLLOWING_PAGE, oldFollowingPage, followingPage));
   }
 
   /**
@@ -237,9 +281,11 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page
         return getName();
       case EvaluationPackage.PAGE__QUESTION:
         return getQuestion();
-      case EvaluationPackage.PAGE__NEXT:
-        if (resolve) return getNext();
-        return basicGetNext();
+      case EvaluationPackage.PAGE__FORWARDING:
+        return isForwarding();
+      case EvaluationPackage.PAGE__FOLLOWING_PAGE:
+        if (resolve) return getFollowingPage();
+        return basicGetFollowingPage();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -260,8 +306,11 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page
       case EvaluationPackage.PAGE__QUESTION:
         setQuestion((Question)newValue);
         return;
-      case EvaluationPackage.PAGE__NEXT:
-        setNext((Page)newValue);
+      case EvaluationPackage.PAGE__FORWARDING:
+        setForwarding((Boolean)newValue);
+        return;
+      case EvaluationPackage.PAGE__FOLLOWING_PAGE:
+        setFollowingPage((Page)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -283,8 +332,11 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page
       case EvaluationPackage.PAGE__QUESTION:
         setQuestion((Question)null);
         return;
-      case EvaluationPackage.PAGE__NEXT:
-        setNext((Page)null);
+      case EvaluationPackage.PAGE__FORWARDING:
+        setForwarding(FORWARDING_EDEFAULT);
+        return;
+      case EvaluationPackage.PAGE__FOLLOWING_PAGE:
+        setFollowingPage((Page)null);
         return;
     }
     super.eUnset(featureID);
@@ -304,8 +356,10 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case EvaluationPackage.PAGE__QUESTION:
         return question != null;
-      case EvaluationPackage.PAGE__NEXT:
-        return next != null;
+      case EvaluationPackage.PAGE__FORWARDING:
+        return forwarding != FORWARDING_EDEFAULT;
+      case EvaluationPackage.PAGE__FOLLOWING_PAGE:
+        return followingPage != null;
     }
     return super.eIsSet(featureID);
   }
@@ -323,6 +377,8 @@ public class PageImpl extends MinimalEObjectImpl.Container implements Page
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", forwarding: ");
+    result.append(forwarding);
     result.append(')');
     return result.toString();
   }

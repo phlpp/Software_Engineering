@@ -469,7 +469,6 @@ rule__Survey__Group__4
     }
 :
 	rule__Survey__Group__4__Impl
-	rule__Survey__Group__5
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -481,45 +480,15 @@ rule__Survey__Group__4__Impl
     }
 :
 (
-{ before(grammarAccess.getSurveyAccess().getDurationAssignment_4()); }
-(rule__Survey__DurationAssignment_4)?
-{ after(grammarAccess.getSurveyAccess().getDurationAssignment_4()); }
+{ before(grammarAccess.getSurveyAccess().getPagesAssignment_4()); }
+(rule__Survey__PagesAssignment_4)*
+{ after(grammarAccess.getSurveyAccess().getPagesAssignment_4()); }
 )
 
 ;
 finally {
 	restoreStackSize(stackSize);
 }
-
-
-rule__Survey__Group__5
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-	rule__Survey__Group__5__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Survey__Group__5__Impl
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getSurveyAccess().getPagesAssignment_5()); }
-(rule__Survey__PagesAssignment_5)*
-{ after(grammarAccess.getSurveyAccess().getPagesAssignment_5()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
 
 
 
@@ -741,11 +710,9 @@ rule__Page__Group_4__0__Impl
     }
 :
 (
-{ before(grammarAccess.getPageAccess().getNextKeyword_4_0()); }
-
-	'-next->' 
-
-{ after(grammarAccess.getPageAccess().getNextKeyword_4_0()); }
+{ before(grammarAccess.getPageAccess().getForwardingAssignment_4_0()); }
+(rule__Page__ForwardingAssignment_4_0)
+{ after(grammarAccess.getPageAccess().getForwardingAssignment_4_0()); }
 )
 
 ;
@@ -771,9 +738,9 @@ rule__Page__Group_4__1__Impl
     }
 :
 (
-{ before(grammarAccess.getPageAccess().getNextAssignment_4_1()); }
-(rule__Page__NextAssignment_4_1)
-{ after(grammarAccess.getPageAccess().getNextAssignment_4_1()); }
+{ before(grammarAccess.getPageAccess().getFollowingPageAssignment_4_1()); }
+(rule__Page__FollowingPageAssignment_4_1)
+{ after(grammarAccess.getPageAccess().getFollowingPageAssignment_4_1()); }
 )
 
 ;
@@ -1716,29 +1683,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Survey__DurationAssignment_4
+rule__Survey__PagesAssignment_4
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getSurveyAccess().getDurationSTRINGTerminalRuleCall_4_0()); }
-	RULE_STRING{ after(grammarAccess.getSurveyAccess().getDurationSTRINGTerminalRuleCall_4_0()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__Survey__PagesAssignment_5
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getSurveyAccess().getPagesPageParserRuleCall_5_0()); }
-	rulePage{ after(grammarAccess.getSurveyAccess().getPagesPageParserRuleCall_5_0()); }
+{ before(grammarAccess.getSurveyAccess().getPagesPageParserRuleCall_4_0()); }
+	rulePage{ after(grammarAccess.getSurveyAccess().getPagesPageParserRuleCall_4_0()); }
 )
 
 ;
@@ -1776,18 +1728,41 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__Page__NextAssignment_4_1
+rule__Page__ForwardingAssignment_4_0
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getPageAccess().getNextPageCrossReference_4_1_0()); }
+{ before(grammarAccess.getPageAccess().getForwardingForwardingToKeyword_4_0_0()); }
 (
-{ before(grammarAccess.getPageAccess().getNextPageIDTerminalRuleCall_4_1_0_1()); }
-	RULE_ID{ after(grammarAccess.getPageAccess().getNextPageIDTerminalRuleCall_4_1_0_1()); }
+{ before(grammarAccess.getPageAccess().getForwardingForwardingToKeyword_4_0_0()); }
+
+	'forwarding to ->' 
+
+{ after(grammarAccess.getPageAccess().getForwardingForwardingToKeyword_4_0_0()); }
 )
-{ after(grammarAccess.getPageAccess().getNextPageCrossReference_4_1_0()); }
+
+{ after(grammarAccess.getPageAccess().getForwardingForwardingToKeyword_4_0_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__Page__FollowingPageAssignment_4_1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getPageAccess().getFollowingPagePageCrossReference_4_1_0()); }
+(
+{ before(grammarAccess.getPageAccess().getFollowingPagePageIDTerminalRuleCall_4_1_0_1()); }
+	RULE_ID{ after(grammarAccess.getPageAccess().getFollowingPagePageIDTerminalRuleCall_4_1_0_1()); }
+)
+{ after(grammarAccess.getPageAccess().getFollowingPagePageCrossReference_4_1_0()); }
 )
 
 ;

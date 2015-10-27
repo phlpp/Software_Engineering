@@ -8,7 +8,7 @@ Survey:
 	title=STRING
 	(greeting=STRING)?
 	//total time estimated for survey: tbd
-	(duration=STRING)?
+	//(duration=STRING)?
 	pages+=Page*
 ;
 
@@ -16,13 +16,13 @@ Page:
 	'page' name=ID '('
 	question=Question
 	//referred page
-	('-next->' next=[Page|ID])?	
+	(forwarding?='forwarding to ->' followingPage=[Page|ID])?	
 	')'
 ;
 	
 Question:
 	Freetext | Selection | Chart | Rating 
-//	| Calendar
+//	| Calendar:tbd
 ;
 
 Freetext:
@@ -50,7 +50,7 @@ Rating:
 	'rating' name=ID question=STRING ratingQuantity=INT
 ;
 
-//Calendar:
+//Calendar:tbd
 //	'calendar' name=ID question=STRING
 //;
 

@@ -38,16 +38,16 @@ class EvaluationGenerator implements IGenerator {
 			<body>
 				<h1>«survey.title»</h1>
 				<p>«survey.greeting»</p>
-«««				next page if existing (Nullpointer if not existing)
-				«IF page.next.name.isNullOrEmpty»
-					<form action="«page.name + '.html'»" method="post">
+«««				next page if existing
+				«IF page.forwarding»
+					<form action="«page.followingPage.name + '.html'»" method="post">
+«««					one question per page
 						«select(page.question)»		
 	   				<button type="submit" value="submit">submit</button>
 						<button type="reset" value="reset">reset</button>
-					</form>					
-						 
+					</form>															 
 				«ELSE»
-					<form action="«page.next.name + '.html'»" method="post">
+					<form action="«page.name + '.html'»" method="post">
 						«select(page.question)»		
 	   				<button type="submit" value="submit">submit</button>
 						<button type="reset" value="reset">reset</button>
@@ -87,14 +87,14 @@ class EvaluationGenerator implements IGenerator {
 			
 			
 			<table> 
-		«««				first row with graduation statements
+		«««		first row with graduation statements
 				<tr> 
 					<th>&nbsp;</th>
 		«FOR graduation : question.graduations»
 		<th>«graduation.statement»</th>
 		«ENDFOR»
 		</tr> 
-		«««				rows with choices and radio buttons
+		«««		rows with choices and radio buttons
 				«FOR choice : question.choices»
 			<tr>
 			<td>«choice.bulletPoint»</td>

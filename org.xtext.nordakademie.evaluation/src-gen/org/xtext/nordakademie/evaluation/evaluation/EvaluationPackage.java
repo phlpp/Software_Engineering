@@ -94,22 +94,13 @@ public interface EvaluationPackage extends EPackage
   int SURVEY__GREETING = 2;
 
   /**
-   * The feature id for the '<em><b>Duration</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SURVEY__DURATION = 3;
-
-  /**
    * The feature id for the '<em><b>Pages</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SURVEY__PAGES = 4;
+  int SURVEY__PAGES = 3;
 
   /**
    * The number of structural features of the '<em>Survey</em>' class.
@@ -118,7 +109,7 @@ public interface EvaluationPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SURVEY_FEATURE_COUNT = 5;
+  int SURVEY_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link org.xtext.nordakademie.evaluation.evaluation.impl.PageImpl <em>Page</em>}' class.
@@ -149,13 +140,22 @@ public interface EvaluationPackage extends EPackage
   int PAGE__QUESTION = 1;
 
   /**
-   * The feature id for the '<em><b>Next</b></em>' reference.
+   * The feature id for the '<em><b>Forwarding</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PAGE__NEXT = 2;
+  int PAGE__FORWARDING = 2;
+
+  /**
+   * The feature id for the '<em><b>Following Page</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PAGE__FOLLOWING_PAGE = 3;
 
   /**
    * The number of structural features of the '<em>Page</em>' class.
@@ -164,7 +164,7 @@ public interface EvaluationPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PAGE_FEATURE_COUNT = 3;
+  int PAGE_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link org.xtext.nordakademie.evaluation.evaluation.impl.QuestionImpl <em>Question</em>}' class.
@@ -515,17 +515,6 @@ public interface EvaluationPackage extends EPackage
   EAttribute getSurvey_Greeting();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.nordakademie.evaluation.evaluation.Survey#getDuration <em>Duration</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Duration</em>'.
-   * @see org.xtext.nordakademie.evaluation.evaluation.Survey#getDuration()
-   * @see #getSurvey()
-   * @generated
-   */
-  EAttribute getSurvey_Duration();
-
-  /**
    * Returns the meta object for the containment reference list '{@link org.xtext.nordakademie.evaluation.evaluation.Survey#getPages <em>Pages</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -569,15 +558,26 @@ public interface EvaluationPackage extends EPackage
   EReference getPage_Question();
 
   /**
-   * Returns the meta object for the reference '{@link org.xtext.nordakademie.evaluation.evaluation.Page#getNext <em>Next</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.nordakademie.evaluation.evaluation.Page#isForwarding <em>Forwarding</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Next</em>'.
-   * @see org.xtext.nordakademie.evaluation.evaluation.Page#getNext()
+   * @return the meta object for the attribute '<em>Forwarding</em>'.
+   * @see org.xtext.nordakademie.evaluation.evaluation.Page#isForwarding()
    * @see #getPage()
    * @generated
    */
-  EReference getPage_Next();
+  EAttribute getPage_Forwarding();
+
+  /**
+   * Returns the meta object for the reference '{@link org.xtext.nordakademie.evaluation.evaluation.Page#getFollowingPage <em>Following Page</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Following Page</em>'.
+   * @see org.xtext.nordakademie.evaluation.evaluation.Page#getFollowingPage()
+   * @see #getPage()
+   * @generated
+   */
+  EReference getPage_FollowingPage();
 
   /**
    * Returns the meta object for class '{@link org.xtext.nordakademie.evaluation.evaluation.Question <em>Question</em>}'.
@@ -828,14 +828,6 @@ public interface EvaluationPackage extends EPackage
     EAttribute SURVEY__GREETING = eINSTANCE.getSurvey_Greeting();
 
     /**
-     * The meta object literal for the '<em><b>Duration</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SURVEY__DURATION = eINSTANCE.getSurvey_Duration();
-
-    /**
      * The meta object literal for the '<em><b>Pages</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -870,12 +862,20 @@ public interface EvaluationPackage extends EPackage
     EReference PAGE__QUESTION = eINSTANCE.getPage_Question();
 
     /**
-     * The meta object literal for the '<em><b>Next</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Forwarding</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PAGE__NEXT = eINSTANCE.getPage_Next();
+    EAttribute PAGE__FORWARDING = eINSTANCE.getPage_Forwarding();
+
+    /**
+     * The meta object literal for the '<em><b>Following Page</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PAGE__FOLLOWING_PAGE = eINSTANCE.getPage_FollowingPage();
 
     /**
      * The meta object literal for the '{@link org.xtext.nordakademie.evaluation.evaluation.impl.QuestionImpl <em>Question</em>}' class.

@@ -137,35 +137,17 @@ ruleSurvey returns [EObject current=null]
 )
 )?(
 (
-		lv_duration_4_0=RULE_STRING
-		{
-			newLeafNode(lv_duration_4_0, grammarAccess.getSurveyAccess().getDurationSTRINGTerminalRuleCall_4_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getSurveyRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"duration",
-        		lv_duration_4_0, 
-        		"STRING");
-	    }
-
-)
-)?(
-(
 		{ 
-	        newCompositeNode(grammarAccess.getSurveyAccess().getPagesPageParserRuleCall_5_0()); 
+	        newCompositeNode(grammarAccess.getSurveyAccess().getPagesPageParserRuleCall_4_0()); 
 	    }
-		lv_pages_5_0=rulePage		{
+		lv_pages_4_0=rulePage		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getSurveyRule());
 	        }
        		add(
        			$current, 
        			"pages",
-        		lv_pages_5_0, 
+        		lv_pages_4_0, 
         		"Page");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -236,11 +218,22 @@ rulePage returns [EObject current=null]
 	    }
 
 )
-)(	otherlv_4='-next->' 
-    {
-    	newLeafNode(otherlv_4, grammarAccess.getPageAccess().getNextKeyword_4_0());
-    }
+)((
 (
+		lv_forwarding_4_0=	'forwarding to ->' 
+    {
+        newLeafNode(lv_forwarding_4_0, grammarAccess.getPageAccess().getForwardingForwardingToKeyword_4_0_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getPageRule());
+	        }
+       		setWithLastConsumed($current, "forwarding", true, "forwarding to ->");
+	    }
+
+)
+)(
 (
 		{
 			if ($current==null) {
@@ -249,7 +242,7 @@ rulePage returns [EObject current=null]
         }
 	otherlv_5=RULE_ID
 	{
-		newLeafNode(otherlv_5, grammarAccess.getPageAccess().getNextPageCrossReference_4_1_0()); 
+		newLeafNode(otherlv_5, grammarAccess.getPageAccess().getFollowingPagePageCrossReference_4_1_0()); 
 	}
 
 )

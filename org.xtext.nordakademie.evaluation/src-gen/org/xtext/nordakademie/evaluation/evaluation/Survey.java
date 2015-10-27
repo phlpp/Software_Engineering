@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.Survey#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.Survey#getTitle <em>Title</em>}</li>
  *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.Survey#getGreeting <em>Greeting</em>}</li>
- *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.Survey#getDuration <em>Duration</em>}</li>
  *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.Survey#getPages <em>Pages</em>}</li>
  * </ul>
  *
@@ -105,32 +104,6 @@ public interface Survey extends EObject
    * @generated
    */
   void setGreeting(String value);
-
-  /**
-   * Returns the value of the '<em><b>Duration</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Duration</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Duration</em>' attribute.
-   * @see #setDuration(String)
-   * @see org.xtext.nordakademie.evaluation.evaluation.EvaluationPackage#getSurvey_Duration()
-   * @model
-   * @generated
-   */
-  String getDuration();
-
-  /**
-   * Sets the value of the '{@link org.xtext.nordakademie.evaluation.evaluation.Survey#getDuration <em>Duration</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Duration</em>' attribute.
-   * @see #getDuration()
-   * @generated
-   */
-  void setDuration(String value);
 
   /**
    * Returns the value of the '<em><b>Pages</b></em>' containment reference list.

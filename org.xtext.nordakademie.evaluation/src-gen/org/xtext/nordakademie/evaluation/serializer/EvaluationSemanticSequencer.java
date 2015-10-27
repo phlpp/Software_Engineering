@@ -112,7 +112,7 @@ public class EvaluationSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (name=ID question=Question next=[Page|ID]?)
+	 *     (name=ID question=Question (forwarding?='forwarding to ->' followingPage=[Page|ID])?)
 	 */
 	protected void sequence_Page(EObject context, Page semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -152,7 +152,7 @@ public class EvaluationSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (name=ID title=STRING greeting=STRING? duration=STRING? pages+=Page*)
+	 *     (name=ID title=STRING greeting=STRING? pages+=Page*)
 	 */
 	protected void sequence_Survey(EObject context, Survey semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

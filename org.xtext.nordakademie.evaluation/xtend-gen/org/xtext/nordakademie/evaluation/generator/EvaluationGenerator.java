@@ -12,7 +12,6 @@ import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.generator.IGenerator;
 import org.eclipse.xtext.xbase.lib.IntegerRange;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
-import org.eclipse.xtext.xbase.lib.StringExtensions;
 import org.xtext.nordakademie.evaluation.evaluation.Chart;
 import org.xtext.nordakademie.evaluation.evaluation.Choice;
 import org.xtext.nordakademie.evaluation.evaluation.Freetext;
@@ -77,14 +76,13 @@ public class EvaluationGenerator implements IGenerator {
     _builder.append("</p>");
     _builder.newLineIfNotEmpty();
     {
-      Page _next = page.getNext();
-      String _name = _next.getName();
-      boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(_name);
-      if (_isNullOrEmpty) {
+      boolean _isForwarding = page.isForwarding();
+      if (_isForwarding) {
         _builder.append("\t\t");
         _builder.append("<form action=\"");
-        String _name_1 = page.getName();
-        String _plus = (_name_1 + ".html");
+        Page _followingPage = page.getFollowingPage();
+        String _name = _followingPage.getName();
+        String _plus = (_name + ".html");
         _builder.append(_plus, "\t\t");
         _builder.append("\" method=\"post\">");
         _builder.newLineIfNotEmpty();
@@ -103,17 +101,13 @@ public class EvaluationGenerator implements IGenerator {
         _builder.append("<button type=\"reset\" value=\"reset\">reset</button>");
         _builder.newLine();
         _builder.append("\t\t");
-        _builder.append("</form>\t\t\t\t\t");
-        _builder.newLine();
-        _builder.append("\t\t");
-        _builder.append("\t ");
+        _builder.append("</form>\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ");
         _builder.newLine();
       } else {
         _builder.append("\t\t");
         _builder.append("<form action=\"");
-        Page _next_1 = page.getNext();
-        String _name_2 = _next_1.getName();
-        String _plus_1 = (_name_2 + ".html");
+        String _name_1 = page.getName();
+        String _plus_1 = (_name_1 + ".html");
         _builder.append(_plus_1, "\t\t");
         _builder.append("\" method=\"post\">");
         _builder.newLineIfNotEmpty();

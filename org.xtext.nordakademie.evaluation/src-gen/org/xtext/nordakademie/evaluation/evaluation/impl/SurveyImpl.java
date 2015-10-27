@@ -33,7 +33,6 @@ import org.xtext.nordakademie.evaluation.evaluation.Survey;
  *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.impl.SurveyImpl#getName <em>Name</em>}</li>
  *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.impl.SurveyImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.impl.SurveyImpl#getGreeting <em>Greeting</em>}</li>
- *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.impl.SurveyImpl#getDuration <em>Duration</em>}</li>
  *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.impl.SurveyImpl#getPages <em>Pages</em>}</li>
  * </ul>
  *
@@ -100,26 +99,6 @@ public class SurveyImpl extends MinimalEObjectImpl.Container implements Survey
    * @ordered
    */
   protected String greeting = GREETING_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getDuration() <em>Duration</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDuration()
-   * @generated
-   * @ordered
-   */
-  protected static final String DURATION_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getDuration() <em>Duration</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDuration()
-   * @generated
-   * @ordered
-   */
-  protected String duration = DURATION_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getPages() <em>Pages</em>}' containment reference list.
@@ -226,29 +205,6 @@ public class SurveyImpl extends MinimalEObjectImpl.Container implements Survey
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getDuration()
-  {
-    return duration;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setDuration(String newDuration)
-  {
-    String oldDuration = duration;
-    duration = newDuration;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EvaluationPackage.SURVEY__DURATION, oldDuration, duration));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<Page> getPages()
   {
     if (pages == null)
@@ -290,8 +246,6 @@ public class SurveyImpl extends MinimalEObjectImpl.Container implements Survey
         return getTitle();
       case EvaluationPackage.SURVEY__GREETING:
         return getGreeting();
-      case EvaluationPackage.SURVEY__DURATION:
-        return getDuration();
       case EvaluationPackage.SURVEY__PAGES:
         return getPages();
     }
@@ -317,9 +271,6 @@ public class SurveyImpl extends MinimalEObjectImpl.Container implements Survey
         return;
       case EvaluationPackage.SURVEY__GREETING:
         setGreeting((String)newValue);
-        return;
-      case EvaluationPackage.SURVEY__DURATION:
-        setDuration((String)newValue);
         return;
       case EvaluationPackage.SURVEY__PAGES:
         getPages().clear();
@@ -348,9 +299,6 @@ public class SurveyImpl extends MinimalEObjectImpl.Container implements Survey
       case EvaluationPackage.SURVEY__GREETING:
         setGreeting(GREETING_EDEFAULT);
         return;
-      case EvaluationPackage.SURVEY__DURATION:
-        setDuration(DURATION_EDEFAULT);
-        return;
       case EvaluationPackage.SURVEY__PAGES:
         getPages().clear();
         return;
@@ -374,8 +322,6 @@ public class SurveyImpl extends MinimalEObjectImpl.Container implements Survey
         return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
       case EvaluationPackage.SURVEY__GREETING:
         return GREETING_EDEFAULT == null ? greeting != null : !GREETING_EDEFAULT.equals(greeting);
-      case EvaluationPackage.SURVEY__DURATION:
-        return DURATION_EDEFAULT == null ? duration != null : !DURATION_EDEFAULT.equals(duration);
       case EvaluationPackage.SURVEY__PAGES:
         return pages != null && !pages.isEmpty();
     }
@@ -399,8 +345,6 @@ public class SurveyImpl extends MinimalEObjectImpl.Container implements Survey
     result.append(title);
     result.append(", greeting: ");
     result.append(greeting);
-    result.append(", duration: ");
-    result.append(duration);
     result.append(')');
     return result.toString();
   }

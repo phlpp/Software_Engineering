@@ -11,13 +11,13 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Survey/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Survey/title"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Survey/greeting"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Survey/duration"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Evaluation.ecore#//Survey/pages"/>
     </genClasses>
     <genClasses ecoreClass="Evaluation.ecore#//Page">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Page/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Evaluation.ecore#//Page/question"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Evaluation.ecore#//Page/next"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Page/forwarding"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Evaluation.ecore#//Page/followingPage"/>
     </genClasses>
     <genClasses ecoreClass="Evaluation.ecore#//Question">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Question/name"/>

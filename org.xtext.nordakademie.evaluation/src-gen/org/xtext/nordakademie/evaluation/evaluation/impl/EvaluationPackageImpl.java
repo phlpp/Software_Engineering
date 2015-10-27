@@ -200,19 +200,9 @@ public class EvaluationPackageImpl extends EPackageImpl implements EvaluationPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getSurvey_Duration()
-  {
-    return (EAttribute)surveyEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getSurvey_Pages()
   {
-    return (EReference)surveyEClass.getEStructuralFeatures().get(4);
+    return (EReference)surveyEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -250,9 +240,19 @@ public class EvaluationPackageImpl extends EPackageImpl implements EvaluationPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPage_Next()
+  public EAttribute getPage_Forwarding()
   {
-    return (EReference)pageEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)pageEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPage_FollowingPage()
+  {
+    return (EReference)pageEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -469,13 +469,13 @@ public class EvaluationPackageImpl extends EPackageImpl implements EvaluationPac
     createEAttribute(surveyEClass, SURVEY__NAME);
     createEAttribute(surveyEClass, SURVEY__TITLE);
     createEAttribute(surveyEClass, SURVEY__GREETING);
-    createEAttribute(surveyEClass, SURVEY__DURATION);
     createEReference(surveyEClass, SURVEY__PAGES);
 
     pageEClass = createEClass(PAGE);
     createEAttribute(pageEClass, PAGE__NAME);
     createEReference(pageEClass, PAGE__QUESTION);
-    createEReference(pageEClass, PAGE__NEXT);
+    createEAttribute(pageEClass, PAGE__FORWARDING);
+    createEReference(pageEClass, PAGE__FOLLOWING_PAGE);
 
     questionEClass = createEClass(QUESTION);
     createEAttribute(questionEClass, QUESTION__NAME);
@@ -542,13 +542,13 @@ public class EvaluationPackageImpl extends EPackageImpl implements EvaluationPac
     initEAttribute(getSurvey_Name(), ecorePackage.getEString(), "name", null, 0, 1, Survey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getSurvey_Title(), ecorePackage.getEString(), "title", null, 0, 1, Survey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getSurvey_Greeting(), ecorePackage.getEString(), "greeting", null, 0, 1, Survey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getSurvey_Duration(), ecorePackage.getEString(), "duration", null, 0, 1, Survey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSurvey_Pages(), this.getPage(), null, "pages", null, 0, -1, Survey.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(pageEClass, Page.class, "Page", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPage_Name(), ecorePackage.getEString(), "name", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPage_Question(), this.getQuestion(), null, "question", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPage_Next(), this.getPage(), null, "next", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPage_Forwarding(), ecorePackage.getEBoolean(), "forwarding", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPage_FollowingPage(), this.getPage(), null, "followingPage", null, 0, 1, Page.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(questionEClass, Question.class, "Question", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getQuestion_Name(), ecorePackage.getEString(), "name", null, 0, 1, Question.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

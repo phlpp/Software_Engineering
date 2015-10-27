@@ -28,18 +28,18 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cTitleSTRINGTerminalRuleCall_2_0 = (RuleCall)cTitleAssignment_2.eContents().get(0);
 		private final Assignment cGreetingAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cGreetingSTRINGTerminalRuleCall_3_0 = (RuleCall)cGreetingAssignment_3.eContents().get(0);
-		private final Assignment cDurationAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cDurationSTRINGTerminalRuleCall_4_0 = (RuleCall)cDurationAssignment_4.eContents().get(0);
-		private final Assignment cPagesAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cPagesPageParserRuleCall_5_0 = (RuleCall)cPagesAssignment_5.eContents().get(0);
+		private final Assignment cPagesAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cPagesPageParserRuleCall_4_0 = (RuleCall)cPagesAssignment_4.eContents().get(0);
 		
 		//Survey:
 		//	"survey" name=ID title=STRING greeting=STRING? //total time estimated for survey: tbd
-		//	duration=STRING? pages+=Page*;
+		//	//(duration=STRING)?
+		//	pages+=Page*;
 		@Override public ParserRule getRule() { return rule; }
 
 		//"survey" name=ID title=STRING greeting=STRING? //total time estimated for survey: tbd
-		//duration=STRING? pages+=Page*
+		////(duration=STRING)?
+		//pages+=Page*
 		public Group getGroup() { return cGroup; }
 
 		//"survey"
@@ -63,17 +63,13 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getGreetingSTRINGTerminalRuleCall_3_0() { return cGreetingSTRINGTerminalRuleCall_3_0; }
 
-		//duration=STRING?
-		public Assignment getDurationAssignment_4() { return cDurationAssignment_4; }
-
-		//STRING
-		public RuleCall getDurationSTRINGTerminalRuleCall_4_0() { return cDurationSTRINGTerminalRuleCall_4_0; }
-
+		////total time estimated for survey: tbd
+		////(duration=STRING)?
 		//pages+=Page*
-		public Assignment getPagesAssignment_5() { return cPagesAssignment_5; }
+		public Assignment getPagesAssignment_4() { return cPagesAssignment_4; }
 
 		//Page
-		public RuleCall getPagesPageParserRuleCall_5_0() { return cPagesPageParserRuleCall_5_0; }
+		public RuleCall getPagesPageParserRuleCall_4_0() { return cPagesPageParserRuleCall_4_0; }
 	}
 
 	public class PageElements extends AbstractParserRuleElementFinder {
@@ -86,19 +82,20 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cQuestionAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cQuestionQuestionParserRuleCall_3_0 = (RuleCall)cQuestionAssignment_3.eContents().get(0);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
-		private final Keyword cNextKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final Assignment cNextAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final CrossReference cNextPageCrossReference_4_1_0 = (CrossReference)cNextAssignment_4_1.eContents().get(0);
-		private final RuleCall cNextPageIDTerminalRuleCall_4_1_0_1 = (RuleCall)cNextPageCrossReference_4_1_0.eContents().get(1);
+		private final Assignment cForwardingAssignment_4_0 = (Assignment)cGroup_4.eContents().get(0);
+		private final Keyword cForwardingForwardingToKeyword_4_0_0 = (Keyword)cForwardingAssignment_4_0.eContents().get(0);
+		private final Assignment cFollowingPageAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final CrossReference cFollowingPagePageCrossReference_4_1_0 = (CrossReference)cFollowingPageAssignment_4_1.eContents().get(0);
+		private final RuleCall cFollowingPagePageIDTerminalRuleCall_4_1_0_1 = (RuleCall)cFollowingPagePageCrossReference_4_1_0.eContents().get(1);
 		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//Page:
 		//	"page" name=ID "(" question=Question //referred page
-		//	("-next->" next=[Page])? ")";
+		//	(forwarding?="forwarding to ->" followingPage=[Page])? ")";
 		@Override public ParserRule getRule() { return rule; }
 
 		//"page" name=ID "(" question=Question //referred page
-		//("-next->" next=[Page])? ")"
+		//(forwarding?="forwarding to ->" followingPage=[Page])? ")"
 		public Group getGroup() { return cGroup; }
 
 		//"page"
@@ -119,20 +116,23 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		//Question
 		public RuleCall getQuestionQuestionParserRuleCall_3_0() { return cQuestionQuestionParserRuleCall_3_0; }
 
-		//("-next->" next=[Page])?
+		//(forwarding?="forwarding to ->" followingPage=[Page])?
 		public Group getGroup_4() { return cGroup_4; }
 
-		//"-next->"
-		public Keyword getNextKeyword_4_0() { return cNextKeyword_4_0; }
+		//forwarding?="forwarding to ->"
+		public Assignment getForwardingAssignment_4_0() { return cForwardingAssignment_4_0; }
 
-		//next=[Page]
-		public Assignment getNextAssignment_4_1() { return cNextAssignment_4_1; }
+		//"forwarding to ->"
+		public Keyword getForwardingForwardingToKeyword_4_0_0() { return cForwardingForwardingToKeyword_4_0_0; }
+
+		//followingPage=[Page]
+		public Assignment getFollowingPageAssignment_4_1() { return cFollowingPageAssignment_4_1; }
 
 		//[Page]
-		public CrossReference getNextPageCrossReference_4_1_0() { return cNextPageCrossReference_4_1_0; }
+		public CrossReference getFollowingPagePageCrossReference_4_1_0() { return cFollowingPagePageCrossReference_4_1_0; }
 
 		//ID
-		public RuleCall getNextPageIDTerminalRuleCall_4_1_0_1() { return cNextPageIDTerminalRuleCall_4_1_0_1; }
+		public RuleCall getFollowingPagePageIDTerminalRuleCall_4_1_0_1() { return cFollowingPagePageIDTerminalRuleCall_4_1_0_1; }
 
 		//")"
 		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
@@ -146,7 +146,7 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cChartParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cRatingParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
-		////	| Calendar
+		////	| Calendar:tbd
 		//Question:
 		//	Freetext | Selection | Chart | Rating;
 		@Override public ParserRule getRule() { return rule; }
@@ -392,7 +392,7 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRatingQuantityAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cRatingQuantityINTTerminalRuleCall_3_0 = (RuleCall)cRatingQuantityAssignment_3.eContents().get(0);
 		
-		////Calendar:
+		////Calendar:tbd
 		////	'calendar' name=ID question=STRING
 		////;
 		//Rating:
@@ -484,7 +484,8 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Survey:
 	//	"survey" name=ID title=STRING greeting=STRING? //total time estimated for survey: tbd
-	//	duration=STRING? pages+=Page*;
+	//	//(duration=STRING)?
+	//	pages+=Page*;
 	public SurveyElements getSurveyAccess() {
 		return pSurvey;
 	}
@@ -495,7 +496,7 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 
 	//Page:
 	//	"page" name=ID "(" question=Question //referred page
-	//	("-next->" next=[Page])? ")";
+	//	(forwarding?="forwarding to ->" followingPage=[Page])? ")";
 	public PageElements getPageAccess() {
 		return pPage;
 	}
@@ -504,7 +505,7 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		return getPageAccess().getRule();
 	}
 
-	////	| Calendar
+	////	| Calendar:tbd
 	//Question:
 	//	Freetext | Selection | Chart | Rating;
 	public QuestionElements getQuestionAccess() {
@@ -565,7 +566,7 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		return getGraduationAccess().getRule();
 	}
 
-	////Calendar:
+	////Calendar:tbd
 	////	'calendar' name=ID question=STRING
 	////;
 	//Rating:
