@@ -3,7 +3,15 @@
  */
 package org.xtext.nordakademie.evaluation.validation
 
-//import org.eclipse.xtext.validation.Check
+import org.eclipse.xtext.validation.Check
+
+import static org.xtext.nordakademie.evaluation.evaluation.EvaluationPackage.Literals.*
+
+import org.xtext.nordakademie.evaluation.evaluation.Question
+import org.xtext.nordakademie.evaluation.evaluation.Choice
+import org.xtext.nordakademie.evaluation.evaluation.Selection
+import org.xtext.nordakademie.evaluation.evaluation.Chart
+
 
 /**
  * This class contains custom validation rules. 
@@ -12,14 +20,45 @@ package org.xtext.nordakademie.evaluation.validation
  */
 class EvaluationValidator extends AbstractEvaluationValidator {
 
-//  public static val INVALID_NAME = 'invalidName'
-//
-//	@Check
-//	def checkGreetingStartsWithCapital(Greeting greeting) {
-//		if (!Character.isUpperCase(greeting.name.charAt(0))) {
-//			warning('Name should start with a capital', 
-//					MyDslPackage.Literals.GREETING__NAME,
-//					INVALID_NAME)
-//		}
-//	}
+// Es darf keine leeren Fragen geben
+	@Check
+	def textMustNotBeEmpty(Question question) {
+		if(question.question.isEmpty){
+			error("Please insert a question", QUESTION__QUESTION)
+		}
+	}
+
+// Es darf keine leerern Bullet Points geben	
+	@Check
+	def textMustNotBeEmpty(Choice choice) {
+		if(choice.bulletPoint.isEmpty) {
+			error("Please insert a bullet point", CHOICE__BULLET_POINT)
+		}
+	}
+	
+// Es dürfen keine doppelten Bullet Points vorhanden sein (derzeit nur bei Selection)
+	@Check 
+	def duplicateChoiceBulletPoint(Selection question) {
+		var nameToChoice = newHashMap
+		for(choice: question.choices) {
+			val choiceWithSameName = nameToChoice.put(choice.bulletPoint, choice)
+			if(choiceWithSameName != null) {
+				error("Duplicate Bullet Point", choice, CHOICE__BULLET_POINT)
+				error("Duplicate Bullet Point", choiceWithSameName, CHOICE__BULLET_POINT)
+			}
+		}
+	}
+	
+// Es dürfen keine doppelten Bewertungen in Charts vorhanden sein
+	@Check 
+	def duplicateChartGraduation(Chart question) {
+		var nameToGraduation = newHashMap
+		for(graduation: question.graduations) {
+			val graduationWithSameName = nameToGraduation.put(graduation.statement, graduation)
+			if(graduationWithSameName != null) {
+				error("Duplicate Graduation", graduation, GRADUATION__STATEMENT)
+				error("Duplicate Graduation", graduationWithSameName, GRADUATION__STATEMENT)
+			}
+		}
+	}
 }
