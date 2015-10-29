@@ -78,54 +78,46 @@ public class EvaluationGenerator implements IGenerator {
     {
       boolean _isForwarding = page.isForwarding();
       if (_isForwarding) {
-        _builder.append("\t\t");
         _builder.append("<form action=\"");
         Page _followingPage = page.getFollowingPage();
         String _name = _followingPage.getName();
         String _plus = (_name + ".html");
-        _builder.append(_plus, "\t\t");
+        _builder.append(_plus, "");
         _builder.append("\" method=\"post\">");
         _builder.newLineIfNotEmpty();
-        _builder.append("\t\t");
-        _builder.append("\t");
+        _builder.append("\t\t\t\t\t\t");
         Question _question = page.getQuestion();
         CharSequence _select = this.select(_question);
-        _builder.append(_select, "\t\t\t");
+        _builder.append(_select, "\t\t\t\t\t\t");
         _builder.append("\t\t");
         _builder.newLineIfNotEmpty();
         _builder.append("\t   \t\t\t\t");
         _builder.append("<button type=\"submit\" value=\"submit\">submit</button>");
         _builder.newLine();
-        _builder.append("\t\t");
         _builder.append("\t");
         _builder.append("<button type=\"reset\" value=\"reset\">reset</button>");
         _builder.newLine();
-        _builder.append("\t\t");
         _builder.append("</form>\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ");
         _builder.newLine();
       } else {
-        _builder.append("\t\t");
         _builder.append("<form action=\"");
         String _name_1 = page.getName();
         String _plus_1 = (_name_1 + ".html");
-        _builder.append(_plus_1, "\t\t");
+        _builder.append(_plus_1, "");
         _builder.append("\" method=\"post\">");
         _builder.newLineIfNotEmpty();
-        _builder.append("\t\t");
         _builder.append("\t");
         Question _question_1 = page.getQuestion();
         CharSequence _select_1 = this.select(_question_1);
-        _builder.append(_select_1, "\t\t\t");
+        _builder.append(_select_1, "\t");
         _builder.append("\t\t");
         _builder.newLineIfNotEmpty();
         _builder.append("\t   \t\t\t\t");
         _builder.append("<button type=\"submit\" value=\"submit\">submit</button>");
         _builder.newLine();
-        _builder.append("\t\t");
         _builder.append("\t");
         _builder.append("<button type=\"reset\" value=\"reset\">reset</button>");
         _builder.newLine();
-        _builder.append("\t\t");
         _builder.append("</form>\t\t\t\t\t\t\t\t");
         _builder.newLine();
       }
@@ -221,28 +213,26 @@ public class EvaluationGenerator implements IGenerator {
     _builder.append("<style> table, td, th { border: 1px solid black; } </style>");
     _builder.newLine();
     _builder.append("\t");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.newLine();
-    _builder.append("\t");
     _builder.append("<table> ");
     _builder.newLine();
     _builder.append("\t\t\t\t");
     _builder.append("<tr> ");
     _builder.newLine();
-    _builder.append("\t\t\t");
+    _builder.append("\t\t");
     _builder.append("<th>&nbsp;</th>");
     _builder.newLine();
     {
       EList<Graduation> _graduations = question.getGraduations();
       for(final Graduation graduation : _graduations) {
+        _builder.append("\t\t");
         _builder.append("<th>");
         String _statement = graduation.getStatement();
-        _builder.append(_statement, "");
+        _builder.append(_statement, "\t\t");
         _builder.append("</th>");
         _builder.newLineIfNotEmpty();
       }
     }
+    _builder.append("\t");
     _builder.append("</tr> ");
     _builder.newLine();
     {
@@ -250,21 +240,22 @@ public class EvaluationGenerator implements IGenerator {
       for(final Choice choice : _choices) {
         _builder.append("<tr>");
         _builder.newLine();
+        _builder.append("\t");
         _builder.append("<td>");
         String _bulletPoint = choice.getBulletPoint();
-        _builder.append(_bulletPoint, "");
+        _builder.append(_bulletPoint, "\t");
         _builder.append("</td>");
         _builder.newLineIfNotEmpty();
         {
           EList<Graduation> _graduations_1 = question.getGraduations();
           for(final Graduation graduation_1 : _graduations_1) {
-            _builder.append(" ");
+            _builder.append(" \t");
             _builder.append("<td><input type=\"radio\" name=\"");
             String _bulletPoint_1 = choice.getBulletPoint();
-            _builder.append(_bulletPoint_1, " ");
+            _builder.append(_bulletPoint_1, " \t");
             _builder.append("\" value=");
             String _statement_1 = graduation_1.getStatement();
-            _builder.append(_statement_1, " ");
+            _builder.append(_statement_1, " \t");
             _builder.append("></td> \t");
             _builder.newLineIfNotEmpty();
           }
@@ -296,13 +287,12 @@ public class EvaluationGenerator implements IGenerator {
       int _ratingQuantity = question.getRatingQuantity();
       IntegerRange _upTo = new IntegerRange(1, _ratingQuantity);
       for(final Integer ratingValue : _upTo) {
-        _builder.append("\t");
         _builder.append("<input type=\"radio\" name=\"");
         String _name = question.getName();
-        _builder.append(_name, "\t");
+        _builder.append(_name, "");
         _builder.append("\"  value=");
-        _builder.append(ratingValue, "\t");
-        _builder.append("  class=\"star\"/>");
+        _builder.append(ratingValue, "");
+        _builder.append("\"/>");
         _builder.newLineIfNotEmpty();
       }
     }

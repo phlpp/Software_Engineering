@@ -38,10 +38,10 @@ class EvaluationGenerator implements IGenerator {
 			<body>
 				<h1>«survey.title»</h1>
 				<p>«survey.greeting»</p>
-«««				next page if existing
+				«««next page if existing
 				«IF page.forwarding»
 					<form action="«page.followingPage.name + '.html'»" method="post">
-«««					one question per page
+					«««one question per page
 						«select(page.question)»		
 	   				<button type="submit" value="submit">submit</button>
 						<button type="reset" value="reset">reset</button>
@@ -58,7 +58,7 @@ class EvaluationGenerator implements IGenerator {
 		</html>	
 	'''
 
-	// Dispatch methods make a set of overloaded methods polymorphic
+	//	Dispatch methods make a set of overloaded methods polymorphic
 	def dispatch select(Freetext question) '''
 		<p>
 				<label>«question.question»</label><br>
@@ -84,25 +84,23 @@ class EvaluationGenerator implements IGenerator {
 		<p>
 			<label>«question.question»</label><br>
 			<style> table, td, th { border: 1px solid black; } </style>
-			
-			
 			<table> 
-		«««		first row with graduation statements
-				<tr> 
-					<th>&nbsp;</th>
-		«FOR graduation : question.graduations»
-		<th>«graduation.statement»</th>
-		«ENDFOR»
-		</tr> 
-		«««		rows with choices and radio buttons
-				«FOR choice : question.choices»
-			<tr>
-			<td>«choice.bulletPoint»</td>
-			 «FOR graduation : question.graduations»
-			 	<td><input type="radio" name="«choice.bulletPoint»" value=«graduation.statement»></td> 	
-			 «ENDFOR»
-			 </tr>
+			«««first row with graduation statements
+			<tr> 
+				<th>&nbsp;</th>
+				«FOR graduation : question.graduations»
+					<th>«graduation.statement»</th>
 				«ENDFOR»
+			</tr> 
+			«««rows with choices and radio buttons
+			«FOR choice : question.choices»
+			<tr>
+				<td>«choice.bulletPoint»</td>
+			 	«FOR graduation : question.graduations»
+			 		<td><input type="radio" name="«choice.bulletPoint»" value=«graduation.statement»></td> 	
+			 	«ENDFOR»
+			 </tr>
+			«ENDFOR»
 			</table> 			
 		</p>	
 	'''
@@ -110,9 +108,9 @@ class EvaluationGenerator implements IGenerator {
 	def dispatch select(Rating question) '''
 		<p>
 			<label>«question.question»</label><br>
-«««			loop for quantity of possible ratings
+			«««loop for quantity of possible ratings
 			«FOR ratingValue: 1..question.ratingQuantity»
-			<input type="radio" name="«question.name»"  value=«ratingValue»  class="star"/>
+				<input type="radio" name="«question.name»"  value=«ratingValue»"/>
 			«ENDFOR»
 		</p>
 	'''		
