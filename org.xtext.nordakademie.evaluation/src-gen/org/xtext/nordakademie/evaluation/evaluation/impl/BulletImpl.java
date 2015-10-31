@@ -9,25 +9,46 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.xtext.nordakademie.evaluation.evaluation.Bullet;
 import org.xtext.nordakademie.evaluation.evaluation.EvaluationPackage;
-import org.xtext.nordakademie.evaluation.evaluation.Graduation;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Graduation</b></em>'.
+ * An implementation of the model object '<em><b>Bullet</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.impl.GraduationImpl#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.impl.GraduationImpl#getGraduationText <em>Graduation Text</em>}</li>
+ *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.impl.BulletImpl#isFreetext <em>Freetext</em>}</li>
+ *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.impl.BulletImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.impl.BulletImpl#getBulletText <em>Bullet Text</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class GraduationImpl extends MinimalEObjectImpl.Container implements Graduation
+public class BulletImpl extends MinimalEObjectImpl.Container implements Bullet
 {
+  /**
+   * The default value of the '{@link #isFreetext() <em>Freetext</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isFreetext()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean FREETEXT_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isFreetext() <em>Freetext</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isFreetext()
+   * @generated
+   * @ordered
+   */
+  protected boolean freetext = FREETEXT_EDEFAULT;
+
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -49,31 +70,31 @@ public class GraduationImpl extends MinimalEObjectImpl.Container implements Grad
   protected String name = NAME_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getGraduationText() <em>Graduation Text</em>}' attribute.
+   * The default value of the '{@link #getBulletText() <em>Bullet Text</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getGraduationText()
+   * @see #getBulletText()
    * @generated
    * @ordered
    */
-  protected static final String GRADUATION_TEXT_EDEFAULT = null;
+  protected static final String BULLET_TEXT_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getGraduationText() <em>Graduation Text</em>}' attribute.
+   * The cached value of the '{@link #getBulletText() <em>Bullet Text</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getGraduationText()
+   * @see #getBulletText()
    * @generated
    * @ordered
    */
-  protected String graduationText = GRADUATION_TEXT_EDEFAULT;
+  protected String bulletText = BULLET_TEXT_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected GraduationImpl()
+  protected BulletImpl()
   {
     super();
   }
@@ -86,7 +107,30 @@ public class GraduationImpl extends MinimalEObjectImpl.Container implements Grad
   @Override
   protected EClass eStaticClass()
   {
-    return EvaluationPackage.Literals.GRADUATION;
+    return EvaluationPackage.Literals.BULLET;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isFreetext()
+  {
+    return freetext;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setFreetext(boolean newFreetext)
+  {
+    boolean oldFreetext = freetext;
+    freetext = newFreetext;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, EvaluationPackage.BULLET__FREETEXT, oldFreetext, freetext));
   }
 
   /**
@@ -109,7 +153,7 @@ public class GraduationImpl extends MinimalEObjectImpl.Container implements Grad
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EvaluationPackage.GRADUATION__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, EvaluationPackage.BULLET__NAME, oldName, name));
   }
 
   /**
@@ -117,9 +161,9 @@ public class GraduationImpl extends MinimalEObjectImpl.Container implements Grad
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getGraduationText()
+  public String getBulletText()
   {
-    return graduationText;
+    return bulletText;
   }
 
   /**
@@ -127,12 +171,12 @@ public class GraduationImpl extends MinimalEObjectImpl.Container implements Grad
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setGraduationText(String newGraduationText)
+  public void setBulletText(String newBulletText)
   {
-    String oldGraduationText = graduationText;
-    graduationText = newGraduationText;
+    String oldBulletText = bulletText;
+    bulletText = newBulletText;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, EvaluationPackage.GRADUATION__GRADUATION_TEXT, oldGraduationText, graduationText));
+      eNotify(new ENotificationImpl(this, Notification.SET, EvaluationPackage.BULLET__BULLET_TEXT, oldBulletText, bulletText));
   }
 
   /**
@@ -145,10 +189,12 @@ public class GraduationImpl extends MinimalEObjectImpl.Container implements Grad
   {
     switch (featureID)
     {
-      case EvaluationPackage.GRADUATION__NAME:
+      case EvaluationPackage.BULLET__FREETEXT:
+        return isFreetext();
+      case EvaluationPackage.BULLET__NAME:
         return getName();
-      case EvaluationPackage.GRADUATION__GRADUATION_TEXT:
-        return getGraduationText();
+      case EvaluationPackage.BULLET__BULLET_TEXT:
+        return getBulletText();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -163,11 +209,14 @@ public class GraduationImpl extends MinimalEObjectImpl.Container implements Grad
   {
     switch (featureID)
     {
-      case EvaluationPackage.GRADUATION__NAME:
+      case EvaluationPackage.BULLET__FREETEXT:
+        setFreetext((Boolean)newValue);
+        return;
+      case EvaluationPackage.BULLET__NAME:
         setName((String)newValue);
         return;
-      case EvaluationPackage.GRADUATION__GRADUATION_TEXT:
-        setGraduationText((String)newValue);
+      case EvaluationPackage.BULLET__BULLET_TEXT:
+        setBulletText((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -183,11 +232,14 @@ public class GraduationImpl extends MinimalEObjectImpl.Container implements Grad
   {
     switch (featureID)
     {
-      case EvaluationPackage.GRADUATION__NAME:
+      case EvaluationPackage.BULLET__FREETEXT:
+        setFreetext(FREETEXT_EDEFAULT);
+        return;
+      case EvaluationPackage.BULLET__NAME:
         setName(NAME_EDEFAULT);
         return;
-      case EvaluationPackage.GRADUATION__GRADUATION_TEXT:
-        setGraduationText(GRADUATION_TEXT_EDEFAULT);
+      case EvaluationPackage.BULLET__BULLET_TEXT:
+        setBulletText(BULLET_TEXT_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -203,10 +255,12 @@ public class GraduationImpl extends MinimalEObjectImpl.Container implements Grad
   {
     switch (featureID)
     {
-      case EvaluationPackage.GRADUATION__NAME:
+      case EvaluationPackage.BULLET__FREETEXT:
+        return freetext != FREETEXT_EDEFAULT;
+      case EvaluationPackage.BULLET__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case EvaluationPackage.GRADUATION__GRADUATION_TEXT:
-        return GRADUATION_TEXT_EDEFAULT == null ? graduationText != null : !GRADUATION_TEXT_EDEFAULT.equals(graduationText);
+      case EvaluationPackage.BULLET__BULLET_TEXT:
+        return BULLET_TEXT_EDEFAULT == null ? bulletText != null : !BULLET_TEXT_EDEFAULT.equals(bulletText);
     }
     return super.eIsSet(featureID);
   }
@@ -222,12 +276,14 @@ public class GraduationImpl extends MinimalEObjectImpl.Container implements Grad
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
+    result.append(" (freetext: ");
+    result.append(freetext);
+    result.append(", name: ");
     result.append(name);
-    result.append(", graduationText: ");
-    result.append(graduationText);
+    result.append(", bulletText: ");
+    result.append(bulletText);
     result.append(')');
     return result.toString();
   }
 
-} //GraduationImpl
+} //BulletImpl

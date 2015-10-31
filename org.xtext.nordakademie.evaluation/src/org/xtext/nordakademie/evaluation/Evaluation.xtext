@@ -21,41 +21,39 @@ Page:
 ;
 	
 Question:
-	Freetext | Selection | Chart | Rating 
+	Freetext | Rating | Choice 
 //	| Calendar:tbd
 ;
 
 Freetext:
-	'freetext' name=ID question=STRING
-;
-
-Selection:
-	'select' name=ID question=STRING '(' choices+=Choice* ')'	
-;
-
-Choice:
-	(freetext?='freetext')? name=ID bulletPoint=STRING	
-;
-
-Chart:
-	//chart with choices and graduations for each
-	'chart' name=ID question=STRING '(' choices+=Choice* ')' 'x' '(' graduations+=Graduation* ')'
-;
-
-Graduation:
-	(name=ID)? statement=STRING
+	'freetext' name=ID questionText=STRING (helpText=STRING)?
 ;
 
 Rating:
-	'rating' name=ID question=STRING ratingQuantity=INT
+	'rating' name=ID questionText=STRING (helpText=STRING)? ratingQuantity=INT 
+;
+
+Choice:
+Selection | Chart 	
+;
+
+Selection:
+	'select' name=ID questionText=STRING (helpText=STRING)? '(' bullets+=Bullet* ')'	
+;
+
+Chart:
+	//chart with bullets and graduations for each
+	'chart' name=ID questionText=STRING (helpText=STRING)? '(' bullets+=Bullet* ')' 'x' '(' graduations+=Graduation* ')'
+;
+
+Bullet:
+	(freetext?='freetext')? name=ID bulletText=STRING	
+;
+
+Graduation:
+	(name=ID)? graduationText=STRING
 ;
 
 //Calendar:tbd
 //	'calendar' name=ID question=STRING
 //;
-
-
-
-
-
-

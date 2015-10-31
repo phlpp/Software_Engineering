@@ -12,6 +12,7 @@ import org.xtext.nordakademie.evaluation.evaluation.Freetext
 import org.xtext.nordakademie.evaluation.evaluation.Page
 import org.xtext.nordakademie.evaluation.evaluation.Chart
 import org.xtext.nordakademie.evaluation.evaluation.Rating
+import org.xtext.nordakademie.evaluation.evaluation.Question
 
 /**
  * Generates code from your model files on save.
@@ -61,19 +62,20 @@ class EvaluationGenerator implements IGenerator {
 	//	Dispatch methods make a set of overloaded methods polymorphic
 	def dispatch select(Freetext question) '''
 		<p>
-				<label>«question.question»</label><br>
-				<input type="text" name="«question.name»">
-				
+			<label>«question.questionText»</label><br>
+			«helptext(question)»
+			<input type="text" name="«question.name»">
 		</p>
 	'''
 
 	def dispatch select(Selection question) '''
 		<p>
-			<label>«question.question»</label><br>
-			«FOR choice : question.choices»
-				<input type="checkbox" name="«question.name»" value="«choice.name»"/>«choice.bulletPoint»
-				«IF choice.freetext»
-					&nbsp;<input type="text" name="«choice.name»">
+			<label>«question.questionText»</label><br>
+			«helptext(question)»			
+			«FOR bullet : question.bullets»
+				<input type="checkbox" name="«question.name»" value="«bullet.name»"/>«bullet.bulletText»
+				«IF bullet.freetext»
+					&nbsp;<input type="text" name="«bullet.name»">
 				«ENDIF»					
 				<br>
 			«ENDFOR»	
@@ -82,22 +84,23 @@ class EvaluationGenerator implements IGenerator {
 
 	def dispatch select(Chart question) '''
 		<p>
-			<label>«question.question»</label><br>
+			<label>«question.questionText»</label><br>
+			«helptext(question)»			
 			<style> table, td, th { border: 1px solid black; } </style>
 			<table> 
 			«««first row with graduation statements
 			<tr> 
 				<th>&nbsp;</th>
 				«FOR graduation : question.graduations»
-					<th>«graduation.statement»</th>
+					<th>«graduation.graduationText»</th>
 				«ENDFOR»
 			</tr> 
-			«««rows with choices and radio buttons
-			«FOR choice : question.choices»
+			«««rows with bullets (choices) and radio buttons
+			«FOR bullet : question.bullets»
 			<tr>
-				<td>«choice.bulletPoint»</td>
+				<td>«bullet.bulletText»</td>
 			 	«FOR graduation : question.graduations»
-			 		<td><input type="radio" name="«choice.bulletPoint»" value=«graduation.statement»></td> 	
+			 		<td><input type="radio" name="«bullet.bulletText»" value=«graduation.graduationText»></td> 	
 			 	«ENDFOR»
 			 </tr>
 			«ENDFOR»
@@ -107,11 +110,18 @@ class EvaluationGenerator implements IGenerator {
 
 	def dispatch select(Rating question) '''
 		<p>
-			<label>«question.question»</label><br>
+			<label>«question.questionText»</label><br>
+			«helptext(question)»			
 			«««loop for quantity of possible ratings
 			«FOR ratingValue: 1..question.ratingQuantity»
-				<input type="radio" name="«question.name»"  value=«ratingValue»"/>
+				«ratingValue»<input type="radio" name="«question.name»"  value=«ratingValue»"/>&nbsp;&nbsp;
 			«ENDFOR»
 		</p>
-	'''		
+	'''	
+	
+	def helptext(Question question) '''
+		«IF !question.helpText.nullOrEmpty»
+			«question.helpText»<br>
+		«ENDIF»
+	'''	
 }

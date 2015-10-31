@@ -68,11 +68,12 @@ public class EvaluationFactoryImpl extends EFactoryImpl implements EvaluationFac
       case EvaluationPackage.PAGE: return createPage();
       case EvaluationPackage.QUESTION: return createQuestion();
       case EvaluationPackage.FREETEXT: return createFreetext();
-      case EvaluationPackage.SELECTION: return createSelection();
-      case EvaluationPackage.CHOICE: return createChoice();
-      case EvaluationPackage.CHART: return createChart();
-      case EvaluationPackage.GRADUATION: return createGraduation();
       case EvaluationPackage.RATING: return createRating();
+      case EvaluationPackage.CHOICE: return createChoice();
+      case EvaluationPackage.SELECTION: return createSelection();
+      case EvaluationPackage.CHART: return createChart();
+      case EvaluationPackage.BULLET: return createBullet();
+      case EvaluationPackage.GRADUATION: return createGraduation();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -127,10 +128,10 @@ public class EvaluationFactoryImpl extends EFactoryImpl implements EvaluationFac
    * <!-- end-user-doc -->
    * @generated
    */
-  public Selection createSelection()
+  public Rating createRating()
   {
-    SelectionImpl selection = new SelectionImpl();
-    return selection;
+    RatingImpl rating = new RatingImpl();
+    return rating;
   }
 
   /**
@@ -149,6 +150,17 @@ public class EvaluationFactoryImpl extends EFactoryImpl implements EvaluationFac
    * <!-- end-user-doc -->
    * @generated
    */
+  public Selection createSelection()
+  {
+    SelectionImpl selection = new SelectionImpl();
+    return selection;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Chart createChart()
   {
     ChartImpl chart = new ChartImpl();
@@ -160,10 +172,10 @@ public class EvaluationFactoryImpl extends EFactoryImpl implements EvaluationFac
    * <!-- end-user-doc -->
    * @generated
    */
-  public Graduation createGraduation()
+  public Bullet createBullet()
   {
-    GraduationImpl graduation = new GraduationImpl();
-    return graduation;
+    BulletImpl bullet = new BulletImpl();
+    return bullet;
   }
 
   /**
@@ -171,10 +183,10 @@ public class EvaluationFactoryImpl extends EFactoryImpl implements EvaluationFac
    * <!-- end-user-doc -->
    * @generated
    */
-  public Rating createRating()
+  public Graduation createGraduation()
   {
-    RatingImpl rating = new RatingImpl();
-    return rating;
+    GraduationImpl graduation = new GraduationImpl();
+    return graduation;
   }
 
   /**

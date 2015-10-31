@@ -21,27 +21,28 @@
     </genClasses>
     <genClasses ecoreClass="Evaluation.ecore#//Question">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Question/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Question/question"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Question/questionText"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Question/helpText"/>
     </genClasses>
     <genClasses ecoreClass="Evaluation.ecore#//Freetext"/>
-    <genClasses ecoreClass="Evaluation.ecore#//Selection">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Evaluation.ecore#//Selection/choices"/>
+    <genClasses ecoreClass="Evaluation.ecore#//Rating">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Rating/ratingQuantity"/>
     </genClasses>
     <genClasses ecoreClass="Evaluation.ecore#//Choice">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Choice/freetext"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Choice/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Choice/bulletPoint"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Evaluation.ecore#//Choice/bullets"/>
     </genClasses>
+    <genClasses ecoreClass="Evaluation.ecore#//Selection"/>
     <genClasses ecoreClass="Evaluation.ecore#//Chart">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Evaluation.ecore#//Chart/choices"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Evaluation.ecore#//Chart/graduations"/>
+    </genClasses>
+    <genClasses ecoreClass="Evaluation.ecore#//Bullet">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Bullet/freetext"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Bullet/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Bullet/bulletText"/>
     </genClasses>
     <genClasses ecoreClass="Evaluation.ecore#//Graduation">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Graduation/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Graduation/statement"/>
-    </genClasses>
-    <genClasses ecoreClass="Evaluation.ecore#//Rating">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Rating/ratingQuantity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Graduation/graduationText"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

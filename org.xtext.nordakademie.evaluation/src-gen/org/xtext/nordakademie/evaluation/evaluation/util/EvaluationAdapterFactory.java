@@ -95,9 +95,9 @@ public class EvaluationAdapterFactory extends AdapterFactoryImpl
         return createFreetextAdapter();
       }
       @Override
-      public Adapter caseSelection(Selection object)
+      public Adapter caseRating(Rating object)
       {
-        return createSelectionAdapter();
+        return createRatingAdapter();
       }
       @Override
       public Adapter caseChoice(Choice object)
@@ -105,19 +105,24 @@ public class EvaluationAdapterFactory extends AdapterFactoryImpl
         return createChoiceAdapter();
       }
       @Override
+      public Adapter caseSelection(Selection object)
+      {
+        return createSelectionAdapter();
+      }
+      @Override
       public Adapter caseChart(Chart object)
       {
         return createChartAdapter();
       }
       @Override
+      public Adapter caseBullet(Bullet object)
+      {
+        return createBulletAdapter();
+      }
+      @Override
       public Adapter caseGraduation(Graduation object)
       {
         return createGraduationAdapter();
-      }
-      @Override
-      public Adapter caseRating(Rating object)
-      {
-        return createRatingAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -202,16 +207,16 @@ public class EvaluationAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.nordakademie.evaluation.evaluation.Selection <em>Selection</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.nordakademie.evaluation.evaluation.Rating <em>Rating</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.nordakademie.evaluation.evaluation.Selection
+   * @see org.xtext.nordakademie.evaluation.evaluation.Rating
    * @generated
    */
-  public Adapter createSelectionAdapter()
+  public Adapter createRatingAdapter()
   {
     return null;
   }
@@ -232,6 +237,21 @@ public class EvaluationAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.nordakademie.evaluation.evaluation.Selection <em>Selection</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.nordakademie.evaluation.evaluation.Selection
+   * @generated
+   */
+  public Adapter createSelectionAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.nordakademie.evaluation.evaluation.Chart <em>Chart</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -247,6 +267,21 @@ public class EvaluationAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.xtext.nordakademie.evaluation.evaluation.Bullet <em>Bullet</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.xtext.nordakademie.evaluation.evaluation.Bullet
+   * @generated
+   */
+  public Adapter createBulletAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.xtext.nordakademie.evaluation.evaluation.Graduation <em>Graduation</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -257,21 +292,6 @@ public class EvaluationAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createGraduationAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.nordakademie.evaluation.evaluation.Rating <em>Rating</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.nordakademie.evaluation.evaluation.Rating
-   * @generated
-   */
-  public Adapter createRatingAdapter()
   {
     return null;
   }

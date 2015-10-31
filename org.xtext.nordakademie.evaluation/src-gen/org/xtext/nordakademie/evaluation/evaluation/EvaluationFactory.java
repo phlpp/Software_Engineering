@@ -59,13 +59,13 @@ public interface EvaluationFactory extends EFactory
   Freetext createFreetext();
 
   /**
-   * Returns a new object of class '<em>Selection</em>'.
+   * Returns a new object of class '<em>Rating</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Selection</em>'.
+   * @return a new object of class '<em>Rating</em>'.
    * @generated
    */
-  Selection createSelection();
+  Rating createRating();
 
   /**
    * Returns a new object of class '<em>Choice</em>'.
@@ -77,6 +77,15 @@ public interface EvaluationFactory extends EFactory
   Choice createChoice();
 
   /**
+   * Returns a new object of class '<em>Selection</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Selection</em>'.
+   * @generated
+   */
+  Selection createSelection();
+
+  /**
    * Returns a new object of class '<em>Chart</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -86,6 +95,15 @@ public interface EvaluationFactory extends EFactory
   Chart createChart();
 
   /**
+   * Returns a new object of class '<em>Bullet</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Bullet</em>'.
+   * @generated
+   */
+  Bullet createBullet();
+
+  /**
    * Returns a new object of class '<em>Graduation</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -93,15 +111,6 @@ public interface EvaluationFactory extends EFactory
    * @generated
    */
   Graduation createGraduation();
-
-  /**
-   * Returns a new object of class '<em>Rating</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Rating</em>'.
-   * @generated
-   */
-  Rating createRating();
 
   /**
    * Returns the package supported by this factory.

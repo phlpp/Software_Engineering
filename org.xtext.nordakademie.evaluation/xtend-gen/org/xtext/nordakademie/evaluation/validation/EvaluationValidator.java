@@ -3,17 +3,6 @@
  */
 package org.xtext.nordakademie.evaluation.validation;
 
-import com.google.common.base.Objects;
-import java.util.HashMap;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.xtext.validation.Check;
-import org.eclipse.xtext.xbase.lib.CollectionLiterals;
-import org.xtext.nordakademie.evaluation.evaluation.Chart;
-import org.xtext.nordakademie.evaluation.evaluation.Choice;
-import org.xtext.nordakademie.evaluation.evaluation.EvaluationPackage;
-import org.xtext.nordakademie.evaluation.evaluation.Graduation;
-import org.xtext.nordakademie.evaluation.evaluation.Question;
-import org.xtext.nordakademie.evaluation.evaluation.Selection;
 import org.xtext.nordakademie.evaluation.validation.AbstractEvaluationValidator;
 
 /**
@@ -23,55 +12,4 @@ import org.xtext.nordakademie.evaluation.validation.AbstractEvaluationValidator;
  */
 @SuppressWarnings("all")
 public class EvaluationValidator extends AbstractEvaluationValidator {
-  @Check
-  public void textMustNotBeEmpty(final Question question) {
-    String _question = question.getQuestion();
-    boolean _isEmpty = _question.isEmpty();
-    if (_isEmpty) {
-      this.error("Please insert a question", EvaluationPackage.Literals.QUESTION__QUESTION);
-    }
-  }
-  
-  @Check
-  public void textMustNotBeEmpty(final Choice choice) {
-    String _bulletPoint = choice.getBulletPoint();
-    boolean _isEmpty = _bulletPoint.isEmpty();
-    if (_isEmpty) {
-      this.error("Please insert a bullet point", EvaluationPackage.Literals.CHOICE__BULLET_POINT);
-    }
-  }
-  
-  @Check
-  public void duplicateChoiceBulletPoint(final Selection question) {
-    HashMap<String, Choice> nameToChoice = CollectionLiterals.<String, Choice>newHashMap();
-    EList<Choice> _choices = question.getChoices();
-    for (final Choice choice : _choices) {
-      {
-        String _bulletPoint = choice.getBulletPoint();
-        final Choice choiceWithSameName = nameToChoice.put(_bulletPoint, choice);
-        boolean _notEquals = (!Objects.equal(choiceWithSameName, null));
-        if (_notEquals) {
-          this.error("Duplicate Bullet Point", choice, EvaluationPackage.Literals.CHOICE__BULLET_POINT);
-          this.error("Duplicate Bullet Point", choiceWithSameName, EvaluationPackage.Literals.CHOICE__BULLET_POINT);
-        }
-      }
-    }
-  }
-  
-  @Check
-  public void duplicateChartGraduation(final Chart question) {
-    HashMap<String, Graduation> nameToGraduation = CollectionLiterals.<String, Graduation>newHashMap();
-    EList<Graduation> _graduations = question.getGraduations();
-    for (final Graduation graduation : _graduations) {
-      {
-        String _statement = graduation.getStatement();
-        final Graduation graduationWithSameName = nameToGraduation.put(_statement, graduation);
-        boolean _notEquals = (!Objects.equal(graduationWithSameName, null));
-        if (_notEquals) {
-          this.error("Duplicate Graduation", graduation, EvaluationPackage.Literals.GRADUATION__STATEMENT);
-          this.error("Duplicate Graduation", graduationWithSameName, EvaluationPackage.Literals.GRADUATION__STATEMENT);
-        }
-      }
-    }
-  }
 }

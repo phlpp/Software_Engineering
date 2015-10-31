@@ -1,13 +1,13 @@
 '('=13
 ')'=14
-'chart'=17
+'chart'=18
 'forwarding to ->'=20
 'freetext'=15
 'page'=12
-'rating'=19
-'select'=16
+'rating'=16
+'select'=17
 'survey'=11
-'x'=18
+'x'=19
 RULE_ANY_OTHER=10
 RULE_ID=4
 RULE_INT=6

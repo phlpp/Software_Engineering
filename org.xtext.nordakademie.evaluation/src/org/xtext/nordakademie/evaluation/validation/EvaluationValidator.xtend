@@ -20,45 +20,45 @@ import org.xtext.nordakademie.evaluation.evaluation.Chart
  */
 class EvaluationValidator extends AbstractEvaluationValidator {
 
-// Es darf keine leeren Fragen geben
-	@Check
-	def textMustNotBeEmpty(Question question) {
-		if(question.question.isEmpty){
-			error("Please insert a question", QUESTION__QUESTION)
-		}
-	}
-
-// Es darf keine leerern Bullet Points geben	
-	@Check
-	def textMustNotBeEmpty(Choice choice) {
-		if(choice.bulletPoint.isEmpty) {
-			error("Please insert a bullet point", CHOICE__BULLET_POINT)
-		}
-	}
-	
-// Es dürfen keine doppelten Bullet Points vorhanden sein (derzeit nur bei Selection)
-	@Check 
-	def duplicateChoiceBulletPoint(Selection question) {
-		var nameToChoice = newHashMap
-		for(choice: question.choices) {
-			val choiceWithSameName = nameToChoice.put(choice.bulletPoint, choice)
-			if(choiceWithSameName != null) {
-				error("Duplicate Bullet Point", choice, CHOICE__BULLET_POINT)
-				error("Duplicate Bullet Point", choiceWithSameName, CHOICE__BULLET_POINT)
-			}
-		}
-	}
-	
-// Es dürfen keine doppelten Bewertungen in Charts vorhanden sein
-	@Check 
-	def duplicateChartGraduation(Chart question) {
-		var nameToGraduation = newHashMap
-		for(graduation: question.graduations) {
-			val graduationWithSameName = nameToGraduation.put(graduation.statement, graduation)
-			if(graduationWithSameName != null) {
-				error("Duplicate Graduation", graduation, GRADUATION__STATEMENT)
-				error("Duplicate Graduation", graduationWithSameName, GRADUATION__STATEMENT)
-			}
-		}
-	}
+//// Es darf keine leeren Fragen geben
+//	@Check
+//	def textMustNotBeEmpty(Question question) {
+//		if(question.question.isEmpty){
+//			error("Please insert a question", QUESTION__QUESTION)
+//		}
+//	}
+//
+//// Es darf keine leerern Bullet Points geben	
+//	@Check
+//	def textMustNotBeEmpty(Choice choice) {
+//		if(choice.bulletPoint.isEmpty) {
+//			error("Please insert a bullet point", CHOICE__BULLET_POINT)
+//		}
+//	}
+//	
+//// Es dürfen keine doppelten Bullet Points vorhanden sein (derzeit nur bei Selection)
+//	@Check 
+//	def duplicateChoiceBulletPoint(Selection question) {
+//		var nameToChoice = newHashMap
+//		for(choice: question.choices) {
+//			val choiceWithSameName = nameToChoice.put(choice.bulletPoint, choice)
+//			if(choiceWithSameName != null) {
+//				error("Duplicate Bullet Point", choice, CHOICE__BULLET_POINT)
+//				error("Duplicate Bullet Point", choiceWithSameName, CHOICE__BULLET_POINT)
+//			}
+//		}
+//	}
+//	
+//// Es dürfen keine doppelten Bewertungen in Charts vorhanden sein
+//	@Check 
+//	def duplicateChartGraduation(Chart question) {
+//		var nameToGraduation = newHashMap
+//		for(graduation: question.graduations) {
+//			val graduationWithSameName = nameToGraduation.put(graduation.statement, graduation)
+//			if(graduationWithSameName != null) {
+//				error("Duplicate Graduation", graduation, GRADUATION__STATEMENT)
+//				error("Duplicate Graduation", graduationWithSameName, GRADUATION__STATEMENT)
+//			}
+//		}
+//	}
 }

@@ -101,11 +101,11 @@ public class EvaluationSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case EvaluationPackage.SELECTION:
+      case EvaluationPackage.RATING:
       {
-        Selection selection = (Selection)theEObject;
-        T result = caseSelection(selection);
-        if (result == null) result = caseQuestion(selection);
+        Rating rating = (Rating)theEObject;
+        T result = caseRating(rating);
+        if (result == null) result = caseQuestion(rating);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -113,6 +113,16 @@ public class EvaluationSwitch<T> extends Switch<T>
       {
         Choice choice = (Choice)theEObject;
         T result = caseChoice(choice);
+        if (result == null) result = caseQuestion(choice);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EvaluationPackage.SELECTION:
+      {
+        Selection selection = (Selection)theEObject;
+        T result = caseSelection(selection);
+        if (result == null) result = caseChoice(selection);
+        if (result == null) result = caseQuestion(selection);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -120,7 +130,15 @@ public class EvaluationSwitch<T> extends Switch<T>
       {
         Chart chart = (Chart)theEObject;
         T result = caseChart(chart);
+        if (result == null) result = caseChoice(chart);
         if (result == null) result = caseQuestion(chart);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case EvaluationPackage.BULLET:
+      {
+        Bullet bullet = (Bullet)theEObject;
+        T result = caseBullet(bullet);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -128,14 +146,6 @@ public class EvaluationSwitch<T> extends Switch<T>
       {
         Graduation graduation = (Graduation)theEObject;
         T result = caseGraduation(graduation);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case EvaluationPackage.RATING:
-      {
-        Rating rating = (Rating)theEObject;
-        T result = caseRating(rating);
-        if (result == null) result = caseQuestion(rating);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -208,17 +218,17 @@ public class EvaluationSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Selection</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Rating</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Selection</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Rating</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseSelection(Selection object)
+  public T caseRating(Rating object)
   {
     return null;
   }
@@ -240,6 +250,22 @@ public class EvaluationSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Selection</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Selection</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSelection(Selection object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Chart</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -256,6 +282,22 @@ public class EvaluationSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Bullet</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Bullet</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBullet(Bullet object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Graduation</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -267,22 +309,6 @@ public class EvaluationSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseGraduation(Graduation object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Rating</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Rating</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseRating(Rating object)
   {
     return null;
   }

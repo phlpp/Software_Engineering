@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.Graduation#getName <em>Name</em>}</li>
- *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.Graduation#getStatement <em>Statement</em>}</li>
+ *   <li>{@link org.xtext.nordakademie.evaluation.evaluation.Graduation#getGraduationText <em>Graduation Text</em>}</li>
  * </ul>
  *
  * @see org.xtext.nordakademie.evaluation.evaluation.EvaluationPackage#getGraduation()
@@ -50,29 +50,29 @@ public interface Graduation extends EObject
   void setName(String value);
 
   /**
-   * Returns the value of the '<em><b>Statement</b></em>' attribute.
+   * Returns the value of the '<em><b>Graduation Text</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Statement</em>' attribute isn't clear,
+   * If the meaning of the '<em>Graduation Text</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Statement</em>' attribute.
-   * @see #setStatement(String)
-   * @see org.xtext.nordakademie.evaluation.evaluation.EvaluationPackage#getGraduation_Statement()
+   * @return the value of the '<em>Graduation Text</em>' attribute.
+   * @see #setGraduationText(String)
+   * @see org.xtext.nordakademie.evaluation.evaluation.EvaluationPackage#getGraduation_GraduationText()
    * @model
    * @generated
    */
-  String getStatement();
+  String getGraduationText();
 
   /**
-   * Sets the value of the '{@link org.xtext.nordakademie.evaluation.evaluation.Graduation#getStatement <em>Statement</em>}' attribute.
+   * Sets the value of the '{@link org.xtext.nordakademie.evaluation.evaluation.Graduation#getGraduationText <em>Graduation Text</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Statement</em>' attribute.
-   * @see #getStatement()
+   * @param value the new value of the '<em>Graduation Text</em>' attribute.
+   * @see #getGraduationText()
    * @generated
    */
-  void setStatement(String value);
+  void setGraduationText(String value);
 
 } // Graduation
