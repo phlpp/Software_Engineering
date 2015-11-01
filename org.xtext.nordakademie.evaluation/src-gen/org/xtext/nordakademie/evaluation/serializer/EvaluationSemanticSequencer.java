@@ -117,7 +117,7 @@ public class EvaluationSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (name=ID questionText=STRING helpText=STRING? bullets+=Bullet*)
+	 *     (oneChoice?='oneChoice'? name=ID questionText=STRING helpText=STRING? bullets+=Bullet*)
 	 */
 	protected void sequence_Selection(EObject context, Selection semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

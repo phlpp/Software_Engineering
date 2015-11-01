@@ -31,7 +31,9 @@
     <genClasses ecoreClass="Evaluation.ecore#//Choice">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Evaluation.ecore#//Choice/bullets"/>
     </genClasses>
-    <genClasses ecoreClass="Evaluation.ecore#//Selection"/>
+    <genClasses ecoreClass="Evaluation.ecore#//Selection">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Evaluation.ecore#//Selection/oneChoice"/>
+    </genClasses>
     <genClasses ecoreClass="Evaluation.ecore#//Chart">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Evaluation.ecore#//Chart/graduations"/>
     </genClasses>

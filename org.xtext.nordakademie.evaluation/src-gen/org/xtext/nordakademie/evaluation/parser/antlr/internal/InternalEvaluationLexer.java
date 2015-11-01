@@ -30,6 +30,7 @@ public class InternalEvaluationLexer extends Lexer {
     public static final int RULE_INT=6;
     public static final int RULE_ML_COMMENT=7;
     public static final int T__20=20;
+    public static final int T__21=21;
 
     // delegates
     // delegators
@@ -215,10 +216,10 @@ public class InternalEvaluationLexer extends Lexer {
         try {
             int _type = T__19;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:19:7: ( 'chart' )
-            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:19:9: 'chart'
+            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:19:7: ( 'oneChoice' )
+            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:19:9: 'oneChoice'
             {
-            match("chart"); 
+            match("oneChoice"); 
 
 
             }
@@ -236,10 +237,11 @@ public class InternalEvaluationLexer extends Lexer {
         try {
             int _type = T__20;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:20:7: ( 'x' )
-            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:20:9: 'x'
+            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:20:7: ( 'chart' )
+            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:20:9: 'chart'
             {
-            match('x'); 
+            match("chart"); 
+
 
             }
 
@@ -251,15 +253,35 @@ public class InternalEvaluationLexer extends Lexer {
     }
     // $ANTLR end "T__20"
 
+    // $ANTLR start "T__21"
+    public final void mT__21() throws RecognitionException {
+        try {
+            int _type = T__21;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:21:7: ( 'x' )
+            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:21:9: 'x'
+            {
+            match('x'); 
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__21"
+
     // $ANTLR start "RULE_ID"
     public final void mRULE_ID() throws RecognitionException {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:895:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:895:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:910:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:910:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:895:11: ( '^' )?
+            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:910:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -268,7 +290,7 @@ public class InternalEvaluationLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:895:11: '^'
+                    // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:910:11: '^'
                     {
                     match('^'); 
 
@@ -286,7 +308,7 @@ public class InternalEvaluationLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:895:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:910:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -335,10 +357,10 @@ public class InternalEvaluationLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:897:10: ( ( '0' .. '9' )+ )
-            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:897:12: ( '0' .. '9' )+
+            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:912:10: ( ( '0' .. '9' )+ )
+            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:912:12: ( '0' .. '9' )+
             {
-            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:897:12: ( '0' .. '9' )+
+            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:912:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -352,7 +374,7 @@ public class InternalEvaluationLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:897:13: '0' .. '9'
+            	    // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:912:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -384,10 +406,10 @@ public class InternalEvaluationLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:899:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:899:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:914:13: ( ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:914:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:899:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:914:15: ( '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -405,10 +427,10 @@ public class InternalEvaluationLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:899:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:914:16: '\"' ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:899:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:914:20: ( '\\\\' . | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -424,7 +446,7 @@ public class InternalEvaluationLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:899:21: '\\\\' .
+                    	    // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:914:21: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -432,7 +454,7 @@ public class InternalEvaluationLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:899:28: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:914:28: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -457,10 +479,10 @@ public class InternalEvaluationLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:899:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:914:48: '\\'' ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:899:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:914:53: ( '\\\\' . | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -476,7 +498,7 @@ public class InternalEvaluationLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:899:54: '\\\\' .
+                    	    // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:914:54: '\\\\' .
                     	    {
                     	    match('\\'); 
                     	    matchAny(); 
@@ -484,7 +506,7 @@ public class InternalEvaluationLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:899:61: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:914:61: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -527,12 +549,12 @@ public class InternalEvaluationLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:901:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:901:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:916:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:916:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:901:24: ( options {greedy=false; } : . )*
+            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:916:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -557,7 +579,7 @@ public class InternalEvaluationLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:901:52: .
+            	    // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:916:52: .
             	    {
             	    matchAny(); 
 
@@ -587,12 +609,12 @@ public class InternalEvaluationLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:903:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:903:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:918:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:918:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:903:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:918:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -605,7 +627,7 @@ public class InternalEvaluationLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:903:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:918:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -625,7 +647,7 @@ public class InternalEvaluationLexer extends Lexer {
                 }
             } while (true);
 
-            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:903:40: ( ( '\\r' )? '\\n' )?
+            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:918:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -634,9 +656,9 @@ public class InternalEvaluationLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:903:41: ( '\\r' )? '\\n'
+                    // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:918:41: ( '\\r' )? '\\n'
                     {
-                    // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:903:41: ( '\\r' )?
+                    // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:918:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -645,7 +667,7 @@ public class InternalEvaluationLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:903:41: '\\r'
+                            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:918:41: '\\r'
                             {
                             match('\r'); 
 
@@ -677,10 +699,10 @@ public class InternalEvaluationLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:905:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:905:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:920:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:920:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:905:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:920:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -734,8 +756,8 @@ public class InternalEvaluationLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:907:16: ( . )
-            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:907:18: .
+            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:922:16: ( . )
+            // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:922:18: .
             {
             matchAny(); 
 
@@ -750,8 +772,8 @@ public class InternalEvaluationLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:1:8: ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt12=17;
+        // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:1:8: ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt12=18;
         alt12 = dfa12.predict(input);
         switch (alt12) {
             case 1 :
@@ -825,49 +847,56 @@ public class InternalEvaluationLexer extends Lexer {
                 }
                 break;
             case 11 :
-                // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:1:70: RULE_ID
+                // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:1:70: T__21
+                {
+                mT__21(); 
+
+                }
+                break;
+            case 12 :
+                // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:1:76: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 12 :
-                // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:1:78: RULE_INT
+            case 13 :
+                // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:1:84: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 13 :
-                // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:1:87: RULE_STRING
+            case 14 :
+                // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:1:93: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 14 :
-                // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:1:99: RULE_ML_COMMENT
+            case 15 :
+                // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:1:105: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 15 :
-                // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:1:115: RULE_SL_COMMENT
+            case 16 :
+                // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:1:121: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 16 :
-                // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:1:131: RULE_WS
+            case 17 :
+                // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:1:137: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 17 :
-                // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:1:139: RULE_ANY_OTHER
+            case 18 :
+                // ../org.xtext.nordakademie.evaluation/src-gen/org/xtext/nordakademie/evaluation/parser/antlr/internal/InternalEvaluation.g:1:145: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -881,106 +910,118 @@ public class InternalEvaluationLexer extends Lexer {
 
     protected DFA12 dfa12 = new DFA12(this);
     static final String DFA12_eotS =
-        "\1\uffff\2\23\1\uffff\1\23\1\uffff\2\23\1\33\1\20\2\uffff\3\20"+
-        "\2\uffff\2\23\1\uffff\1\23\1\uffff\2\23\1\uffff\2\23\6\uffff\11"+
-        "\23\1\61\6\23\1\uffff\3\23\1\73\1\74\1\75\2\23\1\100\3\uffff\2\23"+
-        "\1\uffff\1\23\1\104\1\23\1\uffff\1\23\1\uffff";
+        "\1\uffff\2\24\1\uffff\1\24\1\uffff\3\24\1\35\1\21\2\uffff\3\21"+
+        "\2\uffff\2\24\1\uffff\1\24\1\uffff\2\24\1\uffff\3\24\6\uffff\12"+
+        "\24\1\65\7\24\1\uffff\4\24\1\101\1\102\1\103\2\24\1\106\1\24\3\uffff"+
+        "\2\24\1\uffff\2\24\1\114\2\24\1\uffff\1\117\1\24\2\uffff";
     static final String DFA12_eofS =
-        "\107\uffff";
+        "\121\uffff";
     static final String DFA12_minS =
-        "\1\0\1\145\1\141\1\uffff\1\157\1\uffff\1\141\1\150\1\60\1\101\2"+
-        "\uffff\2\0\1\52\2\uffff\1\162\1\154\1\uffff\1\147\1\uffff\1\162"+
-        "\1\145\1\uffff\1\164\1\141\6\uffff\1\166\2\145\1\167\1\145\1\151"+
-        "\1\162\1\145\1\143\1\60\1\141\1\164\1\156\1\164\1\171\1\164\1\uffff"+
-        "\1\162\1\145\1\147\3\60\1\144\1\170\1\60\3\uffff\1\151\1\164\1\uffff"+
-        "\1\156\1\60\1\147\1\uffff\1\40\1\uffff";
+        "\1\0\1\145\1\141\1\uffff\1\157\1\uffff\1\141\1\156\1\150\1\60\1"+
+        "\101\2\uffff\2\0\1\52\2\uffff\1\162\1\154\1\uffff\1\147\1\uffff"+
+        "\1\162\1\145\1\uffff\1\164\1\145\1\141\6\uffff\1\166\2\145\1\167"+
+        "\1\145\1\151\1\103\1\162\1\145\1\143\1\60\1\141\1\164\1\156\1\150"+
+        "\1\164\1\171\1\164\1\uffff\1\162\1\145\1\147\1\157\3\60\1\144\1"+
+        "\170\1\60\1\151\3\uffff\1\151\1\164\1\uffff\1\143\1\156\1\60\1\145"+
+        "\1\147\1\uffff\1\60\1\40\2\uffff";
     static final String DFA12_maxS =
-        "\1\uffff\1\165\1\141\1\uffff\1\162\1\uffff\1\141\1\150\2\172\2"+
-        "\uffff\2\uffff\1\57\2\uffff\1\162\1\154\1\uffff\1\147\1\uffff\1"+
-        "\162\1\145\1\uffff\1\164\1\141\6\uffff\1\166\2\145\1\167\1\145\1"+
-        "\151\1\162\1\145\1\143\1\172\1\141\1\164\1\156\1\164\1\171\1\164"+
-        "\1\uffff\1\162\1\145\1\147\3\172\1\144\1\170\1\172\3\uffff\1\151"+
-        "\1\164\1\uffff\1\156\1\172\1\147\1\uffff\1\40\1\uffff";
+        "\1\uffff\1\165\1\141\1\uffff\1\162\1\uffff\1\141\1\156\1\150\2"+
+        "\172\2\uffff\2\uffff\1\57\2\uffff\1\162\1\154\1\uffff\1\147\1\uffff"+
+        "\1\162\1\145\1\uffff\1\164\1\145\1\141\6\uffff\1\166\2\145\1\167"+
+        "\1\145\1\151\1\103\1\162\1\145\1\143\1\172\1\141\1\164\1\156\1\150"+
+        "\1\164\1\171\1\164\1\uffff\1\162\1\145\1\147\1\157\3\172\1\144\1"+
+        "\170\1\172\1\151\3\uffff\1\151\1\164\1\uffff\1\143\1\156\1\172\1"+
+        "\145\1\147\1\uffff\1\172\1\40\2\uffff";
     static final String DFA12_acceptS =
-        "\3\uffff\1\3\1\uffff\1\5\4\uffff\1\13\1\14\3\uffff\1\20\1\21\2"+
-        "\uffff\1\13\1\uffff\1\3\2\uffff\1\5\2\uffff\1\12\1\14\1\15\1\16"+
-        "\1\17\1\20\20\uffff\1\2\11\uffff\1\11\1\1\1\10\2\uffff\1\7\3\uffff"+
-        "\1\6\1\uffff\1\4";
+        "\3\uffff\1\3\1\uffff\1\5\5\uffff\1\14\1\15\3\uffff\1\21\1\22\2"+
+        "\uffff\1\14\1\uffff\1\3\2\uffff\1\5\3\uffff\1\13\1\15\1\16\1\17"+
+        "\1\20\1\21\22\uffff\1\2\13\uffff\1\12\1\1\1\10\2\uffff\1\7\5\uffff"+
+        "\1\6\2\uffff\1\11\1\4";
     static final String DFA12_specialS =
-        "\1\1\13\uffff\1\0\1\2\71\uffff}>";
+        "\1\2\14\uffff\1\1\1\0\102\uffff}>";
     static final String[] DFA12_transitionS = {
-            "\11\20\2\17\2\20\1\17\22\20\1\17\1\20\1\14\4\20\1\15\1\3\1"+
-            "\5\5\20\1\16\12\13\7\20\32\12\3\20\1\11\1\12\1\20\2\12\1\7\2"+
-            "\12\1\4\11\12\1\2\1\12\1\6\1\1\4\12\1\10\2\12\uff85\20",
-            "\1\22\17\uffff\1\21",
-            "\1\24",
+            "\11\21\2\20\2\21\1\20\22\21\1\20\1\21\1\15\4\21\1\16\1\3\1"+
+            "\5\5\21\1\17\12\14\7\21\32\13\3\21\1\12\1\13\1\21\2\13\1\10"+
+            "\2\13\1\4\10\13\1\7\1\2\1\13\1\6\1\1\4\13\1\11\2\13\uff85\21",
+            "\1\23\17\uffff\1\22",
+            "\1\25",
             "",
-            "\1\26\2\uffff\1\27",
+            "\1\27\2\uffff\1\30",
             "",
-            "\1\31",
             "\1\32",
-            "\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\32\23",
-            "\32\23\4\uffff\1\23\1\uffff\32\23",
+            "\1\33",
+            "\1\34",
+            "\12\24\7\uffff\32\24\4\uffff\1\24\1\uffff\32\24",
+            "\32\24\4\uffff\1\24\1\uffff\32\24",
             "",
             "",
-            "\0\35",
-            "\0\35",
-            "\1\36\4\uffff\1\37",
+            "\0\37",
+            "\0\37",
+            "\1\40\4\uffff\1\41",
             "",
-            "",
-            "\1\41",
-            "\1\42",
             "",
             "\1\43",
-            "",
             "\1\44",
+            "",
             "\1\45",
             "",
             "\1\46",
             "\1\47",
             "",
-            "",
-            "",
-            "",
-            "",
-            "",
             "\1\50",
             "\1\51",
             "\1\52",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
             "\1\53",
             "\1\54",
             "\1\55",
             "\1\56",
             "\1\57",
             "\1\60",
-            "\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\32\23",
+            "\1\61",
             "\1\62",
             "\1\63",
             "\1\64",
-            "\1\65",
+            "\12\24\7\uffff\32\24\4\uffff\1\24\1\uffff\32\24",
             "\1\66",
             "\1\67",
-            "",
             "\1\70",
             "\1\71",
             "\1\72",
-            "\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\32\23",
-            "\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\32\23",
-            "\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\32\23",
+            "\1\73",
+            "\1\74",
+            "",
+            "\1\75",
             "\1\76",
             "\1\77",
-            "\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\32\23",
-            "",
-            "",
-            "",
-            "\1\101",
-            "\1\102",
-            "",
-            "\1\103",
-            "\12\23\7\uffff\32\23\4\uffff\1\23\1\uffff\32\23",
+            "\1\100",
+            "\12\24\7\uffff\32\24\4\uffff\1\24\1\uffff\32\24",
+            "\12\24\7\uffff\32\24\4\uffff\1\24\1\uffff\32\24",
+            "\12\24\7\uffff\32\24\4\uffff\1\24\1\uffff\32\24",
+            "\1\104",
             "\1\105",
+            "\12\24\7\uffff\32\24\4\uffff\1\24\1\uffff\32\24",
+            "\1\107",
             "",
-            "\1\106",
+            "",
+            "",
+            "\1\110",
+            "\1\111",
+            "",
+            "\1\112",
+            "\1\113",
+            "\12\24\7\uffff\32\24\4\uffff\1\24\1\uffff\32\24",
+            "\1\115",
+            "\1\116",
+            "",
+            "\12\24\7\uffff\32\24\4\uffff\1\24\1\uffff\32\24",
+            "\1\120",
+            "",
             ""
     };
 
@@ -1014,23 +1055,33 @@ public class InternalEvaluationLexer extends Lexer {
             this.transition = DFA12_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA12_12 = input.LA(1);
+                        int LA12_14 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA12_12>='\u0000' && LA12_12<='\uFFFF')) ) {s = 29;}
+                        if ( ((LA12_14>='\u0000' && LA12_14<='\uFFFF')) ) {s = 31;}
 
-                        else s = 16;
+                        else s = 17;
 
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
+                        int LA12_13 = input.LA(1);
+
+                        s = -1;
+                        if ( ((LA12_13>='\u0000' && LA12_13<='\uFFFF')) ) {s = 31;}
+
+                        else s = 17;
+
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
                         int LA12_0 = input.LA(1);
 
                         s = -1;
@@ -1046,35 +1097,27 @@ public class InternalEvaluationLexer extends Lexer {
 
                         else if ( (LA12_0=='r') ) {s = 6;}
 
-                        else if ( (LA12_0=='c') ) {s = 7;}
+                        else if ( (LA12_0=='o') ) {s = 7;}
 
-                        else if ( (LA12_0=='x') ) {s = 8;}
+                        else if ( (LA12_0=='c') ) {s = 8;}
 
-                        else if ( (LA12_0=='^') ) {s = 9;}
+                        else if ( (LA12_0=='x') ) {s = 9;}
 
-                        else if ( ((LA12_0>='A' && LA12_0<='Z')||LA12_0=='_'||(LA12_0>='a' && LA12_0<='b')||(LA12_0>='d' && LA12_0<='e')||(LA12_0>='g' && LA12_0<='o')||LA12_0=='q'||(LA12_0>='t' && LA12_0<='w')||(LA12_0>='y' && LA12_0<='z')) ) {s = 10;}
+                        else if ( (LA12_0=='^') ) {s = 10;}
 
-                        else if ( ((LA12_0>='0' && LA12_0<='9')) ) {s = 11;}
+                        else if ( ((LA12_0>='A' && LA12_0<='Z')||LA12_0=='_'||(LA12_0>='a' && LA12_0<='b')||(LA12_0>='d' && LA12_0<='e')||(LA12_0>='g' && LA12_0<='n')||LA12_0=='q'||(LA12_0>='t' && LA12_0<='w')||(LA12_0>='y' && LA12_0<='z')) ) {s = 11;}
 
-                        else if ( (LA12_0=='\"') ) {s = 12;}
+                        else if ( ((LA12_0>='0' && LA12_0<='9')) ) {s = 12;}
 
-                        else if ( (LA12_0=='\'') ) {s = 13;}
+                        else if ( (LA12_0=='\"') ) {s = 13;}
 
-                        else if ( (LA12_0=='/') ) {s = 14;}
+                        else if ( (LA12_0=='\'') ) {s = 14;}
 
-                        else if ( ((LA12_0>='\t' && LA12_0<='\n')||LA12_0=='\r'||LA12_0==' ') ) {s = 15;}
+                        else if ( (LA12_0=='/') ) {s = 15;}
 
-                        else if ( ((LA12_0>='\u0000' && LA12_0<='\b')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\u001F')||LA12_0=='!'||(LA12_0>='#' && LA12_0<='&')||(LA12_0>='*' && LA12_0<='.')||(LA12_0>=':' && LA12_0<='@')||(LA12_0>='[' && LA12_0<=']')||LA12_0=='`'||(LA12_0>='{' && LA12_0<='\uFFFF')) ) {s = 16;}
+                        else if ( ((LA12_0>='\t' && LA12_0<='\n')||LA12_0=='\r'||LA12_0==' ') ) {s = 16;}
 
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
-                        int LA12_13 = input.LA(1);
-
-                        s = -1;
-                        if ( ((LA12_13>='\u0000' && LA12_13<='\uFFFF')) ) {s = 29;}
-
-                        else s = 16;
+                        else if ( ((LA12_0>='\u0000' && LA12_0<='\b')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\u001F')||LA12_0=='!'||(LA12_0>='#' && LA12_0<='&')||(LA12_0>='*' && LA12_0<='.')||(LA12_0>=':' && LA12_0<='@')||(LA12_0>='[' && LA12_0<=']')||LA12_0=='`'||(LA12_0>='{' && LA12_0<='\uFFFF')) ) {s = 17;}
 
                         if ( s>=0 ) return s;
                         break;

@@ -368,6 +368,16 @@ public class EvaluationPackageImpl extends EPackageImpl implements EvaluationPac
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getSelection_OneChoice()
+  {
+    return (EAttribute)selectionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getChart()
   {
     return chartEClass;
@@ -509,6 +519,7 @@ public class EvaluationPackageImpl extends EPackageImpl implements EvaluationPac
     createEReference(choiceEClass, CHOICE__BULLETS);
 
     selectionEClass = createEClass(SELECTION);
+    createEAttribute(selectionEClass, SELECTION__ONE_CHOICE);
 
     chartEClass = createEClass(CHART);
     createEReference(chartEClass, CHART__GRADUATIONS);
@@ -585,6 +596,7 @@ public class EvaluationPackageImpl extends EPackageImpl implements EvaluationPac
     initEReference(getChoice_Bullets(), this.getBullet(), null, "bullets", null, 0, -1, Choice.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(selectionEClass, Selection.class, "Selection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSelection_OneChoice(), ecorePackage.getEBoolean(), "oneChoice", null, 0, 1, Selection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(chartEClass, Chart.class, "Chart", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getChart_Graduations(), this.getGraduation(), null, "graduations", null, 0, -1, Chart.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
