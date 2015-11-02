@@ -38,7 +38,7 @@ Selection | Chart
 ;
 
 Selection:
-	'select' name=ID questionText=STRING (helpText=STRING)? '(' bullets+=Bullet* ')'	
+	'select' (oneChoice?='oneChoice')? name=ID questionText=STRING (helpText=STRING)? '(' bullets+=Bullet* ')'	
 ;
 
 Chart:

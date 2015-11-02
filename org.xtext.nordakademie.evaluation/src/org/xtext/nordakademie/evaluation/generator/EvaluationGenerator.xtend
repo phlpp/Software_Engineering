@@ -73,9 +73,14 @@ class EvaluationGenerator implements IGenerator {
 			<label>«question.questionText»</label><br>
 			«helptext(question)»			
 			«FOR bullet : question.bullets»
-				<input type="checkbox" name="«question.name»" value="«bullet.name»"/>«bullet.bulletText»
+				«««	radioButton: one choice; checkBox: multiple choice
+				«IF question.oneChoice»
+					<input type="radio" name="«question.name»" value="«bullet.bulletText»"/>«bullet.bulletText»
+				«ELSE»
+					<input type="checkbox" name="«question.name»" value="«bullet.bulletText»"/>«bullet.bulletText»		
+				«ENDIF»	
 				«IF bullet.freetext»
-					&nbsp;<input type="text" name="«bullet.name»">
+					&nbsp;<input type="text" name="«question.name»">
 				«ENDIF»					
 				<br>
 			«ENDFOR»	
@@ -120,6 +125,7 @@ class EvaluationGenerator implements IGenerator {
 	'''	
 	
 	def helptext(Question question) '''
+		«««	optional helptext
 		«IF !question.helpText.nullOrEmpty»
 			«question.helpText»<br>
 		«ENDIF»

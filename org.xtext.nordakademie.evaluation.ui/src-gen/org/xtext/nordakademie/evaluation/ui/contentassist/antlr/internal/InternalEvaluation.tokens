@@ -3,6 +3,7 @@
 'chart'=18
 'forwarding to ->'=20
 'freetext'=15
+'oneChoice'=21
 'page'=12
 'rating'=16
 'select'=17
@@ -25,3 +26,4 @@ T__17=17
 T__18=18
 T__19=19
 T__20=20
+T__21=21

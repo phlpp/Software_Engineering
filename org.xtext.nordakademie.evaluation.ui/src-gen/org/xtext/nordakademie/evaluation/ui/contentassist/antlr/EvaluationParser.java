@@ -63,10 +63,11 @@ public class EvaluationParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRatingAccess().getQuestionTextAssignment_2(), "rule__Rating__QuestionTextAssignment_2");
 					put(grammarAccess.getRatingAccess().getHelpTextAssignment_3(), "rule__Rating__HelpTextAssignment_3");
 					put(grammarAccess.getRatingAccess().getRatingQuantityAssignment_4(), "rule__Rating__RatingQuantityAssignment_4");
-					put(grammarAccess.getSelectionAccess().getNameAssignment_1(), "rule__Selection__NameAssignment_1");
-					put(grammarAccess.getSelectionAccess().getQuestionTextAssignment_2(), "rule__Selection__QuestionTextAssignment_2");
-					put(grammarAccess.getSelectionAccess().getHelpTextAssignment_3(), "rule__Selection__HelpTextAssignment_3");
-					put(grammarAccess.getSelectionAccess().getBulletsAssignment_5(), "rule__Selection__BulletsAssignment_5");
+					put(grammarAccess.getSelectionAccess().getOneChoiceAssignment_1(), "rule__Selection__OneChoiceAssignment_1");
+					put(grammarAccess.getSelectionAccess().getNameAssignment_2(), "rule__Selection__NameAssignment_2");
+					put(grammarAccess.getSelectionAccess().getQuestionTextAssignment_3(), "rule__Selection__QuestionTextAssignment_3");
+					put(grammarAccess.getSelectionAccess().getHelpTextAssignment_4(), "rule__Selection__HelpTextAssignment_4");
+					put(grammarAccess.getSelectionAccess().getBulletsAssignment_6(), "rule__Selection__BulletsAssignment_6");
 					put(grammarAccess.getChartAccess().getNameAssignment_1(), "rule__Chart__NameAssignment_1");
 					put(grammarAccess.getChartAccess().getQuestionTextAssignment_2(), "rule__Chart__QuestionTextAssignment_2");
 					put(grammarAccess.getChartAccess().getHelpTextAssignment_3(), "rule__Chart__HelpTextAssignment_3");

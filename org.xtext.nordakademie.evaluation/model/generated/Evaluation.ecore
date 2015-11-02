@@ -29,7 +29,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="bullets" upperBound="-1"
         eType="#//Bullet" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Selection" eSuperTypes="#//Choice"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Selection" eSuperTypes="#//Choice">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="oneChoice" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Chart" eSuperTypes="#//Choice">
     <eStructuralFeatures xsi:type="ecore:EReference" name="graduations" upperBound="-1"
         eType="#//Graduation" containment="true"/>

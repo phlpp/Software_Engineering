@@ -543,9 +543,24 @@ ruleSelection returns [EObject current=null]
     }
 (
 (
-		lv_name_1_0=RULE_ID
+		lv_oneChoice_1_0=	'oneChoice' 
+    {
+        newLeafNode(lv_oneChoice_1_0, grammarAccess.getSelectionAccess().getOneChoiceOneChoiceKeyword_1_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getSelectionRule());
+	        }
+       		setWithLastConsumed($current, "oneChoice", true, "oneChoice");
+	    }
+
+)
+)?(
+(
+		lv_name_2_0=RULE_ID
 		{
-			newLeafNode(lv_name_1_0, grammarAccess.getSelectionAccess().getNameIDTerminalRuleCall_1_0()); 
+			newLeafNode(lv_name_2_0, grammarAccess.getSelectionAccess().getNameIDTerminalRuleCall_2_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -554,16 +569,16 @@ ruleSelection returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"name",
-        		lv_name_1_0, 
+        		lv_name_2_0, 
         		"ID");
 	    }
 
 )
 )(
 (
-		lv_questionText_2_0=RULE_STRING
+		lv_questionText_3_0=RULE_STRING
 		{
-			newLeafNode(lv_questionText_2_0, grammarAccess.getSelectionAccess().getQuestionTextSTRINGTerminalRuleCall_2_0()); 
+			newLeafNode(lv_questionText_3_0, grammarAccess.getSelectionAccess().getQuestionTextSTRINGTerminalRuleCall_3_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -572,16 +587,16 @@ ruleSelection returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"questionText",
-        		lv_questionText_2_0, 
+        		lv_questionText_3_0, 
         		"STRING");
 	    }
 
 )
 )(
 (
-		lv_helpText_3_0=RULE_STRING
+		lv_helpText_4_0=RULE_STRING
 		{
-			newLeafNode(lv_helpText_3_0, grammarAccess.getSelectionAccess().getHelpTextSTRINGTerminalRuleCall_3_0()); 
+			newLeafNode(lv_helpText_4_0, grammarAccess.getSelectionAccess().getHelpTextSTRINGTerminalRuleCall_4_0()); 
 		}
 		{
 	        if ($current==null) {
@@ -590,36 +605,36 @@ ruleSelection returns [EObject current=null]
        		setWithLastConsumed(
        			$current, 
        			"helpText",
-        		lv_helpText_3_0, 
+        		lv_helpText_4_0, 
         		"STRING");
 	    }
 
 )
-)?	otherlv_4='(' 
+)?	otherlv_5='(' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getSelectionAccess().getLeftParenthesisKeyword_4());
+    	newLeafNode(otherlv_5, grammarAccess.getSelectionAccess().getLeftParenthesisKeyword_5());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getSelectionAccess().getBulletsBulletParserRuleCall_5_0()); 
+	        newCompositeNode(grammarAccess.getSelectionAccess().getBulletsBulletParserRuleCall_6_0()); 
 	    }
-		lv_bullets_5_0=ruleBullet		{
+		lv_bullets_6_0=ruleBullet		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getSelectionRule());
 	        }
        		add(
        			$current, 
        			"bullets",
-        		lv_bullets_5_0, 
+        		lv_bullets_6_0, 
         		"Bullet");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)*	otherlv_6=')' 
+)*	otherlv_7=')' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getSelectionAccess().getRightParenthesisKeyword_6());
+    	newLeafNode(otherlv_7, grammarAccess.getSelectionAccess().getRightParenthesisKeyword_7());
     }
 )
 ;

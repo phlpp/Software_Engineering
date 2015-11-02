@@ -175,23 +175,41 @@ public class EvaluationGenerator implements IGenerator {
     {
       EList<Bullet> _bullets = question.getBullets();
       for(final Bullet bullet : _bullets) {
-        _builder.append("\t");
-        _builder.append("<input type=\"checkbox\" name=\"");
-        String _name = question.getName();
-        _builder.append(_name, "\t");
-        _builder.append("\" value=\"");
-        String _name_1 = bullet.getName();
-        _builder.append(_name_1, "\t");
-        _builder.append("\"/>");
-        String _bulletText = bullet.getBulletText();
-        _builder.append(_bulletText, "\t");
-        _builder.newLineIfNotEmpty();
+        {
+          boolean _isOneChoice = question.isOneChoice();
+          if (_isOneChoice) {
+            _builder.append("\t");
+            _builder.append("<input type=\"radio\" name=\"");
+            String _name = question.getName();
+            _builder.append(_name, "\t");
+            _builder.append("\" value=\"");
+            String _bulletText = bullet.getBulletText();
+            _builder.append(_bulletText, "\t");
+            _builder.append("\"/>");
+            String _bulletText_1 = bullet.getBulletText();
+            _builder.append(_bulletText_1, "\t");
+            _builder.newLineIfNotEmpty();
+          } else {
+            _builder.append("\t");
+            _builder.append("<input type=\"checkbox\" name=\"");
+            String _name_1 = question.getName();
+            _builder.append(_name_1, "\t");
+            _builder.append("\" value=\"");
+            String _bulletText_2 = bullet.getBulletText();
+            _builder.append(_bulletText_2, "\t");
+            _builder.append("\"/>");
+            String _bulletText_3 = bullet.getBulletText();
+            _builder.append(_bulletText_3, "\t");
+            _builder.append("\t\t");
+            _builder.newLineIfNotEmpty();
+          }
+        }
         {
           boolean _isFreetext = bullet.isFreetext();
           if (_isFreetext) {
             _builder.append("\t");
             _builder.append("&nbsp;<input type=\"text\" name=\"");
-            String _name_2 = bullet.getName();
+            String _name_2 = question.getName();
             _builder.append(_name_2, "\t");
             _builder.append("\">");
             _builder.newLineIfNotEmpty();

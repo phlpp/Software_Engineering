@@ -275,56 +275,64 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Selection");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cSelectKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Assignment cQuestionTextAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cQuestionTextSTRINGTerminalRuleCall_2_0 = (RuleCall)cQuestionTextAssignment_2.eContents().get(0);
-		private final Assignment cHelpTextAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cHelpTextSTRINGTerminalRuleCall_3_0 = (RuleCall)cHelpTextAssignment_3.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cBulletsAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cBulletsBulletParserRuleCall_5_0 = (RuleCall)cBulletsAssignment_5.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Assignment cOneChoiceAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cOneChoiceOneChoiceKeyword_1_0 = (Keyword)cOneChoiceAssignment_1.eContents().get(0);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Assignment cQuestionTextAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cQuestionTextSTRINGTerminalRuleCall_3_0 = (RuleCall)cQuestionTextAssignment_3.eContents().get(0);
+		private final Assignment cHelpTextAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cHelpTextSTRINGTerminalRuleCall_4_0 = (RuleCall)cHelpTextAssignment_4.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cBulletsAssignment_6 = (Assignment)cGroup.eContents().get(6);
+		private final RuleCall cBulletsBulletParserRuleCall_6_0 = (RuleCall)cBulletsAssignment_6.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//Selection:
-		//	"select" name=ID questionText=STRING helpText=STRING? "(" bullets+=Bullet* ")";
+		//	"select" oneChoice?="oneChoice"? name=ID questionText=STRING helpText=STRING? "(" bullets+=Bullet* ")";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"select" name=ID questionText=STRING helpText=STRING? "(" bullets+=Bullet* ")"
+		//"select" oneChoice?="oneChoice"? name=ID questionText=STRING helpText=STRING? "(" bullets+=Bullet* ")"
 		public Group getGroup() { return cGroup; }
 
 		//"select"
 		public Keyword getSelectKeyword_0() { return cSelectKeyword_0; }
 
+		//oneChoice?="oneChoice"?
+		public Assignment getOneChoiceAssignment_1() { return cOneChoiceAssignment_1; }
+
+		//"oneChoice"
+		public Keyword getOneChoiceOneChoiceKeyword_1_0() { return cOneChoiceOneChoiceKeyword_1_0; }
+
 		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 
 		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 
 		//questionText=STRING
-		public Assignment getQuestionTextAssignment_2() { return cQuestionTextAssignment_2; }
+		public Assignment getQuestionTextAssignment_3() { return cQuestionTextAssignment_3; }
 
 		//STRING
-		public RuleCall getQuestionTextSTRINGTerminalRuleCall_2_0() { return cQuestionTextSTRINGTerminalRuleCall_2_0; }
+		public RuleCall getQuestionTextSTRINGTerminalRuleCall_3_0() { return cQuestionTextSTRINGTerminalRuleCall_3_0; }
 
 		//helpText=STRING?
-		public Assignment getHelpTextAssignment_3() { return cHelpTextAssignment_3; }
+		public Assignment getHelpTextAssignment_4() { return cHelpTextAssignment_4; }
 
 		//STRING
-		public RuleCall getHelpTextSTRINGTerminalRuleCall_3_0() { return cHelpTextSTRINGTerminalRuleCall_3_0; }
+		public RuleCall getHelpTextSTRINGTerminalRuleCall_4_0() { return cHelpTextSTRINGTerminalRuleCall_4_0; }
 
 		//"("
-		public Keyword getLeftParenthesisKeyword_4() { return cLeftParenthesisKeyword_4; }
+		public Keyword getLeftParenthesisKeyword_5() { return cLeftParenthesisKeyword_5; }
 
 		//bullets+=Bullet*
-		public Assignment getBulletsAssignment_5() { return cBulletsAssignment_5; }
+		public Assignment getBulletsAssignment_6() { return cBulletsAssignment_6; }
 
 		//Bullet
-		public RuleCall getBulletsBulletParserRuleCall_5_0() { return cBulletsBulletParserRuleCall_5_0; }
+		public RuleCall getBulletsBulletParserRuleCall_6_0() { return cBulletsBulletParserRuleCall_6_0; }
 
 		//")"
-		public Keyword getRightParenthesisKeyword_6() { return cRightParenthesisKeyword_6; }
+		public Keyword getRightParenthesisKeyword_7() { return cRightParenthesisKeyword_7; }
 	}
 
 	public class ChartElements extends AbstractParserRuleElementFinder {
@@ -597,7 +605,7 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Selection:
-	//	"select" name=ID questionText=STRING helpText=STRING? "(" bullets+=Bullet* ")";
+	//	"select" oneChoice?="oneChoice"? name=ID questionText=STRING helpText=STRING? "(" bullets+=Bullet* ")";
 	public SelectionElements getSelectionAccess() {
 		return pSelection;
 	}

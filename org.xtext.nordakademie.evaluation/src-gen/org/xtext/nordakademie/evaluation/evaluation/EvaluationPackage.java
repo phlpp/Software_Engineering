@@ -415,13 +415,22 @@ public interface EvaluationPackage extends EPackage
   int SELECTION__BULLETS = CHOICE__BULLETS;
 
   /**
+   * The feature id for the '<em><b>One Choice</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SELECTION__ONE_CHOICE = CHOICE_FEATURE_COUNT + 0;
+
+  /**
    * The number of structural features of the '<em>Selection</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SELECTION_FEATURE_COUNT = CHOICE_FEATURE_COUNT + 0;
+  int SELECTION_FEATURE_COUNT = CHOICE_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.xtext.nordakademie.evaluation.evaluation.impl.ChartImpl <em>Chart</em>}' class.
@@ -785,6 +794,17 @@ public interface EvaluationPackage extends EPackage
   EClass getSelection();
 
   /**
+   * Returns the meta object for the attribute '{@link org.xtext.nordakademie.evaluation.evaluation.Selection#isOneChoice <em>One Choice</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>One Choice</em>'.
+   * @see org.xtext.nordakademie.evaluation.evaluation.Selection#isOneChoice()
+   * @see #getSelection()
+   * @generated
+   */
+  EAttribute getSelection_OneChoice();
+
+  /**
    * Returns the meta object for class '{@link org.xtext.nordakademie.evaluation.evaluation.Chart <em>Chart</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1076,6 +1096,14 @@ public interface EvaluationPackage extends EPackage
      * @generated
      */
     EClass SELECTION = eINSTANCE.getSelection();
+
+    /**
+     * The meta object literal for the '<em><b>One Choice</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SELECTION__ONE_CHOICE = eINSTANCE.getSelection_OneChoice();
 
     /**
      * The meta object literal for the '{@link org.xtext.nordakademie.evaluation.evaluation.impl.ChartImpl <em>Chart</em>}' class.
