@@ -10,6 +10,7 @@ import org.eclipse.xtext.xbase.lib.Extension;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.xtext.nordakademie.evaluation.EvaluationInjectorProvider;
+import org.xtext.nordakademie.evaluation.evaluation.EvaluationPackage;
 import org.xtext.nordakademie.evaluation.evaluation.Survey;
 
 @RunWith(XtextRunner.class)
@@ -25,10 +26,20 @@ public class ValidationTest {
   private ValidationTestHelper _validationTestHelper;
   
   @Test
-  public void testSurvey() {
+  public void testSurveyWithPageQuestion() {
     try {
-      Survey _parse = this._parseHelper.parse("survey EShop \r\n\t\t\t\"Bewertung E-Shop\" \"Sehr geehrte Damen und Herren,\r\n\t\t\tvielen Dank für Ihren Besuch. \r\n\t\t\tIndem Sie die 5-10 minütige Umfrage ausfüllen helfen Sie uns, \r\n\t\t\tdie besten Ergebnisse zu erzielen.\"\r\n\r\n\t\t\tpage Seite1 (\r\n\t\t\t\tfreetext Frage1 \"Was war der Hauptgrund, \r\n            \tweshalb Sie unseren E-Shop besucht haben?\" \r\n\r\n\t\t\tforwarding to ->Seite2 )");
+      Survey _parse = this._parseHelper.parse("survey Testname \r\n\t\t\t\"Testtitel der Survey\" \r\n\t\t\t\"Testbegrüßung der Survey\"\r\n\r\n\t\t\tpage Testseite (\r\n\t\t\t\tfreetext Testfrage \"Testfrage der Seite\"\r\n\t\t\t)");
       this._validationTestHelper.assertNoErrors(_parse);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void testSurveyWithoutPageQuestion() {
+    try {
+      Survey _parse = this._parseHelper.parse("survey Testname \r\n\t\t\t\"Testtitel der Survey\" \r\n\t\t\t\"Testbegrüßung der Survey\"\r\n\t\t\t");
+      this._validationTestHelper.assertError(_parse, EvaluationPackage.Literals.PAGE, null);
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

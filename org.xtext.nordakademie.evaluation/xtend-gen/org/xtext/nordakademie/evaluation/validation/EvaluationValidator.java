@@ -10,10 +10,11 @@ import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.xtext.nordakademie.evaluation.evaluation.Bullet;
 import org.xtext.nordakademie.evaluation.evaluation.Chart;
+import org.xtext.nordakademie.evaluation.evaluation.Choice;
 import org.xtext.nordakademie.evaluation.evaluation.EvaluationPackage;
 import org.xtext.nordakademie.evaluation.evaluation.Graduation;
 import org.xtext.nordakademie.evaluation.evaluation.Question;
-import org.xtext.nordakademie.evaluation.evaluation.Selection;
+import org.xtext.nordakademie.evaluation.evaluation.Survey;
 import org.xtext.nordakademie.evaluation.validation.AbstractEvaluationValidator;
 
 /**
@@ -28,7 +29,7 @@ public class EvaluationValidator extends AbstractEvaluationValidator {
     String _questionText = question.getQuestionText();
     boolean _isEmpty = _questionText.isEmpty();
     if (_isEmpty) {
-      this.error("Please insert a question", EvaluationPackage.Literals.QUESTION__QUESTION_TEXT);
+      this.error("Empty question: Please insert a question", EvaluationPackage.Literals.QUESTION__QUESTION_TEXT);
     }
   }
   
@@ -37,12 +38,12 @@ public class EvaluationValidator extends AbstractEvaluationValidator {
     String _bulletText = bullet.getBulletText();
     boolean _isEmpty = _bulletText.isEmpty();
     if (_isEmpty) {
-      this.error("Please insert a bullet point", EvaluationPackage.Literals.BULLET__BULLET_TEXT);
+      this.error("Empty bullet point: Please insert a text for the bullet point", EvaluationPackage.Literals.BULLET__BULLET_TEXT);
     }
   }
   
   @Check
-  public void noDoubleBulletPoints(final Selection choice) {
+  public void noDoubleBulletPoints(final Choice choice) {
     HashMap<String, Bullet> nameToBullet = CollectionLiterals.<String, Bullet>newHashMap();
     EList<Bullet> _bullets = choice.getBullets();
     for (final Bullet bullet : _bullets) {
@@ -51,8 +52,8 @@ public class EvaluationValidator extends AbstractEvaluationValidator {
         final Bullet choiceWithSameName = nameToBullet.put(_bulletText, bullet);
         boolean _notEquals = (!Objects.equal(choiceWithSameName, null));
         if (_notEquals) {
-          this.error("Duplicate Bullet Point", bullet, EvaluationPackage.Literals.BULLET__BULLET_TEXT);
-          this.error("Duplicate Bullet Point", choiceWithSameName, EvaluationPackage.Literals.BULLET__BULLET_TEXT);
+          this.error("Double Bullet Point", bullet, EvaluationPackage.Literals.BULLET__BULLET_TEXT);
+          this.error("Double Bullet Point: Please insert another bullet point", choiceWithSameName, EvaluationPackage.Literals.BULLET__BULLET_TEXT);
         }
       }
     }
@@ -68,10 +69,22 @@ public class EvaluationValidator extends AbstractEvaluationValidator {
         final Graduation graduationWithSameName = nameToGraduation.put(_graduationText, graduation);
         boolean _notEquals = (!Objects.equal(graduationWithSameName, null));
         if (_notEquals) {
-          this.error("Duplicate Graduation", graduation, EvaluationPackage.Literals.GRADUATION__GRADUATION_TEXT);
-          this.error("Duplicate Graduation", graduationWithSameName, EvaluationPackage.Literals.GRADUATION__GRADUATION_TEXT);
+          this.error("Double Graduation", graduation, EvaluationPackage.Literals.GRADUATION__GRADUATION_TEXT);
+          this.error("Double Graduation: Please insert another graduation", graduationWithSameName, EvaluationPackage.Literals.GRADUATION__GRADUATION_TEXT);
         }
       }
+    }
+  }
+  
+  @Check
+  public void checkUpperCaseSurvey(final Survey survey) {
+    String _name = survey.getName();
+    char _charAt = _name.charAt(0);
+    boolean _isUpperCase = Character.isUpperCase(_charAt);
+    boolean _not = (!_isUpperCase);
+    if (_not) {
+      this.warning("The survey name should start with an upper capital", 
+        EvaluationPackage.Literals.SURVEY__NAME);
     }
   }
 }

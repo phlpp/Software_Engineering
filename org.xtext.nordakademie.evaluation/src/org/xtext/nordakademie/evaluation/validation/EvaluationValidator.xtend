@@ -8,10 +8,12 @@ import org.eclipse.xtext.validation.Check
 import static org.xtext.nordakademie.evaluation.evaluation.EvaluationPackage.Literals.*
 
 import org.xtext.nordakademie.evaluation.evaluation.Question
-import org.xtext.nordakademie.evaluation.evaluation.Selection
 import org.xtext.nordakademie.evaluation.evaluation.Chart
 import org.xtext.nordakademie.evaluation.evaluation.Bullet
 import org.xtext.nordakademie.evaluation.evaluation.Choice
+import org.xtext.nordakademie.evaluation.evaluation.EvaluationPackage
+import org.xtext.nordakademie.evaluation.evaluation.Survey
+
 /**
  * This class contains custom validation rules. 
  *
@@ -19,44 +21,32 @@ import org.xtext.nordakademie.evaluation.evaluation.Choice
  */
 class EvaluationValidator extends AbstractEvaluationValidator {
 
-// Es darf keine leeren Fragen geben
+// Es dürfen keine leeren Fragen vorhanden sein
 	@Check
 	def noEmptyQuestions(Question question) {
 		if(question.questionText.isEmpty){
-			error("Please insert a question", QUESTION__QUESTION_TEXT)
+			error("Empty question: Please insert a question", QUESTION__QUESTION_TEXT)
 		}
 	}
 
-// Es darf keine leeren Bullet Points geben	
+// Es dürfen keine leeren Bullet Points vorhanden sein	
 	@Check
 	def noEmptyBulletPoints(Bullet bullet) {
 		if(bullet.bulletText.isEmpty) {
-			error("Please insert a bullet point", BULLET__BULLET_TEXT)
+			error("Empty bullet point: Please insert a text for the bullet point", BULLET__BULLET_TEXT)
 		}
 	}
 	
-// Es dürfen keine doppelten Bullet Points vorhanden sein (derzeit nur bei Selection)
-//	@Check 
-//	def duplicateChoiceBulletPoint(Selection question) {
-//		var nameToChoice = newHashMap
-//		for(choice: question.choices) {
-//			val choiceWithSameName = nameToChoice.put(choice.bulletPoint, choice)
-//			if(choiceWithSameName != null) {
-//				error("Double Bullet Point", choice, CHOICE__BULLET_POINT)
-//				error("Double Bullet Point", choiceWithSameName, CHOICE__BULLET_POINT)
-//			}
-//		}
-//	}
 
-// Es dürfen keine doppelten Bullet Points vorhanden sein (derzeit nur bei Selection)
+// Es dürfen keine doppelten Bullet Points vorhanden sein 
 	@Check 
-	def noDoubleBulletPoints(Selection choice) {
+	def noDoubleBulletPoints(Choice choice) {
 		var nameToBullet = newHashMap
 		for(bullet: choice.bullets) {
 			val choiceWithSameName = nameToBullet.put(bullet.bulletText, bullet)
 			if(choiceWithSameName != null) {
-				error("Duplicate Bullet Point", bullet, BULLET__BULLET_TEXT)
-				error("Duplicate Bullet Point", choiceWithSameName, BULLET__BULLET_TEXT)
+				error("Double Bullet Point", bullet, BULLET__BULLET_TEXT)
+				error("Double Bullet Point: Please insert another bullet point", choiceWithSameName, BULLET__BULLET_TEXT)
 			}
 		}
 	}
@@ -68,10 +58,20 @@ class EvaluationValidator extends AbstractEvaluationValidator {
 		for(graduation: question.graduations) {
 			val graduationWithSameName = nameToGraduation.put(graduation.graduationText, graduation)
 			if(graduationWithSameName != null) {
-				error("Duplicate Graduation", graduation, GRADUATION__GRADUATION_TEXT)
-				error("Duplicate Graduation", graduationWithSameName, GRADUATION__GRADUATION_TEXT)
+				error("Double Graduation", graduation, GRADUATION__GRADUATION_TEXT)
+				error("Double Graduation: Please insert another graduation", graduationWithSameName, GRADUATION__GRADUATION_TEXT)
 			}
 		}
 	}
+	
+// Gibt eine Warnung aus wenn der Survey Name klein geschrieben ist
+	@Check
+	def void checkUpperCaseSurvey(Survey survey) {
+  		if (!Character::isUpperCase(survey.getName().charAt(0))) {
+    		warning("The survey name should start with an upper capital", 
+      		EvaluationPackage$Literals::SURVEY__NAME);
+  			}
+	}
+	
 }
 

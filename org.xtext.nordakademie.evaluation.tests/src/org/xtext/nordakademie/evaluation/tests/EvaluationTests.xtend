@@ -20,19 +20,24 @@ class ValidationTest {
 	@Inject extension ValidationTestHelper 
 	
 	@Test
-	def void testSurvey() {
-		'survey EShop 
-			"Bewertung E-Shop" "Sehr geehrte Damen und Herren,
-			vielen Dank für Ihren Besuch. 
-			Indem Sie die 5-10 minütige Umfrage ausfüllen helfen Sie uns, 
-			die besten Ergebnisse zu erzielen."
+	def void testSurveyWithPageQuestion() {
+		'survey Testname 
+			"Testtitel der Survey" 
+			"Testbegrüßung der Survey"
 
-			page Seite1 (
-				freetext Frage1 "Was war der Hauptgrund, 
-            	weshalb Sie unseren E-Shop besucht haben?" 
-
-			forwarding to ->Seite2 )'
+			page Testseite (
+				freetext Testfrage "Testfrage der Seite"
+			)'
 			.parse.assertNoErrors
+	}
+	
+	@Test
+	def void testSurveyWithoutPageQuestion() {
+		'survey Testname 
+			"Testtitel der Survey" 
+			"Testbegrüßung der Survey"
+			'
+			.parse.assertError(EvaluationPackage.Literals.PAGE, null)
 	}
 }
 	
