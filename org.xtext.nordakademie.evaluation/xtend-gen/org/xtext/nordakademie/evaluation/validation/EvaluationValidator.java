@@ -6,14 +6,20 @@ package org.xtext.nordakademie.evaluation.validation;
 import com.google.common.base.Objects;
 import java.util.HashMap;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.xtext.nordakademie.evaluation.evaluation.Bullet;
 import org.xtext.nordakademie.evaluation.evaluation.Chart;
 import org.xtext.nordakademie.evaluation.evaluation.Choice;
 import org.xtext.nordakademie.evaluation.evaluation.EvaluationPackage;
 import org.xtext.nordakademie.evaluation.evaluation.Graduation;
+import org.xtext.nordakademie.evaluation.evaluation.Page;
 import org.xtext.nordakademie.evaluation.evaluation.Question;
+import org.xtext.nordakademie.evaluation.evaluation.Rating;
 import org.xtext.nordakademie.evaluation.evaluation.Survey;
 import org.xtext.nordakademie.evaluation.validation.AbstractEvaluationValidator;
 
@@ -43,36 +49,85 @@ public class EvaluationValidator extends AbstractEvaluationValidator {
   }
   
   @Check
+  public void checkSurveyContainsAPage(final Survey survey) {
+    EList<Page> _pages = survey.getPages();
+    boolean _isEmpty = _pages.isEmpty();
+    if (_isEmpty) {
+      this.error("Missing page: A survey must have at least one page", EvaluationPackage.Literals.SURVEY__NAME);
+    }
+  }
+  
+  @Check
+  public void checkPageContainsAQuestionOrMore(final Page page) {
+    EList<EObject> _eContents = page.eContents();
+    boolean _isEmpty = _eContents.isEmpty();
+    if (_isEmpty) {
+      this.error("Missing question: A page must have at least one question", EvaluationPackage.Literals.PAGE__NAME);
+    }
+  }
+  
+  @Check
   public void noDoubleBulletPoints(final Choice choice) {
-    HashMap<String, Bullet> nameToBullet = CollectionLiterals.<String, Bullet>newHashMap();
+    HashMap<String, Bullet> vBullet = CollectionLiterals.<String, Bullet>newHashMap();
     EList<Bullet> _bullets = choice.getBullets();
     for (final Bullet bullet : _bullets) {
       {
         String _bulletText = bullet.getBulletText();
-        final Bullet choiceWithSameName = nameToBullet.put(_bulletText, bullet);
-        boolean _notEquals = (!Objects.equal(choiceWithSameName, null));
+        final Bullet doubleChoice = vBullet.put(_bulletText, bullet);
+        boolean _notEquals = (!Objects.equal(doubleChoice, null));
         if (_notEquals) {
-          this.error("Double Bullet Point", bullet, EvaluationPackage.Literals.BULLET__BULLET_TEXT);
-          this.error("Double Bullet Point: Please insert another bullet point", choiceWithSameName, EvaluationPackage.Literals.BULLET__BULLET_TEXT);
+          this.error("Double bullet point: Please insert another bullet point text", bullet, EvaluationPackage.Literals.BULLET__BULLET_TEXT);
+          this.error("Double bullet point", doubleChoice, EvaluationPackage.Literals.BULLET__BULLET_TEXT);
         }
       }
     }
   }
   
   @Check
-  public void noDoubleChartGraduation(final Chart question) {
-    HashMap<String, Graduation> nameToGraduation = CollectionLiterals.<String, Graduation>newHashMap();
-    EList<Graduation> _graduations = question.getGraduations();
+  public void noDoubleChartGraduation(final Chart chart) {
+    HashMap<String, Graduation> vGraduation = CollectionLiterals.<String, Graduation>newHashMap();
+    EList<Graduation> _graduations = chart.getGraduations();
     for (final Graduation graduation : _graduations) {
       {
         String _graduationText = graduation.getGraduationText();
-        final Graduation graduationWithSameName = nameToGraduation.put(_graduationText, graduation);
-        boolean _notEquals = (!Objects.equal(graduationWithSameName, null));
+        final Graduation doubleGraduation = vGraduation.put(_graduationText, graduation);
+        boolean _notEquals = (!Objects.equal(doubleGraduation, null));
         if (_notEquals) {
-          this.error("Double Graduation", graduation, EvaluationPackage.Literals.GRADUATION__GRADUATION_TEXT);
-          this.error("Double Graduation: Please insert another graduation", graduationWithSameName, EvaluationPackage.Literals.GRADUATION__GRADUATION_TEXT);
+          this.error("Double graduation: Please insert another graduation text", graduation, EvaluationPackage.Literals.GRADUATION__GRADUATION_TEXT);
+          this.error("Double graduation", doubleGraduation, EvaluationPackage.Literals.GRADUATION__GRADUATION_TEXT);
         }
       }
+    }
+  }
+  
+  @Check
+  public void noDoublePage(final Survey survey) {
+    HashMap<String, Page> vPage = CollectionLiterals.<String, Page>newHashMap();
+    EList<Page> _pages = survey.getPages();
+    for (final Page page : _pages) {
+      {
+        String _name = page.getName();
+        final Page doublePage = vPage.put(_name, page);
+        boolean _notEquals = (!Objects.equal(doublePage, null));
+        if (_notEquals) {
+          this.error("Double page: Please insert another page name", page, EvaluationPackage.Literals.PAGE__NAME);
+          this.error("Double page", doublePage, EvaluationPackage.Literals.PAGE__NAME);
+        }
+      }
+    }
+  }
+  
+  @Check
+  public void checkForwardingPage(final Page page) {
+    Page _followingPage = page.getFollowingPage();
+    TreeIterator<EObject> _eAllContents = _followingPage.eAllContents();
+    final Function1<EObject, Boolean> _function = (EObject it) -> {
+      return null;
+    };
+    boolean _exists = IteratorExtensions.<EObject>exists(_eAllContents, _function);
+    boolean _not = (!_exists);
+    if (_not) {
+      this.error("Non existing Page: Please insert a correct following Page", EvaluationPackage.Literals.PAGE__FOLLOWING_PAGE);
     }
   }
   
@@ -83,8 +138,41 @@ public class EvaluationValidator extends AbstractEvaluationValidator {
     boolean _isUpperCase = Character.isUpperCase(_charAt);
     boolean _not = (!_isUpperCase);
     if (_not) {
-      this.warning("The survey name should start with an upper capital", 
+      this.warning("First capital: The survey name should start with an upper capital", 
         EvaluationPackage.Literals.SURVEY__NAME);
+    }
+  }
+  
+  @Check
+  public void checkUpperCasePage(final Page page) {
+    String _name = page.getName();
+    char _charAt = _name.charAt(0);
+    boolean _isUpperCase = Character.isUpperCase(_charAt);
+    boolean _not = (!_isUpperCase);
+    if (_not) {
+      this.warning("First capital: The page name should start with an upper capital", 
+        EvaluationPackage.Literals.PAGE__NAME);
+    }
+  }
+  
+  @Check
+  public void checkUpperCaseQuestion(final Question question) {
+    String _name = question.getName();
+    char _charAt = _name.charAt(0);
+    boolean _isUpperCase = Character.isUpperCase(_charAt);
+    boolean _not = (!_isUpperCase);
+    if (_not) {
+      this.warning("First capital: The question name should start with an upper capital", 
+        EvaluationPackage.Literals.QUESTION__NAME);
+    }
+  }
+  
+  @Check
+  public void checkRatingQuantity(final Rating rating) {
+    int _ratingQuantity = rating.getRatingQuantity();
+    boolean _greaterThan = (_ratingQuantity > 10);
+    if (_greaterThan) {
+      this.warning("Rating quantity greater than 10: This may cause some display problems with screen width ", EvaluationPackage.Literals.RATING__RATING_QUANTITY);
     }
   }
 }

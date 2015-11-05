@@ -13,6 +13,8 @@ import org.xtext.nordakademie.evaluation.evaluation.Bullet
 import org.xtext.nordakademie.evaluation.evaluation.Choice
 import org.xtext.nordakademie.evaluation.evaluation.EvaluationPackage
 import org.xtext.nordakademie.evaluation.evaluation.Survey
+import org.xtext.nordakademie.evaluation.evaluation.Page
+import org.xtext.nordakademie.evaluation.evaluation.Rating
 
 /**
  * This class contains custom validation rules. 
@@ -21,7 +23,9 @@ import org.xtext.nordakademie.evaluation.evaluation.Survey
  */
 class EvaluationValidator extends AbstractEvaluationValidator {
 
-// Es dürfen keine leeren Fragen vorhanden sein
+// Fehlermeldungen
+
+// Wirft eine Fehlermeldung, wenn eine Frage leer ist
 	@Check
 	def noEmptyQuestions(Question question) {
 		if(question.questionText.isEmpty){
@@ -29,7 +33,7 @@ class EvaluationValidator extends AbstractEvaluationValidator {
 		}
 	}
 
-// Es dürfen keine leeren Bullet Points vorhanden sein	
+// Wirft eine Fehlermeldung, wenn eun Bullet Point keinen Text hat
 	@Check
 	def noEmptyBulletPoints(Bullet bullet) {
 		if(bullet.bulletText.isEmpty) {
@@ -37,41 +41,103 @@ class EvaluationValidator extends AbstractEvaluationValidator {
 		}
 	}
 	
-
-// Es dürfen keine doppelten Bullet Points vorhanden sein 
+// Wirft eine Fehlermeldung, wenn die Umfrage keine Seite enthält.
+	@Check
+	def checkSurveyContainsAPage(Survey survey) {
+		if (survey.pages.empty)
+			error('Missing page: A survey must have at least one page', SURVEY__NAME)
+	}	
+	
+// Wirft eine Fehlermeldung, wenn die Seite keine oder mehr als eine Frage enthält.
+	@Check
+	def checkPageContainsAQuestionOrMore(Page page) {
+		if (page.eContents.empty) 
+			error('Missing question: A page must have at least one question', PAGE__NAME)
+	}
+	
+// Wirft eine Fehlermeldung, wenn zwei Bullet Points den gleichen Text haben
 	@Check 
 	def noDoubleBulletPoints(Choice choice) {
-		var nameToBullet = newHashMap
+		var vBullet = newHashMap
 		for(bullet: choice.bullets) {
-			val choiceWithSameName = nameToBullet.put(bullet.bulletText, bullet)
-			if(choiceWithSameName != null) {
-				error("Double Bullet Point", bullet, BULLET__BULLET_TEXT)
-				error("Double Bullet Point: Please insert another bullet point", choiceWithSameName, BULLET__BULLET_TEXT)
+			val doubleChoice = vBullet.put(bullet.bulletText, bullet)
+			if(doubleChoice != null) {
+				error("Double bullet point: Please insert another bullet point text", bullet, BULLET__BULLET_TEXT)
+				error("Double bullet point", doubleChoice, BULLET__BULLET_TEXT)
 			}
 		}
 	}
 	
-// Es dürfen keine doppelten Bewertungen in Charts vorhanden sein
+// Wirft eine Fehlermeldung, wenn zwei Bewertungen den gleichen Text haben
 	@Check 
-	def noDoubleChartGraduation(Chart question) {
-		var nameToGraduation = newHashMap
-		for(graduation: question.graduations) {
-			val graduationWithSameName = nameToGraduation.put(graduation.graduationText, graduation)
-			if(graduationWithSameName != null) {
-				error("Double Graduation", graduation, GRADUATION__GRADUATION_TEXT)
-				error("Double Graduation: Please insert another graduation", graduationWithSameName, GRADUATION__GRADUATION_TEXT)
+	def noDoubleChartGraduation(Chart chart) {
+		var vGraduation = newHashMap
+		for(graduation: chart.graduations) {
+			val doubleGraduation = vGraduation.put(graduation.graduationText, graduation)
+			if(doubleGraduation != null) {
+				error("Double graduation: Please insert another graduation text", graduation, GRADUATION__GRADUATION_TEXT)
+				error("Double graduation", doubleGraduation, GRADUATION__GRADUATION_TEXT)
 			}
 		}
 	}
 	
-// Gibt eine Warnung aus wenn der Survey Name klein geschrieben ist
-	@Check
-	def void checkUpperCaseSurvey(Survey survey) {
-  		if (!Character::isUpperCase(survey.getName().charAt(0))) {
-    		warning("The survey name should start with an upper capital", 
-      		EvaluationPackage$Literals::SURVEY__NAME);
-  			}
+// Wirft eine Fehlermeldung, wenn zwei Seiten den gleichen Namen haben	
+	@Check 
+	def noDoublePage(Survey survey) {
+		var vPage = newHashMap
+		for(page: survey.pages) {
+			val doublePage = vPage.put(page.name, page)
+			if(doublePage != null) {
+				error("Double page: Please insert another page name", page, PAGE__NAME)
+				error("Double page", doublePage, PAGE__NAME)
+			}
+		}
 	}
 	
+// Wirft eine Fehlermeldung, wenn die Folgeseite nicht existiert
+	@Check
+	def checkForwardingPage(Page page) {
+		if (!page.followingPage.eAllContents.exists[]){
+			error("Non existing Page: Please insert a correct following Page", PAGE__FOLLOWING_PAGE)
+		}
+	}
+
+
+// Warnungen
+	
+// Gibt eine Warnung aus wenn der Umfragenname klein geschrieben ist
+	@Check
+	def checkUpperCaseSurvey(Survey survey) {
+  		if (!Character.isUpperCase(survey.name.charAt(0))) {
+    		warning("First capital: The survey name should start with an upper capital", 
+      		EvaluationPackage.Literals.SURVEY__NAME);
+  		}
+	}
+	
+// Gibt eine Warnung aus wenn der Seitenname klein geschrieben ist
+	@Check
+	def checkUpperCasePage(Page page) {
+  		if (!Character.isUpperCase(page.name.charAt(0))) {
+    		warning("First capital: The page name should start with an upper capital", 
+      		EvaluationPackage.Literals.PAGE__NAME);
+  		}
+	}
+	
+// Gibt eine Warnung aus wenn der Fragenname klein geschrieben ist
+	@Check
+	def checkUpperCaseQuestion(Question question) {
+  		if (!Character.isUpperCase(question.name.charAt(0))) {
+    		warning("First capital: The question name should start with an upper capital", 
+      		EvaluationPackage.Literals.QUESTION__NAME);
+  		}
+	}
+
+// Gibt eine Warnung aus wenn die Anzahl der Rating bullet points größer zehn ist
+	@Check
+	def checkRatingQuantity(Rating rating) {
+  		if (rating.ratingQuantity > 10)
+  			warning("Rating quantity greater than 10: This may cause some display problems with screen width ",RATING__RATING_QUANTITY)
+  	}
+
 }
 
