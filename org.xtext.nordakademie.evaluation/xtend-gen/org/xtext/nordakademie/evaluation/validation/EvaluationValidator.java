@@ -30,6 +30,8 @@ import org.xtext.nordakademie.evaluation.validation.AbstractEvaluationValidator;
  */
 @SuppressWarnings("all")
 public class EvaluationValidator extends AbstractEvaluationValidator {
+  public final static String INVALID_ENTITY_NAME = "org.text.nordakademie.evaluation.InvalidSurveyName";
+  
   @Check
   public void noEmptyQuestions(final Question question) {
     String _questionText = question.getQuestionText();
@@ -138,8 +140,9 @@ public class EvaluationValidator extends AbstractEvaluationValidator {
     boolean _isUpperCase = Character.isUpperCase(_charAt);
     boolean _not = (!_isUpperCase);
     if (_not) {
+      String _name_1 = survey.getName();
       this.warning("First capital: The survey name should start with an upper capital", 
-        EvaluationPackage.Literals.SURVEY__NAME);
+        EvaluationPackage.Literals.SURVEY__NAME, EvaluationValidator.INVALID_ENTITY_NAME, _name_1);
     }
   }
   
@@ -150,8 +153,9 @@ public class EvaluationValidator extends AbstractEvaluationValidator {
     boolean _isUpperCase = Character.isUpperCase(_charAt);
     boolean _not = (!_isUpperCase);
     if (_not) {
+      String _name_1 = page.getName();
       this.warning("First capital: The page name should start with an upper capital", 
-        EvaluationPackage.Literals.PAGE__NAME);
+        EvaluationPackage.Literals.PAGE__NAME, EvaluationValidator.INVALID_ENTITY_NAME, _name_1);
     }
   }
   
@@ -162,8 +166,9 @@ public class EvaluationValidator extends AbstractEvaluationValidator {
     boolean _isUpperCase = Character.isUpperCase(_charAt);
     boolean _not = (!_isUpperCase);
     if (_not) {
+      String _name_1 = question.getName();
       this.warning("First capital: The question name should start with an upper capital", 
-        EvaluationPackage.Literals.QUESTION__NAME);
+        EvaluationPackage.Literals.QUESTION__NAME, EvaluationValidator.INVALID_ENTITY_NAME, _name_1);
     }
   }
   

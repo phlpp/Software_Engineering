@@ -3,7 +3,14 @@
  */
 package org.xtext.nordakademie.evaluation.ui.quickfix;
 
+import org.eclipse.xtext.ui.editor.model.IXtextDocument;
+import org.eclipse.xtext.ui.editor.model.edit.IModification;
+import org.eclipse.xtext.ui.editor.model.edit.IModificationContext;
 import org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider;
+import org.eclipse.xtext.ui.editor.quickfix.Fix;
+import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionAcceptor;
+import org.eclipse.xtext.validation.Issue;
+import org.xtext.nordakademie.evaluation.validation.EvaluationValidator;
 
 /**
  * Custom quickfixes.
@@ -12,4 +19,16 @@ import org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider;
  */
 @SuppressWarnings("all")
 public class EvaluationQuickfixProvider extends DefaultQuickfixProvider {
+  @Fix(EvaluationValidator.INVALID_ENTITY_NAME)
+  public void capitalizeFirstLetter(final Issue issue, final IssueResolutionAcceptor acceptor) {
+    final IModification _function = (IModificationContext context) -> {
+      final IXtextDocument xtextDocument = context.getXtextDocument();
+      Integer _offset = issue.getOffset();
+      final String firstLetter = xtextDocument.get((_offset).intValue(), 1);
+      Integer _offset_1 = issue.getOffset();
+      String _upperCase = firstLetter.toUpperCase();
+      xtextDocument.replace((_offset_1).intValue(), 1, _upperCase);
+    };
+    acceptor.accept(issue, "Capitalize first letter", "Capitalize the first letter of the entity", "", _function);
+  }
 }

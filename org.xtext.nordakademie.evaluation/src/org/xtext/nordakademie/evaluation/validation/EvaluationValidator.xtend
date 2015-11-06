@@ -23,6 +23,11 @@ import org.xtext.nordakademie.evaluation.evaluation.Rating
  */
 class EvaluationValidator extends AbstractEvaluationValidator {
 
+// Variablen für die Übergabe an den QuickFix Provider
+public static val INVALID_ENTITY_NAME =
+"org.text.nordakademie.evaluation.InvalidSurveyName";
+
+
 // Fehlermeldungen
 
 // Wirft eine Fehlermeldung, wenn eine Frage leer ist
@@ -110,7 +115,7 @@ class EvaluationValidator extends AbstractEvaluationValidator {
 	def checkUpperCaseSurvey(Survey survey) {
   		if (!Character.isUpperCase(survey.name.charAt(0))) {
     		warning("First capital: The survey name should start with an upper capital", 
-      		EvaluationPackage.Literals.SURVEY__NAME);
+      		EvaluationPackage.Literals.SURVEY__NAME, INVALID_ENTITY_NAME, survey.name);
   		}
 	}
 	
@@ -119,7 +124,7 @@ class EvaluationValidator extends AbstractEvaluationValidator {
 	def checkUpperCasePage(Page page) {
   		if (!Character.isUpperCase(page.name.charAt(0))) {
     		warning("First capital: The page name should start with an upper capital", 
-      		EvaluationPackage.Literals.PAGE__NAME);
+      		EvaluationPackage.Literals.PAGE__NAME, INVALID_ENTITY_NAME, page.name);
   		}
 	}
 	
@@ -128,7 +133,7 @@ class EvaluationValidator extends AbstractEvaluationValidator {
 	def checkUpperCaseQuestion(Question question) {
   		if (!Character.isUpperCase(question.name.charAt(0))) {
     		warning("First capital: The question name should start with an upper capital", 
-      		EvaluationPackage.Literals.QUESTION__NAME);
+      		EvaluationPackage.Literals.QUESTION__NAME, INVALID_ENTITY_NAME, question.name);
   		}
 	}
 
