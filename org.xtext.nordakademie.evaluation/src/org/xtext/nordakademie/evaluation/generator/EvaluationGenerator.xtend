@@ -62,34 +62,38 @@ class EvaluationGenerator implements IGenerator {
 	//	Dispatch methods make a set of overloaded methods polymorphic
 	def dispatch select(Freetext question) '''
 		<p>
-			<label>«question.questionText»</label><br>
+			<label for="«question.name»">«question.questionText»
 			«helptext(question)»
-			<input type="text" name="«question.name»">
+			<br>
+			<input type="text" id="«question.name»" name="«question.name»">
+			<label>
 		</p>
 	'''
 
 	def dispatch select(Selection question) '''
 		<p>
-			<label>«question.questionText»</label><br>
-			«helptext(question)»			
+			«question.questionText»<br>
+			«helptext(question)»
+			<fieldset>			
 			«FOR bullet : question.bullets»
 				«««	radioButton: one choice; checkBox: multiple choice
 				«IF question.oneChoice»
-					<input type="radio" name="«question.name»" value="«bullet.bulletText»"/>«bullet.bulletText»
+					<input type="radio" id="«bullet.name»" name="«question.name»" value="«bullet.bulletText»"/><label for="«bullet.name»">«bullet.bulletText»</label><br>
 				«ELSE»
-					<input type="checkbox" name="«question.name»" value="«bullet.bulletText»"/>«bullet.bulletText»		
+					<label for="«bullet.name»"> <input type="checkbox" id="«bullet.name»" name="«question.name»" value="«bullet.bulletText»"> «bullet.bulletText» </label><br> 		
 				«ENDIF»	
 				«IF bullet.freetext»
-					&nbsp;<input type="text" name="«question.name»">
+					&nbsp;<input type="text" name="«question.name»" id="«question.name»">
 				«ENDIF»					
 				<br>
-			«ENDFOR»	
+			«ENDFOR»
+			</fieldset> 	
 		</p>		
 	'''
 
 	def dispatch select(Chart question) '''
 		<p>
-			<label>«question.questionText»</label><br>
+			«question.questionText»<br>
 			«helptext(question)»			
 			<style> table, td, th { border: 1px solid black; } </style>
 			<table> 
@@ -105,7 +109,7 @@ class EvaluationGenerator implements IGenerator {
 			<tr>
 				<td>«bullet.bulletText»</td>
 			 	«FOR graduation : question.graduations»
-			 		<td><input type="radio" name="«bullet.bulletText»" value=«graduation.graduationText»></td> 	
+			 		<td><input type="radio" id="«bullet.name»" name="«bullet.bulletText»" value=«graduation.graduationText»></td> 	
 			 	«ENDFOR»
 			 </tr>
 			«ENDFOR»
@@ -119,7 +123,7 @@ class EvaluationGenerator implements IGenerator {
 			«helptext(question)»			
 			«««loop for quantity of possible ratings
 			«FOR ratingValue: 1..question.ratingQuantity»
-				«ratingValue»<input type="radio" name="«question.name»"  value=«ratingValue»"/>&nbsp;&nbsp;
+				«ratingValue»<input type="radio" id="«question.name»" name="«question.name»"  value=«ratingValue»"/>&nbsp;&nbsp;
 			«ENDFOR»
 		</p>
 	'''	

@@ -137,21 +137,32 @@ public class EvaluationGenerator implements IGenerator {
     _builder.append("<p>");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("<label>");
+    _builder.append("<label for=\"");
+    String _name = question.getName();
+    _builder.append(_name, "\t");
+    _builder.append("\">");
     String _questionText = question.getQuestionText();
     _builder.append(_questionText, "\t");
-    _builder.append("</label><br>");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     CharSequence _helptext = this.helptext(question);
     _builder.append(_helptext, "\t");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
-    _builder.append("<input type=\"text\" name=\"");
-    String _name = question.getName();
-    _builder.append(_name, "\t");
+    _builder.append("<br>");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("<input type=\"text\" id=\"");
+    String _name_1 = question.getName();
+    _builder.append(_name_1, "\t");
+    _builder.append("\" name=\"");
+    String _name_2 = question.getName();
+    _builder.append(_name_2, "\t");
     _builder.append("\">");
     _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("<label>");
+    _builder.newLine();
     _builder.append("</p>");
     _builder.newLine();
     return _builder;
@@ -162,16 +173,17 @@ public class EvaluationGenerator implements IGenerator {
     _builder.append("<p>");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("<label>");
     String _questionText = question.getQuestionText();
     _builder.append(_questionText, "\t");
-    _builder.append("</label><br>");
+    _builder.append("<br>");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     CharSequence _helptext = this.helptext(question);
     _builder.append(_helptext, "\t");
-    _builder.append("\t\t\t");
     _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("<fieldset>\t\t\t");
+    _builder.newLine();
     {
       EList<Bullet> _bullets = question.getBullets();
       for(final Bullet bullet : _bullets) {
@@ -179,28 +191,41 @@ public class EvaluationGenerator implements IGenerator {
           boolean _isOneChoice = question.isOneChoice();
           if (_isOneChoice) {
             _builder.append("\t");
-            _builder.append("<input type=\"radio\" name=\"");
-            String _name = question.getName();
+            _builder.append("<input type=\"radio\" id=\"");
+            String _name = bullet.getName();
             _builder.append(_name, "\t");
-            _builder.append("\" value=\"");
-            String _bulletText = bullet.getBulletText();
-            _builder.append(_bulletText, "\t");
-            _builder.append("\"/>");
-            String _bulletText_1 = bullet.getBulletText();
-            _builder.append(_bulletText_1, "\t");
-            _builder.newLineIfNotEmpty();
-          } else {
-            _builder.append("\t");
-            _builder.append("<input type=\"checkbox\" name=\"");
+            _builder.append("\" name=\"");
             String _name_1 = question.getName();
             _builder.append(_name_1, "\t");
             _builder.append("\" value=\"");
+            String _bulletText = bullet.getBulletText();
+            _builder.append(_bulletText, "\t");
+            _builder.append("\"/><label for=\"");
+            String _name_2 = bullet.getName();
+            _builder.append(_name_2, "\t");
+            _builder.append("\">");
+            String _bulletText_1 = bullet.getBulletText();
+            _builder.append(_bulletText_1, "\t");
+            _builder.append("</label><br>");
+            _builder.newLineIfNotEmpty();
+          } else {
+            _builder.append("\t");
+            _builder.append("<label for=\"");
+            String _name_3 = bullet.getName();
+            _builder.append(_name_3, "\t");
+            _builder.append("\"> <input type=\"checkbox\" id=\"");
+            String _name_4 = bullet.getName();
+            _builder.append(_name_4, "\t");
+            _builder.append("\" name=\"");
+            String _name_5 = question.getName();
+            _builder.append(_name_5, "\t");
+            _builder.append("\" value=\"");
             String _bulletText_2 = bullet.getBulletText();
             _builder.append(_bulletText_2, "\t");
-            _builder.append("\"/>");
+            _builder.append("\"> ");
             String _bulletText_3 = bullet.getBulletText();
             _builder.append(_bulletText_3, "\t");
-            _builder.append("\t\t");
+            _builder.append(" </label><br> \t\t");
             _builder.newLineIfNotEmpty();
           }
         }
@@ -209,8 +234,11 @@ public class EvaluationGenerator implements IGenerator {
           if (_isFreetext) {
             _builder.append("\t");
             _builder.append("&nbsp;<input type=\"text\" name=\"");
-            String _name_2 = question.getName();
-            _builder.append(_name_2, "\t");
+            String _name_6 = question.getName();
+            _builder.append(_name_6, "\t");
+            _builder.append("\" id=\"");
+            String _name_7 = question.getName();
+            _builder.append(_name_7, "\t");
             _builder.append("\">");
             _builder.newLineIfNotEmpty();
           }
@@ -220,6 +248,9 @@ public class EvaluationGenerator implements IGenerator {
         _builder.newLine();
       }
     }
+    _builder.append("\t");
+    _builder.append("</fieldset> \t");
+    _builder.newLine();
     _builder.append("</p>\t\t");
     _builder.newLine();
     return _builder;
@@ -230,10 +261,9 @@ public class EvaluationGenerator implements IGenerator {
     _builder.append("<p>");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("<label>");
     String _questionText = question.getQuestionText();
     _builder.append(_questionText, "\t");
-    _builder.append("</label><br>");
+    _builder.append("<br>");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     CharSequence _helptext = this.helptext(question);
@@ -281,7 +311,10 @@ public class EvaluationGenerator implements IGenerator {
           EList<Graduation> _graduations_1 = question.getGraduations();
           for(final Graduation graduation_1 : _graduations_1) {
             _builder.append(" \t");
-            _builder.append("<td><input type=\"radio\" name=\"");
+            _builder.append("<td><input type=\"radio\" id=\"");
+            String _name = bullet.getName();
+            _builder.append(_name, " \t");
+            _builder.append("\" name=\"");
             String _bulletText_1 = bullet.getBulletText();
             _builder.append(_bulletText_1, " \t");
             _builder.append("\" value=");
@@ -324,9 +357,12 @@ public class EvaluationGenerator implements IGenerator {
       IntegerRange _upTo = new IntegerRange(1, _ratingQuantity);
       for(final Integer ratingValue : _upTo) {
         _builder.append(ratingValue, "");
-        _builder.append("<input type=\"radio\" name=\"");
+        _builder.append("<input type=\"radio\" id=\"");
         String _name = question.getName();
         _builder.append(_name, "");
+        _builder.append("\" name=\"");
+        String _name_1 = question.getName();
+        _builder.append(_name_1, "");
         _builder.append("\"  value=");
         _builder.append(ratingValue, "");
         _builder.append("\"/>&nbsp;&nbsp;");

@@ -32,14 +32,10 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cPagesPageParserRuleCall_4_0 = (RuleCall)cPagesAssignment_4.eContents().get(0);
 		
 		//Survey:
-		//	"survey" name=ID title=STRING greeting=STRING? //total time estimated for survey: tbd
-		//	//(duration=STRING)?
-		//	pages+=Page*;
+		//	"survey" name=ID title=STRING greeting=STRING? pages+=Page*;
 		@Override public ParserRule getRule() { return rule; }
 
-		//"survey" name=ID title=STRING greeting=STRING? //total time estimated for survey: tbd
-		////(duration=STRING)?
-		//pages+=Page*
+		//"survey" name=ID title=STRING greeting=STRING? pages+=Page*
 		public Group getGroup() { return cGroup; }
 
 		//"survey"
@@ -63,8 +59,6 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getGreetingSTRINGTerminalRuleCall_3_0() { return cGreetingSTRINGTerminalRuleCall_3_0; }
 
-		////total time estimated for survey: tbd
-		////(duration=STRING)?
 		//pages+=Page*
 		public Assignment getPagesAssignment_4() { return cPagesAssignment_4; }
 
@@ -145,7 +139,6 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cRatingParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cChoiceParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
-		////	| Calendar:tbd
 		//Question:
 		//	Freetext | Rating | Choice;
 		@Override public ParserRule getRule() { return rule; }
@@ -457,9 +450,6 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cGraduationTextAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cGraduationTextSTRINGTerminalRuleCall_1_0 = (RuleCall)cGraduationTextAssignment_1.eContents().get(0);
 		
-		////Calendar:tbd
-		////	'calendar' name=ID question=STRING
-		////;
 		//Graduation:
 		//	name=ID? graduationText=STRING;
 		@Override public ParserRule getRule() { return rule; }
@@ -541,9 +531,7 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Survey:
-	//	"survey" name=ID title=STRING greeting=STRING? //total time estimated for survey: tbd
-	//	//(duration=STRING)?
-	//	pages+=Page*;
+	//	"survey" name=ID title=STRING greeting=STRING? pages+=Page*;
 	public SurveyElements getSurveyAccess() {
 		return pSurvey;
 	}
@@ -563,7 +551,6 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		return getPageAccess().getRule();
 	}
 
-	////	| Calendar:tbd
 	//Question:
 	//	Freetext | Rating | Choice;
 	public QuestionElements getQuestionAccess() {
@@ -634,9 +621,6 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		return getBulletAccess().getRule();
 	}
 
-	////Calendar:tbd
-	////	'calendar' name=ID question=STRING
-	////;
 	//Graduation:
 	//	name=ID? graduationText=STRING;
 	public GraduationElements getGraduationAccess() {
