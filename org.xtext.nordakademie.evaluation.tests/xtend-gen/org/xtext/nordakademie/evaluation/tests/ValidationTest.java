@@ -26,9 +26,9 @@ public class ValidationTest {
   private ValidationTestHelper _validationTestHelper;
   
   @Test
-  public void testSurveyWithPageQuestion() {
+  public void testSurveyComplete() {
     try {
-      Survey _parse = this._parseHelper.parse("survey Testname \r\n\t\t\t\"Testtitel der Survey\" \r\n\t\t\t\"Testbegrüßung der Survey\"\r\n\r\n\t\t\tpage Testseite (\r\n\t\t\t\tfreetext Testfrage \"Testfrage der Seite\"\r\n\t\t\t)");
+      Survey _parse = this._parseHelper.parse("survey Testname \r\n\t\t\t\"Testtitel der Survey\" \r\n\t\t\t\"Testbegrüßung der Survey\"\r\n\r\n\t\t\tpage Testseite1 (\r\n\t\t\t\tfreetext Testfrage \"Testfrage der Testseite1\"\r\n\t\t\t\tforwarding to -> Testseite2\r\n\t\t\t)\r\n\t\t\t\r\n\t\t\tpage Testseite2 (\r\n\t\t\t\trating Testrating \"Testrating der Testseite2\" 10\r\n\t\t\t\tforwarding to -> Testseite3\r\n\t\t\t)\r\n\r\n\t\t\tpage Testseite3 (\r\n\t\t\t\tselect Testselection \"Testselection der Testseite3\"\r\n\t\t\t\t(Testbullet1 \"Testbullet\") \r\n\t\t\t\tforwarding to -> Testseite4\r\n\t\t\t)\r\n\r\n\t\t\tpage Testseite4 (\r\n\t\t\t\tchart Testchart \"Testchart der Testseite4\"\r\n\t\t\t\t(Testbullet1 \"Testbullet1\" Testbullet2 \"Testbullet2\") x (Testbullet3 \"Testbullet3\" Testbullet4 \"Testbullet4\")\r\n\t\t\t)\r\n\t\t");
       this._validationTestHelper.assertNoErrors(_parse);
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
@@ -36,9 +36,9 @@ public class ValidationTest {
   }
   
   @Test
-  public void testSurveyWithoutPageQuestion() {
+  public void testSurveyWithNonExistingFollowingPage() {
     try {
-      Survey _parse = this._parseHelper.parse("survey Testname \r\n\t\t\t\"Testtitel der Survey\" \r\n\t\t\t\"Testbegrüßung der Survey\"\r\n\t\t\t");
+      Survey _parse = this._parseHelper.parse("survey Testname \r\n\t\t\t\"Testtitel der Survey\" \r\n\t\t\t\"Testbegrüßung der Survey\"\r\n\r\n\t\t\tpage Testseite1 (\r\n\t\t\t\tfreetext Testfrage \"Testfrage der Testseite1\"\r\n\t\t\t\tforwarding to -> Testseite2\r\n\t\t\t)\r\n\t\t\t\r\n\t\t\tpage Testseite2 (\r\n\t\t\t\trating Testrating \"Testrating der Testseite2\" 10\r\n\t\t\t\tforwarding to -> Testseite3\r\n\t\t\t)\r\n\r\n\t\t\tpage Testseite3 (\r\n\t\t\t\tselect Testselection \"Testselection der Testseite3\"\r\n\t\t\t\t(Testbullet1 \"Testbullet\") \r\n\t\t\t\tforwarding to -> Testseite5\r\n\t\t\t)\r\n\r\n\t\t\tpage Testseite4 (\r\n\t\t\t\tchart Testchart \"Testchart der Testseite4\"\r\n\t\t\t\t(Testbullet1 \"Testbullet1\" Testbullet2 \"Testbullet2\") x (Testbullet3 \"Testbullet3\" Testbullet4 \"Testbullet4\")\r\n\t\t\t)\r\n\t\t");
       this._validationTestHelper.assertError(_parse, EvaluationPackage.Literals.PAGE, null);
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);

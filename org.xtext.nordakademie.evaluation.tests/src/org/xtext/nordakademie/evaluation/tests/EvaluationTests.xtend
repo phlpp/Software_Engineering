@@ -19,24 +19,65 @@ class ValidationTest {
 	@Inject extension ParseHelper<Survey> 
 	@Inject extension ValidationTestHelper 
 	
+// Positivtest: Enthält sämtliche Fragetypen
 	@Test
-	def void testSurveyWithPageQuestion() {
+	def void testSurveyComplete() {
 		'survey Testname 
 			"Testtitel der Survey" 
 			"Testbegrüßung der Survey"
 
-			page Testseite (
-				freetext Testfrage "Testfrage der Seite"
-			)'
+			page Testseite1 (
+				freetext Testfrage "Testfrage der Testseite1"
+				forwarding to -> Testseite2
+			)
+			
+			page Testseite2 (
+				rating Testrating "Testrating der Testseite2" 10
+				forwarding to -> Testseite3
+			)
+
+			page Testseite3 (
+				select Testselection "Testselection der Testseite3"
+				(Testbullet1 "Testbullet") 
+				forwarding to -> Testseite4
+			)
+
+			page Testseite4 (
+				chart Testchart "Testchart der Testseite4"
+				(Testbullet1 "Testbullet1" Testbullet2 "Testbullet2") x (Testbullet3 "Testbullet3" Testbullet4 "Testbullet4")
+			)
+		'
 			.parse.assertNoErrors
 	}
 	
+// Negativtest: Nicht vorhandene Folgeseite	(Testseite5)
 	@Test
-	def void testSurveyWithoutPageQuestion() {
+	def void testSurveyWithNonExistingFollowingPage() {
 		'survey Testname 
 			"Testtitel der Survey" 
 			"Testbegrüßung der Survey"
-			'
+
+			page Testseite1 (
+				freetext Testfrage "Testfrage der Testseite1"
+				forwarding to -> Testseite2
+			)
+			
+			page Testseite2 (
+				rating Testrating "Testrating der Testseite2" 10
+				forwarding to -> Testseite3
+			)
+
+			page Testseite3 (
+				select Testselection "Testselection der Testseite3"
+				(Testbullet1 "Testbullet") 
+				forwarding to -> Testseite5
+			)
+
+			page Testseite4 (
+				chart Testchart "Testchart der Testseite4"
+				(Testbullet1 "Testbullet1" Testbullet2 "Testbullet2") x (Testbullet3 "Testbullet3" Testbullet4 "Testbullet4")
+			)
+		'
 			.parse.assertError(EvaluationPackage.Literals.PAGE, null)
 	}
 }
