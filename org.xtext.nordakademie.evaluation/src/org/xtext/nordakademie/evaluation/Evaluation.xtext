@@ -13,7 +13,7 @@ Survey:
 Page:
 	'page' name=ID '('
 	question=Question
-	//referred page
+	//referred page (cross reference)
 	(forwarding?='forwarding to ->' followingPage=[Page|ID])?	
 	')'
 ;

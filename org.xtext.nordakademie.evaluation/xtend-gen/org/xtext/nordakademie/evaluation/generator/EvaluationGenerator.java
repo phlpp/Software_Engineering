@@ -93,30 +93,23 @@ public class EvaluationGenerator implements IGenerator {
         _builder.append("\t\t");
         _builder.newLineIfNotEmpty();
         _builder.append("\t   \t\t\t\t");
-        _builder.append("<button type=\"submit\" value=\"submit\">submit</button>");
+        _builder.append("<button type=\"submit\" value=\"submit\">next</button>");
         _builder.newLine();
-        _builder.append("\t");
         _builder.append("<button type=\"reset\" value=\"reset\">reset</button>");
         _builder.newLine();
         _builder.append("</form>\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ");
         _builder.newLine();
       } else {
-        _builder.append("<form action=\"");
-        String _name_1 = page.getName();
-        String _plus_1 = (_name_1 + ".html");
-        _builder.append(_plus_1, "");
-        _builder.append("\" method=\"post\">");
-        _builder.newLineIfNotEmpty();
+        _builder.append("<form action=\"evaluation.html\" method=\"post\">");
+        _builder.newLine();
         _builder.append("\t");
         Question _question_1 = page.getQuestion();
         CharSequence _select_1 = this.select(_question_1);
         _builder.append(_select_1, "\t");
         _builder.append("\t\t");
         _builder.newLineIfNotEmpty();
-        _builder.append("\t   \t\t\t\t");
-        _builder.append("<button type=\"submit\" value=\"submit\">submit</button>");
+        _builder.append("<button type=\"submit\" value=\"submit\">finish</button>");
         _builder.newLine();
-        _builder.append("\t");
         _builder.append("<button type=\"reset\" value=\"reset\">reset</button>");
         _builder.newLine();
         _builder.append("</form>\t\t\t\t\t\t\t\t");
@@ -158,7 +151,7 @@ public class EvaluationGenerator implements IGenerator {
     _builder.append("\" name=\"");
     String _name_2 = question.getName();
     _builder.append(_name_2, "\t");
-    _builder.append("\">");
+    _builder.append("\" required>");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("<label>");
@@ -200,7 +193,7 @@ public class EvaluationGenerator implements IGenerator {
             _builder.append("\" value=\"");
             String _bulletText = bullet.getBulletText();
             _builder.append(_bulletText, "\t");
-            _builder.append("\"/><label for=\"");
+            _builder.append("\" required/><label for=\"");
             String _name_2 = bullet.getName();
             _builder.append(_name_2, "\t");
             _builder.append("\">");
@@ -320,7 +313,7 @@ public class EvaluationGenerator implements IGenerator {
             _builder.append("\" value=");
             String _graduationText_1 = graduation_1.getGraduationText();
             _builder.append(_graduationText_1, " \t");
-            _builder.append("></td> \t");
+            _builder.append(" required></td> \t");
             _builder.newLineIfNotEmpty();
           }
         }
@@ -365,7 +358,7 @@ public class EvaluationGenerator implements IGenerator {
         _builder.append(_name_1, "");
         _builder.append("\"  value=");
         _builder.append(ratingValue, "");
-        _builder.append("\"/>&nbsp;&nbsp;");
+        _builder.append("\" required/>&nbsp;&nbsp;");
         _builder.newLineIfNotEmpty();
       }
     }

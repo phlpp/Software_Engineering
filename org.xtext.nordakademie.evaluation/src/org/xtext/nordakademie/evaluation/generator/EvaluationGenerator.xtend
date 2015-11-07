@@ -44,14 +44,14 @@ class EvaluationGenerator implements IGenerator {
 					<form action="«page.followingPage.name + '.html'»" method="post">
 					«««one question per page
 						«select(page.question)»		
-	   				<button type="submit" value="submit">submit</button>
-						<button type="reset" value="reset">reset</button>
+	   				<button type="submit" value="submit">next</button>
+					<button type="reset" value="reset">reset</button>
 					</form>															 
 				«ELSE»
-					<form action="«page.name + '.html'»" method="post">
+					<form action="evaluation.html" method="post">
 						«select(page.question)»		
-	   				<button type="submit" value="submit">submit</button>
-						<button type="reset" value="reset">reset</button>
+					<button type="submit" value="submit">finish</button>
+					<button type="reset" value="reset">reset</button>
 					</form>								
 				«ENDIF»
 
@@ -65,7 +65,7 @@ class EvaluationGenerator implements IGenerator {
 			<label for="«question.name»">«question.questionText»
 			«helptext(question)»
 			<br>
-			<input type="text" id="«question.name»" name="«question.name»">
+			<input type="text" id="«question.name»" name="«question.name»" required>
 			<label>
 		</p>
 	'''
@@ -78,7 +78,7 @@ class EvaluationGenerator implements IGenerator {
 			«FOR bullet : question.bullets»
 				«««	radioButton: one choice; checkBox: multiple choice
 				«IF question.oneChoice»
-					<input type="radio" id="«bullet.name»" name="«question.name»" value="«bullet.bulletText»"/><label for="«bullet.name»">«bullet.bulletText»</label><br>
+					<input type="radio" id="«bullet.name»" name="«question.name»" value="«bullet.bulletText»" required/><label for="«bullet.name»">«bullet.bulletText»</label><br>
 				«ELSE»
 					<label for="«bullet.name»"> <input type="checkbox" id="«bullet.name»" name="«question.name»" value="«bullet.bulletText»"> «bullet.bulletText» </label><br> 		
 				«ENDIF»	
@@ -109,7 +109,7 @@ class EvaluationGenerator implements IGenerator {
 			<tr>
 				<td>«bullet.bulletText»</td>
 			 	«FOR graduation : question.graduations»
-			 		<td><input type="radio" id="«bullet.name»" name="«bullet.bulletText»" value=«graduation.graduationText»></td> 	
+			 		<td><input type="radio" id="«bullet.name»" name="«bullet.bulletText»" value=«graduation.graduationText» required></td> 	
 			 	«ENDFOR»
 			 </tr>
 			«ENDFOR»
@@ -123,7 +123,7 @@ class EvaluationGenerator implements IGenerator {
 			«helptext(question)»			
 			«««loop for quantity of possible ratings
 			«FOR ratingValue: 1..question.ratingQuantity»
-				«ratingValue»<input type="radio" id="«question.name»" name="«question.name»"  value=«ratingValue»"/>&nbsp;&nbsp;
+				«ratingValue»<input type="radio" id="«question.name»" name="«question.name»"  value=«ratingValue»" required/>&nbsp;&nbsp;
 			«ENDFOR»
 		</p>
 	'''	
