@@ -60,7 +60,7 @@ public class EvaluationValidator extends AbstractEvaluationValidator {
   }
   
   @Check
-  public void checkPageContainsAQuestionOrMore(final Page page) {
+  public void checkPageContainsAQuestion(final Page page) {
     EList<EObject> _eContents = page.eContents();
     boolean _isEmpty = _eContents.isEmpty();
     if (_isEmpty) {

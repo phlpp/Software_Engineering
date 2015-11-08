@@ -53,9 +53,9 @@ public static val INVALID_ENTITY_NAME =
 			error('Missing page: A survey must have at least one page', SURVEY__NAME)
 	}	
 	
-// Wirft eine Fehlermeldung, wenn die Seite keine oder mehr als eine Frage enthält.
+// Wirft eine Fehlermeldung, wenn die Seite keine Frage enthält.
 	@Check
-	def checkPageContainsAQuestionOrMore(Page page) {
+	def checkPageContainsAQuestion(Page page) {
 		if (page.eContents.empty) 
 			error('Missing question: A page must have at least one question', PAGE__NAME)
 	}
