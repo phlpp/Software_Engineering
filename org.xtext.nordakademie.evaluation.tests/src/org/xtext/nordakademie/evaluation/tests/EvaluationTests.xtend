@@ -32,19 +32,25 @@ class ValidationTest {
 			)
 			
 			page Testseite2 (
-				rating Testbewertung "Testbewertung der Testseite2" 10
+				rating Testbewertung "Testfrage der Testseite2" 10
 				forwarding to -> Testseite3
 			)
 
 			page Testseite3 (
-				select Testauswahl "Testauswahl der Testseite3"
+				select Testauswahl "Testfrage der Testseite3"
 				(Testauswahlfeld1 "Testauswahlfeld") 
 				forwarding to -> Testseite4
 			)
 
 			page Testseite4 (
-				chart Testchart "Testchart der Testseite4"
+				chart Testtabelle "Testfrage der Testseite4"
 				(Testauswahlfeld1 "Testauswahlfeld1" Testauswahlfeld2 "Testauswahlfeld2") x (Gewichtung1 "Gewichtung1" Gewichtung2 "Gewichtung2")
+				forwarding to -> Seite5
+			)
+
+			page Seite5 (
+				select oneChoice TestEntscheidung "Testfrage der Testseite5" 
+				(Alternative1 "M" Alternative2 "W")
 			)
 		'
 			.parse.assertNoErrors
@@ -89,8 +95,7 @@ class ValidationTest {
 			'
 			val survey = parseHelper.parse(model)
 			validationTestHelper.assertError(survey, EvaluationPackage.Literals.BULLET, null)
-	}	
-	
+	}		
 	
 // Negativtest: gleiche Aufzählungspunkte
 	@Test
