@@ -61,7 +61,7 @@ class EvaluationGenerator implements IGenerator {
 							«ENDIF»
 					</div id"main">
 					<div id="footer">
-						<i>Hausarbeit Softwareengineering von Philipp Schäfer & Martin Kuhla</i>
+						<i>Hausarbeit Softwareengineering von Philipp Schaefer & Martin Kuhla</i>
 					</div id="footer">
 				</div id="wrapper">
 			</body>

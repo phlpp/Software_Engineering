@@ -141,7 +141,7 @@ public class EvaluationGenerator implements IGenerator {
     _builder.append("<div id=\"footer\">");
     _builder.newLine();
     _builder.append("\t\t\t\t");
-    _builder.append("<i>Hausarbeit Softwareengineering von Philipp Schäfer & Martin Kuhla</i>");
+    _builder.append("<i>Hausarbeit Softwareengineering von Philipp Schaefer & Martin Kuhla</i>");
     _builder.newLine();
     _builder.append("\t\t\t");
     _builder.append("</div id=\"footer\">");
