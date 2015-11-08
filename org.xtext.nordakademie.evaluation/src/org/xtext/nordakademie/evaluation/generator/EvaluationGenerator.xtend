@@ -35,26 +35,35 @@ class EvaluationGenerator implements IGenerator {
 		<html>
 			<head>
 				<title>«survey.title»</title>
+				<link href="../css/evaluation.css" rel="stylesheet" media="screen">
 			</head>
 			<body>
-				<h1>«survey.title»</h1>
-				<p>«survey.greeting»</p>
-				«««next page if existing
-				«IF page.forwarding»
-					<form action="«page.followingPage.name + '.html'»" method="post">
-					«««one question per page
-						«select(page.question)»		
-	   				<button type="submit" value="submit">next</button>
-					<button type="reset" value="reset">reset</button>
-					</form>															 
-				«ELSE»
-					<form action="evaluation.html" method="post">
-						«select(page.question)»		
-					<button type="submit" value="submit">finish</button>
-					<button type="reset" value="reset">reset</button>
-					</form>								
-				«ENDIF»
-
+				<div id="wrapper">
+					<div id="header">
+						<h1>«survey.title»</h1>
+						<p>«survey.greeting»</p>
+					</div id=header>
+					<div id="main">
+						«««next page if existing
+							«IF page.forwarding»
+								<form action="«page.followingPage.name + '.html'»" method="post">
+									«««one question per page
+									«select(page.question)»		
+	   								<button type="submit" value="submit">next</button>
+									<button type="reset" value="reset">reset</button>
+								</form>															 
+							«ELSE»
+								<form action="evaluation.html" method="post">
+									«select(page.question)»		
+									<button type="submit" value="submit">finish</button>
+									<button type="reset" value="reset">reset</button>
+								</form>								
+							«ENDIF»
+					</div id"main">
+					<div id="footer">
+						<i>Hausarbeit Softwareengineering von Philipp Schäfer & Martin Kuhla</i>
+					</div id="footer">
+				</div id="wrapper">
 			</body>
 		</html>	
 	'''
@@ -62,18 +71,21 @@ class EvaluationGenerator implements IGenerator {
 	//	Dispatch methods make a set of overloaded methods polymorphic
 	def dispatch select(Freetext question) '''
 		<p>
+			<b>
 			<label for="«question.name»">«question.questionText»
 			«helptext(question)»
-			<br>
+			<p></p>
 			<input type="text" id="«question.name»" name="«question.name»" required>
 			<label>
+			</b>
 		</p>
 	'''
 
 	def dispatch select(Selection question) '''
-		<p>
+		<p><b>
 			«question.questionText»<br>
 			«helptext(question)»
+			<p></p>
 			<fieldset>			
 			«FOR bullet : question.bullets»
 				«««	radioButton: one choice; checkBox: multiple choice
@@ -87,14 +99,15 @@ class EvaluationGenerator implements IGenerator {
 				«ENDIF»					
 				<br>
 			«ENDFOR»
-			</fieldset> 	
+			</fieldset> </b>	
 		</p>		
 	'''
 
 	def dispatch select(Chart question) '''
-		<p>
+		<p><b>
 			«question.questionText»<br>
-			«helptext(question)»			
+			«helptext(question)»
+			<p></<p>			
 			<style> table, td, th { border: 1px solid black; } </style>
 			<table> 
 			«««first row with graduation statements
@@ -107,25 +120,26 @@ class EvaluationGenerator implements IGenerator {
 			«««rows with bullets (choices) and radio buttons
 			«FOR bullet : question.bullets»
 			<tr>
-				<td>«bullet.bulletText»</td>
+				<th>«bullet.bulletText»</th>
 			 	«FOR graduation : question.graduations»
-			 		<td><input type="radio" id="«bullet.name»" name="«bullet.bulletText»" value=«graduation.graduationText» required></td> 	
+			 		<th><input type="radio" id="«bullet.name»" name="«bullet.bulletText»" value=«graduation.graduationText» required></th> 	
 			 	«ENDFOR»
 			 </tr>
 			«ENDFOR»
 			</table> 			
-		</p>	
+		</b></p>	
 	'''
 
 	def dispatch select(Rating question) '''
-		<p>
+		<p><b>
 			<label>«question.questionText»</label><br>
-			«helptext(question)»			
+			«helptext(question)»
+			<p></<p>			
 			«««loop for quantity of possible ratings
 			«FOR ratingValue: 1..question.ratingQuantity»
 				«ratingValue»<input type="radio" id="«question.name»" name="«question.name»"  value=«ratingValue»" required/>&nbsp;&nbsp;
 			«ENDFOR»
-		</p>
+		</b></p>
 	'''	
 	
 	def helptext(Question question) '''

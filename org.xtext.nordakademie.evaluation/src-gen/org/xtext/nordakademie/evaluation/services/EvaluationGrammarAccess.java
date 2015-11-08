@@ -84,11 +84,11 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//Page:
-		//	"page" name=ID "(" question=Question //referred page
+		//	"page" name=ID "(" question=Question //referred page (cross reference)
 		//	(forwarding?="forwarding to ->" followingPage=[Page])? ")";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"page" name=ID "(" question=Question //referred page
+		//"page" name=ID "(" question=Question //referred page (cross reference)
 		//(forwarding?="forwarding to ->" followingPage=[Page])? ")"
 		public Group getGroup() { return cGroup; }
 
@@ -541,7 +541,7 @@ public class EvaluationGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Page:
-	//	"page" name=ID "(" question=Question //referred page
+	//	"page" name=ID "(" question=Question //referred page (cross reference)
 	//	(forwarding?="forwarding to ->" followingPage=[Page])? ")";
 	public PageElements getPageAccess() {
 		return pPage;

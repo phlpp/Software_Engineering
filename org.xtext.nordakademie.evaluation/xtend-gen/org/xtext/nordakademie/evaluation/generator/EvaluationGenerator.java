@@ -58,6 +58,9 @@ public class EvaluationGenerator implements IGenerator {
     _builder.append(_title, "\t\t");
     _builder.append("</title>");
     _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("<link href=\"../css/evaluation.css\" rel=\"stylesheet\" media=\"screen\">");
+    _builder.newLine();
     _builder.append("\t");
     _builder.append("</head>");
     _builder.newLine();
@@ -65,17 +68,29 @@ public class EvaluationGenerator implements IGenerator {
     _builder.append("<body>");
     _builder.newLine();
     _builder.append("\t\t");
+    _builder.append("<div id=\"wrapper\">");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("<div id=\"header\">");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
     _builder.append("<h1>");
     String _title_1 = survey.getTitle();
-    _builder.append(_title_1, "\t\t");
+    _builder.append(_title_1, "\t\t\t\t");
     _builder.append("</h1>");
     _builder.newLineIfNotEmpty();
-    _builder.append("\t\t");
+    _builder.append("\t\t\t\t");
     _builder.append("<p>");
     String _greeting = survey.getGreeting();
-    _builder.append(_greeting, "\t\t");
+    _builder.append(_greeting, "\t\t\t\t");
     _builder.append("</p>");
     _builder.newLineIfNotEmpty();
+    _builder.append("\t\t\t");
+    _builder.append("</div id=header>");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("<div id=\"main\">");
+    _builder.newLine();
     {
       boolean _isForwarding = page.isForwarding();
       if (_isForwarding) {
@@ -86,15 +101,16 @@ public class EvaluationGenerator implements IGenerator {
         _builder.append(_plus, "");
         _builder.append("\" method=\"post\">");
         _builder.newLineIfNotEmpty();
-        _builder.append("\t\t\t\t\t\t");
+        _builder.append("\t\t\t\t\t\t\t\t\t\t");
         Question _question = page.getQuestion();
         CharSequence _select = this.select(_question);
-        _builder.append(_select, "\t\t\t\t\t\t");
+        _builder.append(_select, "\t\t\t\t\t\t\t\t\t\t");
         _builder.append("\t\t");
         _builder.newLineIfNotEmpty();
-        _builder.append("\t   \t\t\t\t");
+        _builder.append("\t   \t\t\t\t\t\t\t\t");
         _builder.append("<button type=\"submit\" value=\"submit\">next</button>");
         _builder.newLine();
+        _builder.append("\t");
         _builder.append("<button type=\"reset\" value=\"reset\">reset</button>");
         _builder.newLine();
         _builder.append("</form>\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t ");
@@ -108,14 +124,30 @@ public class EvaluationGenerator implements IGenerator {
         _builder.append(_select_1, "\t");
         _builder.append("\t\t");
         _builder.newLineIfNotEmpty();
+        _builder.append("\t");
         _builder.append("<button type=\"submit\" value=\"submit\">finish</button>");
         _builder.newLine();
+        _builder.append("\t");
         _builder.append("<button type=\"reset\" value=\"reset\">reset</button>");
         _builder.newLine();
         _builder.append("</form>\t\t\t\t\t\t\t\t");
         _builder.newLine();
       }
     }
+    _builder.append("\t\t\t");
+    _builder.append("</div id\"main\">");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("<div id=\"footer\">");
+    _builder.newLine();
+    _builder.append("\t\t\t\t");
+    _builder.append("<i>Hausarbeit Softwareengineering von Philipp Schäfer & Martin Kuhla</i>");
+    _builder.newLine();
+    _builder.append("\t\t\t");
+    _builder.append("</div id=\"footer\">");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("</div id=\"wrapper\">");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("</body>");
@@ -130,6 +162,9 @@ public class EvaluationGenerator implements IGenerator {
     _builder.append("<p>");
     _builder.newLine();
     _builder.append("\t");
+    _builder.append("<b>");
+    _builder.newLine();
+    _builder.append("\t");
     _builder.append("<label for=\"");
     String _name = question.getName();
     _builder.append(_name, "\t");
@@ -142,7 +177,7 @@ public class EvaluationGenerator implements IGenerator {
     _builder.append(_helptext, "\t");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
-    _builder.append("<br>");
+    _builder.append("<p></p>");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("<input type=\"text\" id=\"");
@@ -156,6 +191,9 @@ public class EvaluationGenerator implements IGenerator {
     _builder.append("\t");
     _builder.append("<label>");
     _builder.newLine();
+    _builder.append("\t");
+    _builder.append("</b>");
+    _builder.newLine();
     _builder.append("</p>");
     _builder.newLine();
     return _builder;
@@ -163,7 +201,7 @@ public class EvaluationGenerator implements IGenerator {
   
   protected CharSequence _select(final Selection question) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<p>");
+    _builder.append("<p><b>");
     _builder.newLine();
     _builder.append("\t");
     String _questionText = question.getQuestionText();
@@ -174,6 +212,9 @@ public class EvaluationGenerator implements IGenerator {
     CharSequence _helptext = this.helptext(question);
     _builder.append(_helptext, "\t");
     _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("<p></p>");
+    _builder.newLine();
     _builder.append("\t");
     _builder.append("<fieldset>\t\t\t");
     _builder.newLine();
@@ -242,7 +283,7 @@ public class EvaluationGenerator implements IGenerator {
       }
     }
     _builder.append("\t");
-    _builder.append("</fieldset> \t");
+    _builder.append("</fieldset> </b>\t");
     _builder.newLine();
     _builder.append("</p>\t\t");
     _builder.newLine();
@@ -251,7 +292,7 @@ public class EvaluationGenerator implements IGenerator {
   
   protected CharSequence _select(final Chart question) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<p>");
+    _builder.append("<p><b>");
     _builder.newLine();
     _builder.append("\t");
     String _questionText = question.getQuestionText();
@@ -261,8 +302,10 @@ public class EvaluationGenerator implements IGenerator {
     _builder.append("\t");
     CharSequence _helptext = this.helptext(question);
     _builder.append(_helptext, "\t");
-    _builder.append("\t\t\t");
     _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("<p></<p>\t\t\t");
+    _builder.newLine();
     _builder.append("\t");
     _builder.append("<style> table, td, th { border: 1px solid black; } </style>");
     _builder.newLine();
@@ -295,16 +338,16 @@ public class EvaluationGenerator implements IGenerator {
         _builder.append("<tr>");
         _builder.newLine();
         _builder.append("\t");
-        _builder.append("<td>");
+        _builder.append("<th>");
         String _bulletText = bullet.getBulletText();
         _builder.append(_bulletText, "\t");
-        _builder.append("</td>");
+        _builder.append("</th>");
         _builder.newLineIfNotEmpty();
         {
           EList<Graduation> _graduations_1 = question.getGraduations();
           for(final Graduation graduation_1 : _graduations_1) {
             _builder.append(" \t");
-            _builder.append("<td><input type=\"radio\" id=\"");
+            _builder.append("<th><input type=\"radio\" id=\"");
             String _name = bullet.getName();
             _builder.append(_name, " \t");
             _builder.append("\" name=\"");
@@ -313,7 +356,7 @@ public class EvaluationGenerator implements IGenerator {
             _builder.append("\" value=");
             String _graduationText_1 = graduation_1.getGraduationText();
             _builder.append(_graduationText_1, " \t");
-            _builder.append(" required></td> \t");
+            _builder.append(" required></th> \t");
             _builder.newLineIfNotEmpty();
           }
         }
@@ -325,14 +368,14 @@ public class EvaluationGenerator implements IGenerator {
     _builder.append("\t");
     _builder.append("</table> \t\t\t");
     _builder.newLine();
-    _builder.append("</p>\t");
+    _builder.append("</b></p>\t");
     _builder.newLine();
     return _builder;
   }
   
   protected CharSequence _select(final Rating question) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("<p>");
+    _builder.append("<p><b>");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("<label>");
@@ -343,8 +386,10 @@ public class EvaluationGenerator implements IGenerator {
     _builder.append("\t");
     CharSequence _helptext = this.helptext(question);
     _builder.append(_helptext, "\t");
-    _builder.append("\t\t\t");
     _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("<p></<p>\t\t\t");
+    _builder.newLine();
     {
       int _ratingQuantity = question.getRatingQuantity();
       IntegerRange _upTo = new IntegerRange(1, _ratingQuantity);
@@ -362,7 +407,7 @@ public class EvaluationGenerator implements IGenerator {
         _builder.newLineIfNotEmpty();
       }
     }
-    _builder.append("</p>");
+    _builder.append("</b></p>");
     _builder.newLine();
     return _builder;
   }
