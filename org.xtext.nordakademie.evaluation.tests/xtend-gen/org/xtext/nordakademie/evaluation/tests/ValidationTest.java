@@ -19,27 +19,117 @@ import org.xtext.nordakademie.evaluation.evaluation.Survey;
 public class ValidationTest {
   @Inject
   @Extension
-  private ParseHelper<Survey> _parseHelper;
+  private ParseHelper<Survey> parseHelper;
   
   @Inject
   @Extension
-  private ValidationTestHelper _validationTestHelper;
+  private ValidationTestHelper validationTestHelper;
   
   @Test
   public void testSurveyComplete() {
     try {
-      Survey _parse = this._parseHelper.parse("survey Testname \r\n\t\t\t\"Testtitel der Survey\" \r\n\t\t\t\"Testbegrüßung der Survey\"\r\n\r\n\t\t\tpage Testseite1 (\r\n\t\t\t\tfreetext Testfrage \"Testfrage der Testseite1\"\r\n\t\t\t\tforwarding to -> Testseite2\r\n\t\t\t)\r\n\t\t\t\r\n\t\t\tpage Testseite2 (\r\n\t\t\t\trating Testrating \"Testrating der Testseite2\" 10\r\n\t\t\t\tforwarding to -> Testseite3\r\n\t\t\t)\r\n\r\n\t\t\tpage Testseite3 (\r\n\t\t\t\tselect Testselection \"Testselection der Testseite3\"\r\n\t\t\t\t(Testbullet1 \"Testbullet\") \r\n\t\t\t\tforwarding to -> Testseite4\r\n\t\t\t)\r\n\r\n\t\t\tpage Testseite4 (\r\n\t\t\t\tchart Testchart \"Testchart der Testseite4\"\r\n\t\t\t\t(Testbullet1 \"Testbullet1\" Testbullet2 \"Testbullet2\") x (Testbullet3 \"Testbullet3\" Testbullet4 \"Testbullet4\")\r\n\t\t\t)\r\n\t\t");
-      this._validationTestHelper.assertNoErrors(_parse);
+      Survey _parse = this.parseHelper.parse("survey Testname \r\n\t\t\t\"Testtitel der Umfrage\" \r\n\t\t\t\"Testbegrüßung der Umfrage\"\r\n\r\n\t\t\tpage Testseite1 (\r\n\t\t\t\tfreetext Testfrage \"Testfrage der Testseite1\"\r\n\t\t\t\tforwarding to -> Testseite2\r\n\t\t\t)\r\n\t\t\t\r\n\t\t\tpage Testseite2 (\r\n\t\t\t\trating Testbewertung \"Testbewertung der Testseite2\" 10\r\n\t\t\t\tforwarding to -> Testseite3\r\n\t\t\t)\r\n\r\n\t\t\tpage Testseite3 (\r\n\t\t\t\tselect Testauswahl \"Testauswahl der Testseite3\"\r\n\t\t\t\t(Testauswahlfeld1 \"Testauswahlfeld\") \r\n\t\t\t\tforwarding to -> Testseite4\r\n\t\t\t)\r\n\r\n\t\t\tpage Testseite4 (\r\n\t\t\t\tchart Testchart \"Testchart der Testseite4\"\r\n\t\t\t\t(Testauswahlfeld1 \"Testauswahlfeld1\" Testauswahlfeld2 \"Testauswahlfeld2\") x (Gewichtung1 \"Gewichtung1\" Gewichtung2 \"Gewichtung2\")\r\n\t\t\t)\r\n\t\t");
+      this.validationTestHelper.assertNoErrors(_parse);
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }
   }
   
   @Test
-  public void testSurveyWithNonExistingFollowingPage() {
+  public void testSurveyWithoutPage() {
     try {
-      Survey _parse = this._parseHelper.parse("survey Testname \r\n\t\t\t\"Testtitel der Survey\" \r\n\t\t\t\"Testbegrüßung der Survey\"\r\n\r\n\t\t\tpage Testseite1 (\r\n\t\t\t\tfreetext Testfrage \"Testfrage der Testseite1\"\r\n\t\t\t\tforwarding to -> Testseite2\r\n\t\t\t)\r\n\t\t\t\r\n\t\t\tpage Testseite2 (\r\n\t\t\t\trating Testrating \"Testrating der Testseite2\" 10\r\n\t\t\t\tforwarding to -> Testseite3\r\n\t\t\t)\r\n\r\n\t\t\tpage Testseite3 (\r\n\t\t\t\tselect Testselection \"Testselection der Testseite3\"\r\n\t\t\t\t(Testbullet1 \"Testbullet\") \r\n\t\t\t\tforwarding to -> Testseite5\r\n\t\t\t)\r\n\r\n\t\t\tpage Testseite4 (\r\n\t\t\t\tchart Testchart \"Testchart der Testseite4\"\r\n\t\t\t\t(Testbullet1 \"Testbullet1\" Testbullet2 \"Testbullet2\") x (Testbullet3 \"Testbullet3\" Testbullet4 \"Testbullet4\")\r\n\t\t\t)\r\n\t\t");
-      this._validationTestHelper.assertError(_parse, EvaluationPackage.Literals.PAGE, null);
+      final String model = "survey Test \"...\"\r\n                 \r\n\t\t\t";
+      final Survey survey = this.parseHelper.parse(model);
+      this.validationTestHelper.assertError(survey, EvaluationPackage.Literals.SURVEY, null);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void testPageWithoutQuestion() {
+    try {
+      final String model = "survey Test \"...\"\r\n                 page Seite1 ( )\r\n\t\t\t";
+      final Survey survey = this.parseHelper.parse(model);
+      this.validationTestHelper.assertError(survey, EvaluationPackage.Literals.PAGE, null);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void testEmptyQuestion() {
+    try {
+      final String model = "survey Test \"...\"\r\n                 page Seite1 (\"\")\r\n\t\t\t";
+      final Survey survey = this.parseHelper.parse(model);
+      this.validationTestHelper.assertError(survey, EvaluationPackage.Literals.PAGE, null);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void testEmptyBulletPoints() {
+    try {
+      final String model = "survey Test \"...\"\r\n                 page Seite1 (\r\n\t\t\t\tselect Frage1 \"...\" (Alt1 \"\" )\r\n\t\t\t\t)\r\n\t\t\t";
+      final Survey survey = this.parseHelper.parse(model);
+      this.validationTestHelper.assertError(survey, EvaluationPackage.Literals.BULLET, null);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void testDoubleBulletPoints() {
+    try {
+      final String model = "survey Test \"...\"\r\n                 page Seite1 (\r\n\t\t\t\tselect Frage1 \"...\" (Alt1 \"Amazon\" Alt2 \"Amazon\" )\r\n\t\t\t\t)\r\n\t\t\t";
+      final Survey survey = this.parseHelper.parse(model);
+      this.validationTestHelper.assertError(survey, EvaluationPackage.Literals.BULLET, null);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void testDoubleBulletPointsDoubleGraduations() {
+    try {
+      final String model = "survey Test \"...\"\r\n                 page Seite1 (\r\n\t\t\t\tchart Frage1 \"...\" (Alt1 \".\" Alt2 \".\") x (\"-\" \"-\")\r\n\t\t\t\t)\r\n\t\t\t";
+      final Survey survey = this.parseHelper.parse(model);
+      this.validationTestHelper.assertError(survey, EvaluationPackage.Literals.BULLET, null);
+      this.validationTestHelper.assertError(survey, EvaluationPackage.Literals.GRADUATION, null);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void testDoublePages() {
+    try {
+      final String model = "survey Test \"...\"\r\n\t\t\t\t\tpage Seite1 (\r\n\t\t\t\t\tfreetext Frage2 \"...\"\r\n\t\t\t\t\t)\r\n\t\t\t\t\tpage Seite1 (\r\n\t\t\t\t\tfreetext Frage2 \"...\"\r\n\t\t\t\t\t)\r\n\t\t\t";
+      final Survey survey = this.parseHelper.parse(model);
+      this.validationTestHelper.assertError(survey, EvaluationPackage.Literals.PAGE, null);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void testNonExistingFollowingPage() {
+    try {
+      final String model = "survey Test \"...\"\r\n                 page Seite1 (\r\n\t\t\t\tselect Frage1 \"...\" (Alt1 \"Amazon\" Alt2 \"Emazon\" )\r\n\t\t\t\tforwarding to -> Seite2)\r\n\t\t\t";
+      final Survey survey = this.parseHelper.parse(model);
+      this.validationTestHelper.assertError(survey, EvaluationPackage.Literals.PAGE, null);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Test
+  public void testRatingQuantity() {
+    try {
+      final String model = "survey Test \"...\"\r\n\t\t\t\tpage Seite1 (\r\n                 rating Frage5 \"Wie ist Ihre Gesamtzufriedenheit?\" \t11\r\n\t\t\t\t)\r\n\t\t\t\t";
+      final Survey survey = this.parseHelper.parse(model);
+      this.validationTestHelper.assertWarning(survey, EvaluationPackage.Literals.QUESTION, null);
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

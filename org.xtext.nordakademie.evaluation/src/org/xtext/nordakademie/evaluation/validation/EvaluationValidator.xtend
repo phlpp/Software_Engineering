@@ -30,22 +30,6 @@ public static val INVALID_ENTITY_NAME =
 
 // Fehlermeldungen
 
-// Wirft eine Fehlermeldung, wenn eine Frage leer ist
-	@Check
-	def noEmptyQuestions(Question question) {
-		if(question.questionText.isEmpty){
-			error("Empty question: Please insert a question", QUESTION__QUESTION_TEXT)
-		}
-	}
-
-// Wirft eine Fehlermeldung, wenn eun Bullet Point keinen Text hat
-	@Check
-	def noEmptyBulletPoints(Bullet bullet) {
-		if(bullet.bulletText.isEmpty) {
-			error("Empty bullet point: Please insert a text for the bullet point", BULLET__BULLET_TEXT)
-		}
-	}
-	
 // Wirft eine Fehlermeldung, wenn die Umfrage keine Seite enthält.
 	@Check
 	def checkSurveyContainsAPage(Survey survey) {
@@ -57,18 +41,36 @@ public static val INVALID_ENTITY_NAME =
 	@Check
 	def checkPageContainsAQuestion(Page page) {
 		if (page.eContents.empty) 
-			error('Missing question: A page must have at least one question', PAGE__NAME)
+			error('Missing question: A page must have one question', PAGE__NAME)
+	}	
+
+// Wirft eine Fehlermeldung, wenn eine Frage leer ist
+	@Check
+	def noEmptyQuestions(Question question) {
+		if(question.questionText.empty){
+			error("Empty question: Please insert a question", QUESTION__QUESTION_TEXT)
+		}
+	}
+
+// Wirft eine Fehlermeldung, wenn ein Aufzählungspunkt keinen Text hat
+	@Check
+	def noEmptyBulletPoints(Bullet bullet) {
+		if(bullet.bulletText.empty) {
+			error("Empty bullet point: Please insert a text for the bullet point", BULLET__BULLET_TEXT)
+		}
 	}
 	
-// Wirft eine Fehlermeldung, wenn zwei Bullet Points den gleichen Text haben
+	
+// Wirft eine Fehlermeldung, wenn 2 Aufzählungspunkte den gleichen Text haben
 	@Check 
 	def noDoubleBulletPoints(Choice choice) {
-		var vBullet = newHashMap
+		var mapWithBullets = newHashMap
 		for(bullet: choice.bullets) {
-			val doubleChoice = vBullet.put(bullet.bulletText, bullet)
-			if(doubleChoice != null) {
+			//returns the previous value associated with key, or null if there was no mapping for key
+			val previousBullet = mapWithBullets.put(bullet.bulletText, bullet)
+			if(previousBullet != null) {
 				error("Double bullet point: Please insert another bullet point text", bullet, BULLET__BULLET_TEXT)
-				error("Double bullet point", doubleChoice, BULLET__BULLET_TEXT)
+				error("Double bullet point", previousBullet, BULLET__BULLET_TEXT)
 			}
 		}
 	}
@@ -76,12 +78,12 @@ public static val INVALID_ENTITY_NAME =
 // Wirft eine Fehlermeldung, wenn zwei Bewertungen den gleichen Text haben
 	@Check 
 	def noDoubleChartGraduation(Chart chart) {
-		var vGraduation = newHashMap
+		var mapWithGraduations = newHashMap
 		for(graduation: chart.graduations) {
-			val doubleGraduation = vGraduation.put(graduation.graduationText, graduation)
-			if(doubleGraduation != null) {
+			val previousGraduations = mapWithGraduations.put(graduation.graduationText, graduation)
+			if(previousGraduations != null) {
 				error("Double graduation: Please insert another graduation text", graduation, GRADUATION__GRADUATION_TEXT)
-				error("Double graduation", doubleGraduation, GRADUATION__GRADUATION_TEXT)
+				error("Double graduation", previousGraduations, GRADUATION__GRADUATION_TEXT)
 			}
 		}
 	}
@@ -89,12 +91,12 @@ public static val INVALID_ENTITY_NAME =
 // Wirft eine Fehlermeldung, wenn zwei Seiten den gleichen Namen haben	
 	@Check 
 	def noDoublePage(Survey survey) {
-		var vPage = newHashMap
+		var mapWithPages = newHashMap
 		for(page: survey.pages) {
-			val doublePage = vPage.put(page.name, page)
-			if(doublePage != null) {
+			val previousPages = mapWithPages.put(page.name, page)
+			if(previousPages != null) {
 				error("Double page: Please insert another page name", page, PAGE__NAME)
-				error("Double page", doublePage, PAGE__NAME)
+				error("Double page", previousPages, PAGE__NAME)
 			}
 		}
 	}
@@ -137,7 +139,7 @@ public static val INVALID_ENTITY_NAME =
   		}
 	}
 
-// Gibt eine Warnung aus wenn die Anzahl der Rating bullet points größer zehn ist
+// Gibt eine Warnung aus wenn die Anzahl der Bewertungsstufen größer 10 ist
 	@Check
 	def checkRatingQuantity(Rating rating) {
   		if (rating.ratingQuantity > 10)
